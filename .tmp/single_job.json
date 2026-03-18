@@ -1,0 +1,25 @@
+[{
+  "id": "manual-022031935209896098473",
+  "title": "Make.com Automation Engineer for Privacy-First Web MVP",
+  "description": "We are building a privacy-first web product that helps adults 50+ organize complex personal information, identify possible overlap patterns, and receive a plain-language summary report. This is strictly an educational / organizational tool. Core Funnel: Questionnaire → Result Page → Payment → AI Draft Generation → Human Review → Secure Report Delivery via Magic Link. Important Constraints: Sensitive pages must avoid unauthorized third-party scripts. Reports must be delivered through secure Magic Link / Signed URL. No PDF attachment delivery by email. Transactional email and marketing email must remain separated. US-first launch, but localization-ready. Core Flow: Questionnaire submission → UUID token creation → Airtable record → Stripe payment → AI draft generation → Pending Review → Human approval → PDF generation → Private storage upload → 72-hour Magic Link generation → Transactional email delivery. You will build: UUID token generation, Airtable write/update logic, Stripe checkout/webhook logic, AI prompt orchestration, status flow/review states, PDF generation trigger, private storage upload, signed URL/Magic Link generation, transactional email delivery, resend flow, retry/error queue/owner alerts. Acceptance Criteria: Form submission generates valid UUID token, Stripe webhook maps payment to correct record, AI output must enter Pending Review before delivery, Delivery must use private storage + Signed URL, PDF attachment email delivery is strictly forbidden, Resend flow must issue new link and invalidate old one, Failure states must include retry error queue and owner notification, Logs must not expose sensitive inputs, Workflow must be structured for future language/market routing.",
+  "url": "https://www.upwork.com/jobs/~022031935209896098473",
+  "budget": "Not specified",
+  "category": "Scripts & Utilities",
+  "experience_level": "Expert",
+  "skills": ["Make.com", "Airtable", "Stripe", "API Integration", "Automation", "PDF Generation", "Webhook"],
+  "posted": "",
+  "connects_cost": 0,
+  "is_featured": false,
+  "rank_score": 0,
+  "tier": 1,
+  "source": "manual",
+  "client": {
+    "country": "US",
+    "timezone": "",
+    "payment_verified": true,
+    "total_spent": 0,
+    "total_hires": 0,
+    "hire_rate": 0,
+    "feedback_score": 0
+  }
+}]

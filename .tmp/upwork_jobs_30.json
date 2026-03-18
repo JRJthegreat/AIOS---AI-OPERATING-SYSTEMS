@@ -1,0 +1,1165 @@
+[
+  {
+    "id": "2031791719125506843",
+    "title": "Build Competitor Price-Tracking AI Agent + Used Device Price Index for Electronics Buyback",
+    "description": "***see attached job description***\nProject Overview\nWe are building an electronics buyback business where users sell devices such as:\n\u2022\tsmartphones\n\u2022\ttablets\n\u2022\tlaptops\n\u2022\tsmartwatches\nTo price devices competitively, we need a competitor price-tracking system and pricing intelligence engine.\nThe system will monitor competitor buyback prices, track resale market prices, and calculate a Used Device Price Index (UDPI) to help determine optimal buyback prices.\nImportant:\nThe system should NOT automatically change prices on the website. Instead, it should recommend price changes and allow manual approval before updates are applied.",
+    "url": "https://www.upwork.com/jobs/~022031791719125506843",
+    "budget": "Not specified",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": null,
+        "max": null
+      }
+    },
+    "category": "Scripts & Utilities",
+    "experience_level": "EXPERT",
+    "skills": [
+      "Python",
+      "Data Extraction",
+      "Scrapy",
+      "Automation",
+      "Web Scraping",
+      "Playwright",
+      "PostgreSQL",
+      "FastAPI",
+      "API Development",
+      "Data Engineering"
+    ],
+    "posted": "2026-03-11T17:57:49.741Z",
+    "connects_cost": 21,
+    "client": {
+      "country": "US",
+      "payment_verified": true,
+      "total_spent": 11477.12,
+      "total_hires": 11,
+      "hire_rate": 31,
+      "feedback_score": 4.97
+    },
+    "matched_keywords": [
+      "ai agent"
+    ]
+  },
+  {
+    "id": "2031791358838862449",
+    "title": "Software Architect - Productionize AI Automation Platform",
+    "description": "About Us\n\nWe're building an AI-operated company. A 3-person CPG brand sold through major US retailers, where AI agents handle the work that would normally require a team of 15+: content creation, social media, customer outreach, product discovery, financial modeling, and autonomous pipeline monitoring.\n\nOver the past 6+ months, our CEO built 9+ AI automation systems using AI coding tools (Claude Code). We already have an autonomous AI agent that runs 24/7, delivering morning briefs, monitoring all pipelines, and alerting via Slack on a 2-hour heartbeat. The vision is to deploy autonomous agents across every function of the business.\n\nThe systems work and deliver real operational leverage. But they were built through rapid experimentation and need production-grade architecture to support the next wave: more agents, more autonomy, more reliability.\n\nThis engagement was scoped by a Fortune 50 AI & technology executive who will oversee the build and review all deliverables. We're looking for top candidates who can defend their architectural decisions to senior technical leadership.\n\nWhat Exists Today\n\n- 9+ production automation systems (100+ Python scripts) running on a Mac Mini M4\n- 20+ daily cron jobs across content, social, monitoring, and reporting\n- Integrations with: Google Sheets, Slack, Meta Graph API, TikTok, multiple retail APIs\n- Engineering practices: deployment scripts, post-deploy verification, health monitoring, AI-assisted code review\n- An autonomous AI agent (24/7) delivering briefs, monitoring pipelines, alerting via Slack\n- Multiple systems making LLM calls (Claude, GPT) for content generation, scoring, and decision-making\n- Knowledge base: 100+ documented lessons from production incidents\n\nWhat's Missing\n\n- No version control (no git)\n- No CI/CD (manual SCP-based deployment)\n- Flat directory structure (no packages or modules)\n- Systems operate in silos (don't coordinate with each other)\n- Google Sheets as primary data store\n- Only the CEO can operate, debug, or deploy (bus factor of 1)\n- API keys hardcoded in scripts\n- Scripts fail silently with no alerting\n- No standardized patterns for AI agent deployment or LLM integration\n- No framework for scaling from 1 autonomous agent to many\n\nWhat We Need You to Build\n\nPhase 1 - Automation Audit & Mapping\n- Inventory all automations, map dependencies between systems\n- Define core data objects and integration points\n- Produce a technical blueprint the non-technical team can read\n\nPhase 2 - System Architecture Design\n- AI agent infrastructure: patterns for deploying, monitoring, and coordinating autonomous agents across business functions\n- LLM integration layer: standardized patterns for AI calls, prompt management, cost tracking, output validation, and retry logic\n- Design workflow orchestration supporting both fully autonomous and human-in-the-loop operations\n- Design shared modules (Sheets, Slack, scraping, etc.) so new tools reuse existing work\n- Integration layer so systems coordinate instead of operating in silos\n- Deployment and rollback that a non-engineer can execute\n- Data layer strategy (reduce Google Sheets dependency, define where operational state lives)\n- Guardrails: auth, cost limits, approval gates\n\nPhase 3 - Workflow Refactoring\n- Modularize scripts into packages\n- Add retry/failure handling\n- Create reusable components\n- Enforce shared schemas across systems\n\nPhase 4 - Observability & Cost Controls\n- Structured logging\n- One-place visibility into what ran, what succeeded, what failed\n- Dead-pipeline detection and alerting\n- Cost tracking for API usage\n\nCritical Constraints (read carefully)\n\n1. The team is non-technical. The CEO builds with AI coding tools. The cofounder and ops specialist are not engineers. Everything you build must be operable by non-engineers with AI assistance. If your architecture requires an engineer to maintain it, you've failed.\n\n2. AI-assisted development continues. The CEO uses AI coding tools (Claude Code) as his primary development tool. This will continue after your engagement. Your architecture must create patterns that make AI-assisted development faster and more reliable, not harder. Think: clear module boundaries, consistent naming, documented interfaces.\n\n3. The codebase is Python. It stays Python. Don't propose a rewrite in another language.\n\n4. Infrastructure migration is expected. The current production environment is a Mac Mini M4 on a home network, primarily hosting an autonomous AI agent. We want to reduce dependence on this setup. Your architecture should include a migration path to sustainable, cloud-friendly infrastructure.\n\n5. The platform must stand on its own. An outside engineering team should be able to evaluate, understand, and operate it without the founder. Your deliverable should include a technical narrative documenting the full architecture.\n\n6. Don't over-engineer. We are 3 people, not 300. If you're thinking Kubernetes, microservices, or infrastructure-as-code, this isn't the right engagement. We need organized, documented, observable Python with clean deployment. That's it.\n\nIdeal Candidate\n\n- 7+ years Python in production\n- Has architected systems for small teams or startups (not just enterprise)\n- Can design for a team scaling from 3 to 5 (we plan to hire an engineer after this engagement)\n- Has built systems that non-engineers operate day-to-day\n- Experience designing systems where AI agents operate autonomously (not just AI-assisted tools)\n- Understanding of LLM integration patterns: prompt management, cost controls, output validation\n- Comfortable with AI-assisted development (the CEO builds with Claude Code daily)\n- Strong written communication. You'll produce documentation a business operator reads, not just code\n- Bonus: experience with automation/workflow orchestration (cron-based, event-driven)\n\nHow We'll Work\n\n- Phase 1 is a paid trial. You'll audit the codebase, produce a blueprint, and we'll evaluate fit.\n- If Phase 1 goes well, we proceed to Phases 2-4 on an hourly basis.\n- Communication via Slack. Daily check-ins with the CEO (hands-on founder).\n- Full codebase access from day one.\n- We'll share our existing productionization plan as your starting framework.\n- Final deliverable includes a technical narrative documenting the full architecture, suitable for review by outside engineering leadership.\n\nTo Apply\n\nSkip the generic cover letter. Instead, answer these three questions:\n\n1. What would you specifically NOT build for a 3-person non-technical team running Python automations on a Mac Mini?\n2. Describe a time you architected a system that a non-engineer operates day-to-day. What made it work?\n3. What's your honest reaction to a codebase of 100+ Python scripts in a flat directory with no git? What's your first move?",
+    "url": "https://www.upwork.com/jobs/~022031791358838862449",
+    "budget": "$75-$150/hr",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": 75,
+        "max": 150
+      }
+    },
+    "category": "Web Development",
+    "experience_level": "EXPERT",
+    "skills": [
+      "Python",
+      "Artificial Intelligence",
+      "API",
+      "Automation",
+      "Software Architecture & Design"
+    ],
+    "posted": "2026-03-11T17:56:23.858Z",
+    "connects_cost": 20,
+    "client": {
+      "country": "US",
+      "payment_verified": true,
+      "total_spent": 24751.78,
+      "total_hires": 23,
+      "hire_rate": 100,
+      "feedback_score": 5
+    },
+    "matched_keywords": [
+      "claude",
+      "artificial intelligence",
+      "ai agent",
+      "ai automation"
+    ]
+  },
+  {
+    "id": "2031791241216604841",
+    "title": "AI Powered Chat Application",
+    "description": "We are building a mobile application that allows users to interact with an AI-powered chat assistant for emotional support and daily conversations.\n\nThe developer will implement the chat interface, integrate the AI API, and manage message handling between the mobile app and backend services.\n\nExperience integrating AI APIs such as OpenAI or similar conversational models is preferred.",
+    "url": "https://www.upwork.com/jobs/~022031791241216604841",
+    "budget": "$15-$15/hr",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": 15,
+        "max": 15
+      }
+    },
+    "category": "Mobile Development",
+    "experience_level": "EXPERT",
+    "skills": [
+      "Artificial Intelligence",
+      "Chatbot Development",
+      "React Native"
+    ],
+    "posted": "2026-03-11T17:55:55.776Z",
+    "connects_cost": 9,
+    "client": {
+      "country": "PK",
+      "payment_verified": true,
+      "total_spent": 0,
+      "total_hires": 0,
+      "hire_rate": 0,
+      "feedback_score": 0
+    },
+    "matched_keywords": [
+      "artificial intelligence",
+      "chatbot"
+    ]
+  },
+  {
+    "id": "2031791200818227435",
+    "title": "Integration of AI Voice Agent (VAPI AI & N8N Workflow)",
+    "description": "We are seeking an experienced developer to integrate an AI Voice Agent using VAPI AI with N8N Workflow. The ideal candidate will have a strong background in AI technologies and workflow automation. You will be responsible for designing, implementing, and testing the integration to ensure seamless operation and efficiency. Familiarity with voice recognition and natural language processing is a plus. If you are passionate about AI solutions and have a knack for problem-solving, we would love to hear from you!",
+    "url": "https://www.upwork.com/jobs/~022031791200818227435",
+    "budget": "$10 fixed",
+    "budget_raw": {
+      "fixedBudget": 10,
+      "hourlyRate": {
+        "min": null,
+        "max": null
+      }
+    },
+    "category": "AI & Machine Learning",
+    "experience_level": "EXPERT",
+    "skills": [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "AI Voice Agent",
+      "Vapi AI",
+      "n8n"
+    ],
+    "posted": "2026-03-11T17:55:46.095Z",
+    "connects_cost": 11,
+    "client": {
+      "country": "NG",
+      "payment_verified": true,
+      "total_spent": 1960.85,
+      "total_hires": 210,
+      "hire_rate": 85,
+      "feedback_score": 5
+    },
+    "matched_keywords": [
+      "vapi",
+      "n8n",
+      "artificial intelligence",
+      "workflow automation",
+      "ai voice agent",
+      "voice agent"
+    ]
+  },
+  {
+    "id": "2031790993388923115",
+    "title": "Full Stack Developer for AI Consumer Insights Platform (SaaS)",
+    "description": "Job Description: \n\nWe are building a SaaS analytics platform that helps consumer brands test product ideas, packaging, and claims using real consumer feedback.\n\nThe system connects to a live mobile survey app that collects responses from users. The platform analyzes those responses and generates insights (metrics and behavioral signals).\n\nWe are looking for a Full-Stack Developer (Flutter + Python) who can help build the first version of this analytics platform.\n\nScope of Work:\n\n1. Frontend (Flutter)\nBuild a modern SaaS dashboard to create surveys and display insights from survey responses.\nThe dashboard should be clean, fast, and designed for data-heavy views.\n\n2. Backend Development (Python / FastAPI)\nBuild APIs and logic to process survey response data and generate analytics.\n\n3. Survey Intelligence Improvements\nWe also want to improve how surveys are structured and analyzed.\nThe platform includes core analytics components that process survey responses and generate insight metrics and your role will involve integrating services within the dashboard. \n Experience integrating AI/LLM APIs (OpenAI or similar) is a plus.\n\nIdeal Candidate\nWe are looking for someone who:\n\t\u2022\tHas strong Flutter frontend experience\n\t\u2022\tIs comfortable building Python APIs (FastAPI preferred)\n\t\u2022\tHas experience building SaaS dashboards or analytics platforms\n\t\u2022\tCan work independently and suggest technical improvements\n\t\u2022\tIs comfortable working with data-heavy applications\n\nBonus experience:\n\t\u2022\tAI / LLM integrations\n\t\u2022\tData visualization\n\t\u2022\tAnalytics platforms\n\nSmall Filter Question:\nTo help us evaluate candidates quickly, please answer this in your proposal:\nIf you had to build a dashboard showing survey results for two product concepts, what metrics would you include and why?",
+    "url": "https://www.upwork.com/jobs/~022031790993388923115",
+    "budget": "Not specified",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": null,
+        "max": null
+      }
+    },
+    "category": "Web Development",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "Python",
+      "AI Model Integration",
+      "Flutter",
+      "FastAPI",
+      "GCP",
+      "LLM Prompt",
+      "API Integration",
+      "SaaS"
+    ],
+    "posted": "2026-03-11T17:54:56.707Z",
+    "connects_cost": 20,
+    "client": {
+      "country": "IN",
+      "payment_verified": true,
+      "total_spent": 2926.49,
+      "total_hires": 4,
+      "hire_rate": 57,
+      "feedback_score": 5
+    },
+    "matched_keywords": [
+      "llm prompt"
+    ]
+  },
+  {
+    "id": "2031790616912622193",
+    "title": "Laravel Developer to merge new UI with backend",
+    "description": "I have an existing website made with a PHP Laravel backend and I have someone creating new designs for the frontend UI (which is react). Once I get these designs , I need a developer who would be able to take these designs and the existing code and fix the website.",
+    "url": "https://www.upwork.com/jobs/~022031790616912622193",
+    "budget": "Not specified",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": null,
+        "max": null
+      }
+    },
+    "category": "Web Development",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "Full-Stack Development",
+      "PHP",
+      "MySQL",
+      "Laravel",
+      "Landing Page Design",
+      "JavaScript",
+      "HTML5",
+      "CSS 3",
+      "jQuery",
+      "WordPress",
+      "API",
+      "CRM Development",
+      "SaaS Development",
+      "Bootstrap",
+      "AI Chatbot"
+    ],
+    "posted": "2026-03-11T17:53:26.959Z",
+    "connects_cost": 13,
+    "client": {
+      "country": "IL",
+      "payment_verified": true,
+      "total_spent": 15,
+      "total_hires": 1,
+      "hire_rate": 50,
+      "feedback_score": 0
+    },
+    "matched_keywords": [
+      "chatbot"
+    ]
+  },
+  {
+    "id": "2031790525510349425",
+    "title": "Azure AI Foundry Expert for Conversational AI Transition",
+    "description": "We are seeking an Azure AI Foundry Expert to assist in migrating an existing conversational AI system to Azure and integrating it with Microsoft Teams. The ideal candidate will have hands-on experience with Azure services and API tools, as well as a strong understanding of AI technologies. You will be responsible for developing a proof of concept (POC) that demonstrates the system's capabilities and outlines the integration process. Strong problem-solving skills and the ability to work collaboratively are essential for this role. THIS IS NOT for developing the AI, which has already been built (at least a first MVP). It is merely for setting a chatbot POC in Azure, using 2 tool APIs to your servers, and integrating Teams instead of Twilio as UI. Walk in the park for an Azure AI expert.",
+    "url": "https://www.upwork.com/jobs/~022031790525510349425",
+    "budget": "$25-$45/hr",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": 25,
+        "max": 45
+      }
+    },
+    "category": "AI & Machine Learning",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "Artificial Intelligence",
+      "Natural Language Processing",
+      "Azure DevOps",
+      "MIcrosoft AI Foundry",
+      "Microsoft Teams",
+      "AI Foundry",
+      "Microsoft Foundry",
+      "AI Chatbot"
+    ],
+    "posted": "2026-03-11T17:53:05.178Z",
+    "connects_cost": 9,
+    "client": {
+      "country": "CH",
+      "payment_verified": true,
+      "total_spent": 0,
+      "total_hires": 0,
+      "hire_rate": 0,
+      "feedback_score": 0
+    },
+    "matched_keywords": [
+      "artificial intelligence",
+      "chatbot"
+    ]
+  },
+  {
+    "id": "2031788383743305963",
+    "title": "Make.com Automation Developer \u2014 Lead Capture & Follow-Up System",
+    "description": "I am business developer and need a Make.com developer to finish building an AI-powered lead capture and follow-up automation.\n\nWhat's already done:\n\u2022 Make.com account active with Gmail Watch trigger connected\n\u2022 Claude AI (Haiku) HTTP module extracting lead data from Crexi.com notifications\n\u2022 Test email sending successfully\n\nWhat I need built:\n\u2022 Parse Claude API JSON response and map fields into Make.com variables\n\u2022 Personalized HTML email templates (3 touches: Day 0, Day 3, Day 7)\n\u2022 SMS first-touch via Twilio\n\u2022 Google Sheets lead queue with duplicate checking\n\u2022 Separate daily scenario for Day 3 / Day 7 follow-ups\n\u2022 Error handling and go-live configuration\n\nPossible Tech stack:\n\u2022 Make.com (core platform)\n\u2022 Gmail / Google Workspace\n\u2022 Anthropic Claude API (HTTP module)\n\u2022 Twilio SMS\n\u2022 Google Sheets\n\nI have a detailed handoff document with full system architecture, data flow, and go-live checklist ready to share with the right candidate.\n\nIdeal candidate:\n\u2022 Proven Make.com / Integromat experience (share examples)\n\u2022 Comfortable with REST APIs and JSON parsing\n\u2022 Twilio setup experience\n\u2022 Can complete within 1\u20132 weeks",
+    "url": "https://www.upwork.com/jobs/~022031788383743305963",
+    "budget": "$350 fixed",
+    "budget_raw": {
+      "fixedBudget": 350,
+      "hourlyRate": {
+        "min": null,
+        "max": null
+      }
+    },
+    "category": "Scripts & Utilities",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "Make.com",
+      "API Integration",
+      "Automation",
+      "JSON",
+      "Twilio API"
+    ],
+    "posted": "2026-03-11T17:44:34.578Z",
+    "connects_cost": 14,
+    "client": {
+      "country": "US",
+      "payment_verified": true,
+      "total_spent": 7603.14,
+      "total_hires": 12,
+      "hire_rate": 100,
+      "feedback_score": 5
+    },
+    "matched_keywords": [
+      "claude",
+      "make.com"
+    ]
+  },
+  {
+    "id": "2031785043730950379",
+    "title": "AI-Powered Creative Suite Developer (Canva-Style SaaS)",
+    "description": "About the Role:\n\nWe're building an AI-powered creative suite for the garment/apparel industry \u2014 think Canva meets AI mockup generation. The product includes a garment scanner, mockup generator, and design studio that lets users go from a rough sketch, garment photo, or design file to a production-ready 3D mockup they can send to manufacturers or post on social media.\nThis is not a concept. We're actively building and need a developer who has already built tools like this \u2014 not someone who wants to learn on the job.\n\n=======================\n\nWhat You'll Be Building:\n\nYou'll be working on a SaaS platform that includes: an AI-powered mockup generator (sketch-to-mockup, photo-to-mockup, design-to-mockup pipelines), a garment scanner with background removal and logo/design removal, a design studio for customizing generated mockups, and integration with AI image generation APIs (Gemini, etc.) for prompt-driven rendering.\n\n=======================\n\nRequired Tech Stack Experience:\n\nYou MUST have hands-on experience with: Lovable (AI app builder \u2014 this is our frontend), n8n (workflow automation \u2014 this is our backend orchestration), AI image generation APIs (Gemini, Stable Diffusion, DALL-E, or similar), and building SaaS products end-to-end.\n\n=======================\n\nWhat We Need to See From You:\n\nDo NOT apply if you haven't built something similar. In your application, include: links to live apps or demos you've built using Lovable and/or n8n, examples of AI-powered tools you've shipped (image generation, editing, or design tools specifically), and a brief explanation of how you'd architect a sketch-to-mockup pipeline using our stack.\nIf your portfolio is empty or you're sending a generic application, we will skip it.\n\n=======================\n\nIdeal Candidate:\n\nSomeone who has built or contributed to a design tool, image editing SaaS, or AI-powered creative product. You understand prompt engineering for image generation models. You've worked with Lovable and n8n in production, not just tutorials. You can move fast, ship features, and iterate based on user feedback.\n\n=======================\n\nCompensation:\n\nHourly or can do fixed price\n\n=======================\n\nTo Apply:\n\nSend your portfolio with live links, a 2-3 sentence pitch on why you're the right fit, and your experience with Lovable + n8n specifically. Generic \"I'm a fast learner\" applications will be ignored.",
+    "url": "https://www.upwork.com/jobs/~022031785043730950379",
+    "budget": "$5-$15/hr",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": 5,
+        "max": 15
+      }
+    },
+    "category": "Web Development",
+    "experience_level": "EXPERT",
+    "skills": [
+      "SaaS",
+      "Web Development",
+      "lovable",
+      "Software"
+    ],
+    "posted": "2026-03-11T17:31:18.236Z",
+    "connects_cost": 20,
+    "client": {
+      "country": "US",
+      "payment_verified": true,
+      "total_spent": 880,
+      "total_hires": 4,
+      "hire_rate": 80,
+      "feedback_score": 5
+    },
+    "matched_keywords": [
+      "n8n",
+      "workflow automation"
+    ]
+  },
+  {
+    "id": "2031782520587019439",
+    "title": "AI-Driven Stock Portfolio Website Development",
+    "description": "We are seeking a skilled web developer to create a website that allows users to upload their stock portfolio. The site will integrate AI capabilities to evaluate portfolios and provide tailored recommendations. The ideal candidate will have experience in web development, AI integration, Vibe Coding and user interface design to ensure a seamless experience. If you have a passion for finance and technology, we'd love to hear from you!",
+    "url": "https://www.upwork.com/jobs/~022031782520587019439",
+    "budget": "$5-$20/hr",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": 5,
+        "max": 20
+      }
+    },
+    "category": "Web Development",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "AI Bot",
+      "AI Agent Development",
+      "Python",
+      "JavaScript",
+      "Web Development",
+      "Lovable",
+      "base44"
+    ],
+    "posted": "2026-03-11T17:21:16.648Z",
+    "connects_cost": 20,
+    "client": {
+      "country": "IL",
+      "payment_verified": true,
+      "total_spent": 47915.37,
+      "total_hires": 8,
+      "hire_rate": 26,
+      "feedback_score": 4.66
+    },
+    "matched_keywords": [
+      "ai agent"
+    ]
+  },
+  {
+    "id": "2031781597400218281",
+    "title": "Backend Developer \u2014 Node.js, AI/LLM Integration, BullMQ, PostgreSQL \u2014 Fixed Price Project",
+    "description": "We are looking for an experienced Backend & AI Developer to join a fast-moving 3-week platform build. This is a fixed-price contract with 5 milestones.\nThe Role\nYou will own the entire backend \u2014 authentication, database, job queues, a conversational AI module, a matching engine, and an async AI processing pipeline. You will work alongside a frontend developer and report directly to the project lead.\nWhat You Will Build\n\nAuthentication system (register, login, JWT refresh, bcrypt hashing)\nUser profile CRUD for two roles\nFull DB schema with Prisma migrations and seed script\nBullMQ + Redis job queue infrastructure\nLLM orchestration layer (call wrapper, retry logic, streaming)\nConversational AI module with session management and structured data extraction\nMulti-criteria matching module with scoring algorithm\nRecord state machine with accept/reject pipeline\nAsync AI processing job (transcript \u2192 structured output)\nGuardrail system (input classifier, output filter, safety detection, rate limiting)\nIntegration test suite (Jest/Supertest)\nSecurity hardening and production ops (backups, runbook, monitoring)\n\nCommitment Required\nThis is a hard 3-week deadline with no buffer. We require a minimum of 14 hours per week dedicated to this project. Going silent, missing milestone deliverables, or disappearing mid-sprint will result in immediate contract termination.\nTech Stack\nNode.js \u00b7 PostgreSQL \u00b7 Prisma \u00b7 Redis \u00b7 BullMQ \u00b7 LLM APIs \u00b7 Docker \u00b7 Jest\nTo Apply\nInclude a brief description of a similar project (backend + AI/LLM), your estimated timeline per milestone, and explicit confirmation that you can commit 14+ hours per week for 3 consecutive weeks starting immediately.",
+    "url": "https://www.upwork.com/jobs/~022031781597400218281",
+    "budget": "$2200 fixed",
+    "budget_raw": {
+      "fixedBudget": 2200,
+      "hourlyRate": {
+        "min": null,
+        "max": null
+      }
+    },
+    "category": "Web Development",
+    "experience_level": "EXPERT",
+    "skills": [
+      "Redis",
+      "Docker",
+      "Node.js",
+      "PostgreSQL",
+      "API",
+      "LLM Prompt Engineering",
+      "AI Development",
+      "Unit Testing"
+    ],
+    "posted": "2026-03-11T17:17:36.615Z",
+    "connects_cost": 20,
+    "client": {
+      "country": "EC",
+      "payment_verified": true,
+      "total_spent": 4607.55,
+      "total_hires": 19,
+      "hire_rate": 68,
+      "feedback_score": 5
+    },
+    "matched_keywords": [
+      "llm prompt"
+    ]
+  },
+  {
+    "id": "2031779049444454919",
+    "title": "KitchenReborn MERN Website Development",
+    "description": "We are looking for an experienced MERN Stack Developer to build a high-performance website for a Kitchen Renovation service business. The website will focus on local search visibility, lead generation, and conversion optimization.\nOur target service area is GTA (Greater Toronto Area) and cities within a 100 km radius. The primary audience is homeowners aged 25\u201345 who typically search on Google for renovation services.\nTech Stack (Required)\nMongoDB\n\n\nExpress.js\n\n\nReact.js\n\n\nNode.js\n\n\nREST APIs\n\n\nSEO-friendly architecture\n\n\nGoogle integrations\n\n\nProject Goals\nThe website should help us:\nRank well in local Google searches\n\n\nGenerate qualified leads\n\n\nSupport paid advertising landing pages\n\n\nBuild long-term organic traffic through SEO\n\n\nCore Features Required\n1. SEO Optimized Website\nServer-side SEO optimization\n\n\nFast loading performance\n\n\nLocation-specific pages (for cities in service area)\n\n\nStructured metadata and schema markup\n\n\n2. Lead Generation System\nContact forms\n\n\nQuote request forms\n\n\nPhone & WhatsApp quick contact buttons\n\n\nLead data stored in database (MongoDB)\n\n\n3. Google Integration\nGoogle Business Profile integration\n\n\nGoogle Maps embed\n\n\nGoogle Reviews section\n\n\nReview request workflow integration\n\n\n4. Marketing & Advertising Support\nLanding pages optimized for Google Ads\n\n\nSupport for Meta Ads traffic (Facebook/Instagram)\n\n\nConversion tracking support\n\n\n5. Admin Dashboard\nManage leads\n\n\nView customer inquiries\n\n\nManage service pages\n\n\nManage testimonials/reviews\n\n\nAdditional Requirements\nClean and scalable code\n\n\nMobile-first responsive design\n\n\nStrong performance optimization\n\n\nExperience building SEO-friendly MERN applications\n\n\nExperience with local business websites is a plus\n\n\nBonus Skills\nLocal SEO implementation\n\n\nGoogle Analytics / Tag Manager\n\n\nConversion optimization\nExperience with service-based businesses\nDeliverables\nFully functional MERN website\nAdmin dashboard\nDeployment setup\nDocumentation\nTo Apply\nPlease include:\nYour portfolio of MERN projects\nExperience with SEO-friendly websites\nEstimated timeline and cost",
+    "url": "https://www.upwork.com/jobs/~022031779049444454919",
+    "budget": "$100 fixed",
+    "budget_raw": {
+      "fixedBudget": 100,
+      "hourlyRate": {
+        "min": null,
+        "max": null
+      }
+    },
+    "category": "Web Development",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "React",
+      "JavaScript",
+      "Node.js",
+      "Web Development",
+      "MongoDB",
+      "HTML5",
+      "API",
+      "Web Design",
+      "ExpressJS",
+      "CSS 3"
+    ],
+    "posted": "2026-03-11T17:07:28.931Z",
+    "connects_cost": 9,
+    "client": {
+      "country": "CA",
+      "payment_verified": false,
+      "total_spent": 0,
+      "total_hires": 0,
+      "hire_rate": 0,
+      "feedback_score": 0
+    },
+    "matched_keywords": [
+      "lead generation"
+    ]
+  },
+  {
+    "id": "2031776950079222385",
+    "title": "Automation Specialist for Course Operations (WordPress, HighLevel, LearnWorlds, Google Docs, Make)",
+    "description": "Job Description\n\nWe are a professional continuing education institute that provides advanced clinical training courses for dentists. We are seeking an experienced automation specialist to build a streamlined system that automates student registration workflows, email communication, webinar access, and document generation across our platforms.\n\nOur goal is to reduce manual administrative work and create a reliable automated experience for every course cohort.\n\nThe automation should connect WordPress, HighLevel, LearnWorlds, Google Docs/Drive, and payment triggers to manage the full student lifecycle\u2014from registration to course completion.\n\n---\n\nCurrent Tech Stack\n\n* WordPress (course pages and registration)\n* Stripe / Affirm (payments)\n* HighLevel (CRM, email automation, pipelines)\n* LearnWorlds (on-demand webinars and learning portal)\n* Google Docs / Google Drive (documents and templates)\n\nThe system will likely use Make.com (Integromat) or a similar integration platform as the automation engine.\n\n---\n\nScope of Work\n\n1. Student Registration Automation\n\nWhen a student registers on our WordPress website:\n\n* Automatically create or update the contact in HighLevel\n* Tag the contact by course and cohort\n* Record course date and registration details\n* Trigger the onboarding email sequence\n\n---\n\n2. Automated Email Sequences (HighLevel)\n\nCreate automated emails for:\n\nImmediately after registration\n\n* Registration confirmation\n* Course logistics and next steps\n\nCourse reminders\n\n* 14 days before course\n* 7 days before course\n* 3 days before course\n* 1 day before course\n\nThese emails should include course information, logistics, and preparation instructions.\n\n---\n\n3. LearnWorlds Webinar Access Automation\n\nStudents receive access to on-demand webinar content related to their course.\n\nAccess rules:\n\n* Access begins 2 weeks before the course\n* Access ends 2 weeks after the course\n\nAutomation should:\n\n* Enroll the student in the correct LearnWorlds course\n* Send the access email\n* Automatically remove access after the allowed period\n\n---\n\n4. Google Docs / Google Drive Document Automation\n\nCreate automated document generation using Google Docs templates.\n\nDocuments to generate automatically:\n\n* Student name tags\n* Course certificates / diplomas\n* Student rosters\n* Attendance sheets\n\nDocuments should:\n\n* Pull student data automatically\n* Generate PDFs\n* Save files in the correct course folder in Google Drive\n\n---\n\n5. Post-Course Automation\n\nAfter the course:\n\n* Send thank-you email\n* Send certificate/diploma\n* Move contact into alumni segment in HighLevel\n\n---\n\nDeliverables\n\n* Fully automated workflow connecting WordPress, HighLevel, LearnWorlds, and Google Docs\n* Email automation sequences configured in HighLevel\n* Webinar access automation configured in LearnWorlds\n* Document generation system using Google Docs templates\n* Clear documentation of the workflow so our team can manage it\n\n---\n\nRequirements\n\n* Proven experience with automation platforms such as Make, Zapier, or similar\n* Experience integrating WordPress with CRM systems\n* Strong experience with HighLevel automation\n* Experience with LearnWorlds or LMS integrations\n* Experience generating documents using Google Docs automation\n* Ability to design clean, reliable automation workflows\n\n---\n\nNice to Have\n\n* Experience working with education platforms or course providers\n* Experience with Stripe-triggered automation\n* Experience building student lifecycle automation systems\n\n---\n\nProject Type\n\nInitial project: Automation system setup\n\nPotential for ongoing work and additional automation projects as our programs expand.\n\n---\n\nTimeline\n\nPreferred completion timeline: 2\u20134 weeks\n\n---\n\nRequired Screening Questions\n\nPlease answer the following questions in your proposal.\n\n1. Automation Architecture\n\nIf a student registers for a course on a WordPress website, how would you automate the workflow so that:\n\n* the contact is created in HighLevel\n* the student receives confirmation emails\n* LearnWorlds access begins 2 weeks before the course\n* access is automatically removed 2 weeks after the course\n\nBriefly describe the automation flow you would build.\n\n---\n\n2. Document Automation\n\nHave you created automated document generation using Google Docs or Google Slides templates?\n\nIf yes, explain how you generated documents such as certificates, PDFs, or name tags automatically.\n\n---\n\n3. Automation Platforms\n\nWhich tools have you used to build automation systems between platforms such as:\n\n* WordPress\n* CRM systems\n* learning platforms\n* document systems\n\nExamples may include Make, Zapier, APIs, or webhooks.\n\n---\n\n4. Relevant Projects\n\nPlease provide 2 examples of automation systems you built that involved multiple platforms (website + CRM + email + documents).\n\n---\n\nImportant\n\nPlease start your proposal with the word \u201cAutomation\u201d so we know you read the full job description.\n\nProposals that do not include answers to the questions above will not be considered.",
+    "url": "https://www.upwork.com/jobs/~022031776950079222385",
+    "budget": "$20-$40/hr",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": 20,
+        "max": 40
+      }
+    },
+    "category": "Scripts & Utilities",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "API Integration",
+      "Automation",
+      "Data Mining",
+      "Data Extraction",
+      "Business Process Automation",
+      "Google Sheets Automation",
+      "Robotic Process Automation",
+      "Google Docs"
+    ],
+    "posted": "2026-03-11T16:59:08.529Z",
+    "connects_cost": 20,
+    "client": {
+      "country": "US",
+      "payment_verified": true,
+      "total_spent": 40351.33,
+      "total_hires": 84,
+      "hire_rate": 86,
+      "feedback_score": 4.53
+    },
+    "matched_keywords": [
+      "make.com"
+    ]
+  },
+  {
+    "id": "2031776069078375195",
+    "title": "Slot machine development in Unity",
+    "description": "I need a single, stand-alone slot machine in Unity that feels right at home on a Las Vegas casino floor. The look must be unmistakably premium: high-resolution symbols, fluid 60 FPS reel animations, tasteful particle VFX and shader-driven light sweeps nothing less than top-tier \u201chigh quality\u201d visuals. The theme is classic casino, so I expect glossy chrome frames, rich reds and golds, and an authentic ambient glow that instantly says \u201creal money gaming.\u201d\n\nDeliverables\n\u2022 Unity project folder ready for build on iOS, Android, WebGL\n\u2022 Complete source code with in-editor documentation\n\u2022 Exported build APK + Xcode project + WebGL package\n\u2022 One-page technical sheet detailing RNG method, RTP setting location, and multiplier math\n\nIf this sounds within your wheelhouse, tell me about the most visually impressive slot or comparable real-time game you\u2019ve shipped in Unity, and outline how you would handle the multiplier logic plus VFX pipeline.",
+    "url": "https://www.upwork.com/jobs/~022031776069078375195",
+    "budget": "$15-$30/hr",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": 15,
+        "max": 30
+      }
+    },
+    "category": "Game Design & Development",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "Unity",
+      "C#",
+      "Game Development"
+    ],
+    "posted": "2026-03-11T16:55:38.458Z",
+    "connects_cost": 18,
+    "client": {
+      "country": "PK",
+      "payment_verified": true,
+      "total_spent": 55,
+      "total_hires": 2,
+      "hire_rate": 100,
+      "feedback_score": 5
+    },
+    "matched_keywords": [
+      "instantly"
+    ]
+  },
+  {
+    "id": "2031775428473579755",
+    "title": "Python Coder for Claude Website Design",
+    "description": "I have a website coded by claude, i need someone to relook at the code and polish it with the following tasks\n1. make sure the checking tool is working (it will generate a report after an url is entered)\n2. make sure the user email domain is the same as the url domain entered in the field\n3. scan the website for a number of factors in order to generate the report \n4. candidate are welcome to offer customGPT suggest to replace coding logic in the report generator/checker\n5. make sure the other 8 pages are working with no issues\n6. install google tag manager tracking code with facebook and google ads and tiktok\n\ncandidate with portfolio will be highly recommended.",
+    "url": "https://www.upwork.com/jobs/~022031775428473579755",
+    "budget": "$40 fixed",
+    "budget_raw": {
+      "fixedBudget": 40,
+      "hourlyRate": {
+        "min": null,
+        "max": null
+      }
+    },
+    "category": "Web & Mobile Design",
+    "experience_level": "EXPERT",
+    "skills": [
+      "Python",
+      "HTML5",
+      "CSS"
+    ],
+    "posted": "2026-03-11T16:53:05.755Z",
+    "connects_cost": 8,
+    "client": {
+      "country": "SG",
+      "payment_verified": false,
+      "total_spent": 0,
+      "total_hires": 0,
+      "hire_rate": 0,
+      "feedback_score": 0
+    },
+    "matched_keywords": [
+      "claude"
+    ]
+  },
+  {
+    "id": "2031773278819837103",
+    "title": "Build a Simple CRM with Gmail Integration and No-Code Frontend",
+    "description": "The task involves setting up a Make.com scenario that automatically fetches new emails from a connected Gmail account. The emails will be parsed to extract essential details such as name, address, and product quantities.\n\nOnce the data is extracted, it will be sent to an internal database, such as Retool's database, ensuring the structure is simple and easily manageable.\n\nA user-friendly CRM interface will then be created on Retool or Softr, where the extracted data will be displayed. Interactive tables or list blocks will be used to showcase the name, address, and product details in an easily manageable format.\n\nFinally, the workflow will be thoroughly tested to ensure smooth operation, verifying that data is extracted and updated in real-time on the frontend.",
+    "url": "https://www.upwork.com/jobs/~022031773278819837103",
+    "budget": "$10 fixed",
+    "budget_raw": {
+      "fixedBudget": 10,
+      "hourlyRate": {
+        "min": null,
+        "max": null
+      }
+    },
+    "category": "Web Development",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "SQL",
+      "JavaScript",
+      "CSS",
+      "No-Code Development",
+      "Make.com",
+      " automation  ",
+      " retool",
+      "softr"
+    ],
+    "posted": "2026-03-11T16:44:33.235Z",
+    "connects_cost": 11,
+    "client": {
+      "country": "AU",
+      "payment_verified": true,
+      "total_spent": 36651.81,
+      "total_hires": 1282,
+      "hire_rate": 91,
+      "feedback_score": 4.98
+    },
+    "matched_keywords": [
+      "retool",
+      "make.com"
+    ]
+  },
+  {
+    "id": "2031771385911109867",
+    "title": "AI Automation Expert Needed for Workflow Integration",
+    "description": "We are seeking an AI Automation Expert with experience in tools like Make, Zapier, n8n, and GoHighLevel to streamline our business processes. The ideal candidate will be responsible for designing and implementing automated workflows that enhance productivity and efficiency. You will collaborate with our team to understand our specific needs and create tailored automation solutions. Strong problem-solving skills and a deep understanding of automation platforms are required.",
+    "url": "https://www.upwork.com/jobs/~022031771385911109867",
+    "budget": "$5 fixed",
+    "budget_raw": {
+      "fixedBudget": 5,
+      "hourlyRate": {
+        "min": null,
+        "max": null
+      }
+    },
+    "category": "AI Apps & Integration",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "Python",
+      "Automation",
+      "API",
+      "Java",
+      "JavaScript"
+    ],
+    "posted": "2026-03-11T16:37:01.911Z",
+    "connects_cost": 11,
+    "client": {
+      "country": "US",
+      "payment_verified": true,
+      "total_spent": 1100.53,
+      "total_hires": 83,
+      "hire_rate": 79,
+      "feedback_score": 4.99
+    },
+    "matched_keywords": [
+      "n8n",
+      "ai automation"
+    ]
+  },
+  {
+    "id": "2031762424927646321",
+    "title": "n8n / Make Automation Expert for Lead Capture & CRM Workflow",
+    "description": "We are seeking an experienced n8n or Make automation expert to help us set up and optimize our lead capture and CRM workflows. The ideal candidate will have a strong background in automation tools and experience working with CRM systems. You will be responsible for creating seamless integrations and automating tasks to enhance our lead management processes. Your expertise will enable us to streamline operations and improve overall efficiency. If you have a passion for automation and a proven track record in this field, we would love to hear from you!",
+    "url": "https://www.upwork.com/jobs/~022031762424927646321",
+    "budget": "$20 fixed",
+    "budget_raw": {
+      "fixedBudget": 20,
+      "hourlyRate": {
+        "min": null,
+        "max": null
+      }
+    },
+    "category": "Scripts & Utilities",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "Customer Relationship Management",
+      "Automation",
+      "Lead Generation",
+      "Zapier",
+      "Salesforce CRM"
+    ],
+    "posted": "2026-03-11T16:01:25.493Z",
+    "connects_cost": 11,
+    "client": {
+      "country": "US",
+      "payment_verified": true,
+      "total_spent": 3055.15,
+      "total_hires": 158,
+      "hire_rate": 91,
+      "feedback_score": 4.98
+    },
+    "matched_keywords": [
+      "n8n",
+      "lead generation"
+    ]
+  },
+  {
+    "id": "2031760956417698027",
+    "title": "Automated Frontline & Gorgias Basic Handoff System",
+    "description": "1. Project Overview\nWe need a custom AI Support Agent for a DTC supplement brand. The agent will live on our storefront, handle complex product inquiries using a custom Knowledge Base, and interact with our Gorgias Basic helpdesk via API to manage tickets and handovers.\nThe Goal: High-reasoning automation (Fin AI style) with zero \"per-resolution\" fees, integrated into our existing Gorgias workflow.\n\n2. Technical StackAI Engine: OpenAI GPT-4o or Claude 3.5 Sonnet (via API).\n\nKnowledge Base:  product PDFs and compliance docs.\n\nBackend: Node.js or Python (FastAPI/Serverless) to orchestrate Shopify, Gorgias, and the LLM.\n\nHelpdesk: Gorgias Basic (API-only integration).\n\n3. Core Functional Requirements\nA. The \"Science Brain\" (Knowledge Retrieval) The developer must implement a RAG pipeline so the AI can answer:Ingredient Questions: \"What is the difference between your magnesium types?\"Safety/Compliance: Must include a hard-coded FDA disclaimer for health-related queries.Strict Guardrails: The AI must never \"hallucinate\" health claims. If it doesn't know an answer based only on our uploaded docs, it must escalate to a human.\n\nB. Gorgias API Integration (Basic Plan Friendly)Since we are on Gorgias Basic, we must avoid the \"AI Agent\" add-on. Use the public API for: Ticket Syncing: When a chat starts, create a ticket via POST /api/tickets. Thread Management: Map the conversation to a single ticket_id so we don't exceed our monthly limit with duplicate entries. Smart Internal Notes: When a human is requested, the AI must POST an internal note to the ticket summarizing: Customer Sentiment (e.g., Happy, Angry, Confused).The \"Key Question\" the AI couldn't answer. The customer's Order # (fetched from Shopify).C. Shopify Integration (Transactional)The AI should use the Shopify Admin API to:Fetch real-time order status and tracking links.Verify if a customer is an active subscriber (e.g., via Recharge tags).\n\n4. Logical Routing & Handoff ScenarioAI Action Gorgias Action Standard FAQ Answer and ask \"Did this help?\"Update ticket as closed if resolved.Complex ScienceQuery Vector DB + Answer. Keep ticket open for human audit.Shipping/WISMOFetch Shopify data + Display. Tag ticket #Automated-Shipping. Human Request Provide summary & set expectations. Move ticket to Open and notify team.",
+    "url": "https://www.upwork.com/jobs/~022031760956417698027",
+    "budget": "Not specified",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": null,
+        "max": null
+      }
+    },
+    "category": "AI & Machine Learning",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "n8n",
+      "AI Agent Development",
+      "Artificial Intelligence",
+      "Automation",
+      "API Integration",
+      "Claude",
+      "AI Chatbot",
+      "FastAPI",
+      "OpenAI API",
+      "Python",
+      "Supabase",
+      "Generative AI",
+      "Linux",
+      "TensorFlow",
+      "PyTorch"
+    ],
+    "posted": "2026-03-11T15:55:35.321Z",
+    "connects_cost": 8,
+    "client": {
+      "country": "US",
+      "payment_verified": false,
+      "total_spent": 0,
+      "total_hires": 0,
+      "hire_rate": 0,
+      "feedback_score": 0
+    },
+    "matched_keywords": [
+      "claude",
+      "n8n",
+      "artificial intelligence",
+      "ai agent",
+      "chatbot"
+    ]
+  },
+  {
+    "id": "2031760533527354139",
+    "title": "AI Automation Specialist with n8n, Docker, and Google Workspace Expertise",
+    "description": "We are seeking an experienced AI Automation Specialist to help us implement automation solutions using n8n, Docker, and an AI generation API integrated with Google Workspace. The ideal candidate should have a deep understanding of workflow automation, containerization, and AI tools. You will be responsible for designing, developing, and deploying scalable automation workflows. If you are passionate about leveraging technology to enhance productivity, we want to hear from you!",
+    "url": "https://www.upwork.com/jobs/~022031760533527354139",
+    "budget": "$20-$45/hr",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": 20,
+        "max": 45
+      }
+    },
+    "category": "DevOps & Solution Architecture",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "Python",
+      "Docker",
+      "Google Cloud Platform",
+      "DevOps",
+      "Kubernetes"
+    ],
+    "posted": "2026-03-11T15:53:54.405Z",
+    "connects_cost": 8,
+    "client": {
+      "country": "US",
+      "payment_verified": false,
+      "total_spent": 0,
+      "total_hires": 0,
+      "hire_rate": 0,
+      "feedback_score": 0
+    },
+    "matched_keywords": [
+      "n8n",
+      "ai automation",
+      "workflow automation"
+    ]
+  },
+  {
+    "id": "2031758315579388110",
+    "title": "Sales Systems & Automation Specialist",
+    "description": "We are looking for a technical systems operator who understands sales infrastructure and can help build, maintain, and optimize the automation behind our sales operations.\n\nThis role supports both MetaGrowth Ventures internally and our client environments, helping implement CRM automations, integrations, AI tools, and sales workflows.\n\nThis is not a one-off project. We are looking for someone who can become our go-to systems builder, with the potential to grow into our internal role of Revenue Systems Architect.\n\nYou do not need to be a master of everything, but you should be comfortable connecting tools and executing across several systems.\n\nAbout Us\n\nMetaGrowth Ventures helps companies build and scale high-performing sales teams and revenue infrastructure.\n\nWe work with growing companies to implement:\n\n\u2022 sales operating systems\n\u2022 CRM architecture\n\u2022 automation and integrations\n\u2022 revenue operations infrastructure\n\nBecause we build these systems for clients, we need someone who can consistently support technical builds and integrations.\n\nRole Overview\n\nYou will work closely with our leadership team to help implement and maintain sales systems and revenue infrastructure, including CRM workflows, automation platforms, integrations, and AI tools.\n\nMost work will involve:\n\n\u2022 executing system builds\n\u2022 improving automation workflows\n\u2022 connecting tools together\n\u2022 supporting technical implementation\n\nYou may also occasionally join calls to help troubleshoot or explain systems to clients.\n\nEngagement Structure\n\nPart-time contractor\nApproximately 10\u201320 hours per week\n\nResponse time expectations:\n24\u201348 hours for most tasks\n\nCollaboration includes:\n\n\u2022 Slack communication\n\u2022 task management system (ClickUp / Notion or similar)\n\u2022 occasional weekly operations calls\n\u2022 occasional client calls when technical support is needed\n\nCore Responsibilities\nPrimary Responsibilities\n\nCRM & Sales Systems\n\n\u2022 Build and optimize CRM workflows\n\u2022 Configure pipelines and deal stages\n\u2022 Implement automation and lead routing\n\u2022 Build reporting dashboards\n\nAutomation & Integrations\n\n\u2022 Build automations using Zapier, Make, or similar tools\n\u2022 Integrate CRMs with outreach platforms and other tools\n\u2022 Configure Slack alerts and automation\n\u2022 Implement calendar scheduling and lead routing\n\nCRM Platforms\n\n\u2022 HubSpot configuration and workflows\n\u2022 GoHighLevel builds and automation\n\u2022 Salesforce familiarity helpful\n\nSecondary Responsibilities\n\nAI & Intelligent Automation\n\n\u2022 Implement AI workflows\n\u2022 Configure GPT integrations\n\u2022 Assist with prompt flows and AI agents\n\u2022 Build knowledge-base integrations\n\nWeb & Conversion Infrastructure\n\n\u2022 Build landing pages\n\u2022 Create funnels\n\u2022 Implement conversion tracking\n\u2022 Update website pages when needed\n\nSales Infrastructure\n\n\u2022 Appointment routing\n\u2022 Call tracking\n\u2022 Lead scoring systems\n\nTech Stack (Experience Preferred)\n\nCRM\n\n\u2022 HubSpot\n\u2022 GoHighLevel\n\u2022 Salesforce (nice to have)\n\nAutomation\n\n\u2022 Zapier\n\u2022 Make\n\u2022 n8n (nice to have)\n\nSales / Outreach Tools\n\n\u2022 Apollo\n\u2022 Instantly\n\u2022 Clay\n\u2022 Smartlead\n\u2022 Lemlist\n\nInfrastructure\n\n\u2022 Slack\n\u2022 Airtable\n\u2022 Notion\n\u2022 ClickUp\n\u2022 Twilio\n\nWeb\n\n\u2022 Webflow\n\u2022 WordPress\n\u2022 basic HTML/CSS helpful\n\nAI\n\n\u2022 OpenAI API familiarity\n\u2022 GPT workflows\n\u2022 AI agents / prompt chains\n\nYou do not need to be an expert in everything, but you should be comfortable working across multiple systems.\n\nIdeal Candidate\n\nYou are someone who:\n\n\u2022 understands how sales systems connect together\n\u2022 can build automations and integrations independently\n\u2022 communicates clearly in English\n\u2022 is comfortable occasionally joining calls\n\u2022 enjoys solving technical workflow problems\n\u2022 can execute quickly when given direction\n\nYou might be a:\n\n\u2022 Sales operations specialist\n\u2022 Automation engineer\n\u2022 CRM implementation specialist\n\u2022 RevOps contractor",
+    "url": "https://www.upwork.com/jobs/~022031758315579388110",
+    "budget": "$25-$50/hr",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": 25,
+        "max": 50
+      }
+    },
+    "category": "DevOps & Solution Architecture",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "HubSpot",
+      "Marketing Automation",
+      "Zapier",
+      "CRM Automation",
+      "Salesforce CRM",
+      "API Integration",
+      "Workflow Automation",
+      "Lead Management",
+      "Sales Operations",
+      "AI Chatbot"
+    ],
+    "posted": "2026-03-11T15:45:05.669Z",
+    "connects_cost": 16,
+    "client": {
+      "country": "US",
+      "payment_verified": true,
+      "total_spent": 4462.7,
+      "total_hires": 13,
+      "hire_rate": 72,
+      "feedback_score": 4.16
+    },
+    "matched_keywords": [
+      "n8n",
+      "clickup",
+      "ai agent",
+      "instantly",
+      "workflow automation",
+      "chatbot"
+    ]
+  },
+  {
+    "id": "2031757413240005807",
+    "title": "Revenue Systems & Automation Architect",
+    "description": "We are hiring a Revenue Systems & Automation Architect to design, build, and maintain the automation infrastructure that powers our revenue engines across two companies.\n\nThis role owns the architecture, integrity, and reliability of our CRM, lifecycle automation, and cross-platform data flows. You are the architect behind the scenes ensuring our revenue systems operate cleanly, efficiently, and predictably. \n\nRole Purpose:\nEnsure that:\n*Data is clean and reliable \n*Lifecycle stages are clearly defined and consistently enforced across all platforms \n*Automations are scalable and resilient \n*Leads are routed correctly \n*Renewal and expansion triggers function properly \n*Reporting reflects reality \n*Sales operates without system friction and through structured architecture. \n\nCore Responsibilities \n1. Revenue Architecture Define and maintain CRM lifecycle stages Establish required fields and data standards Design renewal and expansion automation logic Define routing rules based on role, use case, and engagement Create scalable lead scoring frameworks Establish reporting infrastructure for funnel visibility \n\n2. Automation & Integrations Build and maintain workflows in: ActiveCampaign Pipedrive ClickUp N8n Zapier Implement API integrations and webhook-based triggers Ensure accurate field mapping across systems Troubleshoot sync failures Audit and optimize automation efficiency \n\n3. Data Governance & System Integrity Maintain clean records and prevent duplication Normalize statuses across lead \u2192 account \u2192 renewal Prevent orphaned records Maintain taxonomy consistency (tags, custom fields, statuses) Conduct quarterly system audits \n\n4. System Documentation & Scalability Document all workflows and system architecture Maintain automation maps Propose structural improvements Evaluate tool stack efficiency Reduce manual operational dependency \n\nRequired Experience: \nDeep experience with: ActiveCampaign Pipedrive ClickUp n8n (required) Zapier | Strong understanding of CRM lifecycle architecture | Experience designing multi-system automation ecosystems | API and webhook implementation experience | Strong debugging and systems-thinking ability | Fluent English (documentation + async collaboration) \n\nIdeal Candidate Profile: Thinks in systems, not tasks | Understands revenue mechanics, not just tools | Detail-oriented and highly organized | Proactive and solution-oriented | Comfortable owning architecture across multiple businesses | Reliable for long-term infrastructure support \n\nEngagement Structure:\nPart-time Remote, async-friendly Contract via Upwork (initially) | Ongoing engagement (not project-based)",
+    "url": "https://www.upwork.com/jobs/~022031757413240005807",
+    "budget": "Not specified",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": null,
+        "max": null
+      }
+    },
+    "category": "Scripts & Utilities",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "API Integration",
+      "Marketing Automation",
+      "Automation",
+      "CRM Automation",
+      "Automated Workflow",
+      "Data Engineering",
+      "Systems thinking",
+      "Customer Relationship Management"
+    ],
+    "posted": "2026-03-11T15:41:30.649Z",
+    "connects_cost": 20,
+    "client": {
+      "country": "US",
+      "payment_verified": true,
+      "total_spent": 10763.4,
+      "total_hires": 7,
+      "hire_rate": 70,
+      "feedback_score": 4.81
+    },
+    "matched_keywords": [
+      "n8n",
+      "clickup"
+    ]
+  },
+  {
+    "id": "2031757190128198831",
+    "title": "AI Automation Developer with n8n and Twilio Expertise",
+    "description": "We are seeking an experienced AI automation developer to create intelligent workflows using n8n, integrate Twilio for communication solutions, and develop Voice AI agents. The ideal candidate will also have a strong understanding of the OpenAI API to enhance our automation projects. You'll be responsible for designing and implementing systems that automate tasks, improve efficiency, and deliver exceptional user experiences. If you have a knack for developing smart solutions and can effectively integrate various APIs, we want to hear from you!",
+    "url": "https://www.upwork.com/jobs/~022031757190128198831",
+    "budget": "$20-$40/hr",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": 20,
+        "max": 40
+      }
+    },
+    "category": "Scripts & Utilities",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "Twilio API",
+      "API",
+      "Python",
+      "JavaScript",
+      "Chatbot Development"
+    ],
+    "posted": "2026-03-11T15:40:37.391Z",
+    "connects_cost": 10,
+    "client": {
+      "country": "IN",
+      "payment_verified": false,
+      "total_spent": 0,
+      "total_hires": 0,
+      "hire_rate": 0,
+      "feedback_score": 0
+    },
+    "matched_keywords": [
+      "n8n",
+      "ai agent",
+      "ai automation",
+      "chatbot"
+    ]
+  },
+  {
+    "id": "2031754762034669803",
+    "title": "AI Prompt Engineer",
+    "description": "We are looking for a creative and analytical Prompt Engineer to design, test, and optimize prompts for AI systems such as large language models. In this role, you will work closely with product, engineering, and data teams to create prompts that generate accurate, reliable, and high-quality AI outputs.",
+    "url": "https://www.upwork.com/jobs/~022031754762034669803",
+    "budget": "$6-$20/hr",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": 6,
+        "max": 20
+      }
+    },
+    "category": "AI & Machine Learning",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "Artificial Intelligence"
+    ],
+    "posted": "2026-03-11T15:30:58.415Z",
+    "connects_cost": 18,
+    "client": {
+      "country": "PK",
+      "payment_verified": true,
+      "total_spent": 20,
+      "total_hires": 2,
+      "hire_rate": 67,
+      "feedback_score": 4.75
+    },
+    "matched_keywords": [
+      "artificial intelligence"
+    ]
+  },
+  {
+    "id": "2031753819837673991",
+    "title": "C# API Development for Finance Application and report generating by N8N",
+    "description": "We are seeking a skilled C# developer to create an API for our existing finance application. The API will facilitate data communication between our app and automate report generation using n8n. The ideal candidate should have experience with financial applications and a strong understanding of API development. Your expertise will play a crucial role in enhancing our application\u2019s functionality.",
+    "url": "https://www.upwork.com/jobs/~022031753819837673991",
+    "budget": "$50 fixed",
+    "budget_raw": {
+      "fixedBudget": 50,
+      "hourlyRate": {
+        "min": null,
+        "max": null
+      }
+    },
+    "category": "Web Development",
+    "experience_level": "EXPERT",
+    "skills": [
+      "SQL",
+      "API",
+      "C#",
+      "API Integration",
+      "Desktop Application",
+      "n8n",
+      ".NET Framework"
+    ],
+    "posted": "2026-03-11T15:27:13.807Z",
+    "connects_cost": 7,
+    "client": {
+      "country": "OM",
+      "payment_verified": true,
+      "total_spent": 0,
+      "total_hires": 0,
+      "hire_rate": 0,
+      "feedback_score": 0
+    },
+    "matched_keywords": [
+      "n8n"
+    ]
+  },
+  {
+    "id": "2031752699670227179",
+    "title": "Make.com Automation to Send New Form Leads to Our CRM",
+    "description": "I\u2019m looking for someone experienced with Make.com to help automate a simple lead flow\n\nRight now, when someone fills out our website form, we manually copy the information into our CRM and a Google Sheet. I want to automate this process\n\nWhat I need\n\nUse Make.com to capture new form submission\nSend the data to our CRM automatically\n\nAdd the lead details to Google Sheets for tracking\n\nSend a Slack notification when a new lead comes in\n\nTools involved: Make.com, Webhooks, Google Sheets, CRM integration, Slack notifications\n\nIf you have experience building Make.com scenarios, webhooks, and multi-step workflows, please reach out.",
+    "url": "https://www.upwork.com/jobs/~022031752699670227179",
+    "budget": "$5 fixed",
+    "budget_raw": {
+      "fixedBudget": 5,
+      "hourlyRate": {
+        "min": null,
+        "max": null
+      }
+    },
+    "category": "Scripts & Utilities",
+    "experience_level": "EXPERT",
+    "skills": [
+      "Make.com",
+      "Business Process Automation",
+      "API Integration",
+      "Customer Relationship Management",
+      "Webhooks",
+      "CRM Automation",
+      "Salesforce CRM"
+    ],
+    "posted": "2026-03-11T15:22:46.744Z",
+    "connects_cost": 11,
+    "client": {
+      "country": "NG",
+      "payment_verified": true,
+      "total_spent": 8254.27,
+      "total_hires": 773,
+      "hire_rate": 97,
+      "feedback_score": 4.99
+    },
+    "matched_keywords": [
+      "make.com"
+    ]
+  },
+  {
+    "id": "2031752616193549487",
+    "title": "Appointment Setter & Cold Caller for AI Integration",
+    "description": "We are seeking a motivated appointment setter and cold caller to assist with our AI integration project. The ideal candidate will be responsible for reaching out to potential clients, introducing our services, and scheduling appointments. Strong communication skills and a persuasive demeanor are essential for success in this role. Familiarity with AI technologies and previous experience in appointment setting or cold calling will be advantageous. Join us in expanding our client base and driving innovation!",
+    "url": "https://www.upwork.com/jobs/~022031752616193549487",
+    "budget": "$5-$10/hr",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": 5,
+        "max": 10
+      }
+    },
+    "category": "AI Apps & Integration",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "Cold Calling",
+      "Scheduling",
+      "Lead Generation",
+      "Telemarketing",
+      "Sales"
+    ],
+    "posted": "2026-03-11T15:22:26.901Z",
+    "connects_cost": 15,
+    "client": {
+      "country": "US",
+      "payment_verified": true,
+      "total_spent": 0,
+      "total_hires": 1,
+      "hire_rate": 20,
+      "feedback_score": 0
+    },
+    "matched_keywords": [
+      "lead generation"
+    ]
+  },
+  {
+    "id": "2031752421645464071",
+    "title": "WooCommerce Backend Automation + Twilio SMS Workflow Setup",
+    "description": "We need an experienced developer to clean up and automate the backend of our WooCommerce / WordPress website and connect it to Twilio SMS automations.\n\nThis project is bigger than just connecting Twilio. We need someone who understands WooCommerce workflows, database/data structure, automation triggers, webhooks, and SMS event handling.\n\nOur goal is to build a backend system that can:\n\ntrack customer lifecycle stages\n\ntrigger automated SMS messages based on WooCommerce events and timing\n\nupdate customer data/status automatically\n\npause or change workflows when customers reply\n\ncreate a cleaner automation-ready backend for future scaling\n\nWooCommerce supports workflow-based automations through AutomateWoo, including triggers, rules, actions, and Twilio SMS integration, and Twilio supports webhooks/status callbacks for two-way messaging and delivery tracking. We want someone who can either build around those tools or recommend a stronger custom architecture if needed.\n\nScope of Work\n1. WooCommerce Backend Cleanup\n\nReview and improve backend structure for:\n\ncustomer records\n\norder data\n\nphone number formatting/validation\n\ntags, statuses, or custom fields\n\nworkflow-ready data organization\n\nWe want the store/backend set up so automations can reliably know things like:\n\nnew client\n\nfirst order date\n\nlast order date\n\nactive member vs non-member\n\nreorder window\n\nneeds follow-up\n\nreplied / needs manual review\n\n2. Workflow / Automation Engine\n\nSet up an automation layer that can trigger actions based on:\n\nnew order\n\ncompleted order\n\naccount creation\n\nmembership signup\n\ntime elapsed after purchase\n\nno reorder after X days\n\nreply received by SMS\n\nThis can be built with:\n\nAutomateWoo workflows\n\nWooCommerce hooks/webhooks\n\ncustom backend logic\n\nor a hybrid approach\n\nAutomateWoo officially supports workflow automation using triggers, rules, and actions, and also supports Twilio SMS integration, so experience with that is preferred.\n\n3. Twilio SMS Integration\n\nSet up or repair Twilio so the site can:\n\nsend automated SMS\n\nlog outbound messages\n\nreceive inbound replies\n\ntrack delivery status\n\ntrigger actions from replies or status changes\n\nTwilio webhooks are required for this because Twilio sends real-time callback events to your application for incoming messages and status updates.\n\n4. Required Automation Flows\n\nInitial flows we want live:\n\nNew client welcome SMS\n\n3-day follow-up\n\n7-day follow-up\n\nreorder reminder\n\nmembership / support reminder\n\npause automations when customer replies\n\n5. Database / Data Update Logic\n\nWe need backend automation so customer records are updated automatically when actions happen.\n\nExamples:\n\nmark customer as \u201cnew client\u201d after first order\n\nstamp first order date\n\nstamp last SMS sent date\n\nmark \u201creplied\u201d if SMS response comes in\n\npause future automated sends if reply received\n\nmark reorder due after defined time window\n\nThis can be done with custom fields, post meta, user meta, or a more structured database layer \u2014 developer should recommend the best path.\n\n6. Admin Visibility\n\nNeed a simple way for our team to see:\n\nwhat automation a customer is in\n\nwhat texts were sent\n\nwhether they replied\n\nwhether automations are paused\n\nwhat follow-up is next\n\n7. Compliance / Messaging Controls\n\nSystem must support:\n\nopt-in tracking\n\nSTOP / START / HELP handling\n\nunsubscribe logic\n\nmessage suppression after opt-out\n\nDeliverables\n\nWooCommerce backend reviewed and cleaned up for automation readiness\n\nTwilio connected and functioning\n\nautomation/workflow system configured\n\ncustomer data/status updates automated\n\nat least 4\u20136 active SMS workflows\n\nreply handling and pause logic working\n\ndocumentation/SOP for our team\n\nrecommendations for scaling future automations\n\nPreferred Skills\n\nWooCommerce\n\nWordPress backend development\n\nAutomateWoo\n\nTwilio API\n\nwebhooks / status callbacks\n\nautomation architecture\n\ndatabase / custom field structure\n\ncustomer lifecycle automation\n\nScreening Questions\n\nWhat We Want Built First\n\nPhase 1 should include:\n\nbackend data cleanup\n\nTwilio repair/setup\n\nworkflow engine setup\n\n4 core SMS automations\n\nreply pause logic\n\nbasic admin visibility\n\nInternal Note for Developer\n\nWe are looking for someone who can help us create a long-term automation structure, not just install a plugin. The right person should understand the relationship between:\n\nWooCommerce customer/order data \u2192 workflow triggers \u2192 Twilio SMS events \u2192 backend status updates\n\nThat\u2019s the real project.\n\nBest short instruction to send with the post\n\nYou could add this note:\n\nWe need someone who can think through the full automation architecture, not just basic Twilio connection. Our main need is backend workflow automation tied to WooCommerce customer/order data, with Twilio used as the outbound/inbound messaging layer.",
+    "url": "https://www.upwork.com/jobs/~022031752421645464071",
+    "budget": "$25-$35/hr",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": 25,
+        "max": 35
+      }
+    },
+    "category": "Web Development",
+    "experience_level": "INTERMEDIATE",
+    "skills": [
+      "Twilio API",
+      "WooCommerce",
+      "Automation",
+      "Chatbot Development",
+      "SMS Gateway",
+      "WordPress",
+      "Zapier",
+      "SMS"
+    ],
+    "posted": "2026-03-11T15:21:40.515Z",
+    "connects_cost": 20,
+    "client": {
+      "country": "US",
+      "payment_verified": true,
+      "total_spent": 6981.21,
+      "total_hires": 2,
+      "hire_rate": 100,
+      "feedback_score": 5
+    },
+    "matched_keywords": [
+      "workflow automation",
+      "chatbot"
+    ]
+  },
+  {
+    "id": "2031752274716160625",
+    "title": "Job Title: AI Automation Expert: Synthflow & Freshdesk (Freddy AI) Troubleshooting",
+    "description": "Title: Expert needed for Synthflow AI & Freshdesk (Freddy AI) Troubleshooting\nJob Description\nWe are looking for a high-level AI Automation & Customer Support Specialist for a 1-2 hour consultation (with potential for more) to resolve specific technical integration issues between Synthflow AI and Freshdesk.\n\nWe are currently scaling our support to multiple regions (NL, DE, FR, BE) and need our automated support flow to be seamless. We have a list of specific challenges that need to be addressed, primarily focusing on language bugs and multilingual knowledge base management.\n\nKey Issues to Address:\nSynthflow Language Bug: Solve why the bot defaults to English despite Dutch voice settings and Dutch-only prompts (Trial expires tomorrow - urgent).\n\nFreddy AI (Freshdesk) Optimization: Set up and troubleshoot Freddy AI Reply Suggester and Copilot for multilingual support (NL, EN, FR, DE).\n\nKnowledge Base Management: Advise on a centralized source for both Freshdesk and Synthflow to prevent manual double-uploads of PDFs.\n\nWorkflow Automation: Set up automatic email replies with specific sender exceptions (e.g., booking confirmations).\n\nUrgency & Escalation: Implement urgency detection based on AI sentiment and define clear triggers for human-agent handoff.\n\nReliability: Test bot response quality and establish fallback procedures for when Synthflow or Freddy is unavailable.\n\nRequirements:\nProven experience with Synthflow AI (voice/web agents).\n\nExpert-level knowledge of Freshdesk Omnichannel and Freddy AI.\n\nExperience with multilingual AI setups (Dutch, German, French, English).\n\nAvailable for a video consultation/screen-share within the next 24-48 hours.\n\nProject Scope:\nInitial 1-2 hour consultation to troubleshoot and fix immediate issues.\n\nPotential for ongoing support as we scale our AI agents to more languages.",
+    "url": "https://www.upwork.com/jobs/~022031752274716160625",
+    "budget": "$40-$80/hr",
+    "budget_raw": {
+      "fixedBudget": 0,
+      "hourlyRate": {
+        "min": 40,
+        "max": 80
+      }
+    },
+    "category": "AI & Machine Learning",
+    "experience_level": "EXPERT",
+    "skills": [
+      "Freshdesk",
+      "Chatbot Development",
+      "AI Integration",
+      "Customer Support Automation",
+      "Artificial Intelligence"
+    ],
+    "posted": "2026-03-11T15:21:05.505Z",
+    "connects_cost": 14,
+    "client": {
+      "country": "NL",
+      "payment_verified": true,
+      "total_spent": 13242.12,
+      "total_hires": 31,
+      "hire_rate": 53,
+      "feedback_score": 5
+    },
+    "matched_keywords": [
+      "artificial intelligence",
+      "ai agent",
+      "ai automation",
+      "workflow automation",
+      "chatbot"
+    ]
+  },
+  {
+    "id": "2031752222420945073",
+    "title": "Virtual Subject Matter Expert (SME) for Internal Company Use",
+    "description": "We are seeking knowledgeable consultant helping us to develop Virtual Subject Matter Expert (SME) to support our internal engineering teams with day to day engineering tasks utilizing AI. Our company provides drilling services for oil & gas and geothermal.",
+    "url": "https://www.upwork.com/jobs/~022031752222420945073",
+    "budget": "$13000 fixed",
+    "budget_raw": {
+      "fixedBudget": 13000,
+      "hourlyRate": {
+        "min": null,
+        "max": null
+      }
+    },
+    "category": "AI Apps & Integration",
+    "experience_level": "EXPERT",
+    "skills": [
+      "AI Agent Development",
+      "AI website"
+    ],
+    "posted": "2026-03-11T15:20:53.073Z",
+    "connects_cost": 10,
+    "client": {
+      "country": "CA",
+      "payment_verified": false,
+      "total_spent": 0,
+      "total_hires": 0,
+      "hire_rate": 0,
+      "feedback_score": 0
+    },
+    "matched_keywords": [
+      "ai agent"
+    ]
+  }
+]
