@@ -149,15 +149,33 @@ def filter_jobs(
     min_hire_rate: float = 60,
     exclude_countries: set = None,
     keep_unspecified_budget: bool = True,
+    from_date: str = None,
 ) -> list[dict]:
     """Apply post-scrape quality filters. Unspecified-budget jobs are kept by default."""
     if exclude_countries is None:
         exclude_countries = EXCLUDED_COUNTRIES
 
+    # Parse from_date for hard date filtering (Apify's fromDate is unreliable)
+    from_dt = None
+    if from_date:
+        from_dt = datetime.fromisoformat(from_date).replace(tzinfo=timezone.utc)
+
     filtered = []
-    skipped = {'country': 0, 'hourly': 0, 'fixed': 0, 'hires': 0, 'hire_rate': 0}
+    skipped = {'country': 0, 'hourly': 0, 'fixed': 0, 'hires': 0, 'hire_rate': 0, 'too_old': 0}
 
     for job in jobs:
+        # Hard date filter — reject jobs older than requested range
+        if from_dt:
+            published = job.get('publishedAt') or job.get('createdAt', '')
+            if published:
+                try:
+                    job_dt = datetime.fromisoformat(published.replace('Z', '+00:00'))
+                    if job_dt < from_dt:
+                        skipped['too_old'] += 1
+                        continue
+                except (ValueError, AttributeError):
+                    pass
+
         client = job.get('client', {})
         stats = client.get('stats', {})
         budget = job.get('budget', {})
@@ -231,7 +249,7 @@ def format_job(job: dict, tier: int = 1) -> dict:
         'category': job.get('category', ''),
         'experience_level': job.get('vendor', {}).get('experienceLevel', ''),
         'skills': job.get('skills', []),
-        'posted': job.get('createdAt', ''),
+        'posted': job.get('publishedAt', '') or job.get('createdAt', ''),
         'connects_cost': job.get('applicationCost', 0),
         'is_featured': job.get('isFeatured', False),
         'rank_score': job.get('_rank_score', 0),
@@ -412,7 +430,7 @@ def main():
     print("=== TIER 1: Direct AI Jobs ===")
     tier1_input = build_apify_input(TIER1_CONFIG, from_date, to_date)
     tier1_raw = run_apify_scrape(tier1_input, label="Tier 1")
-    tier1_filtered = filter_jobs(tier1_raw)
+    tier1_filtered = filter_jobs(tier1_raw, from_date=from_date)
 
     all_filtered_raw = list(tier1_filtered)
 
@@ -422,7 +440,7 @@ def main():
         print("\n=== TIER 2: Hidden Gems ===")
         tier2_input = build_apify_input(TIER2_CONFIG, from_date, to_date)
         tier2_raw = run_apify_scrape(tier2_input, label="Tier 2")
-        tier2_filtered = filter_jobs(tier2_raw, keep_unspecified_budget=True)
+        tier2_filtered = filter_jobs(tier2_raw, keep_unspecified_budget=True, from_date=from_date)
 
         # AI-solvable classifier
         if tier2_filtered:

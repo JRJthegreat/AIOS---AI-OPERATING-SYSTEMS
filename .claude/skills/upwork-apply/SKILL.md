@@ -69,8 +69,11 @@ Jobs are deduped by uid (Tier 1 priority), tagged with `tier` (1/2) and `source`
 python3 ./scripts/upwork_proposal_generator.py \
   --input .tmp/upwork_jobs_filtered.json \
   --output .tmp/proposals.json \
-  --workers 5
+  --workers 5 \
+  --new-sheet
 ```
+
+**IMPORTANT:** Always use `--new-sheet` to create a fresh sheet. Without it, the script reuses the last sheet (cached in `.tmp/current_sheet_id.txt`) and appends to old data.
 
 - Default batch: 30 jobs (slice with `jobs[:30]` before passing in)
 - Uses Claude Opus 4.6 for proposals + cover letters
