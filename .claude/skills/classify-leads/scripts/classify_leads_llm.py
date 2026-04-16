@@ -20,8 +20,8 @@ ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 def create_classification_request(company, custom_id, classification_prompt):
     """Create a single classification request for the batch API."""
     name = company.get('company_name', 'Unknown')
-    desc = (company.get('company_description') or 'No description')[:500]
-    keywords = (company.get('keywords') or 'No keywords')[:300]
+    desc = str(company.get('company_description') or 'No description')[:500]
+    keywords = str(company.get('keywords') or 'No keywords')[:300]
     industry = company.get('industry', 'No industry')
 
     # Build the full prompt with company data
@@ -177,15 +177,10 @@ def main():
 
         if result.result.type == "succeeded":
             response_text = result.result.message.content[0].text.strip().upper()
-            # Clean up the response - normalize to lowercase with underscores
-            if 'PRODUCT_SAAS' in response_text or 'PRODUCT-SAAS' in response_text:
-                classification = 'product_saas'
-            elif 'SERVICE' in response_text:
-                classification = 'service'
-            elif 'UNCLEAR' in response_text:
-                classification = 'unclear'
-            else:
-                classification = 'unclear'
+            # Normalize: replace spaces/hyphens with underscores, lowercase
+            classification = response_text.replace('-', '_').replace(' ', '_').lower()
+            # Strip any extra words — take first token only
+            classification = classification.split()[0] if classification.split() else 'unclear'
             classifications_map[company_idx] = classification
         else:
             # Error case

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+b#!/usr/bin/env python3
 import json, os, http.server, urllib.parse, threading, secrets, requests, warnings
 warnings.filterwarnings('ignore')
 
