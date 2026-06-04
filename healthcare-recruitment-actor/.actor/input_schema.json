@@ -1,0 +1,122 @@
+{
+    "title": "Healthcare Recruitment Agency Finder — Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "sources": {
+            "title": "Data Sources",
+            "type": "array",
+            "description": "Which sources to scrape. Options: linkedin_jobs, nppes, state_registries, niche_directories, asa_members, fdd_franchisees, sam_gov. Leave empty to run all.",
+            "items": { "type": "string" },
+            "default": ["state_registries", "nppes", "asa_members", "fdd_franchisees", "niche_directories", "linkedin_jobs", "sam_gov"],
+            "editor": "stringList"
+        },
+        "testMode": {
+            "title": "Test Mode",
+            "type": "boolean",
+            "description": "Limit each scraper to a small sample. Use to verify the actor works before a full run.",
+            "default": false
+        },
+        "linkedinQueries": {
+            "title": "LinkedIn Job Search Queries",
+            "type": "array",
+            "description": "Keywords to search on LinkedIn Jobs. Agency-specific formats only — travel assignments and locum tenens.",
+            "items": { "type": "string" },
+            "default": [
+                "travel nurse assignment",
+                "travel radiology technologist",
+                "travel respiratory therapist",
+                "travel surgical technologist",
+                "travel PT physical therapist",
+                "travel allied health assignment",
+                "per diem RN registry",
+                "supplemental nurse staffing",
+                "contract nurse agency",
+                "locum tenens physician",
+                "locum tenens nurse practitioner",
+                "locum tenens hospitalist",
+                "locum tenens emergency medicine",
+                "locum tenens psychiatry",
+                "locum tenens anesthesiology",
+                "locum tenens radiology",
+                "locum tenens surgeon",
+                "locum tenens internal medicine",
+                "locum tenens family medicine",
+                "locum tenens pediatrics",
+                "locum tenens cardiology"
+            ],
+            "editor": "stringList"
+        },
+        "linkedinLocations": {
+            "title": "LinkedIn Search Locations (Cities)",
+            "type": "array",
+            "description": "City/metro areas to search separately on LinkedIn. Each query runs once per location, surfacing boutique local agencies. Leave empty for a single national search.",
+            "items": { "type": "string" },
+            "default": [
+                "New York, NY", "Los Angeles, CA", "Chicago, IL", "Houston, TX",
+                "Phoenix, AZ", "Philadelphia, PA", "Dallas, TX", "San Francisco, CA",
+                "Seattle, WA", "Denver, CO", "Atlanta, GA", "Miami, FL",
+                "Boston, MA", "Nashville, TN", "Minneapolis, MN", "Charlotte, NC",
+                "San Diego, CA", "Portland, OR", "Las Vegas, NV", "Austin, TX"
+            ],
+            "editor": "stringList"
+        },
+        "linkedinTimeFilter": {
+            "title": "LinkedIn Posting Recency",
+            "type": "string",
+            "description": "Only return companies that posted jobs within this window. Options: day, 3days, week, month, 2months.",
+            "default": "week",
+            "editor": "textfield"
+        },
+        "nppsQueries": {
+            "title": "NPPES Organization Name Queries",
+            "type": "array",
+            "description": "Wildcard searches on organization_name in the CMS NPI registry. Use * for contains (e.g. *staffing*).",
+            "items": { "type": "string" },
+            "default": [
+                "*staffing*",
+                "*placement*",
+                "*recruiting*",
+                "*locum*",
+                "*per diem*",
+                "*registry*",
+                "*supplemental*",
+                "*allied*",
+                "*travel nurse*",
+                "*medical staffing*",
+                "*clinical staffing*",
+                "*healthcare staffing*"
+            ],
+            "editor": "stringList"
+        },
+        "states": {
+            "title": "State Registries to Scrape",
+            "type": "array",
+            "description": "Which state government registries to include. Options: NY, IN, TN, MD, MN, NJ, TX, PA, NC, WA, MI, FL.",
+            "items": { "type": "string" },
+            "default": ["NY", "IN", "TN", "MD", "MN", "NJ", "PA", "MI"],
+            "editor": "stringList"
+        },
+        "nicheDirectorySources": {
+            "title": "Niche Directory Sources",
+            "type": "array",
+            "description": "Which travel nurse / niche directories to scrape. Options: natho, vivian.",
+            "items": { "type": "string" },
+            "default": ["natho", "vivian"],
+            "editor": "stringList"
+        },
+        "samGovApiKey": {
+            "title": "SAM.gov API Key",
+            "type": "string",
+            "description": "Free API key from sam.gov (Account Details → Public API Key). Required to use the sam_gov source.",
+            "default": "",
+            "editor": "textfield"
+        },
+        "samGovMaxRecords": {
+            "title": "SAM.gov Max Records",
+            "type": "integer",
+            "description": "Maximum number of entities to pull from SAM.gov.",
+            "default": 3000
+        }
+    }
+}

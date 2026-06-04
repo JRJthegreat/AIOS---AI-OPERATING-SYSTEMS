@@ -161,6 +161,10 @@ def create_campaign(campaign_name):
     # Use personalized_email variable — each lead has their own pre-built body
     body_html = "<p>{{personalized_email}}</p>"
 
+    from datetime import datetime, timedelta
+    start_date = datetime.now().strftime("%Y-%m-%d")
+    end_date = (datetime.now() + timedelta(days=365)).strftime("%Y-%m-%d")
+
     payload = {
         "name": campaign_name,
         "sequences": [
@@ -178,7 +182,19 @@ def create_campaign(campaign_name):
                     }
                 ]
             }
-        ]
+        ],
+        "campaign_schedule": {
+            "start_date": start_date,
+            "end_date": end_date,
+            "schedules": [
+                {
+                    "name": "Weekday Schedule",
+                    "days": {"1": True, "2": True, "3": True, "4": True, "5": True},
+                    "timing": {"from": "09:00", "to": "17:00"},
+                    "timezone": "America/Chicago"
+                }
+            ]
+        }
     }
 
     response = requests.post(
@@ -234,11 +250,12 @@ def add_leads_to_campaign(campaign_id, leads):
 
         payload = {
             "campaign_id": campaign_id,
-            "leads": batch
+            "leads": batch,
+            "skip_if_in_campaign": True
         }
 
         response = requests.post(
-            f"{INSTANTLY_API_BASE}/leads/batch",
+            f"{INSTANTLY_API_BASE}/leads/add",
             headers=headers,
             json=payload,
             timeout=120
@@ -248,7 +265,7 @@ def add_leads_to_campaign(campaign_id, leads):
             print("  Rate limited, waiting 30 seconds...")
             time.sleep(30)
             response = requests.post(
-                f"{INSTANTLY_API_BASE}/leads/batch",
+                f"{INSTANTLY_API_BASE}/leads/add",
                 headers=headers,
                 json=payload,
                 timeout=120
@@ -273,6 +290,7 @@ def main():
     parser = argparse.ArgumentParser(description="Push founder leads to Instantly campaign")
     parser.add_argument("--sheet_url", required=True, help="Google Sheet URL")
     parser.add_argument("--campaign_name", default="GCC Founders - Recruitment", help="Instantly campaign name")
+    parser.add_argument("--campaign_id", help="Existing campaign ID (skip creation)")
     parser.add_argument("--test", action="store_true", help="First 3 leads only")
     parser.add_argument("--dry_run", action="store_true", help="Show leads without pushing to Instantly")
 
@@ -319,9 +337,13 @@ def main():
             print(f"  {i}. {lead['first_name']} {lead['last_name']} <{lead['email']}> @ {lead['company_name']} ({lead['startup_type']})")
         return
 
-    # Step 3: Create campaign
-    print(f"\n=== Step 3: Creating Instantly campaign ===")
-    campaign_id = create_campaign(args.campaign_name)
+    # Step 3: Create or reuse campaign
+    if args.campaign_id:
+        campaign_id = args.campaign_id
+        print(f"\n=== Step 3: Using existing campaign {campaign_id} ===")
+    else:
+        print(f"\n=== Step 3: Creating Instantly campaign ===")
+        campaign_id = create_campaign(args.campaign_name)
 
     # Step 4: Add leads
     print(f"\n=== Step 4: Adding {len(leads)} leads to campaign ===")

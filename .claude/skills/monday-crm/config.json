@@ -1,0 +1,51 @@
+{
+  "workspace_id": 15430320,
+  "boards": {
+    "Intake": {
+      "id": 18412612502,
+      "name": "Intake / Leads",
+      "groups": {
+        "New": "group_mm383wh8",
+        "In Progress": "group_mm383k7r",
+        "Closed": "group_mm38rv8n"
+      }
+    },
+    "Clients": {
+      "id": 18412612563,
+      "name": "Clients",
+      "groups": {
+        "Active": "group_mm381rhe",
+        "Past": "group_mm38n4gy"
+      }
+    },
+    "Cases": {
+      "id": 18412612620,
+      "name": "Cases",
+      "groups": {
+        "Open": "group_mm38qe2q",
+        "In Progress": "group_mm3812wj",
+        "Pending Hearing": "group_mm382yfv",
+        "Closed": "group_mm38d4sz"
+      }
+    },
+    "Tasks": {
+      "id": 18412612716,
+      "name": "Tasks",
+      "groups": {
+        "To Do": "group_mm38pfsa",
+        "In Progress": "group_mm38414v",
+        "Done": "group_mm38yzbn"
+      }
+    },
+    "Hearings": {
+      "id": 18412612796,
+      "name": "Hearings & Deadlines",
+      "groups": {
+        "This Week": "group_mm383qm7",
+        "This Month": "group_mm38v332",
+        "Upcoming": "group_mm38dt0k"
+      }
+    }
+  },
+  "dashboard_id": "manual"
+}

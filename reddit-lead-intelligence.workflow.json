@@ -1,0 +1,651 @@
+{
+  "name": "Reddit Lead Intelligence — Phase 1",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "reddit-leads",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "node-001-webhook-trigger",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        80,
+        300
+      ],
+      "webhookId": "reddit-leads-trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Phase 1 demo: 5 keywords\nconst keywords = [\n  'recommended plumbers',\n  'recommend HVAC company',\n  'recommend a landscaper',\n  'recommend a roofer',\n  'recommend a house cleaner'\n];\n\nreturn keywords.map(keyword => ({\n  json: {\n    keyword,\n    apifyBody: JSON.stringify({\n      searchTerms: [keyword],\n      searchPosts: true,\n      searchComments: false,\n      searchCommunities: false,\n      searchSort: 'new',\n      maxPostsCount: 25,\n      fastMode: true,\n      includeNSFW: false,\n      proxy: { useApifyProxy: true, apifyProxyGroups: ['RESIDENTIAL'] }\n    })\n  }\n}));"
+      },
+      "id": "node-002-set-keywords",
+      "name": "Set Demo Keywords",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        320,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/9sHOY9RzPYGjmTHo8/run-sync-get-dataset-items?token=YOUR_APIFY_API_TOKEN&timeout=120&memory=512",
+        "authentication": "none",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.parse($json.apifyBody) }}",
+        "options": {
+          "timeout": 150000
+        }
+      },
+      "continueOnFail": true,
+      "id": "node-003-reddit-search",
+      "name": "Reddit Search via Apify",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        560,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// Handle both: n8n splits array into individual items, OR one item per array\nconst seenIds = new Set();\nconst allPosts = [];\n\nfor (const item of $input.all()) {\n  const raw = item.json;\n  let posts = [];\n\n  if (Array.isArray(raw)) {\n    posts = raw;\n  } else if (raw && Array.isArray(raw.data)) {\n    posts = raw.data;\n  } else if (raw && (raw.parsedId || raw.id)) {\n    // n8n already split the array — this IS an individual post\n    posts = [raw];\n  }\n\n  for (const post of posts) {\n    // Accept items without dataType, or explicitly \"post\"\n    if (post.dataType && post.dataType !== 'post') continue;\n    const id = post.parsedId || post.id || '';\n    if (!id || seenIds.has(id)) continue;\n    seenIds.add(id);\n    allPosts.push({\n      json: {\n        postId:        id,\n        title:         post.title || '',\n        body:          (post.body || '').slice(0, 1000),\n        postUrl:       post.postUrl || post.contentUrl || post.url || '',\n        subreddit:     post.communityName || '',\n        subredditSlug: post.parsedCommunityName || ''\n      }\n    });\n  }\n}\n\nreturn allPosts.length > 0 ? allPosts : [{ json: { _empty: true } }];"
+      },
+      "id": "node-004-flatten-posts",
+      "name": "Flatten and Deduplicate Posts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://jude2212.openai.azure.com/openai/deployments/gpt-4.1/chat/completions?api-version=2024-10-21",
+        "authentication": "none",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "api-key",
+              "value": "YOUR_AZURE_OPENAI_API_KEY"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ {messages: [{role: 'system', content: 'You are a classifier. Determine if the Reddit post is a homeowner or renter asking for or receiving recommendations for a local home service business (HVAC, plumbing, landscaping, roofing, cleaning, painting, pest control, remodeling, flooring, electrical, handyman, or similar). Respond with only JSON: {\"relevant\": true or false, \"category\": \"the service category or null\"}'}, {role: 'user', content: 'Title: ' + $json.title + '\\n\\nBody: ' + ($json.body || '').slice(0, 500)}], max_completion_tokens: 200, temperature: 0} }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "continueOnFail": true,
+      "id": "node-005-classify-post",
+      "name": "Classify Post via Azure OpenAI",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1040,
+        300
+      ],
+      "credentials": {
+        "azureOpenAiApi": {
+          "id": "Y6u0Kx7HwoLe6AvF",
+          "name": "Azure Open AI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const allResps = $input.all();\nconst allPosts = $('Flatten and Deduplicate Posts').all();\nconst results = [];\n\nfor (let i = 0; i < allResps.length; i++) {\n  const resp = allResps[i];\n  const post = (allPosts[i] || allPosts[allPosts.length - 1]).json;\n\n  const commentBody = JSON.stringify({\n    startUrls: [{ url: post.postUrl }],\n    crawlCommentsPerPost: true,\n    maxCommentsCount: 50,\n    searchSort: 'new',\n    fastMode: true,\n    includeNSFW: false,\n    proxy: { useApifyProxy: true, apifyProxyGroups: ['RESIDENTIAL'] }\n  });\n\n  try {\n    let text = resp.json.choices?.[0]?.message?.content || resp.json.content?.[0]?.text || '';\n    text = text.replace(/```json\\s*|```/g, '').trim();\n    const m = text.match(/(\\{.*?\\})/s);\n    const parsed = JSON.parse(m ? m[1] : text);\n    results.push({ json: { ...post, relevant: parsed.relevant === true, category: parsed.category || null, commentBody } });\n  } catch (e) {\n    results.push({ json: { ...post, relevant: false, _classifyError: e.message, commentBody } });\n  }\n}\n\nreturn results;"
+      },
+      "id": "node-006-parse-classification",
+      "name": "Parse Classification",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1280,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.relevant }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": false
+      },
+      "id": "node-007-filter-relevant",
+      "name": "Filter Keep Relevant Posts",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [
+        1520,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/9sHOY9RzPYGjmTHo8/run-sync-get-dataset-items?token=YOUR_APIFY_API_TOKEN&timeout=120&memory=512",
+        "authentication": "none",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.parse($json.commentBody) }}",
+        "options": {
+          "timeout": 150000
+        }
+      },
+      "continueOnFail": true,
+      "id": "node-008-get-comments",
+      "name": "Get Post Comments via Apify",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1760,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const allItems = $input.all();\n\n// Comments have parsedPostId pointing to parent post; post items don't\nconst commentsByPostId = {};\nfor (const item of allItems) {\n  const parsedPostId = item.json.parsedPostId || '';\n  if (!parsedPostId) continue;\n  if (!commentsByPostId[parsedPostId]) commentsByPostId[parsedPostId] = [];\n  const body = (item.json.body || item.json.text || '').trim();\n  if (body.length > 15) commentsByPostId[parsedPostId].push(body);\n}\n\n// Match with posts from Filter\nconst postMap = {};\nfor (const post of $('Filter Keep Relevant Posts').all()) {\n  postMap[post.json.postId] = post.json;\n}\n\nconst results = [];\nfor (const [postId, comments] of Object.entries(commentsByPostId)) {\n  const post = postMap[postId];\n  if (!post || comments.length === 0) continue;\n  results.push({ json: {\n    postId,\n    postUrl:       post.postUrl,\n    subreddit:     post.subreddit,\n    subredditSlug: post.subredditSlug,\n    category:      post.category,\n    title:         post.title,\n    commentTexts:  comments.slice(0, 60).join('\\n---\\n'),\n    commentCount:  comments.length\n  }});\n}\n\nreturn results.length > 0 ? results : [{ json: { _noComments: true } }];"
+      },
+      "id": "node-009-format-comments",
+      "name": "Format Comments for Claude",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://jude2212.openai.azure.com/openai/deployments/gpt-5.1/chat/completions?api-version=2024-10-21",
+        "authentication": "none",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "api-key",
+              "value": "YOUR_AZURE_OPENAI_API_KEY"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ {messages: [{role: 'system', content: 'You are an entity extraction system. Extract every business mentioned by name from Reddit comments in a home service recommendation thread. Return only a JSON array in this format: [{\"business_name\": \"string\", \"service_category\": \"string\", \"location\": \"string or null\", \"sentiment\": \"positive|negative|neutral\", \"sentiment_summary\": \"one sentence\", \"source_comment\": \"verbatim mention\"}]. If no businesses are mentioned, return [].'}, {role: 'user', content: 'Post: ' + $json.title + '\\n\\nComments:\\n' + $json.commentTexts}], max_completion_tokens: 1000, temperature: 0} }}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "continueOnFail": true,
+      "id": "node-010-extract-businesses",
+      "name": "Extract Businesses via Azure OpenAI",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2240,
+        300
+      ],
+      "credentials": {
+        "azureOpenAiApi": {
+          "id": "Y6u0Kx7HwoLe6AvF",
+          "name": "Azure Open AI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const allResps = $input.all();\nconst allFormats = $('Format Comments for Claude').all();\nconst allBizItems = [];\n\nfor (let i = 0; i < allResps.length; i++) {\n  const resp = allResps[i];\n  const postCtx = (allFormats[i] || allFormats[allFormats.length - 1]).json;\n  \n  let businesses = [];\n  try {\n    let text = resp.json.choices?.[0]?.message?.content || resp.json.content?.[0]?.text || '';\n    text = text.replace(/```json\\s*|```/g, '').trim();\n    const m = text.match(/(\\[.*\\])/s);\n    businesses = JSON.parse(m ? m[1] : text);\n    if (!Array.isArray(businesses)) businesses = [];\n  } catch (e) {\n    continue;\n  }\n  \n  for (const biz of businesses) {\n    if (!biz.business_name) continue;\n    allBizItems.push({ json: {\n      business_name:     biz.business_name,\n      service_category:  biz.service_category || postCtx.category || 'other',\n      location:          biz.location || '',\n      sentiment:         biz.sentiment || 'neutral',\n      sentiment_summary: biz.sentiment_summary || '',\n      source_comment:    (biz.source_comment || '').slice(0, 400),\n      post_url:          postCtx.postUrl,\n      post_subreddit:    postCtx.subreddit,\n      mapsBody: JSON.stringify({\n        searchStringsArray: [biz.business_name + (biz.location ? ', ' + biz.location : '')],\n        maxCrawledPlacesPerSearch: 1,\n        language: 'en'\n      })\n    }});\n  }\n}\n\nreturn allBizItems.length > 0 ? allBizItems : [{ json: { _noBusinesses: true } }];"
+      },
+      "id": "node-011-parse-businesses",
+      "name": "Parse and Split Businesses",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2480,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.sentiment }}",
+              "rightValue": "positive",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "leftValue": "={{ $json.business_name }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": false
+      },
+      "id": "node-012-filter-positive",
+      "name": "Filter Keep Positive Sentiment",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [
+        2720,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/nwua9Gu5YrADL7ZDj/run-sync-get-dataset-items?token=YOUR_APIFY_API_TOKEN&timeout=60&memory=256",
+        "authentication": "none",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.parse($json.mapsBody) }}",
+        "options": {
+          "timeout": 90000
+        }
+      },
+      "continueOnFail": true,
+      "id": "node-013-google-maps",
+      "name": "Google Maps Enrichment via Apify",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2960,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const allMapsResps = $input.all();\nconst allBizItems = $('Filter Keep Positive Sentiment').all();\nconst today = new Date().toISOString().split('T')[0];\nconst leads = [];\n\nfor (let i = 0; i < allMapsResps.length; i++) {\n  const mapsResp = allMapsResps[i];\n  const biz = (allBizItems[i] || allBizItems[allBizItems.length - 1]).json;\n\n  let results = [];\n  if (Array.isArray(mapsResp.json)) {\n    results = mapsResp.json;\n  } else if (mapsResp.json && Array.isArray(mapsResp.json.data)) {\n    results = mapsResp.json.data;\n  } else if (mapsResp.json && mapsResp.json.title) {\n    results = [mapsResp.json];\n  }\n\n  const place = results[0] || null;\n\n  // Skip non-US results based on Google Maps country field\n  if (place) {\n    const country = (place.country || place.countryCode || '').toLowerCase();\n    if (country && country !== 'united states' && country !== 'us') continue;\n  }\n\n  const rawPhone = (place && place.phone) || '';\n  const phone = rawPhone.startsWith('+1') ? \"'\" + rawPhone : rawPhone;\n  leads.push({ json: {\n    'Business Name':          (place && place.title) || biz.business_name || '',\n    'Service Category':       biz.service_category || '',\n    'Location (from Reddit)': biz.location || '',\n    'Full Address':           (place && place.address) || '',\n    'Phone Number':           phone,\n    'Website':                (place && place.website) || '',\n    'Google Rating':          (place && place.totalScore) || '',\n    'Google Review Count':    (place && place.reviewsCount) || '',\n    'Google Maps URL':        (place && place.url) || '',\n    'Reddit Sentiment':       biz.sentiment || '',\n    'Sentiment Summary':      biz.sentiment_summary || '',\n    'Source Reddit Post URL': biz.post_url || '',\n    'Source Subreddit':       biz.post_subreddit || '',\n    'Date Added':             today\n  }});\n}\n\nreturn leads.length > 0 ? leads : [{ json: { _noLeads: true } }];"
+      },
+      "id": "node-014-build-lead",
+      "name": "Build Lead Row",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3200,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// Deduplicate within this run by Business Name + Location\nconst leads = $input.all();\nconst seen = new Set();\nconst unique = [];\n\nfor (const lead of leads) {\n  const name = (lead.json['Business Name'] || '').toLowerCase().trim();\n  const loc  = (lead.json['Location (from Reddit)'] || '').toLowerCase().trim();\n  const key  = name + '|' + loc;\n  if (!name || seen.has(key)) continue;\n  seen.add(key);\n  unique.push(lead);\n}\n\nreturn unique.length > 0 ? unique : [{ json: { _noLeads: true } }];"
+      },
+      "id": "node-015-dedup-run",
+      "name": "Deduplicate This Run",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3440,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "sheet",
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1IzC1AXuW5iYBxdrKJb6r0QQBFGpZKJE0BQtd9uqJZ0E",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Leads",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "Business Name"
+          ],
+          "schema": [
+            {
+              "id": "Business Name",
+              "displayName": "Business Name",
+              "required": false,
+              "defaultMatch": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Service Category",
+              "displayName": "Service Category",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "Location (from Reddit)",
+              "displayName": "Location (from Reddit)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "Full Address",
+              "displayName": "Full Address",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "Phone Number",
+              "displayName": "Phone Number",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "Website",
+              "displayName": "Website",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "Google Rating",
+              "displayName": "Google Rating",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "Google Review Count",
+              "displayName": "Google Review Count",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "Google Maps URL",
+              "displayName": "Google Maps URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "Reddit Sentiment",
+              "displayName": "Reddit Sentiment",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "Sentiment Summary",
+              "displayName": "Sentiment Summary",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "Source Reddit Post URL",
+              "displayName": "Source Reddit Post URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "Source Subreddit",
+              "displayName": "Source Subreddit",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "Date Added",
+              "displayName": "Date Added",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "continueOnFail": true,
+      "id": "node-016-google-sheets",
+      "name": "Append to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [
+        3680,
+        300
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "M5865vAc4jwoKTS0",
+          "name": "Jude Nexam Google Sheets account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Set Demo Keywords": {
+      "main": [
+        [
+          {
+            "node": "Reddit Search via Apify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reddit Search via Apify": {
+      "main": [
+        [
+          {
+            "node": "Flatten and Deduplicate Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Flatten and Deduplicate Posts": {
+      "main": [
+        [
+          {
+            "node": "Classify Post via Azure OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Classification": {
+      "main": [
+        [
+          {
+            "node": "Filter Keep Relevant Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Keep Relevant Posts": {
+      "main": [
+        [
+          {
+            "node": "Get Post Comments via Apify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Post Comments via Apify": {
+      "main": [
+        [
+          {
+            "node": "Format Comments for Claude",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Comments for Claude": {
+      "main": [
+        [
+          {
+            "node": "Extract Businesses via Azure OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse and Split Businesses": {
+      "main": [
+        [
+          {
+            "node": "Filter Keep Positive Sentiment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Keep Positive Sentiment": {
+      "main": [
+        [
+          {
+            "node": "Google Maps Enrichment via Apify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Maps Enrichment via Apify": {
+      "main": [
+        [
+          {
+            "node": "Build Lead Row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Lead Row": {
+      "main": [
+        [
+          {
+            "node": "Deduplicate This Run",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deduplicate This Run": {
+      "main": [
+        [
+          {
+            "node": "Append to Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Post via Azure OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Parse Classification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Businesses via Azure OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Parse and Split Businesses",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set Demo Keywords",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true
+  },
+  "id": "reddit-lead-intelligence-phase1",
+  "tags": [
+    "lead-gen",
+    "reddit",
+    "home-services",
+    "phase-1"
+  ]
+}

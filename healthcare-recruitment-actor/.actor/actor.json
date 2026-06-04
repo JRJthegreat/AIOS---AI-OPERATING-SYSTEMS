@@ -1,0 +1,12 @@
+{
+    "actorSpecification": 1,
+    "name": "healthcare-recruitment-agencies",
+    "title": "Healthcare Recruitment Agency Finder",
+    "version": "1.0",
+    "buildTag": "latest",
+    "input": "./input_schema.json",
+    "dockerfile": "../Dockerfile",
+    "description": "Finds healthcare staffing agencies from 6 sources not in Apollo/ZoomInfo: LinkedIn Jobs API, NPPES NPI Registry, state licensing registries (NY/IN/TN/MD/MN/NJ), travel nurse directories (NATHO/Vivian/BluePipes), ASA members, and FDD franchisee lists.",
+    "categories": ["LEAD_GENERATION", "BUSINESS"],
+    "labels": ["healthcare", "staffing", "recruitment", "leads", "B2B"]
+}
