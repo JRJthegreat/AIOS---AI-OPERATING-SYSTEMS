@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
 Classify scraped leads as KEEP (healthcare staffing/recruitment firm or person at one)
-or DROP (clinicians, hospitals, vendors, etc.) using the Anthropic Message Batches API.
+or DROP (clinicians, hospitals, vendors, etc.) using Azure OpenAI.
 
-Keeps only KEEP records.
+Keeps only KEEP records. Runs classifications in parallel (Azure has no simple batch API).
 
 Usage:
   python3 classify_staffing_leads.py \
@@ -14,91 +14,93 @@ import os
 import sys
 import json
 import argparse
-import time
-import anthropic
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dotenv import load_dotenv
+from openai import AzureOpenAI
 
 load_dotenv()
 
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
-MODEL = "claude-haiku-4-5-20251001"
+MAX_WORKERS = 10
 
-PROMPT = """Classify this person for a healthcare staffing/recruitment outreach list. Reply with ONLY one word: KEEP or DROP.
+PROMPT = """Classify this lead for a healthcare staffing/recruitment outreach list. Reply with ONLY one word: KEEP or DROP.
 
-KEEP = works at (owner, exec, recruiter, founder, etc.) a staffing agency, recruitment firm,
-       travel nursing company, locum tenens firm, temp staffing agency, healthcare job board, or healthcare RPO.
-DROP = an individual nurse/doctor/clinician, a hospital or health system, a SaaS/tech vendor,
-       a pharma company, a large general management-consulting firm, or anyone clearly not at a staffing/recruitment firm.
+KEEP = a staffing agency, recruitment firm, travel nursing company, locum tenens firm, temp staffing
+       agency, healthcare job board, or healthcare RPO — or a person (owner, exec, recruiter, founder)
+       who works at one.
+DROP = an individual nurse/doctor/clinician, a hospital or health system, a software/SaaS/tech vendor
+       (incl. ATS, VMS, credentialing, background-check, recruiting-AI tools), a pharma company,
+       a finance/consulting firm, or anyone clearly not a staffing/recruitment firm.
 
+Weigh the company bio most heavily — it is the strongest signal, especially when the title is just a
+follower count (these are company pages).
+
+Name: {name}
 Title: {title}
 Company: {company}
-Context: {context}
+Company bio: {bio}
+Post context: {context}
 
 Reply with ONLY: KEEP or DROP"""
 
 
-def make_request(lead, custom_id):
-    full_prompt = PROMPT.format(
+def make_client():
+    return AzureOpenAI(
+        api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+        azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+        api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
+    )
+
+
+def classify_one(client, deployment, idx, lead):
+    prompt = PROMPT.format(
+        name=(lead.get("full_name") or f"{lead.get('first_name','')} {lead.get('last_name','')}").strip()[:80] or "Unknown",
         title=(lead.get("job_title") or "Unknown")[:300],
         company=(lead.get("company_name") or "Unknown")[:200],
+        bio=(lead.get("company_bio") or "No bio")[:600],
         context=(lead.get("post_snippet") or "No context")[:300],
     )
-    return {
-        "custom_id": custom_id,
-        "params": {
-            "model": MODEL,
-            "max_tokens": 5,
-            "messages": [{"role": "user", "content": full_prompt}],
-        },
-    }
+    try:
+        r = client.chat.completions.create(
+            model=deployment,
+            max_tokens=5,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        text = (r.choices[0].message.content or "").strip().upper()
+        return idx, "KEEP" if "KEEP" in text else "DROP"
+    except Exception as e:
+        print(f"  Error on lead {idx}: {str(e)[:100]}")
+        return idx, "DROP"  # conservative default
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Classify leads KEEP/DROP for healthcare staffing outreach")
+    parser = argparse.ArgumentParser(description="Classify leads KEEP/DROP via Azure OpenAI")
     parser.add_argument("--input", required=True)
     parser.add_argument("--output", default=".tmp/list_a_classified.json")
     args = parser.parse_args()
 
-    if not ANTHROPIC_API_KEY:
-        print("Error: ANTHROPIC_API_KEY not set", file=sys.stderr)
+    if not os.getenv("AZURE_OPENAI_API_KEY"):
+        print("Error: AZURE_OPENAI_API_KEY not set", file=sys.stderr)
         sys.exit(1)
+
+    deployment = os.getenv("AZURE_OPENAI_DEPLOYMENT_FAST") or os.getenv("AZURE_OPENAI_DEPLOYMENT")
 
     with open(args.input) as f:
         leads = json.load(f)
-    print(f"Loaded {len(leads)} leads")
+    print(f"Loaded {len(leads)} leads | classifying via {deployment} ({MAX_WORKERS} workers)...")
 
-    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-
-    requests = [make_request(lead, f"lead_{i}") for i, lead in enumerate(leads)]
-    print(f"Submitting batch of {len(requests)} classification requests...")
-
-    batch = client.messages.batches.create(requests=requests)
-    batch_id = batch.id
-    print(f"Batch: {batch_id} | Status: {batch.processing_status}")
-
-    last = None
-    while True:
-        batch = client.messages.batches.retrieve(batch_id)
-        counts = (batch.request_counts.processing,
-                  batch.request_counts.succeeded,
-                  batch.request_counts.errored)
-        if counts != last:
-            print(f"  {batch.request_counts.succeeded}/{len(leads)} done, "
-                  f"{batch.request_counts.processing} processing, {batch.request_counts.errored} errors")
-            last = counts
-        if batch.processing_status == "ended":
-            break
-        time.sleep(2)
-
-    # Parse results
+    client = make_client()
     decisions = {}
-    for result in client.messages.batches.results(batch_id):
-        idx = int(result.custom_id.split("_")[1])
-        if result.result.type == "succeeded":
-            text = result.result.message.content[0].text.strip().upper()
-            decisions[idx] = "KEEP" if "KEEP" in text else "DROP"
-        else:
-            decisions[idx] = "DROP"  # default to DROP on error (conservative)
+
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
+        futures = [ex.submit(classify_one, client, deployment, i, lead)
+                   for i, lead in enumerate(leads)]
+        done = 0
+        for fut in as_completed(futures):
+            idx, decision = fut.result()
+            decisions[idx] = decision
+            done += 1
+            if done % 25 == 0:
+                print(f"  {done}/{len(leads)} classified")
 
     for i, lead in enumerate(leads):
         lead["_classification"] = decisions.get(i, "DROP")

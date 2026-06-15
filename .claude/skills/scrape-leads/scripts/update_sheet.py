@@ -69,6 +69,28 @@ def get_credentials():
             
     return creds
 
+def set_row_height(spreadsheet, worksheet, pixels=18):
+    """Set a uniform row height (in pixels) across every row of the worksheet."""
+    try:
+        spreadsheet.batch_update({
+            "requests": [{
+                "updateDimensionProperties": {
+                    "range": {
+                        "sheetId": worksheet.id,
+                        "dimension": "ROWS",
+                        "startIndex": 0,
+                        "endIndex": worksheet.row_count,
+                    },
+                    "properties": {"pixelSize": pixels},
+                    "fields": "pixelSize",
+                }
+            }]
+        })
+        print(f"Set row height to {pixels}px for {worksheet.row_count} rows")
+    except Exception as e:
+        print(f"Warning: could not set row height: {e}", file=sys.stderr)
+
+
 def update_sheet(json_file, sheet_name=None):
     """
     Read JSON and upload to Google Sheet.
@@ -162,6 +184,9 @@ def update_sheet(json_file, sheet_name=None):
             # For smaller datasets, single update is fine
             worksheet.update(values=[df.columns.values.tolist()] + df.values.tolist(), value_input_option='RAW')
         
+        # Standardize row height to 18px across all rows
+        set_row_height(sh, worksheet, 18)
+
         # Share with user if email is provided in env (optional enhancement)
         user_email = os.getenv("USER_EMAIL")
         if user_email:
