@@ -1,0 +1,40 @@
+{
+    "title": "NCHCR Job Board Scraper — Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "jobType": {
+            "title": "Job Type",
+            "type": "string",
+            "description": "Which job board segment to search.",
+            "default": "Both",
+            "enum": ["Both", "Physicians", "Non-Physicians"],
+            "enumTitles": ["Both", "Physicians only", "Non-Physicians only"],
+            "editor": "select"
+        },
+        "resultsPerPage": {
+            "title": "Results Per Page",
+            "type": "integer",
+            "description": "Listings to load per results page. Higher = fewer pagination round-trips.",
+            "default": 500
+        },
+        "maxListPages": {
+            "title": "Max Listing Pages",
+            "type": "integer",
+            "description": "Cap on how many results pages to crawl while enumerating firms.",
+            "default": 30
+        },
+        "maxFirms": {
+            "title": "Max Firms",
+            "type": "integer",
+            "description": "Cap on unique firms (and detail-page visits). 0 = no cap (all firms).",
+            "default": 0
+        },
+        "testMode": {
+            "title": "Test Mode",
+            "type": "boolean",
+            "description": "Crawl only 1 listing page and at most 10 firms. Use to verify the actor quickly.",
+            "default": false
+        }
+    }
+}

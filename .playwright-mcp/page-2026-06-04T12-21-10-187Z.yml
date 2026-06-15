@@ -1,0 +1,478 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e6]:
+        - text: 
+        - link "National Coalition of Healthcare Recruiters" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img "National Coalition of Healthcare Recruiters" [ref=e8]
+        - list [ref=e9]:
+          - listitem
+          - listitem [ref=e10]:
+            - link "NCHCR Home" [ref=e11] [cursor=pointer]:
+              - /url: javascript:__doPostBack('ctl00$lbHome','')
+          - listitem
+          - listitem [ref=e12]:
+            - link "Recruiter Login" [ref=e13] [cursor=pointer]:
+              - /url: javascript:__doPostBack('ctl00$lbRecruiterLogin','')
+          - listitem [ref=e14]:
+            - link "Candidate Login" [ref=e15] [cursor=pointer]:
+              - /url: javascript:__doPostBack('ctl00$lbCandidateLogin','')
+          - listitem
+          - listitem
+    - heading "Coalition Directory" [level=1] [ref=e21]
+    - generic [ref=e22]:
+      - generic [ref=e25]:
+        - paragraph [ref=e26]: Search For A Coalition Partner Near You
+        - generic [ref=e28]:
+          - textbox [ref=e29]: Organization Name
+          - combobox [ref=e30]:
+            - option "All States (International Below)" [selected]
+            - option "Alabama"
+            - option "Alaska"
+            - option "Alberta"
+            - option "Arizona"
+            - option "Arkansas"
+            - option "British Columbia"
+            - option "California"
+            - option "Colorado"
+            - option "Connecticut"
+            - option "DC - Washington"
+            - option "Delaware"
+            - option "Florida"
+            - option "Georgia"
+            - option "Guam"
+            - option "Hawaii"
+            - option "Idaho"
+            - option "Illinois"
+            - option "Indiana"
+            - option "Iowa"
+            - option "Kansas"
+            - option "Kentucky"
+            - option "Louisiana"
+            - option "Maine"
+            - option "Manitoba"
+            - option "Maryland"
+            - option "Massachusetts"
+            - option "Michigan"
+            - option "Minnesota"
+            - option "Mississippi"
+            - option "Missouri"
+            - option "Montana"
+            - option "Nebraska"
+            - option "Nevada"
+            - option "New Brunswick"
+            - option "New Hampshire"
+            - option "New Jersey"
+            - option "New Mexico"
+            - option "New York"
+            - option "Newfoundland and Labrador"
+            - option "North Carolina"
+            - option "North Dakota"
+            - option "Northwest Territories"
+            - option "Nova Scotia"
+            - option "Nunavut"
+            - option "Ohio"
+            - option "Oklahoma"
+            - option "Ontario"
+            - option "Oregon"
+            - option "Pennsylvania"
+            - option "Prince Edward Island"
+            - option "Puerto Rico"
+            - option "Quebec"
+            - option "Rhode Island"
+            - option "Saskatchewan"
+            - option "South Carolina"
+            - option "South Dakota"
+            - option "Tennessee"
+            - option "Texas"
+            - option "Utah"
+            - option "Vermont"
+            - option "Virginia"
+            - option "Washington"
+            - option "West Virginia"
+            - option "Wisconsin"
+            - option "Wyoming"
+            - option "Yukon"
+            - option "International"
+            - option "International- China/Shanghai/Beijing/Hong Kong"
+            - option "International- Doha / Qatar"
+            - option "International- Kuwait City/ Kuwait"
+            - option "International- New Zealand"
+            - option "International- Singapore-city / Singapore"
+            - option "International- Thailand / Bangkok"
+            - option "International- Turkey / Istanbul"
+            - option "International- United Arab Emirates / Abu Dhabi"
+            - option "International- United Arab Emirates / Dubai"
+          - button "SEARCH NOW" [ref=e31] [cursor=pointer]
+          - link "Clear Search Criteria" [ref=e32] [cursor=pointer]:
+            - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$lbClearAllSearchCriteria','')
+          - heading "243 Members found." [level=3] [ref=e33]
+        - generic [ref=e34]:
+          - link "< Previous" [ref=e35] [cursor=pointer]:
+            - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$lbPrev_Top','')
+          - generic [ref=e36]: Page 1 of 13
+          - link "Next >" [ref=e37] [cursor=pointer]:
+            - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$lbNext_Top','')
+          - text: "Jump To Page:"
+          - combobox "Navigate to a specific page" [ref=e38]:
+            - option "1" [selected]
+            - option "2"
+            - option "3"
+            - option "4"
+            - option "5"
+            - option "6"
+            - option "7"
+            - option "8"
+            - option "9"
+            - option "10"
+            - option "11"
+            - option "12"
+            - option "13"
+          - text: "Results Per Page:"
+          - textbox [ref=e39]: "20"
+          - button "Go" [ref=e40] [cursor=pointer]
+        - table [ref=e42]:
+          - rowgroup [ref=e43]:
+            - row "First Name Last Name Organization State Specialties Work Phone Cell Phone" [ref=e44]:
+              - columnheader "First Name" [ref=e45]:
+                - link "First Name" [ref=e46] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl00$lbSortByFirstName','')
+              - columnheader "Last Name" [ref=e47]:
+                - link "Last Name" [ref=e48] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl00$lbSortByLastName','')
+              - columnheader "Organization" [ref=e49]:
+                - link "Organization" [ref=e50] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl00$lbSortByOrgName','')
+              - columnheader "State" [ref=e51]:
+                - link "State" [ref=e52] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl00$lbSortByState','')
+              - columnheader "Specialties" [ref=e53]:
+                - link "Specialties" [ref=e54] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl00$lbSortBySpecialties','')
+              - columnheader "Work Phone" [ref=e55]:
+                - link "Work Phone" [ref=e56] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl00$lbSortByWorkPhone','')
+              - columnheader "Cell Phone" [ref=e57]:
+                - link "Cell Phone" [ref=e58] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl00$lbSortByOtherPhone','')
+          - rowgroup [ref=e59]:
+            - row "RecruiterBalm" [ref=e60]:
+              - cell [ref=e61]
+              - cell [ref=e62]
+              - cell "RecruiterBalm" [ref=e63]
+              - cell [ref=e64]
+              - cell [ref=e65]
+              - cell [ref=e66]
+              - cell [ref=e67]
+            - row "RecruiterBalm ," [ref=e68]:
+              - cell [ref=e69]
+              - cell [ref=e70]
+              - cell "RecruiterBalm" [ref=e71]
+              - cell [ref=e72]
+              - cell "," [ref=e73]
+              - cell [ref=e74]
+              - cell [ref=e75]
+            - row "David Hiring Healthcare Heroes , 954-591-1725" [ref=e76]:
+              - cell "David" [ref=e77]
+              - cell [ref=e78]
+              - cell "Hiring Healthcare Heroes" [ref=e79]
+              - cell [ref=e80]
+              - cell "," [ref=e81]
+              - cell "954-591-1725" [ref=e82]
+              - cell [ref=e83]
+            - row "Debbie Aber Physician Services IL , 847-541-9347" [ref=e84]:
+              - cell "Debbie" [ref=e85]
+              - cell "Aber" [ref=e86]
+              - cell "Physician Services" [ref=e87]
+              - cell "IL" [ref=e88]
+              - cell "," [ref=e89]
+              - cell "847-541-9347" [ref=e90]
+              - cell [ref=e91]
+            - row "Michelle Adams The Clinical Recruiter TX Physician, Academic Medicine, Administrator/Executive, Anesthesiology, Cardiology, Critical Care Medicine, Dermatology, Emergency Medicine, Endocrinology, Family Practice, Gastroenterology, Geriatrics, Hematology, Hospitalist, Internal Medicine, Medical Director, Obstetrics And Gynecology, Oncology, Ophthalmology, Orthopedic Surgery, Otolaryngology, Pediatrics, Preventative Medicine, Psychiatry, Psychology, Pulmonology, Radiology, Rheumatology, Surgery, Urology 409-718-7424" [ref=e92]:
+              - cell "Michelle" [ref=e93]
+              - cell "Adams" [ref=e94]
+              - cell "The Clinical Recruiter" [ref=e95]
+              - cell "TX" [ref=e96]
+              - cell "Physician, Academic Medicine, Administrator/Executive, Anesthesiology, Cardiology, Critical Care Medicine, Dermatology, Emergency Medicine, Endocrinology, Family Practice, Gastroenterology, Geriatrics, Hematology, Hospitalist, Internal Medicine, Medical Director, Obstetrics And Gynecology, Oncology, Ophthalmology, Orthopedic Surgery, Otolaryngology, Pediatrics, Preventative Medicine, Psychiatry, Psychology, Pulmonology, Radiology, Rheumatology, Surgery, Urology" [ref=e97]
+              - cell "409-718-7424" [ref=e98]
+              - cell [ref=e99]
+            - row "Ramon Adato Healthwaze FL 813-867-4335" [ref=e100]:
+              - cell "Ramon" [ref=e101]
+              - cell "Adato" [ref=e102]
+              - cell "Healthwaze" [ref=e103]
+              - cell "FL" [ref=e104]
+              - cell [ref=e105]
+              - cell "813-867-4335" [ref=e106]
+              - cell [ref=e107]
+            - row "Henrietta Aguwa Star Nursing, Inc. CA 817-262-0679 877-687-7399" [ref=e108]:
+              - cell "Henrietta" [ref=e109]
+              - cell "Aguwa" [ref=e110]
+              - cell "Star Nursing, Inc." [ref=e111]
+              - cell "CA" [ref=e112]
+              - cell [ref=e113]
+              - cell "817-262-0679" [ref=e114]
+              - cell "877-687-7399" [ref=e115]
+            - row "Kemi Akinwumi VeroVian Se , 214-444-8228" [ref=e116]:
+              - cell "Kemi" [ref=e117]
+              - cell "Akinwumi" [ref=e118]
+              - cell "VeroVian" [ref=e119]
+              - cell "Se" [ref=e120]
+              - cell "," [ref=e121]
+              - cell "214-444-8228" [ref=e122]
+              - cell [ref=e123]
+            - row "Tayyab Ali Greenlife Healthcare Staffing FL , 347-293-1225" [ref=e124]:
+              - cell "Tayyab" [ref=e125]
+              - cell "Ali" [ref=e126]
+              - cell "Greenlife Healthcare Staffing" [ref=e127]
+              - cell "FL" [ref=e128]
+              - cell "," [ref=e129]
+              - cell "347-293-1225" [ref=e130]
+              - cell [ref=e131]
+            - row "Nneka Anaebonam Necnic Group, LLC MA Nurse Practitioner, Nursing, Physical Therapist, Physician, Physician Assistant, Dermatology, Emergency Medicine, Endocrinology, Family Practice, Geriatrics, Hospitalist, Internal Medicine, Oncology, Pediatrics, Physical Medicine and Rehabilitation, Preventative Medicine, Psychiatry, Radiology, Rheumatology, Surgery, Urgent Care, Urology 781-935-1755" [ref=e132]:
+              - cell "Nneka" [ref=e133]
+              - cell "Anaebonam" [ref=e134]
+              - cell "Necnic Group, LLC" [ref=e135]
+              - cell "MA" [ref=e136]
+              - cell "Nurse Practitioner, Nursing, Physical Therapist, Physician, Physician Assistant, Dermatology, Emergency Medicine, Endocrinology, Family Practice, Geriatrics, Hospitalist, Internal Medicine, Oncology, Pediatrics, Physical Medicine and Rehabilitation, Preventative Medicine, Psychiatry, Radiology, Rheumatology, Surgery, Urgent Care, Urology" [ref=e137]
+              - cell "781-935-1755" [ref=e138]
+              - cell [ref=e139]
+            - row "Judy Anapol Anapol Enterprises, LLC NY Nurse Practitioner, Nursing, Physician, Physician Assistant, Technologist/Technician, Infectious Diseases, Pathology, Preventative Medicine, Research 212-545-7660" [ref=e140]:
+              - cell "Judy" [ref=e141]
+              - cell "Anapol" [ref=e142]
+              - cell "Anapol Enterprises, LLC" [ref=e143]
+              - cell "NY" [ref=e144]
+              - cell "Nurse Practitioner, Nursing, Physician, Physician Assistant, Technologist/Technician, Infectious Diseases, Pathology, Preventative Medicine, Research" [ref=e145]
+              - cell "212-545-7660" [ref=e146]
+              - cell [ref=e147]
+            - row "Barima Anyane-Yeboah Business Support Services Group NY , 845-842-6611" [ref=e148]:
+              - cell "Barima" [ref=e149]
+              - cell "Anyane-Yeboah" [ref=e150]
+              - cell "Business Support Services Group" [ref=e151]
+              - cell "NY" [ref=e152]
+              - cell "," [ref=e153]
+              - cell "845-842-6611" [ref=e154]
+              - cell [ref=e155]
+            - row "Adrienne Archer AVA Search Group FL 800-980-6237" [ref=e156]:
+              - cell "Adrienne" [ref=e157]
+              - cell "Archer" [ref=e158]
+              - cell "AVA Search Group" [ref=e159]
+              - cell "FL" [ref=e160]
+              - cell [ref=e161]
+              - cell "800-980-6237" [ref=e162]
+              - cell [ref=e163]
+            - row "Grant Archer AVA Search Group Se 800-980-6237" [ref=e164]:
+              - cell "Grant" [ref=e165]
+              - cell "Archer" [ref=e166]
+              - cell "AVA Search Group" [ref=e167]
+              - cell "Se" [ref=e168]
+              - cell [ref=e169]
+              - cell "800-980-6237" [ref=e170]
+              - cell [ref=e171]
+            - row "Corbin Ariail HealthPair GA 803-873-5730" [ref=e172]:
+              - cell "Corbin" [ref=e173]
+              - cell "Ariail" [ref=e174]
+              - cell "HealthPair" [ref=e175]
+              - cell "GA" [ref=e176]
+              - cell [ref=e177]
+              - cell "803-873-5730" [ref=e178]
+              - cell [ref=e179]
+            - row "Hunter Ashner Automated Concepts" [ref=e180]:
+              - cell "Hunter" [ref=e181]
+              - cell "Ashner" [ref=e182]
+              - cell "Automated Concepts" [ref=e183]
+              - cell [ref=e184]
+              - cell [ref=e185]
+              - cell [ref=e186]
+              - cell [ref=e187]
+            - row "Alex Bakker USA Staffing Network NY Nurse Practitioner|Occupational Therapist|Physical Therapist|Physician Assistant|Speech Therapist, Acute Care|Endocrinology|Family Practice|Internal Medicine|Physical Medicine and Rehabilitation|Telemedicine|Urgent Care 585-387-0323 585-766-7740" [ref=e188]:
+              - cell "Alex" [ref=e189]
+              - cell "Bakker" [ref=e190]
+              - cell "USA Staffing Network" [ref=e191]
+              - cell "NY" [ref=e192]
+              - cell "Nurse Practitioner|Occupational Therapist|Physical Therapist|Physician Assistant|Speech Therapist, Acute Care|Endocrinology|Family Practice|Internal Medicine|Physical Medicine and Rehabilitation|Telemedicine|Urgent Care" [ref=e193]
+              - cell "585-387-0323" [ref=e194]
+              - cell "585-766-7740" [ref=e195]
+            - row "Thierno Balde PrizeHire NJ 347-471-8620" [ref=e196]:
+              - cell "Thierno" [ref=e197]
+              - cell "Balde" [ref=e198]
+              - cell "PrizeHire" [ref=e199]
+              - cell "NJ" [ref=e200]
+              - cell [ref=e201]
+              - cell "347-471-8620" [ref=e202]
+              - cell [ref=e203]
+            - row "Alpha Beta 1a-Organization test subject , 817-277-1763" [ref=e204]:
+              - cell "Alpha" [ref=e205]
+              - cell "Beta" [ref=e206]
+              - cell "1a-Organization test subject" [ref=e207]
+              - cell [ref=e208]
+              - cell "," [ref=e209]
+              - cell "817-277-1763" [ref=e210]
+              - cell [ref=e211]
+            - row "Kaleb Bevelle Top Docs, Inc. FL , 407-416-2525" [ref=e212]:
+              - cell "Kaleb" [ref=e213]
+              - cell "Bevelle" [ref=e214]
+              - cell "Top Docs, Inc." [ref=e215]
+              - cell "FL" [ref=e216]
+              - cell "," [ref=e217]
+              - cell "407-416-2525" [ref=e218]
+              - cell [ref=e219]
+        - generic [ref=e220]:
+          - link "< Previous" [ref=e221] [cursor=pointer]:
+            - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$lbPrev','')
+          - generic [ref=e222]: Page 1 of 13
+          - link "Next >" [ref=e223] [cursor=pointer]:
+            - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$lbNext','')
+          - text: "Jump To Page:"
+          - combobox "Navigate to a specific page" [ref=e224]:
+            - option "1" [selected]
+            - option "2"
+            - option "3"
+            - option "4"
+            - option "5"
+            - option "6"
+            - option "7"
+            - option "8"
+            - option "9"
+            - option "10"
+            - option "11"
+            - option "12"
+            - option "13"
+          - text: "Results Per Page:"
+          - textbox [ref=e225]: "20"
+          - button "Go" [ref=e226] [cursor=pointer]
+        - paragraph
+      - separator [ref=e229]
+      - heading "National Coalition Of Healthcare Recruiters - Our Services Are Unparalleled" [level=1] [ref=e232]
+      - generic [ref=e233]:
+        - generic [ref=e235]:
+          - heading "Passive Candidate Database" [level=4] [ref=e238]:
+            - link "Passive Candidate Database" [ref=e239] [cursor=pointer]:
+              - /url: /passive-candidate-program
+          - paragraph [ref=e240]:
+            - link "Over 14,500 phone interviewed, Permission based emails and cell phone numbers. Permission granted to contact Physician Candidate with opportunities." [ref=e241] [cursor=pointer]:
+              - /url: /passive-candidate-program
+        - generic [ref=e243]:
+          - heading "Licensed Physician Database" [level=4] [ref=e246]:
+            - link "Licensed Physician Database" [ref=e247] [cursor=pointer]:
+              - /url: /licensed-physicians
+          - paragraph [ref=e248]:
+            - link "Over 1,030,000 cleaned, verified licensed physicians with over 734,000 emails. Data includes specialty, emails, phone numbers and addresses." [ref=e249] [cursor=pointer]:
+              - /url: /licensed-physicians
+        - generic [ref=e251]:
+          - heading "Marketing Co-Op Program" [level=4] [ref=e254]:
+            - link "Marketing Co-Op Program" [ref=e255] [cursor=pointer]:
+              - /url: /marketing-co-op-program
+          - paragraph [ref=e256]:
+            - link "Where you save will save Marketing Dollars on additional Job Boards. Sites such as, HEALTHeCAREERS, HospitalJobsOnLine/Nursingjobs.org GetAMedJob and more" [ref=e257] [cursor=pointer]:
+              - /url: /marketing-co-op-program
+      - generic [ref=e258]:
+        - generic [ref=e260]:
+          - heading "Registered Nurse Database" [level=4] [ref=e263]:
+            - link "Registered Nurse Database" [ref=e264] [cursor=pointer]:
+              - /url: /registered-nurse-database
+          - paragraph [ref=e265]:
+            - link "265,000 currently employeed/practicing Registered Nurses. Data includes Contact name, title, phone numbers, physical addresses, and Personal/Private email address" [ref=e266] [cursor=pointer]:
+              - /url: /registered-nurse-database
+        - generic [ref=e268]:
+          - heading "Certified Registered Nurse Anesthetist CRNA Database" [level=4] [ref=e271]:
+            - link "Certified Registered Nurse Anesthetist CRNA Database" [ref=e272] [cursor=pointer]:
+              - /url: /crna-database
+              - text: Certified Registered Nurse Anesthetist
+              - text: CRNA Database
+          - paragraph [ref=e273]:
+            - link "Over 40,000 cleaned and verified CRNA Candidates. Data includes work emails, phone numbers and addresses" [ref=e274] [cursor=pointer]:
+              - /url: /crna-database
+        - generic [ref=e276]:
+          - heading "Coalition Members" [level=4] [ref=e279]:
+            - link "Coalition Members" [ref=e280] [cursor=pointer]:
+              - /url: /coalition-directory
+          - paragraph [ref=e281]:
+            - link "Over 225 Healthcare Agencies, represented by over 600 dedicated Healthcare Recruiters. Exclusive to Healthcare Recruiter Agencies." [ref=e282] [cursor=pointer]:
+              - /url: /coalition-directory
+      - generic [ref=e283]:
+        - generic [ref=e285]:
+          - heading "Physician Assistant Database" [level=4] [ref=e288]:
+            - link "Physician Assistant Database" [ref=e289] [cursor=pointer]:
+              - /url: /physician-assistants
+          - paragraph [ref=e290]:
+            - link "Over 58,000 verified Physician Assistants. Data includes specialty, emails, phone numbers and addresses." [ref=e291] [cursor=pointer]:
+              - /url: /physician-assistants
+        - generic [ref=e293]:
+          - heading "Nurse Practitioner Database" [level=4] [ref=e296]:
+            - link "Nurse Practitioner Database" [ref=e297] [cursor=pointer]:
+              - /url: /nurse-practitioners
+          - paragraph [ref=e298]:
+            - link "Over 129,000 verified Nurse Practitioners. Data includes specialty, emails, phone numbers and addresses." [ref=e299] [cursor=pointer]:
+              - /url: /nurse-practitioners
+      - generic [ref=e302]:
+        - generic [ref=e303]:
+          - text: For
+          - text: Healthcare Candidates
+          - link "Please Contact Me With Job Opportunities That Match My Search Criteria (I understand my information will be held confidentially within NCHCR)" [ref=e304] [cursor=pointer]:
+            - /url: /post-candidate-profile
+            - text: Please Contact Me With Job Opportunities That Match My Search Criteria
+            - text: (I understand my information will be held confidentially within NCHCR)
+        - generic [ref=e305]:
+          - text: For
+          - text: Healthcare Recruiters
+          - link "I'm Interested In Becoming A Member" [ref=e306] [cursor=pointer]:
+            - /url: /interested-in-becoming-a-member
+            - text: I'm Interested In
+            - text: Becoming A Member
+    - generic [ref=e309]:
+      - generic [ref=e310]:
+        - heading "Links" [level=4] [ref=e311]
+        - link "About Us" [ref=e312] [cursor=pointer]:
+          - /url: /about-us
+        - link "Contact Us" [ref=e313] [cursor=pointer]:
+          - /url: /contact-us
+        - link "Privacy Policy" [ref=e314] [cursor=pointer]:
+          - /url: /privacy-policy
+        - link "Site Map" [ref=e315] [cursor=pointer]:
+          - /url: /sitemap
+        - link "Blog" [ref=e316] [cursor=pointer]:
+          - /url: /blog
+      - generic [ref=e317]:
+        - heading "Home Office" [level=4] [ref=e318]
+        - text: Main Street,
+        - text: Washington, WV 26181
+        - text: 304-699-5426
+      - generic [ref=e319]:
+        - heading "Texas Office" [level=4] [ref=e320]
+        - text: Main Street,
+        - text: Arlington, TX 76010
+        - text: 817-277-1763
+      - generic [ref=e323]:
+        - link [ref=e324] [cursor=pointer]:
+          - /url: http://www.twitter.com/NCHCR
+        - link [ref=e326] [cursor=pointer]:
+          - /url: http://www.facebook.com/NCHCR
+        - link [ref=e328] [cursor=pointer]:
+          - /url: https://www.linkedin.com/company/nchcr/
+    - contentinfo [ref=e330]:
+      - paragraph [ref=e334]:
+        - text: © 2016 Site built in partnership with
+        - link "Automated Concepts" [ref=e335] [cursor=pointer]:
+          - /url: http://automated-concepts.com/
+        - text: .
+  - dialog [ref=e336]:
+    - generic [ref=e339]:
+      - generic [ref=e340]:
+        - button "×" [ref=e341] [cursor=pointer]
+        - heading "lblModalMsgHeader" [level=4] [ref=e342]
+      - generic [ref=e343]:
+        - img [ref=e345]
+        - generic [ref=e346]: lblModalMsgDetails
+      - button "Close" [ref=e348] [cursor=pointer]
+  - dialog [ref=e349]:
+    - generic [ref=e352]:
+      - generic [ref=e353]:
+        - button "×" [ref=e354] [cursor=pointer]
+        - heading "lblModalYesNoHeader" [level=4] [ref=e355]
+      - generic [ref=e356]:
+        - img [ref=e358]
+        - generic [ref=e359]: lblModalYesNoDetails
+      - generic [ref=e360]:
+        - button "Yes" [ref=e361] [cursor=pointer]
+        - button "No" [ref=e362] [cursor=pointer]

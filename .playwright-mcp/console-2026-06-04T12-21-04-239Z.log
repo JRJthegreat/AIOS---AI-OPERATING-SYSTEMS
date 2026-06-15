@@ -1,0 +1,3 @@
+[     914ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://ad.doubleclick.net/ccm/s/collect?auid=1912809368.1780575647&gtm=45fe6621v9188998058za200zd9188998058xec:0
+[    1464ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://app.asksquid.ai/tfs/68f8d9c862d0ecedcd8aba67/settings:0
+[    1465ms] [ERROR] %cSquid %cUnable to initialize color:#f1416c; background:white;color:black; Invalid origin: https://nchcr.com @ https://app.asksquid.ai/tfs/68f8d9c862d0ecedcd8aba67/sdk:0

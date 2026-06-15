@@ -1,0 +1,316 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e6]:
+        - text: 
+        - link "National Coalition of Healthcare Recruiters" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img "National Coalition of Healthcare Recruiters" [ref=e8]
+        - list [ref=e9]:
+          - listitem
+          - listitem [ref=e10]:
+            - link "NCHCR Home" [ref=e11] [cursor=pointer]:
+              - /url: javascript:__doPostBack('ctl00$lbHome','')
+          - listitem
+          - listitem [ref=e12]:
+            - link "Recruiter Login" [ref=e13] [cursor=pointer]:
+              - /url: javascript:__doPostBack('ctl00$lbRecruiterLogin','')
+          - listitem [ref=e14]:
+            - link "Candidate Login" [ref=e15] [cursor=pointer]:
+              - /url: javascript:__doPostBack('ctl00$lbCandidateLogin','')
+          - listitem
+          - listitem
+    - heading "Job Opportunity Details" [level=1] [ref=e21]
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - generic [ref=e25]:
+            - paragraph
+            - generic [ref=e26]:
+              - table [ref=e28]:
+                - rowgroup [ref=e29]:
+                  - row "Job ID Specialty Geographic Location City State Recruiter" [ref=e30]:
+                    - columnheader "Job ID" [ref=e31]
+                    - columnheader "Specialty" [ref=e32]
+                    - columnheader "Geographic Location" [ref=e33]
+                    - columnheader "City" [ref=e34]
+                    - columnheader "State" [ref=e35]
+                    - columnheader "Recruiter" [ref=e36]
+                - rowgroup [ref=e37]:
+                  - row "2565059 Psychologist/Psychometrist Oakland, CA Oakland CA Medley Strategic Solutions (MSS)" [ref=e38]:
+                    - cell "2565059" [ref=e39]
+                    - cell "Psychologist/Psychometrist" [ref=e40]
+                    - cell "Oakland, CA" [ref=e41]
+                    - cell "Oakland" [ref=e42]
+                    - cell "CA" [ref=e43]
+                    - cell "Medley Strategic Solutions (MSS)" [ref=e44]
+              - generic [ref=e45]:
+                - strong [ref=e46]: "Company Name:"
+                - text: Medley Strategic Solutions (MSS)
+              - generic [ref=e47]:
+                - strong [ref=e48]: "Recruiter Name:"
+                - text: Gregory Ridore
+              - generic [ref=e49]:
+                - strong [ref=e50]: "Contact Phone:"
+                - text: 954-980-0683
+              - generic [ref=e51]:
+                - strong [ref=e52]: "Job Title:"
+                - text: Optum (LHI) - Psychologist, PsyD, or Psychiatrist Oakland, CA(Greg)
+              - generic [ref=e53]:
+                - strong [ref=e54]: "In HouseID:"
+                - text: "13457"
+              - generic [ref=e55]:
+                - strong [ref=e56]: "Recruiter Email:"
+                - link "gridore@staffmss.com" [ref=e57] [cursor=pointer]:
+                  - /url: "Mailto: gridore@staffmss.com"
+              - generic [ref=e58]:
+                - generic [ref=e59]:
+                  - heading "Job Description" [level=2] [ref=e60]
+                  - paragraph [ref=e61]:
+                    - strong [ref=e62]: This is a Psychologist/Psychometrist Opportunity Only!
+                  - button "VIEW ADDITIONAL JOBS" [ref=e63] [cursor=pointer]
+                  - paragraph
+                - generic [ref=e64]:
+                  - paragraph [ref=e65]: Please fill out the form below to contact a Coalition Partner about this job.
+                  - generic [ref=e66]:
+                    - generic [ref=e67]: Full Name
+                    - textbox [ref=e68]
+                  - generic [ref=e69]:
+                    - generic [ref=e70]: "Telephone:"
+                    - text: (
+                    - textbox [ref=e71]
+                    - text: )
+                    - textbox [ref=e72]
+                    - text: "-"
+                    - textbox [ref=e73]
+                  - generic [ref=e74]:
+                    - generic [ref=e75]: Email address
+                    - textbox [ref=e76]
+                  - generic [ref=e77]:
+                    - generic [ref=e78]: "Comments:"
+                    - textbox [ref=e79]
+                  - generic [ref=e80]:
+                    - generic [ref=e81]: "Optional- attach CV (PDF or DOCX):"
+                    - button "Choose File" [ref=e82]
+                  - generic [ref=e83]:
+                    - iframe [ref=e87]:
+                      - generic [ref=f15e2]:
+                        - generic [ref=f15e3]:
+                          - checkbox "I'm not a robot" [ref=f15e7]
+                          - generic [ref=f15e11]: I'm not a robot
+                        - generic [ref=f15e15]: reCAPTCHA
+                    - generic [ref=e88]:
+                      - strong [ref=e89]: By submitting this form and signing up for texts, you consent to receive text messages related specifically to your job placements from NCHCR and RecruiterBalm at the number provided. Msg & data rates may apply. Msg frequency varies. Unsubscribe at any time by replying STOP.
+                      - strong [ref=e90]: "Privacy Policy:"
+                      - link "https://www.nchcr.com/privacy-policy" [ref=e92] [cursor=pointer]:
+                        - /url: https://www.nchcr.com/privacy-policy
+                      - strong [ref=e93]: "Terms:"
+                      - link "https://www.nchcr.com/pdf/NCHCR_StandardsofEthicalPractices.pdf" [ref=e95] [cursor=pointer]:
+                        - /url: https://www.nchcr.com/pdf/NCHCR_StandardsofEthicalPractices.pdf
+                    - button "Send Email To Recruiter" [ref=e96] [cursor=pointer]
+              - generic [ref=e98]:
+                - text: Oakland, CA
+                - paragraph [ref=e99]:
+                  - text: We're seeking to contract a
+                  - strong [ref=e100]: Psychologist, PsyD or Psychiatrist
+                  - text: to perform Compensation & Pension Exams (C&P) for our military Veterans at various sites through the USA.
+                - list [ref=e101]:
+                  - listitem [ref=e102]: "Length: 6-12 months (option to extend)"
+                  - listitem [ref=e103]: "Start Date: ASAP quick credentialing to train/onboard"
+                  - listitem [ref=e104]: "Hours: FT, in-person preferred"
+                  - listitem [ref=e105]: "Location: Oakland, CA"
+                  - listitem [ref=e106]: "Pay: $72-$77/hour **Negotiable with experience**"
+                - paragraph [ref=e107]
+                - paragraph [ref=e108]:
+                  - strong [ref=e109]: "Contract Description/Overview:"
+                - paragraph [ref=e110]: Your services support the Veterans Benefits Administration Medical Disabilities Examinations program. Veterans are scheduled for appointments at contracted facilities for compensation and pension exams and embeds practitioners in facilities as needs warrant. Dedicated facilities are in areas where there is a large Veteran population with the potential for high volume.
+                - paragraph [ref=e111]
+                - list [ref=e112]:
+                  - listitem [ref=e113]:
+                    - text: The compensation and pension exam helps the VA answer questions about Veterans’ current health.
+                    - strong [ref=e114]:
+                      - emphasis [ref=e115]: The practitioners will not decide the percent of disability or rating, develop treatment plans, or prescribe medication.
+                  - listitem [ref=e116]: Completed documentation is sent to the VA for final determination on all disability claims.
+                  - listitem [ref=e117]: Prior to the exam, the practitioner reviews a Veteran’s medical or mental health history, using electronic bookmarks that highlight the portions applicable to the Veteran’s claimed condition.
+                  - listitem [ref=e118]: The practitioner is guided through a web-based examination form in LHI’s Provider Portal to capture the Veteran’s responses during the exam.
+                  - listitem [ref=e119]: Electronic exam documentation is known as a Disability Benefits Questionnaire (DBQ) and must be submitted promptly within 48 hours of each appointment.
+                  - listitem [ref=e120]: The number of DBQs completed per exam will vary based on the Veteran’s claimed conditions.
+                  - listitem [ref=e121]: Administrative time is provided to complete exam documentation and ensure timely submission.
+                  - listitem [ref=e122]: The documentation is reviewed by a team of medical professionals to ensure contract compliance and guarantee the verbiage aligns with customer requirements.
+                  - listitem [ref=e123]: Requests for changes or corrections to exam documentation must be submitted within 48 hours of the appointment.
+                  - listitem [ref=e124]: Review pertinent medical history documentation and provide one-time, non-treatment compensation and pension exams for Veterans.
+                  - listitem [ref=e125]: The Practitioner will capture responses during the exam through a web-based examination form; all documentation will be completed electronically.
+                  - listitem [ref=e126]: Completed exams are sent to the U.S. Department of Veterans Affairs for disability award determinations.
+                  - listitem [ref=e127]: Behavior Health exams are scheduled in 90+ minutes for a comprehensive exam for assessing PTSD, depression, anxiety and eating disorders.
+                - paragraph [ref=e128]:
+                  - strong [ref=e129]: •• Exam submission must be completed online, but no typing is necessary while the Veteran is present; time is provided throughout the day for dictation to ensure the flow of the patient interview is not disrupted.
+                - paragraph [ref=e130]
+                - paragraph [ref=e131]
+                - paragraph [ref=e132]:
+                  - strong [ref=e133]: Education/Qualifications
+                - paragraph [ref=e134]: Qualified candidates must be a PhD or PsyD, with a major in Psychology, who graduated from a doctorate or post-doctorate APA accredited program or a BC/BE MD. Qualified candidates must be actively licensed and able to work independently and as part of a team, have good interpersonal skills and a willingness to be flexible and adapt to changing situations. Candidates must possess basic computer skills.
+                - paragraph [ref=e135]: "*Compensation exam or VA experience is preferred, but not required. Module Training is provided."
+                - paragraph [ref=e136]:
+                  - text: Please send your CV to
+                  - link "More..." [ref=e137] [cursor=pointer]:
+                    - /url: mailto:kdb<p><a href=
+                    - text: More...
+                - heading [level=3]
+                - link:
+                  - /url: mailto:kdb<p><a href=
+              - 'link "Return To Search Results Referrer: nchcr.com" [ref=e138] [cursor=pointer]':
+                - /url: mailto:kdb<p><a href=
+                - generic [ref=e139]:
+                  - button "Return To Search Results" [ref=e140]
+                  - text: "Referrer: nchcr.com"
+            - link:
+              - /url: mailto:kdb<p><a href=
+          - link:
+            - /url: mailto:kdb<p><a href=
+        - link:
+          - /url: mailto:kdb<p><a href=
+      - link "National Coalition Of Healthcare Recruiters - Our Services Are Unparalleled" [ref=e141] [cursor=pointer]:
+        - /url: mailto:kdb<p><a href=
+        - separator [ref=e144]
+        - heading "National Coalition Of Healthcare Recruiters - Our Services Are Unparalleled" [level=1] [ref=e147]
+      - generic [ref=e148]:
+        - link:
+          - /url: mailto:kdb<p><a href=
+        - generic [ref=e149]:
+          - link:
+            - /url: mailto:kdb<p><a href=
+          - generic [ref=e150]:
+            - link:
+              - /url: mailto:kdb<p><a href=
+            - heading "Passive Candidate Database" [level=4] [ref=e153]:
+              - link:
+                - /url: mailto:kdb<p><a href=
+              - link "Passive Candidate Database" [ref=e154] [cursor=pointer]:
+                - /url: /passive-candidate-program
+            - paragraph [ref=e155]:
+              - link "Over 14,500 phone interviewed, Permission based emails and cell phone numbers. Permission granted to contact Physician Candidate with opportunities." [ref=e156] [cursor=pointer]:
+                - /url: /passive-candidate-program
+        - generic [ref=e158]:
+          - heading "Licensed Physician Database" [level=4] [ref=e161]:
+            - link "Licensed Physician Database" [ref=e162] [cursor=pointer]:
+              - /url: /licensed-physicians
+          - paragraph [ref=e163]:
+            - link "Over 1,030,000 cleaned, verified licensed physicians with over 734,000 emails. Data includes specialty, emails, phone numbers and addresses." [ref=e164] [cursor=pointer]:
+              - /url: /licensed-physicians
+        - generic [ref=e166]:
+          - heading "Marketing Co-Op Program" [level=4] [ref=e169]:
+            - link "Marketing Co-Op Program" [ref=e170] [cursor=pointer]:
+              - /url: /marketing-co-op-program
+          - paragraph [ref=e171]:
+            - link "Where you save will save Marketing Dollars on additional Job Boards. Sites such as, HEALTHeCAREERS, HospitalJobsOnLine/Nursingjobs.org GetAMedJob and more" [ref=e172] [cursor=pointer]:
+              - /url: /marketing-co-op-program
+      - generic [ref=e173]:
+        - generic [ref=e175]:
+          - heading "Registered Nurse Database" [level=4] [ref=e178]:
+            - link "Registered Nurse Database" [ref=e179] [cursor=pointer]:
+              - /url: /registered-nurse-database
+          - paragraph [ref=e180]:
+            - link "265,000 currently employeed/practicing Registered Nurses. Data includes Contact name, title, phone numbers, physical addresses, and Personal/Private email address" [ref=e181] [cursor=pointer]:
+              - /url: /registered-nurse-database
+        - generic [ref=e183]:
+          - heading "Certified Registered Nurse Anesthetist CRNA Database" [level=4] [ref=e186]:
+            - link "Certified Registered Nurse Anesthetist CRNA Database" [ref=e187] [cursor=pointer]:
+              - /url: /crna-database
+              - text: Certified Registered Nurse Anesthetist
+              - text: CRNA Database
+          - paragraph [ref=e188]:
+            - link "Over 40,000 cleaned and verified CRNA Candidates. Data includes work emails, phone numbers and addresses" [ref=e189] [cursor=pointer]:
+              - /url: /crna-database
+        - generic [ref=e191]:
+          - heading "Coalition Members" [level=4] [ref=e194]:
+            - link "Coalition Members" [ref=e195] [cursor=pointer]:
+              - /url: /coalition-directory
+          - paragraph [ref=e196]:
+            - link "Over 225 Healthcare Agencies, represented by over 600 dedicated Healthcare Recruiters. Exclusive to Healthcare Recruiter Agencies." [ref=e197] [cursor=pointer]:
+              - /url: /coalition-directory
+      - generic [ref=e198]:
+        - generic [ref=e200]:
+          - heading "Physician Assistant Database" [level=4] [ref=e203]:
+            - link "Physician Assistant Database" [ref=e204] [cursor=pointer]:
+              - /url: /physician-assistants
+          - paragraph [ref=e205]:
+            - link "Over 58,000 verified Physician Assistants. Data includes specialty, emails, phone numbers and addresses." [ref=e206] [cursor=pointer]:
+              - /url: /physician-assistants
+        - generic [ref=e208]:
+          - heading "Nurse Practitioner Database" [level=4] [ref=e211]:
+            - link "Nurse Practitioner Database" [ref=e212] [cursor=pointer]:
+              - /url: /nurse-practitioners
+          - paragraph [ref=e213]:
+            - link "Over 129,000 verified Nurse Practitioners. Data includes specialty, emails, phone numbers and addresses." [ref=e214] [cursor=pointer]:
+              - /url: /nurse-practitioners
+      - generic [ref=e217]:
+        - generic [ref=e218]:
+          - text: For
+          - text: Healthcare Candidates
+          - link "Please Contact Me With Job Opportunities That Match My Search Criteria (I understand my information will be held confidentially within NCHCR)" [ref=e219] [cursor=pointer]:
+            - /url: /post-candidate-profile
+            - text: Please Contact Me With Job Opportunities That Match My Search Criteria
+            - text: (I understand my information will be held confidentially within NCHCR)
+        - generic [ref=e220]:
+          - text: For
+          - text: Healthcare Recruiters
+          - link "I'm Interested In Becoming A Member" [ref=e221] [cursor=pointer]:
+            - /url: /interested-in-becoming-a-member
+            - text: I'm Interested In
+            - text: Becoming A Member
+    - generic [ref=e224]:
+      - generic [ref=e225]:
+        - heading "Links" [level=4] [ref=e226]
+        - link "About Us" [ref=e227] [cursor=pointer]:
+          - /url: /about-us
+        - link "Contact Us" [ref=e228] [cursor=pointer]:
+          - /url: /contact-us
+        - link "Privacy Policy" [ref=e229] [cursor=pointer]:
+          - /url: /privacy-policy
+        - link "Site Map" [ref=e230] [cursor=pointer]:
+          - /url: /sitemap
+        - link "Blog" [ref=e231] [cursor=pointer]:
+          - /url: /blog
+      - generic [ref=e232]:
+        - heading "Home Office" [level=4] [ref=e233]
+        - text: Main Street,
+        - text: Washington, WV 26181
+        - text: 304-699-5426
+      - generic [ref=e234]:
+        - heading "Texas Office" [level=4] [ref=e235]
+        - text: Main Street,
+        - text: Arlington, TX 76010
+        - text: 817-277-1763
+      - generic [ref=e238]:
+        - link [ref=e239] [cursor=pointer]:
+          - /url: http://www.twitter.com/NCHCR
+        - link [ref=e241] [cursor=pointer]:
+          - /url: http://www.facebook.com/NCHCR
+        - link [ref=e243] [cursor=pointer]:
+          - /url: https://www.linkedin.com/company/nchcr/
+    - contentinfo [ref=e245]:
+      - paragraph [ref=e249]:
+        - text: © 2016 Site built in partnership with
+        - link "Automated Concepts" [ref=e250] [cursor=pointer]:
+          - /url: http://automated-concepts.com/
+        - text: .
+  - dialog [ref=e251]:
+    - generic [ref=e254]:
+      - generic [ref=e255]:
+        - button "×" [ref=e256] [cursor=pointer]
+        - heading "lblModalMsgHeader" [level=4] [ref=e257]
+      - generic [ref=e258]:
+        - img [ref=e260]
+        - generic [ref=e261]: lblModalMsgDetails
+      - button "Close" [ref=e263] [cursor=pointer]
+  - dialog [ref=e264]:
+    - generic [ref=e267]:
+      - generic [ref=e268]:
+        - button "×" [ref=e269] [cursor=pointer]
+        - heading "lblModalYesNoHeader" [level=4] [ref=e270]
+      - generic [ref=e271]:
+        - img [ref=e273]
+        - generic [ref=e274]: lblModalYesNoDetails
+      - generic [ref=e275]:
+        - button "Yes" [ref=e276] [cursor=pointer]
+        - button "No" [ref=e277] [cursor=pointer]

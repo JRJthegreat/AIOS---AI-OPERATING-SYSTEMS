@@ -1,0 +1,166 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e6]:
+        - text: 
+        - link "National Coalition of Healthcare Recruiters" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img "National Coalition of Healthcare Recruiters" [ref=e8]
+        - list [ref=e9]:
+          - listitem
+          - listitem [ref=e10]:
+            - link "NCHCR Home" [ref=e11] [cursor=pointer]:
+              - /url: javascript:__doPostBack('ctl00$lbHome','')
+          - listitem
+          - listitem [ref=e12]:
+            - link "Recruiter Login" [ref=e13] [cursor=pointer]:
+              - /url: javascript:__doPostBack('ctl00$lbRecruiterLogin','')
+          - listitem [ref=e14]:
+            - link "Candidate Login" [ref=e15] [cursor=pointer]:
+              - /url: javascript:__doPostBack('ctl00$lbCandidateLogin','')
+          - listitem
+          - listitem
+    - heading "Job Opportunity Details" [level=1] [ref=e21]
+    - generic [ref=e22]:
+      - generic [ref=e25]:
+        - paragraph
+        - generic [ref=e27]:
+          - heading "The job you requested may have been fullfilled" [level=2] [ref=e28]
+          - paragraph [ref=e29]:
+            - strong [ref=e30]: (Or it was removed from our database for another reason)
+          - button "VIEW ADDITIONAL JOBS" [ref=e31] [cursor=pointer]
+          - paragraph
+      - separator [ref=e34]
+      - heading "National Coalition Of Healthcare Recruiters - Our Services Are Unparalleled" [level=1] [ref=e37]
+      - generic [ref=e38]:
+        - generic [ref=e40]:
+          - heading "Passive Candidate Database" [level=4] [ref=e43]:
+            - link "Passive Candidate Database" [ref=e44] [cursor=pointer]:
+              - /url: /passive-candidate-program
+          - paragraph [ref=e45]:
+            - link "Over 14,500 phone interviewed, Permission based emails and cell phone numbers. Permission granted to contact Physician Candidate with opportunities." [ref=e46] [cursor=pointer]:
+              - /url: /passive-candidate-program
+        - generic [ref=e48]:
+          - heading "Licensed Physician Database" [level=4] [ref=e51]:
+            - link "Licensed Physician Database" [ref=e52] [cursor=pointer]:
+              - /url: /licensed-physicians
+          - paragraph [ref=e53]:
+            - link "Over 1,030,000 cleaned, verified licensed physicians with over 734,000 emails. Data includes specialty, emails, phone numbers and addresses." [ref=e54] [cursor=pointer]:
+              - /url: /licensed-physicians
+        - generic [ref=e56]:
+          - heading "Marketing Co-Op Program" [level=4] [ref=e59]:
+            - link "Marketing Co-Op Program" [ref=e60] [cursor=pointer]:
+              - /url: /marketing-co-op-program
+          - paragraph [ref=e61]:
+            - link "Where you save will save Marketing Dollars on additional Job Boards. Sites such as, HEALTHeCAREERS, HospitalJobsOnLine/Nursingjobs.org GetAMedJob and more" [ref=e62] [cursor=pointer]:
+              - /url: /marketing-co-op-program
+      - generic [ref=e63]:
+        - generic [ref=e65]:
+          - heading "Registered Nurse Database" [level=4] [ref=e68]:
+            - link "Registered Nurse Database" [ref=e69] [cursor=pointer]:
+              - /url: /registered-nurse-database
+          - paragraph [ref=e70]:
+            - link "265,000 currently employeed/practicing Registered Nurses. Data includes Contact name, title, phone numbers, physical addresses, and Personal/Private email address" [ref=e71] [cursor=pointer]:
+              - /url: /registered-nurse-database
+        - generic [ref=e73]:
+          - heading "Certified Registered Nurse Anesthetist CRNA Database" [level=4] [ref=e76]:
+            - link "Certified Registered Nurse Anesthetist CRNA Database" [ref=e77] [cursor=pointer]:
+              - /url: /crna-database
+              - text: Certified Registered Nurse Anesthetist
+              - text: CRNA Database
+          - paragraph [ref=e78]:
+            - link "Over 40,000 cleaned and verified CRNA Candidates. Data includes work emails, phone numbers and addresses" [ref=e79] [cursor=pointer]:
+              - /url: /crna-database
+        - generic [ref=e81]:
+          - heading "Coalition Members" [level=4] [ref=e84]:
+            - link "Coalition Members" [ref=e85] [cursor=pointer]:
+              - /url: /coalition-directory
+          - paragraph [ref=e86]:
+            - link "Over 225 Healthcare Agencies, represented by over 600 dedicated Healthcare Recruiters. Exclusive to Healthcare Recruiter Agencies." [ref=e87] [cursor=pointer]:
+              - /url: /coalition-directory
+      - generic [ref=e88]:
+        - generic [ref=e90]:
+          - heading "Physician Assistant Database" [level=4] [ref=e93]:
+            - link "Physician Assistant Database" [ref=e94] [cursor=pointer]:
+              - /url: /physician-assistants
+          - paragraph [ref=e95]:
+            - link "Over 58,000 verified Physician Assistants. Data includes specialty, emails, phone numbers and addresses." [ref=e96] [cursor=pointer]:
+              - /url: /physician-assistants
+        - generic [ref=e98]:
+          - heading "Nurse Practitioner Database" [level=4] [ref=e101]:
+            - link "Nurse Practitioner Database" [ref=e102] [cursor=pointer]:
+              - /url: /nurse-practitioners
+          - paragraph [ref=e103]:
+            - link "Over 129,000 verified Nurse Practitioners. Data includes specialty, emails, phone numbers and addresses." [ref=e104] [cursor=pointer]:
+              - /url: /nurse-practitioners
+      - generic [ref=e107]:
+        - generic [ref=e108]:
+          - text: For
+          - text: Healthcare Candidates
+          - link "Please Contact Me With Job Opportunities That Match My Search Criteria (I understand my information will be held confidentially within NCHCR)" [ref=e109] [cursor=pointer]:
+            - /url: /post-candidate-profile
+            - text: Please Contact Me With Job Opportunities That Match My Search Criteria
+            - text: (I understand my information will be held confidentially within NCHCR)
+        - generic [ref=e110]:
+          - text: For
+          - text: Healthcare Recruiters
+          - link "I'm Interested In Becoming A Member" [ref=e111] [cursor=pointer]:
+            - /url: /interested-in-becoming-a-member
+            - text: I'm Interested In
+            - text: Becoming A Member
+    - generic [ref=e114]:
+      - generic [ref=e115]:
+        - heading "Links" [level=4] [ref=e116]
+        - link "About Us" [ref=e117] [cursor=pointer]:
+          - /url: /about-us
+        - link "Contact Us" [ref=e118] [cursor=pointer]:
+          - /url: /contact-us
+        - link "Privacy Policy" [ref=e119] [cursor=pointer]:
+          - /url: /privacy-policy
+        - link "Site Map" [ref=e120] [cursor=pointer]:
+          - /url: /sitemap
+        - link "Blog" [ref=e121] [cursor=pointer]:
+          - /url: /blog
+      - generic [ref=e122]:
+        - heading "Home Office" [level=4] [ref=e123]
+        - text: Main Street,
+        - text: Washington, WV 26181
+        - text: 304-699-5426
+      - generic [ref=e124]:
+        - heading "Texas Office" [level=4] [ref=e125]
+        - text: Main Street,
+        - text: Arlington, TX 76010
+        - text: 817-277-1763
+      - generic [ref=e128]:
+        - link [ref=e129] [cursor=pointer]:
+          - /url: http://www.twitter.com/NCHCR
+        - link [ref=e131] [cursor=pointer]:
+          - /url: http://www.facebook.com/NCHCR
+        - link [ref=e133] [cursor=pointer]:
+          - /url: https://www.linkedin.com/company/nchcr/
+    - contentinfo [ref=e135]:
+      - paragraph [ref=e139]:
+        - text: © 2016 Site built in partnership with
+        - link "Automated Concepts" [ref=e140] [cursor=pointer]:
+          - /url: http://automated-concepts.com/
+        - text: .
+  - dialog [ref=e141]:
+    - generic [ref=e144]:
+      - generic [ref=e145]:
+        - button "×" [ref=e146] [cursor=pointer]
+        - heading "lblModalMsgHeader" [level=4] [ref=e147]
+      - generic [ref=e148]:
+        - img [ref=e150]
+        - generic [ref=e151]: lblModalMsgDetails
+      - button "Close" [ref=e153] [cursor=pointer]
+  - dialog [ref=e154]:
+    - generic [ref=e157]:
+      - generic [ref=e158]:
+        - button "×" [ref=e159] [cursor=pointer]
+        - heading "lblModalYesNoHeader" [level=4] [ref=e160]
+      - generic [ref=e161]:
+        - img [ref=e163]
+        - generic [ref=e164]: lblModalYesNoDetails
+      - generic [ref=e165]:
+        - button "Yes" [ref=e166] [cursor=pointer]
+        - button "No" [ref=e167] [cursor=pointer]

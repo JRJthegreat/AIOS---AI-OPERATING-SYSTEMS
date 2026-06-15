@@ -21,13 +21,13 @@ import logging
 
 from apify import Actor
 
-from .scrapers import asa_members, fdd_franchisees, linkedin_jobs, niche_directories, nppes_npi, sam_gov, state_registries
+from .scrapers import asa_members, fdd_franchisees, linkedin_jobs, nchcr, niche_directories, nppes_npi, sam_gov, state_registries
 from .utils.merge import normalize_record
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 log = logging.getLogger(__name__)
 
-DEFAULT_SOURCES = ["state_registries", "nppes", "asa_members", "fdd_franchisees", "niche_directories", "linkedin_jobs", "sam_gov"]
+DEFAULT_SOURCES = ["state_registries", "nppes", "asa_members", "fdd_franchisees", "niche_directories", "linkedin_jobs", "sam_gov", "nchcr"]
 
 SCRAPER_MAP = {
     "linkedin_jobs":    linkedin_jobs.run,
@@ -37,6 +37,7 @@ SCRAPER_MAP = {
     "asa_members":      asa_members.run,
     "fdd_franchisees":  fdd_franchisees.run,
     "sam_gov":          sam_gov.run,
+    "nchcr":            nchcr.run,
 }
 
 

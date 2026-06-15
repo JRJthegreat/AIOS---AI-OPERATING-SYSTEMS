@@ -1,0 +1,12 @@
+{
+    "actorSpecification": 1,
+    "name": "nchcr-job-board-recruiters",
+    "title": "NCHCR Job Board — Healthcare Recruiter Finder",
+    "version": "1.0",
+    "buildTag": "latest",
+    "input": "./input_schema.json",
+    "dockerfile": "../Dockerfile",
+    "description": "Scrapes the NCHCR (nchcr.com) job board for healthcare recruitment firms: company name, recruiter name, phone, and email per firm, with the website derived from the email domain. One deduplicated record per firm.",
+    "categories": ["LEAD_GENERATION", "BUSINESS"],
+    "labels": ["healthcare", "recruitment", "staffing", "leads", "B2B", "nchcr"]
+}

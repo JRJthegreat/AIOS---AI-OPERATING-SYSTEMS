@@ -1,0 +1,331 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e5]:
+      - text: 
+      - link "National Coalition of Healthcare Recruiters" [ref=e6] [cursor=pointer]:
+        - /url: "#"
+        - img "National Coalition of Healthcare Recruiters" [ref=e7]
+      - list [ref=e8]:
+        - listitem
+        - listitem [ref=e9]
+        - listitem
+        - listitem [ref=e10]
+        - listitem [ref=e11]:
+          - link "Recruiter Login" [ref=e12] [cursor=pointer]:
+            - /url: javascript:__doPostBack('lbRecruiterLogin','')
+        - listitem [ref=e13]:
+          - link "Candidate Login" [ref=e14] [cursor=pointer]:
+            - /url: javascript:__doPostBack('lbCandidateLogin','')
+        - listitem
+        - listitem
+  - generic [ref=e16]:
+    - article [ref=e17]:
+      - img [ref=e18]
+      - heading "We help Physicians, Allied Health, Advanced Practice, Nurses & Healthcare Executives with their healthcare career" [level=2] [ref=e20]:
+        - text: We help
+        - generic [ref=e21]:
+          - text: Physicians, Allied Health,
+          - text: Advanced Practice, Nurses
+          - text: "& Healthcare Executives"
+        - text: with their healthcare career
+    - list [ref=e22]:
+      - listitem [ref=e23] [cursor=pointer]:
+        - link "0" [ref=e24]:
+          - /url: "#showcasing"
+      - listitem [ref=e25] [cursor=pointer]:
+        - link "1" [ref=e26]:
+          - /url: "#showcasingg"
+      - listitem [ref=e27] [cursor=pointer]:
+        - link "2" [ref=e28]:
+          - /url: "#showcasinggg"
+    - link [ref=e29] [cursor=pointer]:
+      - /url: ""
+    - link [ref=e30] [cursor=pointer]:
+      - /url: ""
+  - generic [ref=e31]:
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - heading "Search for opportunities by specialty and state:" [level=3] [ref=e37]
+        - text: Your CV or Resume and personal information are not requested, so that you can conduct an anonymous confidential search, and speak with the physician recruiter of your choice!
+        - generic [ref=e38]:
+          - generic [ref=e40]: "Type of Position Must Be Selected:"
+          - generic [ref=e41]:
+            - radio "Physicians" [ref=e42] [cursor=pointer]
+            - text: Physicians
+          - generic [ref=e43]:
+            - radio "Non-Physicians" [ref=e44] [cursor=pointer]
+            - text: Non-Physicians
+          - generic [ref=e45]:
+            - radio "Both" [checked] [ref=e46] [cursor=pointer]
+            - text: Both
+        - text: "Search Specialty and Job Title for Keywords:"
+        - textbox [ref=e47]
+        - generic [ref=e48]:
+          - generic [ref=e49]:
+            - radio "Match if ALL words are found" [checked] [ref=e50] [cursor=pointer]
+            - text: Match if ALL words are found
+          - generic [ref=e51]:
+            - radio "Match if ANY words are found" [ref=e52] [cursor=pointer]
+            - text: Match if ANY words are found
+        - combobox [ref=e53]:
+          - option "All States (International Below)" [selected]
+          - option "Alabama"
+          - option "Alaska"
+          - option "Alberta"
+          - option "Arizona"
+          - option "Arkansas"
+          - option "British Columbia"
+          - option "California"
+          - option "Colorado"
+          - option "Connecticut"
+          - option "DC - Washington"
+          - option "Delaware"
+          - option "Florida"
+          - option "Georgia"
+          - option "Guam"
+          - option "Hawaii"
+          - option "Idaho"
+          - option "Illinois"
+          - option "Indiana"
+          - option "Iowa"
+          - option "Kansas"
+          - option "Kentucky"
+          - option "Louisiana"
+          - option "Maine"
+          - option "Manitoba"
+          - option "Maryland"
+          - option "Massachusetts"
+          - option "Michigan"
+          - option "Minnesota"
+          - option "Mississippi"
+          - option "Missouri"
+          - option "Montana"
+          - option "Nebraska"
+          - option "Nevada"
+          - option "New Brunswick"
+          - option "New Hampshire"
+          - option "New Jersey"
+          - option "New Mexico"
+          - option "New York"
+          - option "Newfoundland and Labrador"
+          - option "North Carolina"
+          - option "North Dakota"
+          - option "Northwest Territories"
+          - option "Nova Scotia"
+          - option "Nunavut"
+          - option "Ohio"
+          - option "Oklahoma"
+          - option "Ontario"
+          - option "Oregon"
+          - option "Pennsylvania"
+          - option "Prince Edward Island"
+          - option "Puerto Rico"
+          - option "Quebec"
+          - option "Rhode Island"
+          - option "Saskatchewan"
+          - option "South Carolina"
+          - option "South Dakota"
+          - option "Tennessee"
+          - option "Texas"
+          - option "Utah"
+          - option "Vermont"
+          - option "Virginia"
+          - option "Washington"
+          - option "West Virginia"
+          - option "Wisconsin"
+          - option "Wyoming"
+          - option "Yukon"
+          - option "International"
+          - option "International- China/Shanghai/Beijing/Hong Kong"
+          - option "International- Doha / Qatar"
+          - option "International- Kuwait City/ Kuwait"
+          - option "International- New Zealand"
+          - option "International- Singapore-city / Singapore"
+          - option "International- Thailand / Bangkok"
+          - option "International- Turkey / Istanbul"
+          - option "International- United Arab Emirates / Abu Dhabi"
+          - option "International- United Arab Emirates / Dubai"
+        - text: –OR–
+        - combobox [ref=e54]:
+          - option "All Regions" [selected]
+          - option "Deep South (AL, FL, GA, LA, MS)"
+          - option "Great Lakes (IL, IN, MI, OH, WI)"
+          - option "Mid Atlantic (DE, MD, NJ, NY, PA, WV)"
+          - option "Mid South (KY, NC, SC, TN, VA)"
+          - option "New England (CT, ME, MA, NH, RI, VT)"
+          - option "Northwest (ID, MT, OR, WA, WY)"
+          - option "Pacific West (AK, CA, HI)"
+          - option "South Central (AR, KS, MO, OK, TX)"
+          - option "Southwest (AZ, CO, NV, NM, UT)"
+          - option "Upper Plains (IA, MN, NE, ND, SD)"
+        - combobox [ref=e55]:
+          - option "All Positions" [selected]
+          - option "Contract"
+          - option "Contract to Permanent"
+          - option "Government – Locum Tenens"
+          - option "Government – Permanent"
+          - option "Locum Tenens"
+          - option "Locum to Permanent"
+          - option "Part Time"
+          - option "Permanent"
+          - option "Practice for Sale"
+          - option "Temporary"
+        - combobox [ref=e56]:
+          - option "All Visa Types" [selected]
+          - option "Green Card"
+          - option "H1-B"
+          - option "J-1"
+          - option "O-1"
+          - option "TN-1"
+          - option "U.S. Citizen"
+        - generic [ref=e57]:
+          - generic [ref=e58]:
+            - button "SEARCH NOW" [ref=e59] [cursor=pointer]
+            - link "Clear Search Criteria" [ref=e60] [cursor=pointer]:
+              - /url: javascript:__doPostBack('lbClearAllSearchCriteria','')
+          - generic [ref=e61]:
+            - link "BOOK A DEMO NOW!" [ref=e62] [cursor=pointer]:
+              - /url: https://calendly.com/jim-nchcr/nchcr-demonstration
+            - link "RecruiterBalm" [ref=e63] [cursor=pointer]:
+              - /url: https://www.recruiterbalm.com/
+              - img "RecruiterBalm" [ref=e64]
+        - text: lblReferrer
+      - generic [ref=e65]:
+        - text: For
+        - text: Healthcare Recruiters
+        - link "I'm Interested In Becoming A Member" [ref=e66] [cursor=pointer]:
+          - /url: /interested-in-becoming-a-member
+          - text: I'm Interested In
+          - text: Becoming A Member
+        - text: NCHCR Introductory Video
+        - text: (thank you for taking 2 minutes to view)
+        - iframe [ref=e67]:
+          - generic [active] [ref=f1e1]:
+            - generic "YouTube Video Player" [ref=f1e3]
+            - generic [ref=f1e5]:
+              - generic:
+                - generic:
+                  - button "Play video" [ref=f1e10] [cursor=pointer]
+                  - button "Hide player controls" [ref=f1e12] [cursor=pointer]
+                  - generic [ref=f1e19]:
+                    - generic [ref=f1e20]:
+                      - link "Healthcare Recruiters- Physician Healthcare Recruiters" [ref=f1e21] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=ZQBP9IyflXg
+                      - link "VideoShopping Network" [ref=f1e22] [cursor=pointer]:
+                        - /url: /channel/UCnIQbuqCfU3vYhiLJ-4jwJg
+                        - generic [ref=f1e23]: VideoShopping Network
+                    - generic [ref=f1e24]:
+                      - button [ref=f1e25] [cursor=pointer]
+                      - generic [ref=f1e27]:
+                        - generic: VideoShopping Network
+                        - generic: 15.2K subscribers
+      - generic [ref=e68]:
+        - link "Healthcare Articles" [ref=e69] [cursor=pointer]:
+          - /url: /healthcare-articles
+        - link "Please Contact Me With Job Opportunities That Match My Search Criteria (I understand my information will be held confidentially within NCHCR)" [ref=e70] [cursor=pointer]:
+          - /url: /post-candidate-profile
+          - text: Please Contact Me With Job Opportunities That Match My Search Criteria
+          - text: (I understand my information will be held confidentially within NCHCR)
+    - heading "National Coalition Of Healthcare Recruiters - Our Services Are Unparalleled" [level=1] [ref=e73]
+    - generic [ref=e74]:
+      - generic [ref=e76]:
+        - heading "Passive Candidate Database" [level=4] [ref=e79]:
+          - link "Passive Candidate Database" [ref=e80] [cursor=pointer]:
+            - /url: /passive-candidate-program
+        - paragraph [ref=e81]:
+          - link "Over 14,500 phone interviewed, Permission based emails and cell phone numbers. Permission granted to contact Physician Candidate with opportunities." [ref=e82] [cursor=pointer]:
+            - /url: /passive-candidate-program
+      - generic [ref=e84]:
+        - heading "Licensed Physician Database" [level=4] [ref=e87]:
+          - link "Licensed Physician Database" [ref=e88] [cursor=pointer]:
+            - /url: /licensed-physicians
+        - paragraph [ref=e89]:
+          - link "Over 1,030,000 cleaned, verified licensed physicians with over 734,000 emails. Data includes specialty, emails, phone numbers and addresses." [ref=e90] [cursor=pointer]:
+            - /url: /licensed-physicians
+      - generic [ref=e92]:
+        - heading "Marketing Co-Op Program" [level=4] [ref=e95]:
+          - link "Marketing Co-Op Program" [ref=e96] [cursor=pointer]:
+            - /url: /marketing-co-op-program
+        - paragraph [ref=e97]:
+          - link "Where you save will save Marketing Dollars on additional Job Boards. Sites such as, HEALTHeCAREERS, HospitalJobsOnLine/Nursingjobs.org GetAMedJob and more" [ref=e98] [cursor=pointer]:
+            - /url: /marketing-co-op-program
+    - generic [ref=e99]:
+      - generic [ref=e101]:
+        - heading "Registered Nurse Database" [level=4] [ref=e104]:
+          - link "Registered Nurse Database" [ref=e105] [cursor=pointer]:
+            - /url: /registered-nurse-database
+        - paragraph [ref=e106]:
+          - link "265,000 currently employeed/practicing Registered Nurses. Data includes Contact name, title, phone numbers, physical addresses, and Personal/Private email address" [ref=e107] [cursor=pointer]:
+            - /url: /registered-nurse-database
+      - generic [ref=e109]:
+        - heading "Certified Registered Nurse Anesthetist CRNA Database" [level=4] [ref=e112]:
+          - link "Certified Registered Nurse Anesthetist CRNA Database" [ref=e113] [cursor=pointer]:
+            - /url: /crna-database
+            - text: Certified Registered Nurse Anesthetist
+            - text: CRNA Database
+        - paragraph [ref=e114]:
+          - link "Over 40,000 cleaned and verified CRNA Candidates. Data includes work emails, phone numbers and addresses" [ref=e115] [cursor=pointer]:
+            - /url: /crna-database
+      - generic [ref=e117]:
+        - heading "Coalition Members" [level=4] [ref=e120]:
+          - link "Coalition Members" [ref=e121] [cursor=pointer]:
+            - /url: /coalition-directory
+        - paragraph [ref=e122]:
+          - link "Over 225 Healthcare Agencies, represented by over 600 dedicated Healthcare Recruiters. Exclusive to Healthcare Recruiter Agencies." [ref=e123] [cursor=pointer]:
+            - /url: /coalition-directory
+    - generic [ref=e124]:
+      - generic [ref=e126]:
+        - heading "Physician Assistant Database" [level=4] [ref=e129]:
+          - link "Physician Assistant Database" [ref=e130] [cursor=pointer]:
+            - /url: /physician-assistants
+        - paragraph [ref=e131]:
+          - link "Over 58,000 verified Physician Assistants. Data includes specialty, emails, phone numbers and addresses." [ref=e132] [cursor=pointer]:
+            - /url: /physician-assistants
+      - generic [ref=e134]:
+        - heading "Nurse Practitioner Database" [level=4] [ref=e137]:
+          - link "Nurse Practitioner Database" [ref=e138] [cursor=pointer]:
+            - /url: /nurse-practitioners
+        - paragraph [ref=e139]:
+          - link "Over 129,000 verified Nurse Practitioners. Data includes specialty, emails, phone numbers and addresses." [ref=e140] [cursor=pointer]:
+            - /url: /nurse-practitioners
+    - generic [ref=e143]:
+      - strong [ref=e146]: Opportunities Are Cross Posted To Multiple Sites
+      - generic [ref=e147]:
+        - text: For
+        - text: Healthcare Candidates
+        - link "Please Contact Me With Job Opportunities That Match My Search Criteria (I understand my information will be held confidentially within NCHCR)" [ref=e148] [cursor=pointer]:
+          - /url: /post-candidate-profile
+          - text: Please Contact Me With Job Opportunities That Match My Search Criteria
+          - text: (I understand my information will be held confidentially within NCHCR)
+  - generic [ref=e151]:
+    - generic [ref=e152]:
+      - heading "Links" [level=4] [ref=e153]
+      - link "About Us" [ref=e154] [cursor=pointer]:
+        - /url: /about-us
+      - link "Contact Us" [ref=e155] [cursor=pointer]:
+        - /url: /contact-us
+      - link "Privacy Policy" [ref=e156] [cursor=pointer]:
+        - /url: /privacy-policy
+      - link "Site Map" [ref=e157] [cursor=pointer]:
+        - /url: /sitemap
+      - link "Blog" [ref=e158] [cursor=pointer]:
+        - /url: /blog
+    - generic [ref=e159]:
+      - heading "Home Office" [level=4] [ref=e160]
+      - text: Main Street,
+      - text: Washington, WV 26181
+      - text: 304-699-5426
+    - generic [ref=e161]:
+      - heading "Texas Office" [level=4] [ref=e162]
+      - text: Main Street,
+      - text: Arlington, TX 76010
+      - text: 817-277-1763
+    - generic [ref=e165]:
+      - link [ref=e166] [cursor=pointer]:
+        - /url: http://www.twitter.com/NCHCR
+      - link [ref=e168] [cursor=pointer]:
+        - /url: http://www.facebook.com/NCHCR
+      - link [ref=e170] [cursor=pointer]:
+        - /url: https://www.linkedin.com/company/nchcr/
+  - contentinfo [ref=e172]:
+    - generic [ref=e176]: Copyright © 2025 nchcr.com. All rights reserved

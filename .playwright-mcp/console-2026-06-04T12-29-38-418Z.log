@@ -1,0 +1,3 @@
+[    1277ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://app.asksquid.ai/tfs/68f8d9c862d0ecedcd8aba67/settings:0
+[    1278ms] [ERROR] %cSquid %cUnable to initialize color:#f1416c; background:white;color:black; Invalid origin: https://nchcr.com @ https://app.asksquid.ai/tfs/68f8d9c862d0ecedcd8aba67/sdk:0
+[   39823ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_TIMED_OUT @ https://www.rumiview.com/piwik.js:0

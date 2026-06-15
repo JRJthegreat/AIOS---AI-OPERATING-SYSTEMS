@@ -1,0 +1,1667 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e6]:
+        - text: 
+        - link "National Coalition of Healthcare Recruiters" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img "National Coalition of Healthcare Recruiters" [ref=e8]
+        - list [ref=e9]:
+          - listitem
+          - listitem [ref=e10]:
+            - link "NCHCR Home" [ref=e11] [cursor=pointer]:
+              - /url: javascript:__doPostBack('ctl00$lbHome','')
+          - listitem
+          - listitem [ref=e12]:
+            - link "Recruiter Login" [ref=e13] [cursor=pointer]:
+              - /url: javascript:__doPostBack('ctl00$lbRecruiterLogin','')
+          - listitem [ref=e14]:
+            - link "Candidate Login" [ref=e15] [cursor=pointer]:
+              - /url: javascript:__doPostBack('ctl00$lbCandidateLogin','')
+          - listitem
+          - listitem
+    - heading "Job Opportunity Search Results" [level=1] [ref=e21]
+    - generic [ref=e22]:
+      - generic [ref=e25]:
+        - link [ref=e27] [cursor=pointer]:
+          - /url: http://www.mdpreferredservices.com
+        - paragraph [ref=e28]: Search results may include opportunities from many recruiting firms. By responding to the posting you will be contacted by the coalition partner. If there are no opportunities available at this time, please come back, as new opportunities are posted daily. Feel free to post your profile.
+        - generic [ref=e29]:
+          - generic [ref=e30]:
+            - heading "10,500 Results found" [level=3] [ref=e31]
+            - link "Please Contact Me With Job Opportunities That Match My Search Criteria (I understand my information will be held confidentially within NCHCR)" [ref=e32] [cursor=pointer]:
+              - /url: /post-candidate-profile
+              - text: Please Contact Me With Job Opportunities That Match My Search Criteria
+              - text: (I understand my information will be held confidentially within NCHCR)
+          - generic [ref=e33]:
+            - generic [ref=e34]:
+              - generic [ref=e36]: "Type of Position Must Be Selected:"
+              - generic [ref=e37]:
+                - radio "Physicians" [ref=e38] [cursor=pointer]
+                - text: Physicians
+              - generic [ref=e39]:
+                - radio "Non-Physicians" [ref=e40] [cursor=pointer]
+                - text: Non-Physicians
+              - generic [ref=e41]:
+                - radio "Both" [checked] [ref=e42] [cursor=pointer]
+                - text: Both
+            - text: "Search Specialty and Job Title for Keywords:"
+            - textbox [ref=e43]
+            - generic [ref=e44]:
+              - generic [ref=e45]:
+                - radio "Match if ALL words are found" [checked] [ref=e46] [cursor=pointer]
+                - text: Match if ALL words are found
+              - generic [ref=e47]:
+                - radio "Match if ANY words are found" [ref=e48] [cursor=pointer]
+                - text: Match if ANY words are found
+            - combobox [ref=e49]:
+              - option "All States (International Below)" [selected]
+              - option "Alabama"
+              - option "Alaska"
+              - option "Alberta"
+              - option "Arizona"
+              - option "Arkansas"
+              - option "British Columbia"
+              - option "California"
+              - option "Colorado"
+              - option "Connecticut"
+              - option "DC - Washington"
+              - option "Delaware"
+              - option "Florida"
+              - option "Georgia"
+              - option "Guam"
+              - option "Hawaii"
+              - option "Idaho"
+              - option "Illinois"
+              - option "Indiana"
+              - option "Iowa"
+              - option "Kansas"
+              - option "Kentucky"
+              - option "Louisiana"
+              - option "Maine"
+              - option "Manitoba"
+              - option "Maryland"
+              - option "Massachusetts"
+              - option "Michigan"
+              - option "Minnesota"
+              - option "Mississippi"
+              - option "Missouri"
+              - option "Montana"
+              - option "Nebraska"
+              - option "Nevada"
+              - option "New Brunswick"
+              - option "New Hampshire"
+              - option "New Jersey"
+              - option "New Mexico"
+              - option "New York"
+              - option "Newfoundland and Labrador"
+              - option "North Carolina"
+              - option "North Dakota"
+              - option "Northwest Territories"
+              - option "Nova Scotia"
+              - option "Nunavut"
+              - option "Ohio"
+              - option "Oklahoma"
+              - option "Ontario"
+              - option "Oregon"
+              - option "Pennsylvania"
+              - option "Prince Edward Island"
+              - option "Puerto Rico"
+              - option "Quebec"
+              - option "Rhode Island"
+              - option "Saskatchewan"
+              - option "South Carolina"
+              - option "South Dakota"
+              - option "Tennessee"
+              - option "Texas"
+              - option "Utah"
+              - option "Vermont"
+              - option "Virginia"
+              - option "Washington"
+              - option "West Virginia"
+              - option "Wisconsin"
+              - option "Wyoming"
+              - option "Yukon"
+              - option "International"
+              - option "International- China/Shanghai/Beijing/Hong Kong"
+              - option "International- Doha / Qatar"
+              - option "International- Kuwait City/ Kuwait"
+              - option "International- New Zealand"
+              - option "International- Singapore-city / Singapore"
+              - option "International- Thailand / Bangkok"
+              - option "International- Turkey / Istanbul"
+              - option "International- United Arab Emirates / Abu Dhabi"
+              - option "International- United Arab Emirates / Dubai"
+            - text: –OR–
+            - combobox [ref=e50]:
+              - option "All Regions" [selected]
+              - option "Deep South (AL, FL, GA, LA, MS)"
+              - option "Great Lakes (IL, IN, MI, OH, WI)"
+              - option "Mid Atlantic (DE, MD, NJ, NY, PA, WV)"
+              - option "Mid South (KY, NC, SC, TN, VA)"
+              - option "New England (CT, ME, MA, NH, RI, VT)"
+              - option "Northwest (ID, MT, OR, WA, WY)"
+              - option "Pacific West (AK, CA, HI)"
+              - option "South Central (AR, KS, MO, OK, TX)"
+              - option "Southwest (AZ, CO, NV, NM, UT)"
+              - option "Upper Plains (IA, MN, NE, ND, SD)"
+            - combobox [ref=e51]:
+              - option "All Positions" [selected]
+              - option "Contract"
+              - option "Contract to Permanent"
+              - option "Government – Locum Tenens"
+              - option "Government – Permanent"
+              - option "Locum Tenens"
+              - option "Locum to Permanent"
+              - option "Part Time"
+              - option "Permanent"
+              - option "Practice for Sale"
+              - option "Temporary"
+            - combobox [ref=e52]:
+              - option "All Visa Types" [selected]
+              - option "Green Card"
+              - option "H1-B"
+              - option "J-1"
+              - option "O-1"
+              - option "TN-1"
+              - option "U.S. Citizen"
+            - button "SEARCH NOW" [ref=e53] [cursor=pointer]
+            - link "Clear Search Criteria" [ref=e54] [cursor=pointer]:
+              - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$lbClearAllSearchCriteria','')
+        - generic [ref=e56]:
+          - link "< Previous" [ref=e57] [cursor=pointer]:
+            - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$lbPrev_Top','')
+          - generic [ref=e58]: Page 1 of 525
+          - link "Next >" [ref=e59] [cursor=pointer]:
+            - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$lbNext_Top','')
+          - text: "Jump To Page:"
+          - combobox "Navigate to a specific page" [ref=e60]:
+            - option "1" [selected]
+            - option "2"
+            - option "3"
+            - option "4"
+            - option "5"
+            - option "6"
+            - option "7"
+            - option "8"
+            - option "9"
+            - option "10"
+            - option "11"
+            - option "12"
+            - option "13"
+            - option "14"
+            - option "15"
+            - option "16"
+            - option "17"
+            - option "18"
+            - option "19"
+            - option "20"
+            - option "21"
+            - option "22"
+            - option "23"
+            - option "24"
+            - option "25"
+            - option "26"
+            - option "27"
+            - option "28"
+            - option "29"
+            - option "30"
+            - option "31"
+            - option "32"
+            - option "33"
+            - option "34"
+            - option "35"
+            - option "36"
+            - option "37"
+            - option "38"
+            - option "39"
+            - option "40"
+            - option "41"
+            - option "42"
+            - option "43"
+            - option "44"
+            - option "45"
+            - option "46"
+            - option "47"
+            - option "48"
+            - option "49"
+            - option "50"
+            - option "51"
+            - option "52"
+            - option "53"
+            - option "54"
+            - option "55"
+            - option "56"
+            - option "57"
+            - option "58"
+            - option "59"
+            - option "60"
+            - option "61"
+            - option "62"
+            - option "63"
+            - option "64"
+            - option "65"
+            - option "66"
+            - option "67"
+            - option "68"
+            - option "69"
+            - option "70"
+            - option "71"
+            - option "72"
+            - option "73"
+            - option "74"
+            - option "75"
+            - option "76"
+            - option "77"
+            - option "78"
+            - option "79"
+            - option "80"
+            - option "81"
+            - option "82"
+            - option "83"
+            - option "84"
+            - option "85"
+            - option "86"
+            - option "87"
+            - option "88"
+            - option "89"
+            - option "90"
+            - option "91"
+            - option "92"
+            - option "93"
+            - option "94"
+            - option "95"
+            - option "96"
+            - option "97"
+            - option "98"
+            - option "99"
+            - option "100"
+            - option "101"
+            - option "102"
+            - option "103"
+            - option "104"
+            - option "105"
+            - option "106"
+            - option "107"
+            - option "108"
+            - option "109"
+            - option "110"
+            - option "111"
+            - option "112"
+            - option "113"
+            - option "114"
+            - option "115"
+            - option "116"
+            - option "117"
+            - option "118"
+            - option "119"
+            - option "120"
+            - option "121"
+            - option "122"
+            - option "123"
+            - option "124"
+            - option "125"
+            - option "126"
+            - option "127"
+            - option "128"
+            - option "129"
+            - option "130"
+            - option "131"
+            - option "132"
+            - option "133"
+            - option "134"
+            - option "135"
+            - option "136"
+            - option "137"
+            - option "138"
+            - option "139"
+            - option "140"
+            - option "141"
+            - option "142"
+            - option "143"
+            - option "144"
+            - option "145"
+            - option "146"
+            - option "147"
+            - option "148"
+            - option "149"
+            - option "150"
+            - option "151"
+            - option "152"
+            - option "153"
+            - option "154"
+            - option "155"
+            - option "156"
+            - option "157"
+            - option "158"
+            - option "159"
+            - option "160"
+            - option "161"
+            - option "162"
+            - option "163"
+            - option "164"
+            - option "165"
+            - option "166"
+            - option "167"
+            - option "168"
+            - option "169"
+            - option "170"
+            - option "171"
+            - option "172"
+            - option "173"
+            - option "174"
+            - option "175"
+            - option "176"
+            - option "177"
+            - option "178"
+            - option "179"
+            - option "180"
+            - option "181"
+            - option "182"
+            - option "183"
+            - option "184"
+            - option "185"
+            - option "186"
+            - option "187"
+            - option "188"
+            - option "189"
+            - option "190"
+            - option "191"
+            - option "192"
+            - option "193"
+            - option "194"
+            - option "195"
+            - option "196"
+            - option "197"
+            - option "198"
+            - option "199"
+            - option "200"
+            - option "201"
+            - option "202"
+            - option "203"
+            - option "204"
+            - option "205"
+            - option "206"
+            - option "207"
+            - option "208"
+            - option "209"
+            - option "210"
+            - option "211"
+            - option "212"
+            - option "213"
+            - option "214"
+            - option "215"
+            - option "216"
+            - option "217"
+            - option "218"
+            - option "219"
+            - option "220"
+            - option "221"
+            - option "222"
+            - option "223"
+            - option "224"
+            - option "225"
+            - option "226"
+            - option "227"
+            - option "228"
+            - option "229"
+            - option "230"
+            - option "231"
+            - option "232"
+            - option "233"
+            - option "234"
+            - option "235"
+            - option "236"
+            - option "237"
+            - option "238"
+            - option "239"
+            - option "240"
+            - option "241"
+            - option "242"
+            - option "243"
+            - option "244"
+            - option "245"
+            - option "246"
+            - option "247"
+            - option "248"
+            - option "249"
+            - option "250"
+            - option "251"
+            - option "252"
+            - option "253"
+            - option "254"
+            - option "255"
+            - option "256"
+            - option "257"
+            - option "258"
+            - option "259"
+            - option "260"
+            - option "261"
+            - option "262"
+            - option "263"
+            - option "264"
+            - option "265"
+            - option "266"
+            - option "267"
+            - option "268"
+            - option "269"
+            - option "270"
+            - option "271"
+            - option "272"
+            - option "273"
+            - option "274"
+            - option "275"
+            - option "276"
+            - option "277"
+            - option "278"
+            - option "279"
+            - option "280"
+            - option "281"
+            - option "282"
+            - option "283"
+            - option "284"
+            - option "285"
+            - option "286"
+            - option "287"
+            - option "288"
+            - option "289"
+            - option "290"
+            - option "291"
+            - option "292"
+            - option "293"
+            - option "294"
+            - option "295"
+            - option "296"
+            - option "297"
+            - option "298"
+            - option "299"
+            - option "300"
+            - option "301"
+            - option "302"
+            - option "303"
+            - option "304"
+            - option "305"
+            - option "306"
+            - option "307"
+            - option "308"
+            - option "309"
+            - option "310"
+            - option "311"
+            - option "312"
+            - option "313"
+            - option "314"
+            - option "315"
+            - option "316"
+            - option "317"
+            - option "318"
+            - option "319"
+            - option "320"
+            - option "321"
+            - option "322"
+            - option "323"
+            - option "324"
+            - option "325"
+            - option "326"
+            - option "327"
+            - option "328"
+            - option "329"
+            - option "330"
+            - option "331"
+            - option "332"
+            - option "333"
+            - option "334"
+            - option "335"
+            - option "336"
+            - option "337"
+            - option "338"
+            - option "339"
+            - option "340"
+            - option "341"
+            - option "342"
+            - option "343"
+            - option "344"
+            - option "345"
+            - option "346"
+            - option "347"
+            - option "348"
+            - option "349"
+            - option "350"
+            - option "351"
+            - option "352"
+            - option "353"
+            - option "354"
+            - option "355"
+            - option "356"
+            - option "357"
+            - option "358"
+            - option "359"
+            - option "360"
+            - option "361"
+            - option "362"
+            - option "363"
+            - option "364"
+            - option "365"
+            - option "366"
+            - option "367"
+            - option "368"
+            - option "369"
+            - option "370"
+            - option "371"
+            - option "372"
+            - option "373"
+            - option "374"
+            - option "375"
+            - option "376"
+            - option "377"
+            - option "378"
+            - option "379"
+            - option "380"
+            - option "381"
+            - option "382"
+            - option "383"
+            - option "384"
+            - option "385"
+            - option "386"
+            - option "387"
+            - option "388"
+            - option "389"
+            - option "390"
+            - option "391"
+            - option "392"
+            - option "393"
+            - option "394"
+            - option "395"
+            - option "396"
+            - option "397"
+            - option "398"
+            - option "399"
+            - option "400"
+            - option "401"
+            - option "402"
+            - option "403"
+            - option "404"
+            - option "405"
+            - option "406"
+            - option "407"
+            - option "408"
+            - option "409"
+            - option "410"
+            - option "411"
+            - option "412"
+            - option "413"
+            - option "414"
+            - option "415"
+            - option "416"
+            - option "417"
+            - option "418"
+            - option "419"
+            - option "420"
+            - option "421"
+            - option "422"
+            - option "423"
+            - option "424"
+            - option "425"
+            - option "426"
+            - option "427"
+            - option "428"
+            - option "429"
+            - option "430"
+            - option "431"
+            - option "432"
+            - option "433"
+            - option "434"
+            - option "435"
+            - option "436"
+            - option "437"
+            - option "438"
+            - option "439"
+            - option "440"
+            - option "441"
+            - option "442"
+            - option "443"
+            - option "444"
+            - option "445"
+            - option "446"
+            - option "447"
+            - option "448"
+            - option "449"
+            - option "450"
+            - option "451"
+            - option "452"
+            - option "453"
+            - option "454"
+            - option "455"
+            - option "456"
+            - option "457"
+            - option "458"
+            - option "459"
+            - option "460"
+            - option "461"
+            - option "462"
+            - option "463"
+            - option "464"
+            - option "465"
+            - option "466"
+            - option "467"
+            - option "468"
+            - option "469"
+            - option "470"
+            - option "471"
+            - option "472"
+            - option "473"
+            - option "474"
+            - option "475"
+            - option "476"
+            - option "477"
+            - option "478"
+            - option "479"
+            - option "480"
+            - option "481"
+            - option "482"
+            - option "483"
+            - option "484"
+            - option "485"
+            - option "486"
+            - option "487"
+            - option "488"
+            - option "489"
+            - option "490"
+            - option "491"
+            - option "492"
+            - option "493"
+            - option "494"
+            - option "495"
+            - option "496"
+            - option "497"
+            - option "498"
+            - option "499"
+            - option "500"
+            - option "501"
+            - option "502"
+            - option "503"
+            - option "504"
+            - option "505"
+            - option "506"
+            - option "507"
+            - option "508"
+            - option "509"
+            - option "510"
+            - option "511"
+            - option "512"
+            - option "513"
+            - option "514"
+            - option "515"
+            - option "516"
+            - option "517"
+            - option "518"
+            - option "519"
+            - option "520"
+            - option "521"
+            - option "522"
+            - option "523"
+            - option "524"
+            - option "525"
+          - text: "Results Per Page:"
+          - textbox [ref=e61]: "20"
+          - button "Go" [ref=e62] [cursor=pointer]
+        - table [ref=e64]:
+          - rowgroup [ref=e65]:
+            - row "Job ID Date Position Title City State Specialty Recruiter Visa View" [ref=e66]:
+              - columnheader "Job ID" [ref=e67]:
+                - link "Job ID" [ref=e68] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl00$lbSortByJobID','')
+              - columnheader "Date" [ref=e69]:
+                - link "Date" [ref=e70] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl00$lbSortByDate','')
+              - columnheader "Position" [ref=e71]:
+                - link "Position" [ref=e72] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl00$lbSortByPosition','')
+              - columnheader "Title" [ref=e73]:
+                - link "Title" [ref=e74] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl00$lbSortByTitle','')
+              - columnheader "City" [ref=e75]:
+                - link "City" [ref=e76] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl00$lbSortByCity','')
+              - columnheader "State" [ref=e77]:
+                - link "State" [ref=e78] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl00$lbSortByState','')
+              - columnheader "Specialty" [ref=e79]:
+                - link "Specialty" [ref=e80] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl00$lbSortBySpecialty','')
+              - columnheader "Recruiter" [ref=e81]:
+                - link "Recruiter" [ref=e82] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl00$lbSortByRecruiter','')
+              - columnheader "Visa" [ref=e83]
+              - columnheader "View" [ref=e84]
+          - rowgroup [ref=e85]:
+            - 'row "2565059 6/3/2026 Permanent Optum (LHI) - Psychologist, PsyD, or Psychiatrist Oakland, CA(Greg) Oakland CA Mental Health/Social Services: Psychologist/Psychometrist Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e86]':
+              - cell "2565059" [ref=e87]
+              - cell "6/3/2026" [ref=e88]
+              - cell "Permanent" [ref=e89]
+              - cell "Optum (LHI) - Psychologist, PsyD, or Psychiatrist Oakland, CA(Greg)" [ref=e90]
+              - cell "Oakland" [ref=e91]
+              - cell "CA" [ref=e92]
+              - 'cell "Mental Health/Social Services: Psychologist/Psychometrist" [ref=e93]'
+              - cell "Medley Strategic Solutions (MSS)" [ref=e94]
+              - cell "U.S. Citizen" [ref=e95]
+              - cell "Details" [ref=e96]:
+                - link "Details" [ref=e97] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl01$lbDetails','')
+            - row "2565019 6/3/2026 Permanent Optum (LHI) - Administrative Assistant - Pocatello, ID (Kaleb) Pocatello ID Physician Assistant Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e98]:
+              - cell "2565019" [ref=e99]
+              - cell "6/3/2026" [ref=e100]
+              - cell "Permanent" [ref=e101]
+              - cell "Optum (LHI) - Administrative Assistant - Pocatello, ID (Kaleb)" [ref=e102]
+              - cell "Pocatello" [ref=e103]
+              - cell "ID" [ref=e104]
+              - cell "Physician Assistant" [ref=e105]
+              - cell "Medley Strategic Solutions (MSS)" [ref=e106]
+              - cell "U.S. Citizen" [ref=e107]
+              - cell "Details" [ref=e108]:
+                - link "Details" [ref=e109] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl02$lbDetails','')
+            - row "2565018 6/3/2026 Permanent LHI - Nurse Practitioner / Physician Assistant - Metairie, LA (Kaleb) Metairie LA Nurse Practitioner Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e110]:
+              - cell "2565018" [ref=e111]
+              - cell "6/3/2026" [ref=e112]
+              - cell "Permanent" [ref=e113]
+              - cell "LHI - Nurse Practitioner / Physician Assistant - Metairie, LA (Kaleb)" [ref=e114]
+              - cell "Metairie" [ref=e115]
+              - cell "LA" [ref=e116]
+              - cell "Nurse Practitioner" [ref=e117]
+              - cell "Medley Strategic Solutions (MSS)" [ref=e118]
+              - cell "U.S. Citizen" [ref=e119]
+              - cell "Details" [ref=e120]:
+                - link "Details" [ref=e121] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl03$lbDetails','')
+            - row "2564922 6/3/2026 Permanent LHI - Nurse Practitioner/Physician Assistant - Orange Park, FL (Kaleb) Orange Park FL Nurse Practitioner Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e122]:
+              - cell "2564922" [ref=e123]
+              - cell "6/3/2026" [ref=e124]
+              - cell "Permanent" [ref=e125]
+              - cell "LHI - Nurse Practitioner/Physician Assistant - Orange Park, FL (Kaleb)" [ref=e126]
+              - cell "Orange Park" [ref=e127]
+              - cell "FL" [ref=e128]
+              - cell "Nurse Practitioner" [ref=e129]
+              - cell "Medley Strategic Solutions (MSS)" [ref=e130]
+              - cell "U.S. Citizen" [ref=e131]
+              - cell "Details" [ref=e132]:
+                - link "Details" [ref=e133] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl04$lbDetails','')
+            - 'row "2564846 6/3/2026 Permanent Optum (LHI) - Neurologist/PMR Lancaster, TX (Greg) Lancaster TX Physician: Neurology Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e134]':
+              - cell "2564846" [ref=e135]
+              - cell "6/3/2026" [ref=e136]
+              - cell "Permanent" [ref=e137]
+              - cell "Optum (LHI) - Neurologist/PMR Lancaster, TX (Greg)" [ref=e138]
+              - cell "Lancaster" [ref=e139]
+              - cell "TX" [ref=e140]
+              - 'cell "Physician: Neurology" [ref=e141]'
+              - cell "Medley Strategic Solutions (MSS)" [ref=e142]
+              - cell "U.S. Citizen" [ref=e143]
+              - cell "Details" [ref=e144]:
+                - link "Details" [ref=e145] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl05$lbDetails','')
+            - row "2564845 6/3/2026 Permanent Optum/LHI - Medical Assistant - Johnson City, TN (Kaleb) Johnson City TN Medical Sales Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e146]:
+              - cell "2564845" [ref=e147]
+              - cell "6/3/2026" [ref=e148]
+              - cell "Permanent" [ref=e149]
+              - cell "Optum/LHI - Medical Assistant - Johnson City, TN (Kaleb)" [ref=e150]
+              - cell "Johnson City" [ref=e151]
+              - cell "TN" [ref=e152]
+              - cell "Medical Sales" [ref=e153]
+              - cell "Medley Strategic Solutions (MSS)" [ref=e154]
+              - cell "U.S. Citizen" [ref=e155]
+              - cell "Details" [ref=e156]:
+                - link "Details" [ref=e157] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl06$lbDetails','')
+            - row "2564739 6/3/2026 Contract Optum LHI - Medical Assistant- Oakland, CA (Kaleb) Oakland CA Medical Sales Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e158]:
+              - cell "2564739" [ref=e159]
+              - cell "6/3/2026" [ref=e160]
+              - cell "Contract" [ref=e161]
+              - cell "Optum LHI - Medical Assistant- Oakland, CA (Kaleb)" [ref=e162]
+              - cell "Oakland" [ref=e163]
+              - cell "CA" [ref=e164]
+              - cell "Medical Sales" [ref=e165]
+              - cell "Medley Strategic Solutions (MSS)" [ref=e166]
+              - cell "U.S. Citizen" [ref=e167]
+              - cell "Details" [ref=e168]:
+                - link "Details" [ref=e169] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl07$lbDetails','')
+            - 'row "2564738 6/3/2026 Contract Optum Dentist Colorado Springs, CO Colorado Springs CO Dental: General Dentist DMD-DDS Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e170]':
+              - cell "2564738" [ref=e171]
+              - cell "6/3/2026" [ref=e172]
+              - cell "Contract" [ref=e173]
+              - cell "Optum Dentist Colorado Springs, CO" [ref=e174]
+              - cell "Colorado Springs" [ref=e175]
+              - cell "CO" [ref=e176]
+              - 'cell "Dental: General Dentist DMD-DDS" [ref=e177]'
+              - cell "Medley Strategic Solutions (MSS)" [ref=e178]
+              - cell "U.S. Citizen" [ref=e179]
+              - cell "Details" [ref=e180]:
+                - link "Details" [ref=e181] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl08$lbDetails','')
+            - row "2564700 6/3/2026 Contract LHI - Nurse Practitioner / Physician Assistant - Durham, NC (Kaleb) Durham NC Nurse Practitioner Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e182]:
+              - cell "2564700" [ref=e183]
+              - cell "6/3/2026" [ref=e184]
+              - cell "Contract" [ref=e185]
+              - cell "LHI - Nurse Practitioner / Physician Assistant - Durham, NC (Kaleb)" [ref=e186]
+              - cell "Durham" [ref=e187]
+              - cell "NC" [ref=e188]
+              - cell "Nurse Practitioner" [ref=e189]
+              - cell "Medley Strategic Solutions (MSS)" [ref=e190]
+              - cell "U.S. Citizen" [ref=e191]
+              - cell "Details" [ref=e192]:
+                - link "Details" [ref=e193] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl09$lbDetails','')
+            - 'row "2564699 6/3/2026 Contract LHI - Psychologist, PsyD, or Psychiatrist - Collierville, TN (Kaleb) Collierville TN Mental Health/Social Services: Psychologist/Psychometrist Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e194]':
+              - cell "2564699" [ref=e195]
+              - cell "6/3/2026" [ref=e196]
+              - cell "Contract" [ref=e197]
+              - cell "LHI - Psychologist, PsyD, or Psychiatrist - Collierville, TN (Kaleb)" [ref=e198]
+              - cell "Collierville" [ref=e199]
+              - cell "TN" [ref=e200]
+              - 'cell "Mental Health/Social Services: Psychologist/Psychometrist" [ref=e201]'
+              - cell "Medley Strategic Solutions (MSS)" [ref=e202]
+              - cell "U.S. Citizen" [ref=e203]
+              - cell "Details" [ref=e204]:
+                - link "Details" [ref=e205] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl10$lbDetails','')
+            - 'row "2564661 6/3/2026 Permanent Optum (LHI) - Psychologist, PsyD, or Psychiatrist Westminster, CO (Greg) Westminster CO Mental Health/Social Services: Psychologist/Psychometrist Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e206]':
+              - cell "2564661" [ref=e207]
+              - cell "6/3/2026" [ref=e208]
+              - cell "Permanent" [ref=e209]
+              - cell "Optum (LHI) - Psychologist, PsyD, or Psychiatrist Westminster, CO (Greg)" [ref=e210]
+              - cell "Westminster" [ref=e211]
+              - cell "CO" [ref=e212]
+              - 'cell "Mental Health/Social Services: Psychologist/Psychometrist" [ref=e213]'
+              - cell "Medley Strategic Solutions (MSS)" [ref=e214]
+              - cell "U.S. Citizen" [ref=e215]
+              - cell "Details" [ref=e216]:
+                - link "Details" [ref=e217] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl11$lbDetails','')
+            - row "2564660 6/3/2026 Permanent LHI - Nurse Practitioner / Physician Assistant - Forest, VA (Greg) Forest VA Nurse Practitioner Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e218]:
+              - cell "2564660" [ref=e219]
+              - cell "6/3/2026" [ref=e220]
+              - cell "Permanent" [ref=e221]
+              - cell "LHI - Nurse Practitioner / Physician Assistant - Forest, VA (Greg)" [ref=e222]
+              - cell "Forest" [ref=e223]
+              - cell "VA" [ref=e224]
+              - cell "Nurse Practitioner" [ref=e225]
+              - cell "Medley Strategic Solutions (MSS)" [ref=e226]
+              - cell "U.S. Citizen" [ref=e227]
+              - cell "Details" [ref=e228]:
+                - link "Details" [ref=e229] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl12$lbDetails','')
+            - row "2564659 6/3/2026 Permanent LHI - Nurse Practitioner / Physician Assistant - Sulphur Springs, TX (Greg) Sulphur Springs TX Nurse Practitioner Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e230]:
+              - cell "2564659" [ref=e231]
+              - cell "6/3/2026" [ref=e232]
+              - cell "Permanent" [ref=e233]
+              - cell "LHI - Nurse Practitioner / Physician Assistant - Sulphur Springs, TX (Greg)" [ref=e234]
+              - cell "Sulphur Springs" [ref=e235]
+              - cell "TX" [ref=e236]
+              - cell "Nurse Practitioner" [ref=e237]
+              - cell "Medley Strategic Solutions (MSS)" [ref=e238]
+              - cell "U.S. Citizen" [ref=e239]
+              - cell "Details" [ref=e240]:
+                - link "Details" [ref=e241] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl13$lbDetails','')
+            - 'row "2563953 6/3/2026 Permanent Optum - Audiologist - Bullhead City, AZ (Tom) Bullhead City AZ Rehabilitation/Therapy: Audiologist Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e242]':
+              - cell "2563953" [ref=e243]
+              - cell "6/3/2026" [ref=e244]
+              - cell "Permanent" [ref=e245]
+              - cell "Optum - Audiologist - Bullhead City, AZ (Tom)" [ref=e246]
+              - cell "Bullhead City" [ref=e247]
+              - cell "AZ" [ref=e248]
+              - 'cell "Rehabilitation/Therapy: Audiologist" [ref=e249]'
+              - cell "Medley Strategic Solutions (MSS)" [ref=e250]
+              - cell "U.S. Citizen" [ref=e251]
+              - cell "Details" [ref=e252]:
+                - link "Details" [ref=e253] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl14$lbDetails','')
+            - 'row "2563935 6/3/2026 Contract LHI - Audiologist-Bangor, ME (Tom) Bangor ME Rehabilitation/Therapy: Audiologist Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e254]':
+              - cell "2563935" [ref=e255]
+              - cell "6/3/2026" [ref=e256]
+              - cell "Contract" [ref=e257]
+              - cell "LHI - Audiologist-Bangor, ME (Tom)" [ref=e258]
+              - cell "Bangor" [ref=e259]
+              - cell "ME" [ref=e260]
+              - 'cell "Rehabilitation/Therapy: Audiologist" [ref=e261]'
+              - cell "Medley Strategic Solutions (MSS)" [ref=e262]
+              - cell "U.S. Citizen" [ref=e263]
+              - cell "Details" [ref=e264]:
+                - link "Details" [ref=e265] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl15$lbDetails','')
+            - row "2564658 6/3/2026 Permanent LHI - Admin/ Medical Assistant - Nottingham, MD Nottingham MD Medical Sales Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e266]:
+              - cell "2564658" [ref=e267]
+              - cell "6/3/2026" [ref=e268]
+              - cell "Permanent" [ref=e269]
+              - cell "LHI - Admin/ Medical Assistant - Nottingham, MD" [ref=e270]
+              - cell "Nottingham" [ref=e271]
+              - cell "MD" [ref=e272]
+              - cell "Medical Sales" [ref=e273]
+              - cell "Medley Strategic Solutions (MSS)" [ref=e274]
+              - cell "U.S. Citizen" [ref=e275]
+              - cell "Details" [ref=e276]:
+                - link "Details" [ref=e277] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl16$lbDetails','')
+            - 'row "2564657 6/3/2026 Permanent Optum - Audiologist- Magnolia, AR (Tom) Magnolia AR Rehabilitation/Therapy: Audiologist Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e278]':
+              - cell "2564657" [ref=e279]
+              - cell "6/3/2026" [ref=e280]
+              - cell "Permanent" [ref=e281]
+              - cell "Optum - Audiologist- Magnolia, AR (Tom)" [ref=e282]
+              - cell "Magnolia" [ref=e283]
+              - cell "AR" [ref=e284]
+              - 'cell "Rehabilitation/Therapy: Audiologist" [ref=e285]'
+              - cell "Medley Strategic Solutions (MSS)" [ref=e286]
+              - cell "U.S. Citizen" [ref=e287]
+              - cell "Details" [ref=e288]:
+                - link "Details" [ref=e289] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl17$lbDetails','')
+            - 'row "2564656 6/3/2026 Permanent Optum Dentist Knoxville, TN Knoxville TN Dental: General Dentist DMD-DDS Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e290]':
+              - cell "2564656" [ref=e291]
+              - cell "6/3/2026" [ref=e292]
+              - cell "Permanent" [ref=e293]
+              - cell "Optum Dentist Knoxville, TN" [ref=e294]
+              - cell "Knoxville" [ref=e295]
+              - cell "TN" [ref=e296]
+              - 'cell "Dental: General Dentist DMD-DDS" [ref=e297]'
+              - cell "Medley Strategic Solutions (MSS)" [ref=e298]
+              - cell "U.S. Citizen" [ref=e299]
+              - cell "Details" [ref=e300]:
+                - link "Details" [ref=e301] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl18$lbDetails','')
+            - 'row "2564655 6/3/2026 Temporary Optum Dentist Medford, OR Medford OR Dental: General Dentist DMD-DDS Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e302]':
+              - cell "2564655" [ref=e303]
+              - cell "6/3/2026" [ref=e304]
+              - cell "Temporary" [ref=e305]
+              - cell "Optum Dentist Medford, OR" [ref=e306]
+              - cell "Medford" [ref=e307]
+              - cell "OR" [ref=e308]
+              - 'cell "Dental: General Dentist DMD-DDS" [ref=e309]'
+              - cell "Medley Strategic Solutions (MSS)" [ref=e310]
+              - cell "U.S. Citizen" [ref=e311]
+              - cell "Details" [ref=e312]:
+                - link "Details" [ref=e313] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl19$lbDetails','')
+            - 'row "2564435 6/3/2026 Permanent Optum (LHI) - Psychologist, PsyD, or Psychiatrist North Charleston, SC (Greg) North Charleston SC Mental Health/Social Services: Psychologist/Psychometrist Medley Strategic Solutions (MSS) U.S. Citizen Details" [ref=e314]':
+              - cell "2564435" [ref=e315]
+              - cell "6/3/2026" [ref=e316]
+              - cell "Permanent" [ref=e317]
+              - cell "Optum (LHI) - Psychologist, PsyD, or Psychiatrist North Charleston, SC (Greg)" [ref=e318]
+              - cell "North Charleston" [ref=e319]
+              - cell "SC" [ref=e320]
+              - 'cell "Mental Health/Social Services: Psychologist/Psychometrist" [ref=e321]'
+              - cell "Medley Strategic Solutions (MSS)" [ref=e322]
+              - cell "U.S. Citizen" [ref=e323]
+              - cell "Details" [ref=e324]:
+                - link "Details" [ref=e325] [cursor=pointer]:
+                  - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$Repeater1$ctl20$lbDetails','')
+        - generic [ref=e326]:
+          - link "< Previous" [ref=e327] [cursor=pointer]:
+            - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$lbPrev','')
+          - generic [ref=e328]: Page 1 of 525
+          - link "Next >" [ref=e329] [cursor=pointer]:
+            - /url: javascript:__doPostBack('ctl00$ContentPlaceHolder1$lbNext','')
+          - text: "Jump To Page:"
+          - combobox "Navigate to a specific page" [ref=e330]:
+            - option "1" [selected]
+            - option "2"
+            - option "3"
+            - option "4"
+            - option "5"
+            - option "6"
+            - option "7"
+            - option "8"
+            - option "9"
+            - option "10"
+            - option "11"
+            - option "12"
+            - option "13"
+            - option "14"
+            - option "15"
+            - option "16"
+            - option "17"
+            - option "18"
+            - option "19"
+            - option "20"
+            - option "21"
+            - option "22"
+            - option "23"
+            - option "24"
+            - option "25"
+            - option "26"
+            - option "27"
+            - option "28"
+            - option "29"
+            - option "30"
+            - option "31"
+            - option "32"
+            - option "33"
+            - option "34"
+            - option "35"
+            - option "36"
+            - option "37"
+            - option "38"
+            - option "39"
+            - option "40"
+            - option "41"
+            - option "42"
+            - option "43"
+            - option "44"
+            - option "45"
+            - option "46"
+            - option "47"
+            - option "48"
+            - option "49"
+            - option "50"
+            - option "51"
+            - option "52"
+            - option "53"
+            - option "54"
+            - option "55"
+            - option "56"
+            - option "57"
+            - option "58"
+            - option "59"
+            - option "60"
+            - option "61"
+            - option "62"
+            - option "63"
+            - option "64"
+            - option "65"
+            - option "66"
+            - option "67"
+            - option "68"
+            - option "69"
+            - option "70"
+            - option "71"
+            - option "72"
+            - option "73"
+            - option "74"
+            - option "75"
+            - option "76"
+            - option "77"
+            - option "78"
+            - option "79"
+            - option "80"
+            - option "81"
+            - option "82"
+            - option "83"
+            - option "84"
+            - option "85"
+            - option "86"
+            - option "87"
+            - option "88"
+            - option "89"
+            - option "90"
+            - option "91"
+            - option "92"
+            - option "93"
+            - option "94"
+            - option "95"
+            - option "96"
+            - option "97"
+            - option "98"
+            - option "99"
+            - option "100"
+            - option "101"
+            - option "102"
+            - option "103"
+            - option "104"
+            - option "105"
+            - option "106"
+            - option "107"
+            - option "108"
+            - option "109"
+            - option "110"
+            - option "111"
+            - option "112"
+            - option "113"
+            - option "114"
+            - option "115"
+            - option "116"
+            - option "117"
+            - option "118"
+            - option "119"
+            - option "120"
+            - option "121"
+            - option "122"
+            - option "123"
+            - option "124"
+            - option "125"
+            - option "126"
+            - option "127"
+            - option "128"
+            - option "129"
+            - option "130"
+            - option "131"
+            - option "132"
+            - option "133"
+            - option "134"
+            - option "135"
+            - option "136"
+            - option "137"
+            - option "138"
+            - option "139"
+            - option "140"
+            - option "141"
+            - option "142"
+            - option "143"
+            - option "144"
+            - option "145"
+            - option "146"
+            - option "147"
+            - option "148"
+            - option "149"
+            - option "150"
+            - option "151"
+            - option "152"
+            - option "153"
+            - option "154"
+            - option "155"
+            - option "156"
+            - option "157"
+            - option "158"
+            - option "159"
+            - option "160"
+            - option "161"
+            - option "162"
+            - option "163"
+            - option "164"
+            - option "165"
+            - option "166"
+            - option "167"
+            - option "168"
+            - option "169"
+            - option "170"
+            - option "171"
+            - option "172"
+            - option "173"
+            - option "174"
+            - option "175"
+            - option "176"
+            - option "177"
+            - option "178"
+            - option "179"
+            - option "180"
+            - option "181"
+            - option "182"
+            - option "183"
+            - option "184"
+            - option "185"
+            - option "186"
+            - option "187"
+            - option "188"
+            - option "189"
+            - option "190"
+            - option "191"
+            - option "192"
+            - option "193"
+            - option "194"
+            - option "195"
+            - option "196"
+            - option "197"
+            - option "198"
+            - option "199"
+            - option "200"
+            - option "201"
+            - option "202"
+            - option "203"
+            - option "204"
+            - option "205"
+            - option "206"
+            - option "207"
+            - option "208"
+            - option "209"
+            - option "210"
+            - option "211"
+            - option "212"
+            - option "213"
+            - option "214"
+            - option "215"
+            - option "216"
+            - option "217"
+            - option "218"
+            - option "219"
+            - option "220"
+            - option "221"
+            - option "222"
+            - option "223"
+            - option "224"
+            - option "225"
+            - option "226"
+            - option "227"
+            - option "228"
+            - option "229"
+            - option "230"
+            - option "231"
+            - option "232"
+            - option "233"
+            - option "234"
+            - option "235"
+            - option "236"
+            - option "237"
+            - option "238"
+            - option "239"
+            - option "240"
+            - option "241"
+            - option "242"
+            - option "243"
+            - option "244"
+            - option "245"
+            - option "246"
+            - option "247"
+            - option "248"
+            - option "249"
+            - option "250"
+            - option "251"
+            - option "252"
+            - option "253"
+            - option "254"
+            - option "255"
+            - option "256"
+            - option "257"
+            - option "258"
+            - option "259"
+            - option "260"
+            - option "261"
+            - option "262"
+            - option "263"
+            - option "264"
+            - option "265"
+            - option "266"
+            - option "267"
+            - option "268"
+            - option "269"
+            - option "270"
+            - option "271"
+            - option "272"
+            - option "273"
+            - option "274"
+            - option "275"
+            - option "276"
+            - option "277"
+            - option "278"
+            - option "279"
+            - option "280"
+            - option "281"
+            - option "282"
+            - option "283"
+            - option "284"
+            - option "285"
+            - option "286"
+            - option "287"
+            - option "288"
+            - option "289"
+            - option "290"
+            - option "291"
+            - option "292"
+            - option "293"
+            - option "294"
+            - option "295"
+            - option "296"
+            - option "297"
+            - option "298"
+            - option "299"
+            - option "300"
+            - option "301"
+            - option "302"
+            - option "303"
+            - option "304"
+            - option "305"
+            - option "306"
+            - option "307"
+            - option "308"
+            - option "309"
+            - option "310"
+            - option "311"
+            - option "312"
+            - option "313"
+            - option "314"
+            - option "315"
+            - option "316"
+            - option "317"
+            - option "318"
+            - option "319"
+            - option "320"
+            - option "321"
+            - option "322"
+            - option "323"
+            - option "324"
+            - option "325"
+            - option "326"
+            - option "327"
+            - option "328"
+            - option "329"
+            - option "330"
+            - option "331"
+            - option "332"
+            - option "333"
+            - option "334"
+            - option "335"
+            - option "336"
+            - option "337"
+            - option "338"
+            - option "339"
+            - option "340"
+            - option "341"
+            - option "342"
+            - option "343"
+            - option "344"
+            - option "345"
+            - option "346"
+            - option "347"
+            - option "348"
+            - option "349"
+            - option "350"
+            - option "351"
+            - option "352"
+            - option "353"
+            - option "354"
+            - option "355"
+            - option "356"
+            - option "357"
+            - option "358"
+            - option "359"
+            - option "360"
+            - option "361"
+            - option "362"
+            - option "363"
+            - option "364"
+            - option "365"
+            - option "366"
+            - option "367"
+            - option "368"
+            - option "369"
+            - option "370"
+            - option "371"
+            - option "372"
+            - option "373"
+            - option "374"
+            - option "375"
+            - option "376"
+            - option "377"
+            - option "378"
+            - option "379"
+            - option "380"
+            - option "381"
+            - option "382"
+            - option "383"
+            - option "384"
+            - option "385"
+            - option "386"
+            - option "387"
+            - option "388"
+            - option "389"
+            - option "390"
+            - option "391"
+            - option "392"
+            - option "393"
+            - option "394"
+            - option "395"
+            - option "396"
+            - option "397"
+            - option "398"
+            - option "399"
+            - option "400"
+            - option "401"
+            - option "402"
+            - option "403"
+            - option "404"
+            - option "405"
+            - option "406"
+            - option "407"
+            - option "408"
+            - option "409"
+            - option "410"
+            - option "411"
+            - option "412"
+            - option "413"
+            - option "414"
+            - option "415"
+            - option "416"
+            - option "417"
+            - option "418"
+            - option "419"
+            - option "420"
+            - option "421"
+            - option "422"
+            - option "423"
+            - option "424"
+            - option "425"
+            - option "426"
+            - option "427"
+            - option "428"
+            - option "429"
+            - option "430"
+            - option "431"
+            - option "432"
+            - option "433"
+            - option "434"
+            - option "435"
+            - option "436"
+            - option "437"
+            - option "438"
+            - option "439"
+            - option "440"
+            - option "441"
+            - option "442"
+            - option "443"
+            - option "444"
+            - option "445"
+            - option "446"
+            - option "447"
+            - option "448"
+            - option "449"
+            - option "450"
+            - option "451"
+            - option "452"
+            - option "453"
+            - option "454"
+            - option "455"
+            - option "456"
+            - option "457"
+            - option "458"
+            - option "459"
+            - option "460"
+            - option "461"
+            - option "462"
+            - option "463"
+            - option "464"
+            - option "465"
+            - option "466"
+            - option "467"
+            - option "468"
+            - option "469"
+            - option "470"
+            - option "471"
+            - option "472"
+            - option "473"
+            - option "474"
+            - option "475"
+            - option "476"
+            - option "477"
+            - option "478"
+            - option "479"
+            - option "480"
+            - option "481"
+            - option "482"
+            - option "483"
+            - option "484"
+            - option "485"
+            - option "486"
+            - option "487"
+            - option "488"
+            - option "489"
+            - option "490"
+            - option "491"
+            - option "492"
+            - option "493"
+            - option "494"
+            - option "495"
+            - option "496"
+            - option "497"
+            - option "498"
+            - option "499"
+            - option "500"
+            - option "501"
+            - option "502"
+            - option "503"
+            - option "504"
+            - option "505"
+            - option "506"
+            - option "507"
+            - option "508"
+            - option "509"
+            - option "510"
+            - option "511"
+            - option "512"
+            - option "513"
+            - option "514"
+            - option "515"
+            - option "516"
+            - option "517"
+            - option "518"
+            - option "519"
+            - option "520"
+            - option "521"
+            - option "522"
+            - option "523"
+            - option "524"
+            - option "525"
+          - text: "Results Per Page:"
+          - textbox [ref=e331]: "20"
+          - button "Go" [ref=e332] [cursor=pointer]
+        - paragraph
+      - separator [ref=e335]
+      - heading "National Coalition Of Healthcare Recruiters - Our Services Are Unparalleled" [level=1] [ref=e338]
+      - generic [ref=e339]:
+        - generic [ref=e341]:
+          - heading "Passive Candidate Database" [level=4] [ref=e344]:
+            - link "Passive Candidate Database" [ref=e345] [cursor=pointer]:
+              - /url: /passive-candidate-program
+          - paragraph [ref=e346]:
+            - link "Over 14,500 phone interviewed, Permission based emails and cell phone numbers. Permission granted to contact Physician Candidate with opportunities." [ref=e347] [cursor=pointer]:
+              - /url: /passive-candidate-program
+        - generic [ref=e349]:
+          - heading "Licensed Physician Database" [level=4] [ref=e352]:
+            - link "Licensed Physician Database" [ref=e353] [cursor=pointer]:
+              - /url: /licensed-physicians
+          - paragraph [ref=e354]:
+            - link "Over 1,030,000 cleaned, verified licensed physicians with over 734,000 emails. Data includes specialty, emails, phone numbers and addresses." [ref=e355] [cursor=pointer]:
+              - /url: /licensed-physicians
+        - generic [ref=e357]:
+          - heading "Marketing Co-Op Program" [level=4] [ref=e360]:
+            - link "Marketing Co-Op Program" [ref=e361] [cursor=pointer]:
+              - /url: /marketing-co-op-program
+          - paragraph [ref=e362]:
+            - link "Where you save will save Marketing Dollars on additional Job Boards. Sites such as, HEALTHeCAREERS, HospitalJobsOnLine/Nursingjobs.org GetAMedJob and more" [ref=e363] [cursor=pointer]:
+              - /url: /marketing-co-op-program
+      - generic [ref=e364]:
+        - generic [ref=e366]:
+          - heading "Registered Nurse Database" [level=4] [ref=e369]:
+            - link "Registered Nurse Database" [ref=e370] [cursor=pointer]:
+              - /url: /registered-nurse-database
+          - paragraph [ref=e371]:
+            - link "265,000 currently employeed/practicing Registered Nurses. Data includes Contact name, title, phone numbers, physical addresses, and Personal/Private email address" [ref=e372] [cursor=pointer]:
+              - /url: /registered-nurse-database
+        - generic [ref=e374]:
+          - heading "Certified Registered Nurse Anesthetist CRNA Database" [level=4] [ref=e377]:
+            - link "Certified Registered Nurse Anesthetist CRNA Database" [ref=e378] [cursor=pointer]:
+              - /url: /crna-database
+              - text: Certified Registered Nurse Anesthetist
+              - text: CRNA Database
+          - paragraph [ref=e379]:
+            - link "Over 40,000 cleaned and verified CRNA Candidates. Data includes work emails, phone numbers and addresses" [ref=e380] [cursor=pointer]:
+              - /url: /crna-database
+        - generic [ref=e382]:
+          - heading "Coalition Members" [level=4] [ref=e385]:
+            - link "Coalition Members" [ref=e386] [cursor=pointer]:
+              - /url: /coalition-directory
+          - paragraph [ref=e387]:
+            - link "Over 225 Healthcare Agencies, represented by over 600 dedicated Healthcare Recruiters. Exclusive to Healthcare Recruiter Agencies." [ref=e388] [cursor=pointer]:
+              - /url: /coalition-directory
+      - generic [ref=e389]:
+        - generic [ref=e391]:
+          - heading "Physician Assistant Database" [level=4] [ref=e394]:
+            - link "Physician Assistant Database" [ref=e395] [cursor=pointer]:
+              - /url: /physician-assistants
+          - paragraph [ref=e396]:
+            - link "Over 58,000 verified Physician Assistants. Data includes specialty, emails, phone numbers and addresses." [ref=e397] [cursor=pointer]:
+              - /url: /physician-assistants
+        - generic [ref=e399]:
+          - heading "Nurse Practitioner Database" [level=4] [ref=e402]:
+            - link "Nurse Practitioner Database" [ref=e403] [cursor=pointer]:
+              - /url: /nurse-practitioners
+          - paragraph [ref=e404]:
+            - link "Over 129,000 verified Nurse Practitioners. Data includes specialty, emails, phone numbers and addresses." [ref=e405] [cursor=pointer]:
+              - /url: /nurse-practitioners
+      - generic [ref=e408]:
+        - generic [ref=e409]:
+          - text: For
+          - text: Healthcare Candidates
+          - link "Please Contact Me With Job Opportunities That Match My Search Criteria (I understand my information will be held confidentially within NCHCR)" [ref=e410] [cursor=pointer]:
+            - /url: /post-candidate-profile
+            - text: Please Contact Me With Job Opportunities That Match My Search Criteria
+            - text: (I understand my information will be held confidentially within NCHCR)
+        - generic [ref=e411]:
+          - text: For
+          - text: Healthcare Recruiters
+          - link "I'm Interested In Becoming A Member" [ref=e412] [cursor=pointer]:
+            - /url: /interested-in-becoming-a-member
+            - text: I'm Interested In
+            - text: Becoming A Member
+    - generic [ref=e415]:
+      - generic [ref=e416]:
+        - heading "Links" [level=4] [ref=e417]
+        - link "About Us" [ref=e418] [cursor=pointer]:
+          - /url: /about-us
+        - link "Contact Us" [ref=e419] [cursor=pointer]:
+          - /url: /contact-us
+        - link "Privacy Policy" [ref=e420] [cursor=pointer]:
+          - /url: /privacy-policy
+        - link "Site Map" [ref=e421] [cursor=pointer]:
+          - /url: /sitemap
+        - link "Blog" [ref=e422] [cursor=pointer]:
+          - /url: /blog
+      - generic [ref=e423]:
+        - heading "Home Office" [level=4] [ref=e424]
+        - text: Main Street,
+        - text: Washington, WV 26181
+        - text: 304-699-5426
+      - generic [ref=e425]:
+        - heading "Texas Office" [level=4] [ref=e426]
+        - text: Main Street,
+        - text: Arlington, TX 76010
+        - text: 817-277-1763
+      - generic [ref=e429]:
+        - link [ref=e430] [cursor=pointer]:
+          - /url: http://www.twitter.com/NCHCR
+        - link [ref=e432] [cursor=pointer]:
+          - /url: http://www.facebook.com/NCHCR
+        - link [ref=e434] [cursor=pointer]:
+          - /url: https://www.linkedin.com/company/nchcr/
+    - contentinfo [ref=e436]:
+      - paragraph [ref=e440]:
+        - text: © 2016 Site built in partnership with
+        - link "Automated Concepts" [ref=e441] [cursor=pointer]:
+          - /url: http://automated-concepts.com/
+        - text: .
+  - dialog [ref=e442]:
+    - generic [ref=e445]:
+      - generic [ref=e446]:
+        - button "×" [ref=e447] [cursor=pointer]
+        - heading "lblModalMsgHeader" [level=4] [ref=e448]
+      - generic [ref=e449]:
+        - img [ref=e451]
+        - generic [ref=e452]: lblModalMsgDetails
+      - button "Close" [ref=e454] [cursor=pointer]
+  - dialog [ref=e455]:
+    - generic [ref=e458]:
+      - generic [ref=e459]:
+        - button "×" [ref=e460] [cursor=pointer]
+        - heading "lblModalYesNoHeader" [level=4] [ref=e461]
+      - generic [ref=e462]:
+        - img [ref=e464]
+        - generic [ref=e465]: lblModalYesNoDetails
+      - generic [ref=e466]:
+        - button "Yes" [ref=e467] [cursor=pointer]
+        - button "No" [ref=e468] [cursor=pointer]

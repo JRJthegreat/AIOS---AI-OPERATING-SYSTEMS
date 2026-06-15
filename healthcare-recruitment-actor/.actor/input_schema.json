@@ -6,9 +6,9 @@
         "sources": {
             "title": "Data Sources",
             "type": "array",
-            "description": "Which sources to scrape. Options: linkedin_jobs, nppes, state_registries, niche_directories, asa_members, fdd_franchisees, sam_gov. Leave empty to run all.",
+            "description": "Which sources to scrape. Options: linkedin_jobs, nppes, state_registries, niche_directories, asa_members, fdd_franchisees, sam_gov, nchcr. Leave empty to run all.",
             "items": { "type": "string" },
-            "default": ["state_registries", "nppes", "asa_members", "fdd_franchisees", "niche_directories", "linkedin_jobs", "sam_gov"],
+            "default": ["state_registries", "nppes", "asa_members", "fdd_franchisees", "niche_directories", "linkedin_jobs", "sam_gov", "nchcr"],
             "editor": "stringList"
         },
         "testMode": {
@@ -117,6 +117,31 @@
             "type": "integer",
             "description": "Maximum number of entities to pull from SAM.gov.",
             "default": 3000
+        },
+        "nchcrJobType": {
+            "title": "NCHCR Job Type",
+            "type": "string",
+            "description": "Which job board segment to search. Options: Both, Physicians, Non-Physicians.",
+            "default": "Both",
+            "editor": "textfield"
+        },
+        "nchcrResultsPerPage": {
+            "title": "NCHCR Results Per Page",
+            "type": "integer",
+            "description": "Listings to load per results page. Higher = fewer pagination round-trips.",
+            "default": 500
+        },
+        "nchcrMaxListPages": {
+            "title": "NCHCR Max Listing Pages",
+            "type": "integer",
+            "description": "Cap on how many results pages to crawl when enumerating firms.",
+            "default": 30
+        },
+        "nchcrMaxFirms": {
+            "title": "NCHCR Max Firms",
+            "type": "integer",
+            "description": "Cap on unique firms (and detail-page visits). 0 = no cap (all firms).",
+            "default": 0
         }
     }
 }
