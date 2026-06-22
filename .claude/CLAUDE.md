@@ -57,6 +57,7 @@ token.json                              # Google OAuth token (gitignored)
 | Skill | What it does |
 |-------|-------------|
 | `scrape-leads` | Apify `code_crafter/leads-finder` → LLM classify → email enrich → Google Sheet |
+| `b2b-sales-leads-indeed` | Indeed job postings (`valig~indeed-jobs-scraper`) for companies hiring B2B sales reps → size cap (≤500) → per-row filter (regex + Azure LLM) keeping only IC B2B sales-rep roles; drops agencies/managers/AEs/B2C-selling/commission-only/non-sales → dedupe → Sheet |
 | `gmaps-leads` | Google Maps → website scrape → Claude contact extraction → Sheet |
 | `classify-leads` | LLM classification for complex distinctions (e.g. product SaaS vs agencies) |
 | `casualize-names` | Formal → casual names for cold email personalization |

@@ -1,0 +1,18 @@
+[    2655ms] [LOG] using external VueI18n @ https://www.upwork.com/static/assets/TopNavSsi/visitor-v2/js/main.72edfca6.js:0
+[    2658ms] [LOG] using external VueI18n @ https://www.upwork.com/static/assets/TopNavSsi/visitor-footer/js/main.ca636330.js:0
+[    2689ms] [LOG] SUIT2 Loader: loading loader @ https://www.upwork.com/static/assets/FreelancerProfileNuxt/app.43f5f483.js:1
+[    2745ms] [LOG] Not able to provide the CCST token from the cookie. cookieName: oauth2_global_js_token, cookieValue: undefined @ https://www.upwork.com/static/assets/FreelancerProfileNuxt/app.43f5f483.js:1
+[    2924ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://img.youtube.com/vi/7fEnIJnh_98/maxresdefault.jpg:0
+[    2962ms] [WARNING] %cairgap.js%c Report-only mode enabled font-size:larger;font-weight:bold;border-radius:0.25em;padding:0.08em 0.25em;;color:amber;background-color:#6e3e00  @ https://transcend-cdn.com/cm/76b6554e-5f7f-4e24-a8d7-d33804a56e9b/airgap.js:5
+[    3245ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://.icg-in.com/favicon.ico:0
+[    3261ms] [ERROR] Error: Attempted to reAuth at /ab/account-security/login, but user is not authenticated.
+    at https://www.upwork.com/static/assets/FreelancerProfileNuxt/app.43f5f483.js:2:170961
+    at async h (https://www.upwork.com/static/assets/FreelancerProfileNuxt/app.43f5f483.js:2:168743)
+    at async a.c (https://www.upwork.com/static/assets/FreelancerProfileNuxt/app.43f5f483.js:2:79037)
+    at async a.showNewFeaturePopover (https://www.upwork.com/static/assets/FreelancerProfileNuxt/pages/visitor.00be72dc.js:2:565292) @ https://www.upwork.com/static/assets/FreelancerProfileNuxt/app.43f5f483.js:1
+[    3262ms] [ERROR] ReAuthError: Auth failed and reAuth failed to obtain ccst token. Attempted to reAuth at /ab/account-security/login, but user is not authenticated. Did not redirect user to login page. requestUrl: , requestAlias: get-user-pref, reAuthReason: empty token
+    at h (https://www.upwork.com/static/assets/FreelancerProfileNuxt/app.43f5f483.js:2:168967)
+    at async a.c (https://www.upwork.com/static/assets/FreelancerProfileNuxt/app.43f5f483.js:2:79037)
+    at async a.showNewFeaturePopover (https://www.upwork.com/static/assets/FreelancerProfileNuxt/pages/visitor.00be72dc.js:2:565292) @ https://www.upwork.com/static/assets/FreelancerProfileNuxt/app.43f5f483.js:1
+[    3615ms] [LOG] SUIT2: Loading latest asset for FreelancerProfileNuxt @ https://www.upwork.com/static/assets/FreelancerProfileNuxt/app.43f5f483.js:1
+[    3616ms] [LOG] SUIT2: Loaded latest asset v0.3.50 for FreelancerProfileNuxt @ https://www.upwork.com/static/assets/FreelancerProfileNuxt/app.43f5f483.js:1

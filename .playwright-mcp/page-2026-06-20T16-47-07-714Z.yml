@@ -1,0 +1,1350 @@
+- generic [ref=e1]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - generic [ref=e11]:
+        - banner [ref=e12]:
+          - link "Skip to content" [ref=e13] [cursor=pointer]
+          - generic [ref=e14]:
+            - link "Upwork home" [ref=e17] [cursor=pointer]:
+              - /url: /
+              - generic [ref=e18]: Upwork home
+              - img [ref=e20]
+            - generic [ref=e26]:
+              - navigation "Primary" [ref=e27]:
+                - list [ref=e28]:
+                  - listitem [ref=e29]:
+                    - button "Hire talent" [ref=e30] [cursor=pointer]:
+                      - generic [ref=e31]: Hire talent
+                      - img [ref=e33]
+                  - listitem [ref=e35]:
+                    - button "Get outcomes" [ref=e36] [cursor=pointer]:
+                      - generic [ref=e37]: Get outcomes
+                      - img [ref=e39]
+                  - listitem [ref=e41]:
+                    - button "Find work" [ref=e42] [cursor=pointer]:
+                      - generic [ref=e43]: Find work
+                      - img [ref=e45]
+                  - listitem [ref=e47]:
+                    - button "Why Upwork" [ref=e48] [cursor=pointer]:
+                      - generic [ref=e49]: Why Upwork
+                      - img [ref=e51]
+                  - listitem [ref=e53]:
+                    - link "Pricing" [ref=e54] [cursor=pointer]:
+                      - /url: /pricing/client
+                      - generic [ref=e55]: Pricing
+                  - listitem [ref=e56]:
+                    - link "Enterprise" [ref=e57] [cursor=pointer]:
+                      - /url: https://go-lifted.com/
+                      - generic [ref=e58]: Enterprise
+                  - listitem
+              - generic [ref=e59]:
+                - button "Search" [ref=e62] [cursor=pointer]:
+                  - img [ref=e64]
+                - link "Log in" [ref=e66] [cursor=pointer]:
+                  - /url: /ab/account-security/login
+                - link "Sign up" [ref=e67] [cursor=pointer]:
+                  - /url: about:blank
+        - generic "Secondary" [ref=e68]:
+          - generic [ref=e69]: Secondary
+          - list [ref=e70]:
+            - listitem [ref=e71]:
+              - menuitem "Development & IT" [ref=e72] [cursor=pointer]
+            - listitem [ref=e73]:
+              - menuitem "AI Services" [ref=e74] [cursor=pointer]
+            - listitem [ref=e75]:
+              - menuitem "Design & Creative" [ref=e76] [cursor=pointer]
+            - listitem [ref=e77]:
+              - menuitem "Sales & Marketing" [ref=e78] [cursor=pointer]
+            - listitem [ref=e79]:
+              - menuitem "Admin & Customer Support" [ref=e80] [cursor=pointer]
+            - listitem [ref=e81]:
+              - button "More secondary nav" [ref=e82] [cursor=pointer]:
+                - text: More
+                - img [ref=e84]
+      - main [ref=e86]:
+        - generic [ref=e95]:
+          - complementary "profile-identity" [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e100]:
+                - generic [ref=e104]:
+                  - img "Johnny P." [ref=e105]
+                  - 'img "Status: Offline" [ref=e106]':
+                    - generic [ref=e107]: "Status: Offline"
+                - generic [ref=e108]:
+                  - generic [ref=e109]:
+                    - text: Johnny P.
+                    - button "Verified" [ref=e111] [cursor=pointer]:
+                      - generic [ref=e112]:
+                        - img [ref=e114]
+                        - generic [ref=e117]: Verified
+                  - generic [ref=e118]: AI Automation | n8n/Zapier/Make.com | CRM Automation | AI Agents
+                  - generic [ref=e119]:
+                    - button "88% Job Success" [ref=e122] [cursor=pointer]:
+                      - generic [ref=e127]:
+                        - generic [ref=e128]:
+                          - img [ref=e129]
+                          - img [ref=e133]
+                        - generic [ref=e135]: 88% Job Success
+                    - generic [ref=e137]:
+                      - generic [ref=e138]:
+                        - generic [ref=e139]:
+                          - img [ref=e140]
+                          - img [ref=e142]
+                          - img [ref=e144]
+                          - img [ref=e146]
+                          - img [ref=e148]
+                        - generic [ref=e150]:
+                          - img [ref=e151]
+                          - img [ref=e153]
+                          - img [ref=e155]
+                          - img [ref=e157]
+                          - img [ref=e159]
+                          - generic [ref=e161]: Rating is 5.0 out of 5.
+                      - generic [ref=e162]: 5.0 (9)
+                  - generic [ref=e163]:
+                    - generic [ref=e164]:
+                      - generic "Chicago , IL , USA – 11:47 am local time" [ref=e165]:
+                        - img [ref=e167]
+                      - generic [ref=e170]: Chicago
+                      - generic [ref=e171]: ","
+                      - generic [ref=e172]: IL
+                      - generic [ref=e173]: ","
+                      - generic [ref=e174]: USA
+                    - generic [ref=e175]: –
+                    - generic [ref=e177]: 11:47 am local time
+              - generic [ref=e179]:
+                - generic [ref=e180]:
+                  - heading "16" [level=4] [ref=e181]
+                  - generic [ref=e182]: Total jobs
+                - generic [ref=e183]:
+                  - heading "144" [level=4] [ref=e184]
+                  - generic [ref=e185]: Total hours
+              - generic [ref=e187]:
+                - button "Sign up" [ref=e188] [cursor=pointer]
+                - generic [ref=e189]:
+                  - button "Book a consultation" [ref=e191] [cursor=pointer]:
+                    - img [ref=e193]
+                    - text: Book a consultation
+                  - generic [ref=e195]: $45 per 30 min Zoom meeting
+          - generic [ref=e199]:
+            - generic [ref=e201]:
+              - generic [ref=e202] [cursor=pointer]: About
+              - generic [ref=e203] [cursor=pointer]: Work history
+              - generic [ref=e204] [cursor=pointer]: Portfolio
+              - generic [ref=e205] [cursor=pointer]: Skills
+            - generic [ref=e206]:
+              - generic [ref=e209]:
+                - generic [ref=e210]:
+                  - heading "About Johnny P." [level=4] [ref=e212]
+                  - generic [ref=e213]:
+                    - generic [ref=e214]:
+                      - generic [ref=e215]: $92.50/hr
+                      - generic [ref=e216]: Rate
+                    - button "Simplify Tech Agency" [ref=e220] [cursor=pointer]:
+                      - link "Simplify Tech" [ref=e222]:
+                        - /url: /agencies/1936576645691046992/
+                      - generic [ref=e223]: Agency
+                - generic [ref=e224]:
+                  - generic [ref=e225]: Hi, I’m Johnny 👋 I build revenue-driving automations for enterprises, agencies, and now a $50MM ARR SaaS - skills I honed engineering AI at BlackRock. → AI support agents I designed now handle 80 % of routine questions instantly, saving thousands of staff hours → Lead-gen systems integrated with CRM can triple demo bookings in 90 days → Featured author on Medium.com and host of the “Simple Tech Talk” AI podcast (2.5 K subs) interviewing 7- & 8-figure CEOs Browse the mini case studies below, …
+                  - button "Show more" [ref=e227] [cursor=pointer]
+              - generic [ref=e231]:
+                - heading "Client feedback (7)" [level=4] [ref=e233]
+                - generic [ref=e236]:
+                  - generic [ref=e237]:
+                    - generic [ref=e239]:
+                      - generic [ref=e240]: Enterprise AI Validation Agent — Azure / Copilot Studio / Microsoft 365 Stack
+                      - generic [ref=e241]:
+                        - generic [ref=e242]:
+                          - img [ref=e244]
+                          - generic [ref=e246]: June 14, 2026
+                        - generic [ref=e248]:
+                          - generic [ref=e249]:
+                            - img [ref=e250]
+                            - img [ref=e252]
+                            - img [ref=e254]
+                            - img [ref=e256]
+                            - img [ref=e258]
+                          - generic [ref=e260]:
+                            - img [ref=e261]
+                            - img [ref=e263]
+                            - img [ref=e265]
+                            - img [ref=e267]
+                            - img [ref=e269]
+                            - generic [ref=e271]: Rating is 5.0 out of 5.
+                      - emphasis [ref=e275]: "\"Johnny was excellent to work with. He quickly grasped the complexity of our Microsoft-based AI governance workflow and brought a rare combination of architectural thinking and hand...\""
+                      - generic [ref=e276]:
+                        - img [ref=e278]
+                        - generic [ref=e281]: Taran A.
+                    - generic [ref=e283]:
+                      - generic [ref=e284]: Real Estate Lead Gen & Outreach Automation
+                      - generic [ref=e285]:
+                        - generic [ref=e286]:
+                          - img [ref=e288]
+                          - generic [ref=e290]: April 21, 2026
+                        - generic [ref=e292]:
+                          - generic [ref=e293]:
+                            - img [ref=e294]
+                            - img [ref=e296]
+                            - img [ref=e298]
+                            - img [ref=e300]
+                            - img [ref=e302]
+                          - generic [ref=e304]:
+                            - img [ref=e305]
+                            - img [ref=e307]
+                            - img [ref=e309]
+                            - img [ref=e311]
+                            - img [ref=e313]
+                            - generic [ref=e315]: Rating is 5.0 out of 5.
+                      - emphasis [ref=e319]: "\"Johnny is incredibly professional, communicative, and easy to work with. Our project scope ultimately pivoted in a different direction so we closed the contract early, but he was g...\""
+                  - navigation "Pagination" [ref=e322]:
+                    - generic [ref=e323]: Pagination
+                    - list [ref=e324]:
+                      - listitem [ref=e325]:
+                        - button "Previous page" [disabled] [ref=e328]:
+                          - img [ref=e330]
+                      - listitem [ref=e332]:
+                        - button "Current page 1 of 4" [ref=e333] [cursor=pointer]:
+                          - generic [ref=e334]:
+                            - generic [ref=e335]: Current page 1 of 4
+                            - text: "1"
+                      - listitem [ref=e336]:
+                        - button "go to page 2" [ref=e337] [cursor=pointer]:
+                          - generic [ref=e338]:
+                            - generic [ref=e339]: go to page
+                            - text: "2"
+                      - listitem [ref=e340]:
+                        - button "go to page 3" [ref=e341] [cursor=pointer]:
+                          - generic [ref=e342]:
+                            - generic [ref=e343]: go to page
+                            - text: "3"
+                      - listitem [ref=e344]:
+                        - button "go to page 4" [ref=e345] [cursor=pointer]:
+                          - generic [ref=e346]:
+                            - generic [ref=e347]: go to page
+                            - text: "4"
+                      - listitem [ref=e348]:
+                        - button "Next page" [ref=e351] [cursor=pointer]:
+                          - img [ref=e353]
+                    - generic [ref=e355]: Current page 1 of 4
+              - generic [ref=e359]:
+                - generic [ref=e361]: Work history on Upwork
+                - generic [ref=e362]:
+                  - generic [ref=e363]:
+                    - tablist [ref=e366]:
+                      - tab "Completed jobs 10" [selected] [ref=e367] [cursor=pointer]:
+                        - generic [ref=e369]:
+                          - generic [ref=e370]: Completed jobs
+                          - generic [ref=e371]: "10"
+                    - tabpanel [ref=e373]:
+                      - generic [ref=e374]:
+                        - generic [ref=e378]:
+                          - generic [ref=e379]:
+                            - text: Enterprise AI Validation Agent — Azure / Copilot Studio / Microsoft 365 Stack
+                            - generic [ref=e381]:
+                              - generic [ref=e382]:
+                                - img [ref=e383]
+                                - img [ref=e385]
+                                - img [ref=e387]
+                                - img [ref=e389]
+                                - img [ref=e391]
+                              - generic [ref=e393]:
+                                - img [ref=e394]
+                                - img [ref=e396]
+                                - img [ref=e398]
+                                - img [ref=e400]
+                                - img [ref=e402]
+                                - generic [ref=e404]: Rating is 5.0 out of 5.
+                          - generic [ref=e405]:
+                            - strong [ref=e408]: Private earnings
+                            - generic [ref=e410]:
+                              - img [ref=e412]
+                              - generic [ref=e414]: May 15, 2026 - Jun 14, 2026
+                          - generic [ref=e415]:
+                            - group [ref=e417]:
+                              - button "Skip skills" [ref=e418] [cursor=pointer]
+                              - list [ref=e419]:
+                                - generic [ref=e421]: AI Agent Development
+                                - generic [ref=e423]: Python
+                                - generic [ref=e425]: Microsoft Azure
+                                - generic [ref=e427]: Microsoft 365 Copilot
+                                - generic [ref=e429]: AI Consulting
+                                - generic [ref=e431]: Enterprise Software
+                                - generic [ref=e433]: ETL Pipeline
+                              - button "Next skills. Update list" [ref=e434] [cursor=pointer]:
+                                - generic [ref=e435]: Next skills. Update list
+                                - img [ref=e437]
+                            - generic [ref=e439]:
+                              - text: "Job description:"
+                              - generic [ref=e440]:
+                                - text: W
+                                - text: e
+                                - text: a
+                                - text: r
+                                - text: e
+                                - text: a
+                                - text: f
+                                - text: i
+                                - text: "n"
+                                - text: a
+                                - text: "n"
+                                - text: c
+                                - text: i
+                                - text: a
+                                - text: l
+                                - text: s
+                                - text: e
+                                - text: r
+                                - text: v
+                                - text: i
+                                - text: c
+                                - text: e
+                                - text: s
+                                - text: f
+                                - text: i
+                                - text: r
+                                - text: m
+                                - text: i
+                                - text: "n"
+                                - text: v
+                                - text: e
+                                - text: s
+                                - text: t
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: i
+                                - text: "n"
+                                - text: A
+                                - text: I
+                                - text: "-"
+                                - text: p
+                                - text: o
+                                - text: w
+                                - text: e
+                                - text: r
+                                - text: e
+                                - text: d
+                                - text: g
+                                - text: o
+                                - text: v
+                                - text: e
+                                - text: r
+                                - text: "n"
+                                - text: a
+                                - text: "n"
+                                - text: c
+                                - text: e
+                                - text: o
+                                - text: f
+                                - text: o
+                                - text: u
+                                - text: r
+                                - text: o
+                                - text: u
+                                - text: t
+                                - text: b
+                                - text: o
+                                - text: u
+                                - text: "n"
+                                - text: d
+                                - text: d
+                                - text: a
+                                - text: t
+                                - text: a
+                                - text: o
+                                - text: p
+                                - text: e
+                                - text: r
+                                - text: a
+                                - text: t
+                                - text: i
+                                - text: o
+                                - text: "n"
+                                - text: s
+                                - text: .
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e444]:
+                          - generic [ref=e445]:
+                            - text: Real Estate Lead Gen & Outreach Automation
+                            - generic [ref=e447]:
+                              - generic [ref=e448]:
+                                - img [ref=e449]
+                                - img [ref=e451]
+                                - img [ref=e453]
+                                - img [ref=e455]
+                                - img [ref=e457]
+                              - generic [ref=e459]:
+                                - img [ref=e460]
+                                - img [ref=e462]
+                                - img [ref=e464]
+                                - img [ref=e466]
+                                - img [ref=e468]
+                                - generic [ref=e470]: Rating is 5.0 out of 5.
+                          - generic [ref=e471]:
+                            - strong [ref=e474]: Private earnings
+                            - generic [ref=e476]:
+                              - img [ref=e478]
+                              - generic [ref=e480]: Aug 7, 2025 - Apr 21, 2026
+                          - generic [ref=e482]:
+                            - text: "Job description:"
+                            - generic [ref=e483]:
+                              - text: R
+                              - text: e
+                              - text: a
+                              - text: l
+                              - text: E
+                              - text: s
+                              - text: t
+                              - text: a
+                              - text: t
+                              - text: e
+                              - text: L
+                              - text: e
+                              - text: a
+                              - text: d
+                              - text: G
+                              - text: e
+                              - text: "n"
+                              - text: "&"
+                              - text: O
+                              - text: u
+                              - text: t
+                              - text: r
+                              - text: e
+                              - text: a
+                              - text: c
+                              - text: h
+                              - text: A
+                              - text: u
+                              - text: t
+                              - text: o
+                              - text: m
+                              - text: a
+                              - text: t
+                              - text: i
+                              - text: o
+                              - text: "n"
+                        - generic [ref=e487]:
+                          - generic [ref=e488]: SMS Flow Optimization & AI Receptionist Build
+                          - generic [ref=e489]:
+                            - strong [ref=e492]: Private earnings
+                            - generic [ref=e494]:
+                              - img [ref=e496]
+                              - generic [ref=e498]: Jun 18, 2025 - Dec 5, 2025
+                          - generic [ref=e500]:
+                            - text: "Job description:"
+                            - generic [ref=e501]:
+                              - text: S
+                              - text: M
+                              - text: S
+                              - text: F
+                              - text: l
+                              - text: o
+                              - text: w
+                              - text: O
+                              - text: p
+                              - text: t
+                              - text: i
+                              - text: m
+                              - text: i
+                              - text: z
+                              - text: a
+                              - text: t
+                              - text: i
+                              - text: o
+                              - text: "n"
+                              - text: "&"
+                              - text: A
+                              - text: I
+                              - text: R
+                              - text: e
+                              - text: c
+                              - text: e
+                              - text: p
+                              - text: t
+                              - text: i
+                              - text: o
+                              - text: "n"
+                              - text: i
+                              - text: s
+                              - text: t
+                              - text: B
+                              - text: u
+                              - text: i
+                              - text: l
+                              - text: d
+                        - generic [ref=e505]:
+                          - generic [ref=e506]: 30 minute consultation
+                          - generic [ref=e507]:
+                            - strong [ref=e510]: Private earnings
+                            - generic [ref=e512]:
+                              - img [ref=e514]
+                              - generic [ref=e516]: Aug 12, 2025 - Aug 30, 2025
+                          - generic [ref=e518]:
+                            - text: "Job description:"
+                            - generic [ref=e519]:
+                              - text: "3"
+                              - text: "0"
+                              - text: m
+                              - text: i
+                              - text: "n"
+                              - text: u
+                              - text: t
+                              - text: e
+                              - text: c
+                              - text: o
+                              - text: "n"
+                              - text: s
+                              - text: u
+                              - text: l
+                              - text: t
+                              - text: a
+                              - text: t
+                              - text: i
+                              - text: o
+                              - text: "n"
+                        - generic [ref=e523]:
+                          - generic [ref=e524]:
+                            - text: Automated Financial Content Engine & Workflow
+                            - generic [ref=e526]:
+                              - generic [ref=e527]:
+                                - img [ref=e528]
+                                - img [ref=e530]
+                                - img [ref=e532]
+                                - img [ref=e534]
+                                - img [ref=e536]
+                              - generic [ref=e538]:
+                                - img [ref=e539]
+                                - img [ref=e541]
+                                - img [ref=e543]
+                                - img [ref=e545]
+                                - img [ref=e547]
+                                - generic [ref=e549]: Rating is 5.0 out of 5.
+                          - generic [ref=e550]:
+                            - strong [ref=e553]: Private earnings
+                            - generic [ref=e555]:
+                              - img [ref=e557]
+                              - generic [ref=e559]: Jul 2, 2025 - Jul 30, 2025
+                          - generic [ref=e561]:
+                            - text: "Job description:"
+                            - generic [ref=e562]:
+                              - text: A
+                              - text: u
+                              - text: t
+                              - text: o
+                              - text: m
+                              - text: a
+                              - text: t
+                              - text: e
+                              - text: d
+                              - text: F
+                              - text: i
+                              - text: "n"
+                              - text: a
+                              - text: "n"
+                              - text: c
+                              - text: i
+                              - text: a
+                              - text: l
+                              - text: C
+                              - text: o
+                              - text: "n"
+                              - text: t
+                              - text: e
+                              - text: "n"
+                              - text: t
+                              - text: E
+                              - text: "n"
+                              - text: g
+                              - text: i
+                              - text: "n"
+                              - text: e
+                              - text: "&"
+                              - text: W
+                              - text: o
+                              - text: r
+                              - text: k
+                              - text: f
+                              - text: l
+                              - text: o
+                              - text: w
+                        - generic [ref=e566]:
+                          - generic [ref=e567]:
+                            - text: 30 minute consultation
+                            - generic [ref=e569]:
+                              - generic [ref=e570]:
+                                - img [ref=e571]
+                                - img [ref=e573]
+                                - img [ref=e575]
+                                - img [ref=e577]
+                                - img [ref=e579]
+                              - generic [ref=e581]:
+                                - img [ref=e582]
+                                - img [ref=e584]
+                                - img [ref=e586]
+                                - img [ref=e588]
+                                - img [ref=e590]
+                                - generic [ref=e592]: Rating is 5.0 out of 5.
+                          - generic [ref=e593]:
+                            - strong [ref=e596]: Private earnings
+                            - generic [ref=e598]:
+                              - img [ref=e600]
+                              - generic [ref=e602]: Jun 12, 2025 - Jun 16, 2025
+                          - generic [ref=e604]:
+                            - text: "Job description:"
+                            - generic [ref=e605]:
+                              - text: "3"
+                              - text: "0"
+                              - text: m
+                              - text: i
+                              - text: "n"
+                              - text: u
+                              - text: t
+                              - text: e
+                              - text: c
+                              - text: o
+                              - text: "n"
+                              - text: s
+                              - text: u
+                              - text: l
+                              - text: t
+                              - text: a
+                              - text: t
+                              - text: i
+                              - text: o
+                              - text: "n"
+                        - generic [ref=e609]:
+                          - generic [ref=e610]:
+                            - text: 30 minute consultation
+                            - generic [ref=e612]:
+                              - generic [ref=e613]:
+                                - img [ref=e614]
+                                - img [ref=e616]
+                                - img [ref=e618]
+                                - img [ref=e620]
+                                - img [ref=e622]
+                              - generic [ref=e624]:
+                                - img [ref=e625]
+                                - img [ref=e627]
+                                - img [ref=e629]
+                                - img [ref=e631]
+                                - img [ref=e633]
+                                - generic [ref=e635]: Rating is 5.0 out of 5.
+                          - generic [ref=e636]:
+                            - strong [ref=e639]: Private earnings
+                            - generic [ref=e641]:
+                              - img [ref=e643]
+                              - generic [ref=e645]: Mar 22, 2025 - Mar 24, 2025
+                          - generic [ref=e647]:
+                            - text: "Job description:"
+                            - generic [ref=e648]:
+                              - text: "3"
+                              - text: "0"
+                              - text: m
+                              - text: i
+                              - text: "n"
+                              - text: u
+                              - text: t
+                              - text: e
+                              - text: c
+                              - text: o
+                              - text: "n"
+                              - text: s
+                              - text: u
+                              - text: l
+                              - text: t
+                              - text: a
+                              - text: t
+                              - text: i
+                              - text: o
+                              - text: "n"
+                        - generic [ref=e652]:
+                          - generic [ref=e653]:
+                            - text: AI Expert Needed for Event Management Solutions
+                            - generic [ref=e655]:
+                              - generic [ref=e656]:
+                                - img [ref=e657]
+                                - img [ref=e659]
+                                - img [ref=e661]
+                                - img [ref=e663]
+                                - img [ref=e665]
+                              - generic [ref=e667]:
+                                - img [ref=e668]
+                                - img [ref=e670]
+                                - img [ref=e672]
+                                - img [ref=e674]
+                                - img [ref=e676]
+                                - generic [ref=e678]: Rating is 5.0 out of 5.
+                          - generic [ref=e679]:
+                            - strong [ref=e682]: Private earnings
+                            - generic [ref=e684]:
+                              - img [ref=e686]
+                              - generic [ref=e688]: Jun 21, 2024 - Aug 6, 2024
+                          - generic [ref=e689]:
+                            - group [ref=e691]:
+                              - list [ref=e692]:
+                                - generic [ref=e694]: Artificial Intelligence
+                            - generic [ref=e695]:
+                              - text: "Job description:"
+                              - generic [ref=e696]:
+                                - text: J
+                                - text: o
+                                - text: i
+                                - text: "n"
+                                - text: o
+                                - text: u
+                                - text: r
+                                - text: l
+                                - text: e
+                                - text: a
+                                - text: d
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: e
+                                - text: v
+                                - text: e
+                                - text: "n"
+                                - text: t
+                                - text: m
+                                - text: a
+                                - text: "n"
+                                - text: a
+                                - text: g
+                                - text: e
+                                - text: m
+                                - text: e
+                                - text: "n"
+                                - text: t
+                                - text: c
+                                - text: o
+                                - text: m
+                                - text: p
+                                - text: a
+                                - text: "n"
+                                - text: "y"
+                                - text: a
+                                - text: s
+                                - text: w
+                                - text: e
+                                - text: h
+                                - text: a
+                                - text: r
+                                - text: "n"
+                                - text: e
+                                - text: s
+                                - text: s
+                                - text: A
+                                - text: I
+                                - text: t
+                                - text: o
+                                - text: t
+                                - text: r
+                                - text: a
+                                - text: "n"
+                                - text: s
+                                - text: f
+                                - text: o
+                                - text: r
+                                - text: m
+                                - text: e
+                                - text: v
+                                - text: e
+                                - text: "n"
+                                - text: t
+                                - text: p
+                                - text: l
+                                - text: a
+                                - text: "n"
+                                - text: "n"
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: ","
+                                - text: e
+                                - text: x
+                                - text: e
+                                - text: c
+                                - text: u
+                                - text: t
+                                - text: i
+                                - text: o
+                                - text: "n"
+                                - text: ","
+                                - text: a
+                                - text: "n"
+                                - text: d
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e700]:
+                          - generic [ref=e701]:
+                            - text: SaaS Platform Development (Cold Email Automation with AI)
+                            - generic [ref=e703]:
+                              - generic [ref=e704]:
+                                - img [ref=e705]
+                                - img [ref=e707]
+                                - img [ref=e709]
+                                - img [ref=e711]
+                                - img [ref=e713]
+                              - generic [ref=e715]:
+                                - img [ref=e716]
+                                - img [ref=e718]
+                                - img [ref=e720]
+                                - img [ref=e722]
+                                - img [ref=e724]
+                                - generic [ref=e726]: Rating is 5.0 out of 5.
+                          - generic [ref=e727]:
+                            - strong [ref=e730]: Private earnings
+                            - generic [ref=e732]:
+                              - img [ref=e734]
+                              - generic [ref=e736]: May 4, 2024 - May 20, 2024
+                          - generic [ref=e737]:
+                            - group [ref=e739]:
+                              - button "Skip skills" [ref=e740] [cursor=pointer]
+                              - list [ref=e741]:
+                                - generic [ref=e743]: Web Application
+                                - generic [ref=e745]: AI App Development
+                                - generic [ref=e747]: AI Agent Development
+                                - generic [ref=e749]: Java
+                                - generic [ref=e751]: SQL
+                                - generic [ref=e753]: Python
+                                - generic [ref=e755]: JavaScript
+                                - generic [ref=e757]: Email Marketing
+                                - generic [ref=e759]: Data Scraping
+                              - button "Next skills. Update list" [ref=e760] [cursor=pointer]:
+                                - generic [ref=e761]: Next skills. Update list
+                                - img [ref=e763]
+                            - generic [ref=e765]:
+                              - text: "Job description:"
+                              - generic [ref=e766]:
+                                - text: W
+                                - text: e
+                                - text: h
+                                - text: a
+                                - text: v
+                                - text: e
+                                - text: i
+                                - text: d
+                                - text: e
+                                - text: a
+                                - text: t
+                                - text: e
+                                - text: d
+                                - text: a
+                                - text: S
+                                - text: A
+                                - text: A
+                                - text: S
+                                - text: p
+                                - text: l
+                                - text: a
+                                - text: t
+                                - text: f
+                                - text: o
+                                - text: r
+                                - text: m
+                                - text: d
+                                - text: e
+                                - text: s
+                                - text: i
+                                - text: g
+                                - text: "n"
+                                - text: e
+                                - text: d
+                                - text: t
+                                - text: o
+                                - text: e
+                                - text: "n"
+                                - text: h
+                                - text: a
+                                - text: "n"
+                                - text: c
+                                - text: e
+                                - text: e
+                                - text: m
+                                - text: a
+                                - text: i
+                                - text: l
+                                - text: c
+                                - text: a
+                                - text: m
+                                - text: p
+                                - text: a
+                                - text: i
+                                - text: g
+                                - text: "n"
+                                - text: m
+                                - text: a
+                                - text: "n"
+                                - text: a
+                                - text: g
+                                - text: e
+                                - text: m
+                                - text: e
+                                - text: "n"
+                                - text: t
+                                - text: a
+                                - text: "n"
+                                - text: d
+                                - text: a
+                                - text: r
+                                - text: e
+                                - text: i
+                                - text: "n"
+                                - text: "n"
+                                - text: e
+                                - text: e
+                                - text: d
+                                - text: o
+                                - text: f
+                                - text: a
+                                - text: s
+                                - text: k
+                                - text: i
+                                - text: l
+                                - text: l
+                                - text: e
+                                - text: d
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e770]:
+                          - generic [ref=e771]:
+                            - text: AI Automation Expert for our AI Development Company
+                            - generic [ref=e773]:
+                              - generic [ref=e774]:
+                                - img [ref=e775]
+                                - img [ref=e777]
+                                - img [ref=e779]
+                                - img [ref=e781]
+                                - img [ref=e783]
+                              - generic [ref=e785]:
+                                - img [ref=e786]
+                                - img [ref=e788]
+                                - img [ref=e790]
+                                - img [ref=e792]
+                                - img [ref=e794]
+                                - generic [ref=e796]: Rating is 5.0 out of 5.
+                          - generic [ref=e797]:
+                            - strong [ref=e800]: Private earnings
+                            - generic [ref=e802]:
+                              - img [ref=e804]
+                              - generic [ref=e806]: Apr 19, 2024 - May 2, 2024
+                          - generic [ref=e807]:
+                            - group [ref=e809]:
+                              - button "Skip skills" [ref=e810] [cursor=pointer]
+                              - list [ref=e811]:
+                                - generic [ref=e813]: Python
+                                - generic [ref=e815]: Zapier
+                                - generic [ref=e817]: Artificial Intelligence
+                                - generic [ref=e819]: Chatbot Development
+                                - generic [ref=e821]: GPT Chatbot
+                                - generic [ref=e823]: Software Development
+                                - generic [ref=e825]: Business Process Automation
+                              - button "Next skills. Update list" [ref=e826] [cursor=pointer]:
+                                - generic [ref=e827]: Next skills. Update list
+                                - img [ref=e829]
+                            - generic [ref=e831]:
+                              - text: "Job description:"
+                              - generic [ref=e832]:
+                                - text: W
+                                - text: e
+                                - text: a
+                                - text: r
+                                - text: e
+                                - text: a
+                                - text: g
+                                - text: r
+                                - text: o
+                                - text: w
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: A
+                                - text: I
+                                - text: D
+                                - text: e
+                                - text: v
+                                - text: e
+                                - text: l
+                                - text: o
+                                - text: p
+                                - text: m
+                                - text: e
+                                - text: "n"
+                                - text: t
+                                - text: c
+                                - text: o
+                                - text: m
+                                - text: p
+                                - text: a
+                                - text: "n"
+                                - text: "y"
+                                - text: s
+                                - text: e
+                                - text: e
+                                - text: k
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: a
+                                - text: "n"
+                                - text: A
+                                - text: I
+                                - text: A
+                                - text: u
+                                - text: t
+                                - text: o
+                                - text: m
+                                - text: a
+                                - text: t
+                                - text: i
+                                - text: o
+                                - text: "n"
+                                - text: E
+                                - text: x
+                                - text: p
+                                - text: e
+                                - text: r
+                                - text: t
+                                - text: t
+                                - text: o
+                                - text: j
+                                - text: o
+                                - text: i
+                                - text: "n"
+                                - text: o
+                                - text: u
+                                - text: r
+                                - text: t
+                                - text: e
+                                - text: a
+                                - text: m
+                                - text: .
+                                - text: A
+                                - text: s
+                                - text: a
+                                - text: k
+                                - text: e
+                                - text: "y"
+                                - text: m
+                                - text: e
+                                - text: m
+                                - text: b
+                                - text: e
+                                - text: r
+                                - text: .
+                                - text: .
+                                - text: .
+                  - generic [ref=e833]:
+                    - separator [ref=e834]
+                    - generic [ref=e835]:
+                      - strong [ref=e836]: Johnny P. has more jobs.
+                      - link "Create an account to review them" [ref=e837] [cursor=pointer]:
+                        - /url: /signup/
+              - generic [ref=e842]:
+                - heading "Portfolio (22)" [level=3] [ref=e844]
+                - generic [ref=e846]:
+                  - generic [ref=e848] [cursor=pointer]:
+                    - img [ref=e853]
+                    - generic [ref=e862]: Smart Inbox Orchestrator
+                    - generic [ref=e863]:
+                      - generic [ref=e866]: Email Automation
+                      - generic [ref=e869]: API Integration
+                      - button "+3" [ref=e872]:
+                        - generic [ref=e874]: "+3"
+                  - generic [ref=e876] [cursor=pointer]:
+                    - img [ref=e881]
+                    - generic [ref=e890]: End-to-End Appointment Workflow in GoHighLevel
+                    - generic [ref=e891]:
+                      - generic [ref=e894]: CRM Automation
+                      - generic [ref=e897]: Email Automation
+                      - button "+2" [ref=e900]:
+                        - generic [ref=e902]: "+2"
+                  - generic [ref=e903]:
+                    - generic [ref=e904]:
+                      - strong [ref=e905]: Want to see more?
+                      - link "Sign up" [ref=e906] [cursor=pointer]:
+                        - /url: /signup/
+                    - strong [ref=e907]
+              - generic [ref=e911]:
+                - heading "Skills" [level=4] [ref=e913]
+                - list [ref=e914]:
+                  - listitem [ref=e915]:
+                    - link "Hire Development & IT Project Managers" [ref=e917] [cursor=pointer]:
+                      - /url: /hire/development-it-project-managers/
+                      - text: Software Development
+                  - listitem [ref=e918]:
+                    - button "Python" [ref=e922] [cursor=pointer]:
+                      - generic [ref=e924]: Python
+                  - listitem [ref=e925]:
+                    - link "Hire ChatGPT Specialists" [ref=e927] [cursor=pointer]:
+                      - /url: /hire/chatgpt-specialists/
+                      - text: ChatGPT
+                  - listitem [ref=e928]:
+                    - generic [ref=e930]: Generative AI
+                  - listitem [ref=e931]:
+                    - generic [ref=e933]: CRM Automation
+                  - listitem [ref=e934]:
+                    - button "Make.com" [ref=e938] [cursor=pointer]:
+                      - generic [ref=e940]: Make.com
+                  - listitem [ref=e941]:
+                    - button "Zapier" [ref=e945] [cursor=pointer]:
+                      - generic [ref=e947]: Zapier
+                  - listitem [ref=e948]:
+                    - button "Scripting" [ref=e952] [cursor=pointer]:
+                      - generic [ref=e954]: Scripting
+                  - listitem [ref=e955]:
+                    - link "Hire Full Stack .NET Developers" [ref=e957] [cursor=pointer]:
+                      - /url: /hire/full-stack-dotnet-developers/
+                      - text: Web Development
+                  - listitem [ref=e958]:
+                    - generic [ref=e960]: Google Apps Script
+                  - listitem [ref=e961]:
+                    - link "Hire Computer Vision Specialists" [ref=e963] [cursor=pointer]:
+                      - /url: /hire/computer-vision-specialists/
+                      - text: Computer Vision
+                  - listitem [ref=e964]:
+                    - link "Hire Digital Process Automation Freelancers" [ref=e966] [cursor=pointer]:
+                      - /url: /hire/digital-process-automation-freelancers/
+                      - text: Business Process Automation
+                  - listitem [ref=e967]:
+                    - link "Hire Flask Developers & Programmers" [ref=e969] [cursor=pointer]:
+                      - /url: /hire/flask-developers/
+                      - text: Flask
+                  - listitem [ref=e970]:
+                    - generic [ref=e972]: MERN Stack
+                  - listitem [ref=e973]:
+                    - link "Hire AI Chatbot Specialists" [ref=e975] [cursor=pointer]:
+                      - /url: /hire/ai-chatbot-specialists/
+                      - text: AI Chatbot
+              - generic [ref=e979]:
+                - generic [ref=e980]:
+                  - text: Search for other talent
+                  - search [ref=e981]:
+                    - generic [ref=e984]:
+                      - generic:
+                        - generic:
+                          - img
+                      - searchbox "Search" [ref=e985]
+                - generic [ref=e988]:
+                  - heading "Browse similar freelancers" [level=3] [ref=e989]
+                  - list [ref=e990]:
+                    - listitem [ref=e991]:
+                      - link "Development & IT Project Managers" [ref=e992] [cursor=pointer]:
+                        - /url: /hire/development-it-project-managers/
+                    - listitem [ref=e993]:
+                      - link "Automatic Speech Recognition Freelancers" [ref=e994] [cursor=pointer]:
+                        - /url: /hire/automatic-speech-recognition-freelancers/
+    - contentinfo [ref=e998]:
+      - heading "Footer navigation" [level=2] [ref=e999]
+      - generic [ref=e1000]:
+        - generic [ref=e1001]:
+          - generic [ref=e1002]:
+            - heading "For Clients" [level=3] [ref=e1003]
+            - list [ref=e1005]:
+              - listitem [ref=e1006]:
+                - link "How to hire" [ref=e1007] [cursor=pointer]:
+                  - /url: /i/how-it-works/client/
+              - listitem [ref=e1008]:
+                - link "Talent Marketplace" [ref=e1009] [cursor=pointer]:
+                  - /url: /talent-marketplace/
+              - listitem [ref=e1010]:
+                - link "Project Catalog" [ref=e1011] [cursor=pointer]:
+                  - /url: /services/
+              - listitem [ref=e1012]:
+                - link "Hire an agency" [ref=e1013] [cursor=pointer]:
+                  - /url: /agencies
+              - listitem [ref=e1014]:
+                - link "Enterprise" [ref=e1015] [cursor=pointer]:
+                  - /url: /enterprise/
+              - listitem [ref=e1016]:
+                - link "Business Plus" [ref=e1017] [cursor=pointer]:
+                  - /url: /business-plus/
+              - listitem [ref=e1018]:
+                - link "Any Hire" [ref=e1019] [cursor=pointer]:
+                  - /url: /anyhire/
+              - listitem [ref=e1020]:
+                - link "Contract-to-hire" [ref=e1021] [cursor=pointer]:
+                  - /url: /contract-to-hire/client
+              - listitem [ref=e1022]:
+                - link "Direct Contracts" [ref=e1023] [cursor=pointer]:
+                  - /url: /direct-contracts/cl
+              - listitem [ref=e1024]:
+                - link "Hire worldwide" [ref=e1025] [cursor=pointer]:
+                  - /url: /hire/
+              - listitem [ref=e1026]:
+                - link "Hire in the USA" [ref=e1027] [cursor=pointer]:
+                  - /url: /hire/us/
+          - generic [ref=e1028]:
+            - heading "For Talent" [level=3] [ref=e1029]
+            - list [ref=e1031]:
+              - listitem [ref=e1032]:
+                - link "How to find work" [ref=e1033] [cursor=pointer]:
+                  - /url: /i/how-it-works/freelancer/
+              - listitem [ref=e1034]:
+                - link "Direct Contracts" [ref=e1035] [cursor=pointer]:
+                  - /url: /direct-contracts
+              - listitem [ref=e1036]:
+                - link "Find freelance jobs worldwide" [ref=e1037] [cursor=pointer]:
+                  - /url: /freelance-jobs/
+              - listitem [ref=e1038]:
+                - link "Find freelance jobs in the USA" [ref=e1039] [cursor=pointer]:
+                  - /url: /freelance-jobs/united-states/
+              - listitem [ref=e1040]:
+                - link "Win work with ads" [ref=e1041] [cursor=pointer]:
+                  - /url: /work/ads
+              - listitem [ref=e1042]:
+                - link "Exclusive resources with Freelancer Plus" [ref=e1043] [cursor=pointer]:
+                  - /url: /work/freelancerplus
+          - generic [ref=e1044]:
+            - heading "Resources" [level=3] [ref=e1045]
+            - list [ref=e1047]:
+              - listitem [ref=e1048]:
+                - link "Help & support" [ref=e1049] [cursor=pointer]:
+                  - /url: https://support.upwork.com/hc/en-us
+              - listitem [ref=e1050]:
+                - link "Success stories" [ref=e1051] [cursor=pointer]:
+                  - /url: /success-stories
+              - listitem [ref=e1052]:
+                - link "Upwork reviews" [ref=e1053] [cursor=pointer]:
+                  - /url: /reviews
+              - listitem [ref=e1054]:
+                - link "Resources" [ref=e1055] [cursor=pointer]:
+                  - /url: /resources
+              - listitem [ref=e1056]:
+                - link "Blog" [ref=e1057] [cursor=pointer]:
+                  - /url: /blog
+              - listitem [ref=e1058]:
+                - link "Affiliate program" [ref=e1059] [cursor=pointer]:
+                  - /url: /affiliates
+              - listitem [ref=e1060]:
+                - link "Refer a client" [ref=e1061] [cursor=pointer]:
+                  - /url: /client-referrals
+              - listitem [ref=e1062]:
+                - link "Free Business Tools" [ref=e1063] [cursor=pointer]:
+                  - /url: /tools
+              - listitem [ref=e1064]:
+                - link "Release notes" [ref=e1065] [cursor=pointer]:
+                  - /url: /product-release-notes
+          - generic [ref=e1066]:
+            - heading "Company" [level=3] [ref=e1067]
+            - list [ref=e1069]:
+              - listitem [ref=e1070]:
+                - link "About us" [ref=e1071] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e1072]:
+                - link "Leadership" [ref=e1073] [cursor=pointer]:
+                  - /url: /about/team
+              - listitem [ref=e1074]:
+                - link "Investor relations" [ref=e1075] [cursor=pointer]:
+                  - /url: https://investors.upwork.com/
+              - listitem [ref=e1076]:
+                - link "Careers" [ref=e1077] [cursor=pointer]:
+                  - /url: /careers
+              - listitem [ref=e1078]:
+                - link "Our impact" [ref=e1079] [cursor=pointer]:
+                  - /url: /about/our-impact
+              - listitem [ref=e1080]:
+                - link "Press" [ref=e1081] [cursor=pointer]:
+                  - /url: /press
+              - listitem [ref=e1082]:
+                - link "Contact us" [ref=e1083] [cursor=pointer]:
+                  - /url: /about/contact
+              - listitem [ref=e1084]:
+                - link "Partners" [ref=e1085] [cursor=pointer]:
+                  - /url: /partners/
+              - listitem [ref=e1086]:
+                - link "Trust, safety & security" [ref=e1087] [cursor=pointer]:
+                  - /url: /trust-and-safety/security/
+              - listitem [ref=e1088]:
+                - link "Modern slavery statement" [ref=e1089] [cursor=pointer]:
+                  - /url: /documents/modern-slavery-statement
+        - generic [ref=e1090]:
+          - generic [ref=e1091]:
+            - heading "Follow us" [level=3] [ref=e1092]
+            - list [ref=e1093]:
+              - listitem [ref=e1094]:
+                - link "Visit Upwork on Facebook" [ref=e1095] [cursor=pointer]:
+                  - /url: https://www.facebook.com/upwork
+                  - generic [ref=e1096]: Visit Upwork on Facebook
+                  - img [ref=e1098]
+              - listitem [ref=e1100]:
+                - link "Read Upwork company news on LinkedIn" [ref=e1101] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/company/upwork
+                  - generic [ref=e1102]: Read Upwork company news on LinkedIn
+                  - img [ref=e1104]
+              - listitem [ref=e1106]:
+                - link "Follow @Upwork on Twitter" [ref=e1107] [cursor=pointer]:
+                  - /url: https://twitter.com/Upwork
+                  - generic [ref=e1108]: Follow @Upwork on Twitter
+                  - img [ref=e1110]
+              - listitem [ref=e1112]:
+                - link "Watch Upwork videos on YouTube" [ref=e1113] [cursor=pointer]:
+                  - /url: https://www.youtube.com/channel/UCvxGFOnwUBDHHcxuPqhe4CQ
+                  - generic [ref=e1114]: Watch Upwork videos on YouTube
+                  - img [ref=e1116]
+              - listitem [ref=e1118]:
+                - link "Follow Upwork on Instagram" [ref=e1119] [cursor=pointer]:
+                  - /url: https://www.instagram.com/upwork/
+                  - generic [ref=e1120]: Follow Upwork on Instagram
+                  - img [ref=e1122]
+              - listitem [ref=e1126]:
+                - link "Join Upwork on Reddit" [ref=e1127] [cursor=pointer]:
+                  - /url: https://www.reddit.com/r/UpworkOfficial/
+                  - generic [ref=e1128]: Join Upwork on Reddit
+                  - img [ref=e1130]
+          - generic [ref=e1132]:
+            - heading "Mobile app" [level=3] [ref=e1133]
+            - list [ref=e1134]:
+              - listitem [ref=e1135]:
+                - link "Download Upwork app from iTunes" [ref=e1136] [cursor=pointer]:
+                  - /url: https://apps.apple.com/us/developer/upwork-global-inc/id329377609
+                  - generic [ref=e1137]: Download Upwork app from iTunes
+                  - img [ref=e1139]
+              - listitem [ref=e1142]:
+                - link "Download Upwork app from Google Play" [ref=e1143] [cursor=pointer]:
+                  - /url: https://play.google.com/store/apps/dev?id=8802639270489632480
+                  - generic [ref=e1144]: Download Upwork app from Google Play
+                  - img [ref=e1146]
+        - generic [ref=e1148]:
+          - paragraph [ref=e1149]: © 2015 - 2026 Upwork® Global LLC
+          - list [ref=e1150]:
+            - listitem [ref=e1151]:
+              - link "Terms of Service" [ref=e1152] [cursor=pointer]:
+                - /url: /legal
+            - listitem [ref=e1153]:
+              - link "Privacy Policy" [ref=e1154] [cursor=pointer]:
+                - /url: /legal#privacy
+            - listitem [ref=e1155]:
+              - link "CA Notice at Collection" [ref=e1156] [cursor=pointer]:
+                - /url: /legal#SupplementalPrivacyNoticeforCaliforniaResidents
+            - listitem [ref=e1157]:
+              - link "Your Privacy Choices California Consumer Privacy Act (CCPA) Opt-Out" [ref=e1158] [cursor=pointer]:
+                - /url: "javascript:"
+                - text: Your Privacy Choices
+                - generic [ref=e1159]: California Consumer Privacy Act (CCPA) Opt-Out
+            - listitem [ref=e1161]:
+              - link "Accessibility" [ref=e1162] [cursor=pointer]:
+                - /url: /legal#accessibility
+            - listitem [ref=e1163]:
+              - link "Sitemap" [ref=e1164] [cursor=pointer]:
+                - /url: /sitemaps/
+  - generic:
+    - region "Cookie banner" [active]:
+      - dialog "Privacy" [ref=e1165]:
+        - generic [ref=e1166]:
+          - generic [ref=e1168]:
+            - text: This site employs data tracking technologies (e.g. cookies and pixels) that we and our third party providers use to collect and analyze data about your interactions with our site and to market to you.
+            - strong [ref=e1169]: By continuing, you agree to the use of these technologies.
+            - text: To customize your preferences, please click the “Manage” button below.
+            - text: To learn more about our data practices, please see our
+            - link "Cookie Policy information, opens in a new tab" [ref=e1170] [cursor=pointer]:
+              - /url: https://www.upwork.com/legal#privacy
+              - text: Privacy Policy
+          - button "Manage, Opens the preference center dialog" [ref=e1173] [cursor=pointer]: Manage
+          - button "Close" [ref=e1175] [cursor=pointer]
+  - textbox [ref=e1176]

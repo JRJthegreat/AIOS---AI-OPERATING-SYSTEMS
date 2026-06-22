@@ -1,0 +1,1577 @@
+- generic [ref=e1]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - generic [ref=e11]:
+        - banner [ref=e12]:
+          - link "Skip to content" [ref=e13] [cursor=pointer]
+          - generic [ref=e14]:
+            - link "Upwork home" [ref=e17] [cursor=pointer]:
+              - /url: /
+              - generic [ref=e18]: Upwork home
+              - img [ref=e20]
+            - generic [ref=e26]:
+              - navigation "Primary" [ref=e27]:
+                - list [ref=e28]:
+                  - listitem [ref=e29]:
+                    - button "Hire talent" [ref=e30] [cursor=pointer]:
+                      - generic [ref=e31]: Hire talent
+                      - img [ref=e33]
+                  - listitem [ref=e35]:
+                    - button "Get outcomes" [ref=e36] [cursor=pointer]:
+                      - generic [ref=e37]: Get outcomes
+                      - img [ref=e39]
+                  - listitem [ref=e41]:
+                    - button "Find work" [ref=e42] [cursor=pointer]:
+                      - generic [ref=e43]: Find work
+                      - img [ref=e45]
+                  - listitem [ref=e47]:
+                    - button "Why Upwork" [ref=e48] [cursor=pointer]:
+                      - generic [ref=e49]: Why Upwork
+                      - img [ref=e51]
+                  - listitem [ref=e53]:
+                    - link "Pricing" [ref=e54] [cursor=pointer]:
+                      - /url: /pricing/client
+                      - generic [ref=e55]: Pricing
+                  - listitem [ref=e56]:
+                    - link "Enterprise" [ref=e57] [cursor=pointer]:
+                      - /url: https://go-lifted.com/
+                      - generic [ref=e58]: Enterprise
+                  - listitem
+              - generic [ref=e59]:
+                - button "Search" [ref=e62] [cursor=pointer]:
+                  - img [ref=e64]
+                - link "Log in" [ref=e66] [cursor=pointer]:
+                  - /url: /ab/account-security/login
+                - link "Sign up" [ref=e67] [cursor=pointer]:
+                  - /url: about:blank
+        - generic "Secondary" [ref=e68]:
+          - generic [ref=e69]: Secondary
+          - list [ref=e70]:
+            - listitem [ref=e71]:
+              - menuitem "Development & IT" [ref=e72] [cursor=pointer]
+            - listitem [ref=e73]:
+              - menuitem "AI Services" [ref=e74] [cursor=pointer]
+            - listitem [ref=e75]:
+              - menuitem "Design & Creative" [ref=e76] [cursor=pointer]
+            - listitem [ref=e77]:
+              - menuitem "Sales & Marketing" [ref=e78] [cursor=pointer]
+            - listitem [ref=e79]:
+              - menuitem "Admin & Customer Support" [ref=e80] [cursor=pointer]
+            - listitem [ref=e81]:
+              - button "More secondary nav" [ref=e82] [cursor=pointer]:
+                - text: More
+                - img [ref=e84]
+      - main [ref=e86]:
+        - generic [ref=e95]:
+          - complementary "profile-identity" [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e100]:
+                - generic [ref=e104]:
+                  - img "Raunek P." [ref=e105]
+                  - 'img "Status: Offline" [ref=e106]':
+                    - generic [ref=e107]: "Status: Offline"
+                - generic [ref=e108]:
+                  - generic [ref=e109]:
+                    - text: Raunek P.
+                    - button "Verified" [ref=e111] [cursor=pointer]:
+                      - generic [ref=e112]:
+                        - img [ref=e114]
+                        - generic [ref=e117]: Verified
+                  - generic [ref=e118]: AI App Developer | AI Automation Systems, MVPs, Dashboards & AI Agents
+                  - generic [ref=e119]:
+                    - button "87% Job Success" [ref=e122] [cursor=pointer]:
+                      - generic [ref=e127]:
+                        - generic [ref=e128]:
+                          - img [ref=e129]
+                          - img [ref=e133]
+                        - generic [ref=e135]: 87% Job Success
+                    - generic [ref=e137]:
+                      - generic [ref=e138]:
+                        - generic [ref=e139]:
+                          - img [ref=e140]
+                          - img [ref=e142]
+                          - img [ref=e144]
+                          - img [ref=e146]
+                          - img [ref=e148]
+                        - generic [ref=e150]:
+                          - img [ref=e151]
+                          - img [ref=e153]
+                          - img [ref=e155]
+                          - img [ref=e157]
+                          - img [ref=e159]
+                          - generic [ref=e161]: Rating is 4.3 out of 5.
+                      - generic [ref=e162]: 4.3 (20)
+                  - generic [ref=e163]:
+                    - generic [ref=e164]:
+                      - generic "Los Angeles , CA , USA – 9:48 am local time" [ref=e165]:
+                        - img [ref=e167]
+                      - generic [ref=e170]: Los Angeles
+                      - generic [ref=e171]: ","
+                      - generic [ref=e172]: CA
+                      - generic [ref=e173]: ","
+                      - generic [ref=e174]: USA
+                    - generic [ref=e175]: –
+                    - generic [ref=e177]: 9:48 am local time
+              - generic [ref=e179]:
+                - generic [ref=e180]:
+                  - heading "35" [level=4] [ref=e181]
+                  - generic [ref=e182]: Total jobs
+                - generic [ref=e183]:
+                  - heading "59" [level=4] [ref=e184]
+                  - generic [ref=e185]: Total hours
+              - button "Sign up" [ref=e188] [cursor=pointer]
+          - generic [ref=e192]:
+            - generic [ref=e194]:
+              - generic [ref=e195] [cursor=pointer]: About
+              - generic [ref=e196] [cursor=pointer]: Work history
+              - generic [ref=e197] [cursor=pointer]: Portfolio
+              - generic [ref=e198] [cursor=pointer]: Skills
+            - generic [ref=e199]:
+              - generic [ref=e202]:
+                - generic [ref=e203]:
+                  - heading "About Raunek P." [level=4] [ref=e205]
+                  - generic [ref=e206]:
+                    - generic [ref=e207]:
+                      - generic [ref=e208]: $153.50/hr
+                      - generic [ref=e209]: Rate
+                    - button "XPAND Agency" [ref=e213] [cursor=pointer]:
+                      - link "XPAND" [ref=e215]:
+                        - /url: /agencies/1791485233616678912/
+                      - generic [ref=e216]: Agency
+                - generic [ref=e220] [cursor=pointer]:
+                  - img "https://www.youtube.com/watch?v=vCRm86JdZOM" [ref=e221]
+                  - button "Play video" [ref=e222]:
+                    - img "Play video" [ref=e223]
+                - generic [ref=e224]:
+                  - generic [ref=e225]: "I build AI tools that automate internal workflows, power new AI products, and replace spreadsheet-based processes with scalable systems. In 2025 alone, I’ve helped clients design, build, and ship 32+ AI applications ranging from internal automation tools to full SaaS MVPs. Many of these systems support HIPAA-sensitive workflows, operational automation, and data-driven decision making. Most clients hire me when they want to: • Build an AI-powered SaaS MVP • Create internal AI tools for their t…"
+                  - button "Show more" [ref=e227] [cursor=pointer]
+              - generic [ref=e231]:
+                - heading "Client feedback (15)" [level=4] [ref=e233]
+                - generic [ref=e236]:
+                  - generic [ref=e237]:
+                    - generic [ref=e239]:
+                      - generic [ref=e240]: MVP Canva App Development for Edtech Pilot
+                      - generic [ref=e241]:
+                        - generic [ref=e242]:
+                          - img [ref=e244]
+                          - generic [ref=e246]: April 24, 2026
+                        - generic [ref=e248]:
+                          - generic [ref=e249]:
+                            - img [ref=e250]
+                            - img [ref=e252]
+                            - img [ref=e254]
+                            - img [ref=e256]
+                            - img [ref=e258]
+                          - generic [ref=e260]:
+                            - img [ref=e261]
+                            - img [ref=e263]
+                            - img [ref=e265]
+                            - img [ref=e267]
+                            - img [ref=e269]
+                            - generic [ref=e271]: Rating is 4.0 out of 5.
+                      - emphasis [ref=e275]: "\"Raunek helped me get my Canva MVP up and running and was great to work with throughout the entire process. With my limited technical background, I really appreciated how clearly an...\""
+                      - generic [ref=e276]:
+                        - img [ref=e278]
+                        - generic [ref=e281]: Allison V.
+                    - generic [ref=e283]:
+                      - generic [ref=e284]: Debug & Complete Laravel/Vue SaaS MVP - Microsite Generator
+                      - generic [ref=e285]:
+                        - generic [ref=e286]:
+                          - img [ref=e288]
+                          - generic [ref=e290]: March 7, 2026
+                        - generic [ref=e292]:
+                          - generic [ref=e293]:
+                            - img [ref=e294]
+                            - img [ref=e296]
+                            - img [ref=e298]
+                            - img [ref=e300]
+                            - img [ref=e302]
+                          - generic [ref=e304]:
+                            - img [ref=e305]
+                            - img [ref=e307]
+                            - img [ref=e309]
+                            - img [ref=e311]
+                            - img [ref=e313]
+                            - generic [ref=e315]: Rating is 5.0 out of 5.
+                      - emphasis [ref=e319]: "\"Raunek continually went above and beyond. And, at times, showed more excitement for my project than i did. I've made mistakes when working on this project - but hiring Raunek has b...\""
+                      - generic [ref=e320]:
+                        - img [ref=e322]
+                        - generic [ref=e325]: Michael M.
+                  - navigation "Pagination" [ref=e328]:
+                    - generic [ref=e329]: Pagination
+                    - list [ref=e330]:
+                      - listitem [ref=e331]:
+                        - button "Previous page" [disabled] [ref=e334]:
+                          - img [ref=e336]
+                      - listitem [ref=e338]:
+                        - button "Current page 1 of 8" [ref=e339] [cursor=pointer]:
+                          - generic [ref=e340]:
+                            - generic [ref=e341]: Current page 1 of 8
+                            - text: "1"
+                      - listitem [ref=e342]:
+                        - button "go to page 2" [ref=e343] [cursor=pointer]:
+                          - generic [ref=e344]:
+                            - generic [ref=e345]: go to page
+                            - text: "2"
+                      - listitem [ref=e346]:
+                        - button "go to page 3" [ref=e347] [cursor=pointer]:
+                          - generic [ref=e348]:
+                            - generic [ref=e349]: go to page
+                            - text: "3"
+                      - listitem [ref=e350]:
+                        - button "go to page 4" [ref=e351] [cursor=pointer]:
+                          - generic [ref=e352]:
+                            - generic [ref=e353]: go to page
+                            - text: "4"
+                      - listitem [ref=e354]: ...
+                      - listitem [ref=e355]:
+                        - button "Next page" [ref=e358] [cursor=pointer]:
+                          - img [ref=e360]
+                    - generic [ref=e362]: Current page 1 of 8
+              - generic [ref=e366]:
+                - generic [ref=e368]: Work history on Upwork
+                - generic [ref=e369]:
+                  - generic [ref=e370]:
+                    - tablist [ref=e373]:
+                      - tab "Completed jobs 34" [selected] [ref=e374] [cursor=pointer]:
+                        - generic [ref=e376]:
+                          - generic [ref=e377]: Completed jobs
+                          - generic [ref=e378]: "34"
+                    - tabpanel [ref=e380]:
+                      - generic [ref=e381]:
+                        - generic [ref=e385]:
+                          - generic [ref=e386]: AI Marketing Systems Builder for Financial Firm
+                          - generic [ref=e387]:
+                            - strong [ref=e390]: Private earnings
+                            - generic [ref=e392]:
+                              - img [ref=e394]
+                              - generic [ref=e396]: Apr 28, 2026 - Jun 10, 2026
+                          - generic [ref=e397]:
+                            - group [ref=e399]:
+                              - button "Skip skills" [ref=e400] [cursor=pointer]
+                              - list [ref=e401]:
+                                - generic [ref=e403]: Graphic Design
+                                - generic [ref=e405]: Marketing Automation
+                                - generic [ref=e407]: Lead Generation
+                                - generic [ref=e409]: Adobe Illustrator
+                                - generic [ref=e411]: Content Writing
+                              - button "Next skills. Update list" [ref=e412] [cursor=pointer]:
+                                - generic [ref=e413]: Next skills. Update list
+                                - img [ref=e415]
+                            - generic [ref=e417]:
+                              - text: "Job description:"
+                              - generic [ref=e418]:
+                                - text: W
+                                - text: e
+                                - text: a
+                                - text: r
+                                - text: e
+                                - text: s
+                                - text: e
+                                - text: e
+                                - text: k
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: a
+                                - text: "n"
+                                - text: e
+                                - text: x
+                                - text: p
+                                - text: e
+                                - text: r
+                                - text: i
+                                - text: e
+                                - text: "n"
+                                - text: c
+                                - text: e
+                                - text: d
+                                - text: A
+                                - text: I
+                                - text: M
+                                - text: a
+                                - text: r
+                                - text: k
+                                - text: e
+                                - text: t
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: S
+                                - text: "y"
+                                - text: s
+                                - text: t
+                                - text: e
+                                - text: m
+                                - text: s
+                                - text: B
+                                - text: u
+                                - text: i
+                                - text: l
+                                - text: d
+                                - text: e
+                                - text: r
+                                - text: t
+                                - text: o
+                                - text: d
+                                - text: e
+                                - text: v
+                                - text: e
+                                - text: l
+                                - text: o
+                                - text: p
+                                - text: a
+                                - text: r
+                                - text: o
+                                - text: b
+                                - text: u
+                                - text: s
+                                - text: t
+                                - text: a
+                                - text: "n"
+                                - text: d
+                                - text: r
+                                - text: e
+                                - text: p
+                                - text: e
+                                - text: a
+                                - text: t
+                                - text: a
+                                - text: b
+                                - text: l
+                                - text: e
+                                - text: s
+                                - text: "y"
+                                - text: s
+                                - text: t
+                                - text: e
+                                - text: m
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e422]:
+                          - generic [ref=e423]:
+                            - text: Form Design and Integration Expert for HIPAA-Compliant Jotform and DrChrono
+                            - generic [ref=e425]:
+                              - generic [ref=e426]:
+                                - img [ref=e427]
+                                - img [ref=e429]
+                                - img [ref=e431]
+                                - img [ref=e433]
+                                - img [ref=e435]
+                              - generic [ref=e437]:
+                                - img [ref=e438]
+                                - img [ref=e440]
+                                - img [ref=e442]
+                                - img [ref=e444]
+                                - img [ref=e446]
+                                - generic [ref=e448]: Rating is 5.0 out of 5.
+                          - generic [ref=e449]:
+                            - strong [ref=e452]: Private earnings
+                            - generic [ref=e454]:
+                              - img [ref=e456]
+                              - generic [ref=e458]: Apr 8, 2026 - May 13, 2026
+                          - generic [ref=e459]:
+                            - group [ref=e461]:
+                              - list [ref=e462]:
+                                - generic [ref=e464]: API Integration
+                                - generic [ref=e466]: Zapier
+                                - generic [ref=e468]: Jotform
+                            - generic [ref=e469]:
+                              - text: "Job description:"
+                              - generic [ref=e470]:
+                                - text: W
+                                - text: e
+                                - text: a
+                                - text: r
+                                - text: e
+                                - text: s
+                                - text: e
+                                - text: e
+                                - text: k
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: a
+                                - text: s
+                                - text: k
+                                - text: i
+                                - text: l
+                                - text: l
+                                - text: e
+                                - text: d
+                                - text: p
+                                - text: r
+                                - text: o
+                                - text: f
+                                - text: e
+                                - text: s
+                                - text: s
+                                - text: i
+                                - text: o
+                                - text: "n"
+                                - text: a
+                                - text: l
+                                - text: t
+                                - text: o
+                                - text: d
+                                - text: e
+                                - text: s
+                                - text: i
+                                - text: g
+                                - text: "n"
+                                - text: a
+                                - text: p
+                                - text: a
+                                - text: t
+                                - text: i
+                                - text: e
+                                - text: "n"
+                                - text: t
+                                - text: i
+                                - text: "n"
+                                - text: t
+                                - text: a
+                                - text: k
+                                - text: e
+                                - text: f
+                                - text: o
+                                - text: r
+                                - text: m
+                                - text: u
+                                - text: s
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: J
+                                - text: o
+                                - text: t
+                                - text: f
+                                - text: o
+                                - text: r
+                                - text: m
+                                - text: a
+                                - text: "n"
+                                - text: d
+                                - text: i
+                                - text: "n"
+                                - text: t
+                                - text: e
+                                - text: g
+                                - text: r
+                                - text: a
+                                - text: t
+                                - text: e
+                                - text: i
+                                - text: t
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e474]:
+                          - generic [ref=e475]:
+                            - text: MVP Canva App Development for Edtech Pilot
+                            - generic [ref=e477]:
+                              - generic [ref=e478]:
+                                - img [ref=e479]
+                                - img [ref=e481]
+                                - img [ref=e483]
+                                - img [ref=e485]
+                                - img [ref=e487]
+                              - generic [ref=e489]:
+                                - img [ref=e490]
+                                - img [ref=e492]
+                                - img [ref=e494]
+                                - img [ref=e496]
+                                - img [ref=e498]
+                                - generic [ref=e500]: Rating is 4.0 out of 5.
+                          - generic [ref=e501]:
+                            - strong [ref=e504]: Private earnings
+                            - generic [ref=e506]:
+                              - img [ref=e508]
+                              - generic [ref=e510]: Feb 8, 2026 - Apr 24, 2026
+                          - generic [ref=e511]:
+                            - group [ref=e513]:
+                              - list [ref=e514]:
+                                - generic [ref=e516]: Graphic Design
+                                - generic [ref=e518]: User Profile Creation
+                                - generic [ref=e520]: iOS
+                                - generic [ref=e522]: Canva
+                            - generic [ref=e523]:
+                              - text: "Job description:"
+                              - generic [ref=e524]:
+                                - text: W
+                                - text: e
+                                - text: a
+                                - text: r
+                                - text: e
+                                - text: s
+                                - text: e
+                                - text: e
+                                - text: k
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: a
+                                - text: "n"
+                                - text: e
+                                - text: x
+                                - text: p
+                                - text: e
+                                - text: r
+                                - text: i
+                                - text: e
+                                - text: "n"
+                                - text: c
+                                - text: e
+                                - text: d
+                                - text: d
+                                - text: e
+                                - text: v
+                                - text: e
+                                - text: l
+                                - text: o
+                                - text: p
+                                - text: e
+                                - text: r
+                                - text: t
+                                - text: o
+                                - text: c
+                                - text: r
+                                - text: e
+                                - text: a
+                                - text: t
+                                - text: e
+                                - text: a
+                                - text: M
+                                - text: i
+                                - text: "n"
+                                - text: i
+                                - text: m
+                                - text: u
+                                - text: m
+                                - text: V
+                                - text: i
+                                - text: a
+                                - text: b
+                                - text: l
+                                - text: e
+                                - text: P
+                                - text: r
+                                - text: o
+                                - text: d
+                                - text: u
+                                - text: c
+                                - text: t
+                                - text: (
+                                - text: M
+                                - text: V
+                                - text: P
+                                - text: )
+                                - text: C
+                                - text: a
+                                - text: "n"
+                                - text: v
+                                - text: a
+                                - text: a
+                                - text: p
+                                - text: p
+                                - text: t
+                                - text: a
+                                - text: i
+                                - text: l
+                                - text: o
+                                - text: r
+                                - text: e
+                                - text: d
+                                - text: f
+                                - text: o
+                                - text: r
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e528]:
+                          - generic [ref=e529]: Cross-Platform App Development from Excel Sheet
+                          - generic [ref=e530]:
+                            - strong [ref=e533]: Private earnings
+                            - generic [ref=e535]:
+                              - img [ref=e537]
+                              - generic [ref=e539]: Dec 9, 2025 - Mar 17, 2026
+                          - generic [ref=e540]:
+                            - group [ref=e542]:
+                              - button "Skip skills" [ref=e543] [cursor=pointer]
+                              - list [ref=e544]:
+                                - generic [ref=e546]: AI Mobile App Development
+                                - generic [ref=e548]: Mobile App Development
+                                - generic [ref=e550]: Graphic Design
+                                - generic [ref=e552]: Zapier
+                                - generic [ref=e554]: Web Application Development
+                                - generic [ref=e556]: Interactive Design
+                              - button "Next skills. Update list" [ref=e557] [cursor=pointer]:
+                                - generic [ref=e558]: Next skills. Update list
+                                - img [ref=e560]
+                            - generic [ref=e562]:
+                              - text: "Job description:"
+                              - generic [ref=e563]:
+                                - text: S
+                                - text: e
+                                - text: e
+                                - text: k
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: a
+                                - text: "n"
+                                - text: e
+                                - text: x
+                                - text: p
+                                - text: e
+                                - text: r
+                                - text: i
+                                - text: e
+                                - text: "n"
+                                - text: c
+                                - text: e
+                                - text: d
+                                - text: e
+                                - text: "n"
+                                - text: g
+                                - text: i
+                                - text: "n"
+                                - text: e
+                                - text: e
+                                - text: r
+                                - text: t
+                                - text: o
+                                - text: d
+                                - text: e
+                                - text: v
+                                - text: e
+                                - text: l
+                                - text: o
+                                - text: p
+                                - text: a
+                                - text: m
+                                - text: o
+                                - text: b
+                                - text: i
+                                - text: l
+                                - text: e
+                                - text: a
+                                - text: p
+                                - text: p
+                                - text: o
+                                - text: r
+                                - text: w
+                                - text: e
+                                - text: b
+                                - text: a
+                                - text: p
+                                - text: p
+                                - text: (
+                                - text: "?"
+                                - text: )
+                                - text: b
+                                - text: a
+                                - text: s
+                                - text: e
+                                - text: d
+                                - text: o
+                                - text: "n"
+                                - text: a
+                                - text: "n"
+                                - text: e
+                                - text: x
+                                - text: i
+                                - text: s
+                                - text: t
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: E
+                                - text: x
+                                - text: c
+                                - text: e
+                                - text: l
+                                - text: s
+                                - text: h
+                                - text: e
+                                - text: e
+                                - text: t
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e567]:
+                          - generic [ref=e568]: MVP Web App Development for AI-Powered Oral Argument Practice
+                          - generic [ref=e569]:
+                            - strong [ref=e572]: Private earnings
+                            - generic [ref=e574]:
+                              - img [ref=e576]
+                              - generic [ref=e578]: Dec 6, 2025 - Mar 17, 2026
+                          - generic [ref=e579]:
+                            - group [ref=e581]:
+                              - list [ref=e582]:
+                                - generic [ref=e584]: HTML5
+                                - generic [ref=e586]: JavaScript
+                                - generic [ref=e588]: Graphic Design
+                                - generic [ref=e590]: User Interface Design
+                            - generic [ref=e591]:
+                              - text: "Job description:"
+                              - generic [ref=e592]:
+                                - text: S
+                                - text: e
+                                - text: e
+                                - text: k
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: a
+                                - text: s
+                                - text: k
+                                - text: i
+                                - text: l
+                                - text: l
+                                - text: e
+                                - text: d
+                                - text: d
+                                - text: e
+                                - text: v
+                                - text: e
+                                - text: l
+                                - text: o
+                                - text: p
+                                - text: e
+                                - text: r
+                                - text: t
+                                - text: o
+                                - text: b
+                                - text: u
+                                - text: i
+                                - text: l
+                                - text: d
+                                - text: a
+                                - text: "n"
+                                - text: M
+                                - text: V
+                                - text: P
+                                - text: w
+                                - text: e
+                                - text: b
+                                - text: a
+                                - text: p
+                                - text: p
+                                - text: f
+                                - text: o
+                                - text: r
+                                - text: l
+                                - text: a
+                                - text: w
+                                - text: "y"
+                                - text: e
+                                - text: r
+                                - text: s
+                                - text: t
+                                - text: o
+                                - text: p
+                                - text: r
+                                - text: a
+                                - text: c
+                                - text: t
+                                - text: i
+                                - text: c
+                                - text: e
+                                - text: o
+                                - text: r
+                                - text: a
+                                - text: l
+                                - text: a
+                                - text: r
+                                - text: g
+                                - text: u
+                                - text: m
+                                - text: e
+                                - text: "n"
+                                - text: t
+                                - text: s
+                                - text: w
+                                - text: i
+                                - text: t
+                                - text: h
+                                - text: a
+                                - text: "n"
+                                - text: A
+                                - text: I
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e596]:
+                          - generic [ref=e597]: AI Music Curator
+                          - generic [ref=e598]:
+                            - strong [ref=e601]: Private earnings
+                            - generic [ref=e603]:
+                              - img [ref=e605]
+                              - generic [ref=e607]: Aug 8, 2025 - Mar 13, 2026
+                          - generic [ref=e609]:
+                            - text: "Job description:"
+                            - generic [ref=e610]:
+                              - text: A
+                              - text: I
+                              - text: M
+                              - text: u
+                              - text: s
+                              - text: i
+                              - text: c
+                              - text: C
+                              - text: u
+                              - text: r
+                              - text: a
+                              - text: t
+                              - text: o
+                              - text: r
+                        - generic [ref=e614]:
+                          - generic [ref=e615]:
+                            - text: Debug & Complete Laravel/Vue SaaS MVP - Microsite Generator
+                            - generic [ref=e617]:
+                              - generic [ref=e618]:
+                                - img [ref=e619]
+                                - img [ref=e621]
+                                - img [ref=e623]
+                                - img [ref=e625]
+                                - img [ref=e627]
+                              - generic [ref=e629]:
+                                - img [ref=e630]
+                                - img [ref=e632]
+                                - img [ref=e634]
+                                - img [ref=e636]
+                                - img [ref=e638]
+                                - generic [ref=e640]: Rating is 5.0 out of 5.
+                          - generic [ref=e641]:
+                            - strong [ref=e644]: Private earnings
+                            - generic [ref=e646]:
+                              - img [ref=e648]
+                              - generic [ref=e650]: Jan 8, 2026 - Mar 7, 2026
+                          - generic [ref=e651]:
+                            - group [ref=e653]:
+                              - list [ref=e654]:
+                                - generic [ref=e656]: Laravel
+                                - generic [ref=e658]: Tailwind CSS
+                                - generic [ref=e660]: MySQL
+                                - generic [ref=e662]: Vue.js
+                            - generic [ref=e663]:
+                              - text: "Job description:"
+                              - generic [ref=e664]:
+                                - text: �
+                                - text: �
+                                - text: D
+                                - text: e
+                                - text: b
+                                - text: u
+                                - text: g
+                                - text: "&"
+                                - text: C
+                                - text: o
+                                - text: m
+                                - text: p
+                                - text: l
+                                - text: e
+                                - text: t
+                                - text: e
+                                - text: L
+                                - text: a
+                                - text: r
+                                - text: a
+                                - text: v
+                                - text: e
+                                - text: l
+                                - text: /
+                                - text: V
+                                - text: u
+                                - text: e
+                                - text: S
+                                - text: a
+                                - text: a
+                                - text: S
+                                - text: M
+                                - text: V
+                                - text: P
+                                - text: "-"
+                                - text: M
+                                - text: i
+                                - text: c
+                                - text: r
+                                - text: o
+                                - text: s
+                                - text: i
+                                - text: t
+                                - text: e
+                                - text: G
+                                - text: e
+                                - text: "n"
+                                - text: e
+                                - text: r
+                                - text: a
+                                - text: t
+                                - text: o
+                                - text: r
+                                - text: P
+                                - text: r
+                                - text: o
+                                - text: j
+                                - text: e
+                                - text: c
+                                - text: t
+                                - text: O
+                                - text: v
+                                - text: e
+                                - text: r
+                                - text: v
+                                - text: i
+                                - text: e
+                                - text: w
+                                - text: ":"
+                                - text: Z
+                                - text: a
+                                - text: p
+                                - text: "n"
+                                - text: o
+                                - text: t
+                                - text: e
+                                - text: i
+                                - text: s
+                                - text: a
+                                - text: B
+                                - text: "2"
+                                - text: B
+                                - text: s
+                                - text: a
+                                - text: l
+                                - text: e
+                                - text: s
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e668]:
+                          - generic [ref=e669]:
+                            - text: Vapi AI Developer – Voice & Text Agents with Mandatory Data Collection, Routing & Secure Reporting
+                            - generic [ref=e671]:
+                              - generic [ref=e672]:
+                                - img [ref=e673]
+                                - img [ref=e675]
+                                - img [ref=e677]
+                                - img [ref=e679]
+                                - img [ref=e681]
+                              - generic [ref=e683]:
+                                - img [ref=e684]
+                                - img [ref=e686]
+                                - img [ref=e688]
+                                - img [ref=e690]
+                                - img [ref=e692]
+                                - generic [ref=e694]: Rating is 2.0 out of 5.
+                          - generic [ref=e695]:
+                            - strong [ref=e698]: Private earnings
+                            - generic [ref=e700]:
+                              - img [ref=e702]
+                              - generic [ref=e704]: Jan 11, 2026 - Feb 24, 2026
+                          - generic [ref=e705]:
+                            - group [ref=e707]:
+                              - button "Skip skills" [ref=e708] [cursor=pointer]
+                              - list [ref=e709]:
+                                - generic [ref=e711]: Data Extraction
+                                - generic [ref=e713]: API Integration
+                                - generic [ref=e715]: Python
+                                - generic [ref=e717]: API
+                                - generic [ref=e719]: Data Scraping
+                                - generic [ref=e721]: Artificial Intelligence
+                                - generic [ref=e723]: LLM Prompt Engineering
+                              - button "Next skills. Update list" [ref=e724] [cursor=pointer]:
+                                - generic [ref=e725]: Next skills. Update list
+                                - img [ref=e727]
+                            - generic [ref=e729]:
+                              - text: "Job description:"
+                              - generic [ref=e730]:
+                                - text: W
+                                - text: e
+                                - text: "n"
+                                - text: e
+                                - text: e
+                                - text: d
+                                - text: a
+                                - text: "n"
+                                - text: e
+                                - text: x
+                                - text: p
+                                - text: e
+                                - text: r
+                                - text: t
+                                - text: V
+                                - text: a
+                                - text: p
+                                - text: i
+                                - text: .
+                                - text: a
+                                - text: i
+                                - text: d
+                                - text: e
+                                - text: v
+                                - text: e
+                                - text: l
+                                - text: o
+                                - text: p
+                                - text: e
+                                - text: r
+                                - text: t
+                                - text: o
+                                - text: b
+                                - text: u
+                                - text: i
+                                - text: l
+                                - text: d
+                                - text: t
+                                - text: w
+                                - text: o
+                                - text: i
+                                - text: "n"
+                                - text: d
+                                - text: e
+                                - text: p
+                                - text: e
+                                - text: "n"
+                                - text: d
+                                - text: e
+                                - text: "n"
+                                - text: t
+                                - text: A
+                                - text: I
+                                - text: a
+                                - text: g
+                                - text: e
+                                - text: "n"
+                                - text: t
+                                - text: s
+                                - text: ":"
+                                - text: o
+                                - text: "n"
+                                - text: e
+                                - text: f
+                                - text: o
+                                - text: r
+                                - text: v
+                                - text: o
+                                - text: i
+                                - text: c
+                                - text: e
+                                - text: c
+                                - text: a
+                                - text: l
+                                - text: l
+                                - text: s
+                                - text: a
+                                - text: "n"
+                                - text: d
+                                - text: o
+                                - text: "n"
+                                - text: e
+                                - text: f
+                                - text: o
+                                - text: r
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e734]:
+                          - generic [ref=e735]: Expert Voice AI Prompt Engineer / Conversational Designer
+                          - generic [ref=e736]:
+                            - strong [ref=e739]: Private earnings
+                            - generic [ref=e741]:
+                              - img [ref=e743]
+                              - generic [ref=e745]: Nov 12, 2025 - Nov 26, 2025
+                          - generic [ref=e746]:
+                            - group [ref=e748]:
+                              - list [ref=e749]:
+                                - generic [ref=e751]: Conversational AI
+                                - generic [ref=e753]: A/B Testing
+                                - generic [ref=e755]: Prompt Engineering
+                                - generic [ref=e757]: LLM Prompt Engineering
+                            - generic [ref=e758]:
+                              - text: "Job description:"
+                              - generic [ref=e759]:
+                                - text: H
+                                - text: e
+                                - text: a
+                                - text: r
+                                - text: t
+                                - text: h
+                                - text: A
+                                - text: I
+                                - text: i
+                                - text: s
+                                - text: s
+                                - text: e
+                                - text: e
+                                - text: k
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: a
+                                - text: t
+                                - text: o
+                                - text: p
+                                - text: "-"
+                                - text: t
+                                - text: i
+                                - text: e
+                                - text: r
+                                - text: V
+                                - text: o
+                                - text: i
+                                - text: c
+                                - text: e
+                                - text: A
+                                - text: I
+                                - text: p
+                                - text: r
+                                - text: o
+                                - text: m
+                                - text: p
+                                - text: t
+                                - text: s
+                                - text: p
+                                - text: e
+                                - text: c
+                                - text: i
+                                - text: a
+                                - text: l
+                                - text: i
+                                - text: s
+                                - text: t
+                                - text: f
+                                - text: o
+                                - text: r
+                                - text: a
+                                - text: h
+                                - text: i
+                                - text: g
+                                - text: h
+                                - text: "-"
+                                - text: i
+                                - text: m
+                                - text: p
+                                - text: a
+                                - text: c
+                                - text: t
+                                - text: c
+                                - text: o
+                                - text: "n"
+                                - text: s
+                                - text: u
+                                - text: l
+                                - text: t
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: e
+                                - text: "n"
+                                - text: g
+                                - text: a
+                                - text: g
+                                - text: e
+                                - text: m
+                                - text: e
+                                - text: "n"
+                                - text: t
+                                - text: .
+                                - text: W
+                                - text: e
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e763]:
+                          - generic [ref=e764]: Web App MVP Development Needed
+                          - generic [ref=e765]:
+                            - strong [ref=e768]: Private earnings
+                            - generic [ref=e770]:
+                              - img [ref=e772]
+                              - generic [ref=e774]: Sep 11, 2025 - Nov 13, 2025
+                          - generic [ref=e775]:
+                            - group [ref=e777]:
+                              - list [ref=e778]:
+                                - generic [ref=e780]: JavaScript
+                                - generic [ref=e782]: Web Development
+                                - generic [ref=e784]: Supabase
+                            - generic [ref=e785]:
+                              - text: "Job description:"
+                              - generic [ref=e786]:
+                                - text: P
+                                - text: l
+                                - text: e
+                                - text: a
+                                - text: s
+                                - text: e
+                                - text: s
+                                - text: e
+                                - text: e
+                                - text: a
+                                - text: t
+                                - text: t
+                                - text: a
+                                - text: c
+                                - text: h
+                                - text: e
+                                - text: d
+                                - text: .
+                                - text: I
+                                - text: f
+                                - text: "y"
+                                - text: o
+                                - text: u
+                                - text: h
+                                - text: a
+                                - text: v
+                                - text: e
+                                - text: a
+                                - text: d
+                                - text: d
+                                - text: i
+                                - text: t
+                                - text: i
+                                - text: o
+                                - text: "n"
+                                - text: a
+                                - text: l
+                                - text: q
+                                - text: u
+                                - text: e
+                                - text: s
+                                - text: t
+                                - text: i
+                                - text: o
+                                - text: "n"
+                                - text: s
+                                - text: ","
+                                - text: p
+                                - text: l
+                                - text: e
+                                - text: a
+                                - text: s
+                                - text: e
+                                - text: l
+                                - text: e
+                                - text: t
+                                - text: m
+                                - text: e
+                                - text: k
+                                - text: "n"
+                                - text: o
+                                - text: w
+                                - text: .
+                  - generic [ref=e787]:
+                    - separator [ref=e788]
+                    - generic [ref=e789]:
+                      - strong [ref=e790]: Raunek P. has more jobs.
+                      - link "Create an account to review them" [ref=e791] [cursor=pointer]:
+                        - /url: /signup/
+              - generic [ref=e796]:
+                - heading "Portfolio (20)" [level=3] [ref=e798]
+                - generic [ref=e800]:
+                  - generic [ref=e802] [cursor=pointer]:
+                    - img [ref=e807]
+                    - generic [ref=e816]: Face Scanning IOS ARKit Demo
+                    - generic [ref=e817]:
+                      - generic [ref=e820]: iOS
+                      - generic [ref=e823]: ARKit
+                      - button "+2" [ref=e826]:
+                        - generic [ref=e828]: "+2"
+                  - generic [ref=e830] [cursor=pointer]:
+                    - img [ref=e835]
+                    - generic [ref=e844]: "X1 Sports: College Sports Mentorship Platform"
+                    - generic [ref=e845]:
+                      - generic [ref=e848]: Next.js
+                      - generic [ref=e851]: Firebase
+                      - button "+3" [ref=e854]:
+                        - generic [ref=e856]: "+3"
+                  - generic [ref=e857]:
+                    - generic [ref=e858]:
+                      - strong [ref=e859]: Want to see more?
+                      - link "Sign up" [ref=e860] [cursor=pointer]:
+                        - /url: /signup/
+                    - strong [ref=e861]
+              - generic [ref=e865]:
+                - heading "Skills" [level=4] [ref=e867]
+                - list [ref=e868]:
+                  - listitem [ref=e869]:
+                    - link "Hire Aruba Specialists" [ref=e871] [cursor=pointer]:
+                      - /url: /hire/aruba-specialists/
+                      - text: Artificial Intelligence
+                  - listitem [ref=e872]:
+                    - button "Web Perspective Klik" [ref=e876] [cursor=pointer]:
+                      - generic [ref=e878]: Web Perspective Klik
+                  - listitem [ref=e879]:
+                    - generic [ref=e881]: Web Scraping
+                  - listitem [ref=e882]:
+                    - generic [ref=e884]: CRM Development
+                  - listitem [ref=e885]:
+                    - generic [ref=e887]: CRM Automation
+                  - listitem [ref=e888]:
+                    - button "Make.com" [ref=e892] [cursor=pointer]:
+                      - generic [ref=e894]: Make.com
+                  - listitem [ref=e895]:
+                    - button "Zapier" [ref=e899] [cursor=pointer]:
+                      - generic [ref=e901]: Zapier
+                  - listitem [ref=e902]:
+                    - generic [ref=e904]: GPT-4
+                  - listitem [ref=e905]:
+                    - link "Hire Business Marketing Consultants" [ref=e907] [cursor=pointer]:
+                      - /url: /hire/business-marketing-consultants/
+                      - text: Marketing
+                  - listitem [ref=e908]:
+                    - link "Hire AI Automation Engineers" [ref=e910] [cursor=pointer]:
+                      - /url: /hire/ai-automation-engineers/
+                      - text: System Automation
+                  - listitem [ref=e911]:
+                    - link "Hire ASP.NET Zero Developers" [ref=e913] [cursor=pointer]:
+                      - /url: /hire/asp-dot-net-zero-developers/
+                      - text: Web Development
+                  - listitem [ref=e914]:
+                    - generic [ref=e916]: Full-Stack Development
+                  - listitem [ref=e917]:
+                    - link "Hire Certified Application Developers" [ref=e919] [cursor=pointer]:
+                      - /url: /hire/certified-application-developers/
+                      - text: App Development
+                  - listitem [ref=e920]:
+                    - generic [ref=e922]: AI Builder
+                  - listitem [ref=e923]:
+                    - generic [ref=e925]: AI Consulting
+              - generic [ref=e929]:
+                - generic [ref=e930]:
+                  - text: Search for other talent
+                  - search [ref=e931]:
+                    - generic [ref=e934]:
+                      - generic:
+                        - generic:
+                          - img
+                      - searchbox "Search" [ref=e935]
+                - generic [ref=e938]:
+                  - heading "Browse similar freelancers" [level=3] [ref=e939]
+                  - list [ref=e940]:
+                    - listitem [ref=e941]:
+                      - link "Aruba Specialists" [ref=e942] [cursor=pointer]:
+                        - /url: /hire/aruba-specialists/
+                    - listitem [ref=e943]:
+                      - link "Deep Learning Experts" [ref=e944] [cursor=pointer]:
+                        - /url: /hire/deep-learning-experts/
+                    - listitem [ref=e945]:
+                      - link "Machine Learning Engineers" [ref=e946] [cursor=pointer]:
+                        - /url: /hire/machine-learning-experts/
+                    - listitem [ref=e947]:
+                      - link "Artificial Neural Networks Experts" [ref=e948] [cursor=pointer]:
+                        - /url: /hire/artificial-neural-networks-experts/
+                    - listitem [ref=e949]:
+                      - link "NLP Engineers" [ref=e950] [cursor=pointer]:
+                        - /url: /hire/natural-language-processing-freelancers/
+    - contentinfo [ref=e954]:
+      - heading "Footer navigation" [level=2] [ref=e955]
+      - generic [ref=e956]:
+        - generic [ref=e957]:
+          - generic [ref=e958]:
+            - heading "For Clients" [level=3] [ref=e959]
+            - list [ref=e961]:
+              - listitem [ref=e962]:
+                - link "How to hire" [ref=e963] [cursor=pointer]:
+                  - /url: /i/how-it-works/client/
+              - listitem [ref=e964]:
+                - link "Talent Marketplace" [ref=e965] [cursor=pointer]:
+                  - /url: /talent-marketplace/
+              - listitem [ref=e966]:
+                - link "Project Catalog" [ref=e967] [cursor=pointer]:
+                  - /url: /services/
+              - listitem [ref=e968]:
+                - link "Hire an agency" [ref=e969] [cursor=pointer]:
+                  - /url: /agencies
+              - listitem [ref=e970]:
+                - link "Enterprise" [ref=e971] [cursor=pointer]:
+                  - /url: /enterprise/
+              - listitem [ref=e972]:
+                - link "Business Plus" [ref=e973] [cursor=pointer]:
+                  - /url: /business-plus/
+              - listitem [ref=e974]:
+                - link "Any Hire" [ref=e975] [cursor=pointer]:
+                  - /url: /anyhire/
+              - listitem [ref=e976]:
+                - link "Contract-to-hire" [ref=e977] [cursor=pointer]:
+                  - /url: /contract-to-hire/client
+              - listitem [ref=e978]:
+                - link "Direct Contracts" [ref=e979] [cursor=pointer]:
+                  - /url: /direct-contracts/cl
+              - listitem [ref=e980]:
+                - link "Hire worldwide" [ref=e981] [cursor=pointer]:
+                  - /url: /hire/
+              - listitem [ref=e982]:
+                - link "Hire in the USA" [ref=e983] [cursor=pointer]:
+                  - /url: /hire/us/
+          - generic [ref=e984]:
+            - heading "For Talent" [level=3] [ref=e985]
+            - list [ref=e987]:
+              - listitem [ref=e988]:
+                - link "How to find work" [ref=e989] [cursor=pointer]:
+                  - /url: /i/how-it-works/freelancer/
+              - listitem [ref=e990]:
+                - link "Direct Contracts" [ref=e991] [cursor=pointer]:
+                  - /url: /direct-contracts
+              - listitem [ref=e992]:
+                - link "Find freelance jobs worldwide" [ref=e993] [cursor=pointer]:
+                  - /url: /freelance-jobs/
+              - listitem [ref=e994]:
+                - link "Find freelance jobs in the USA" [ref=e995] [cursor=pointer]:
+                  - /url: /freelance-jobs/united-states/
+              - listitem [ref=e996]:
+                - link "Win work with ads" [ref=e997] [cursor=pointer]:
+                  - /url: /work/ads
+              - listitem [ref=e998]:
+                - link "Exclusive resources with Freelancer Plus" [ref=e999] [cursor=pointer]:
+                  - /url: /work/freelancerplus
+          - generic [ref=e1000]:
+            - heading "Resources" [level=3] [ref=e1001]
+            - list [ref=e1003]:
+              - listitem [ref=e1004]:
+                - link "Help & support" [ref=e1005] [cursor=pointer]:
+                  - /url: https://support.upwork.com/hc/en-us
+              - listitem [ref=e1006]:
+                - link "Success stories" [ref=e1007] [cursor=pointer]:
+                  - /url: /success-stories
+              - listitem [ref=e1008]:
+                - link "Upwork reviews" [ref=e1009] [cursor=pointer]:
+                  - /url: /reviews
+              - listitem [ref=e1010]:
+                - link "Resources" [ref=e1011] [cursor=pointer]:
+                  - /url: /resources
+              - listitem [ref=e1012]:
+                - link "Blog" [ref=e1013] [cursor=pointer]:
+                  - /url: /blog
+              - listitem [ref=e1014]:
+                - link "Affiliate program" [ref=e1015] [cursor=pointer]:
+                  - /url: /affiliates
+              - listitem [ref=e1016]:
+                - link "Refer a client" [ref=e1017] [cursor=pointer]:
+                  - /url: /client-referrals
+              - listitem [ref=e1018]:
+                - link "Free Business Tools" [ref=e1019] [cursor=pointer]:
+                  - /url: /tools
+              - listitem [ref=e1020]:
+                - link "Release notes" [ref=e1021] [cursor=pointer]:
+                  - /url: /product-release-notes
+          - generic [ref=e1022]:
+            - heading "Company" [level=3] [ref=e1023]
+            - list [ref=e1025]:
+              - listitem [ref=e1026]:
+                - link "About us" [ref=e1027] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e1028]:
+                - link "Leadership" [ref=e1029] [cursor=pointer]:
+                  - /url: /about/team
+              - listitem [ref=e1030]:
+                - link "Investor relations" [ref=e1031] [cursor=pointer]:
+                  - /url: https://investors.upwork.com/
+              - listitem [ref=e1032]:
+                - link "Careers" [ref=e1033] [cursor=pointer]:
+                  - /url: /careers
+              - listitem [ref=e1034]:
+                - link "Our impact" [ref=e1035] [cursor=pointer]:
+                  - /url: /about/our-impact
+              - listitem [ref=e1036]:
+                - link "Press" [ref=e1037] [cursor=pointer]:
+                  - /url: /press
+              - listitem [ref=e1038]:
+                - link "Contact us" [ref=e1039] [cursor=pointer]:
+                  - /url: /about/contact
+              - listitem [ref=e1040]:
+                - link "Partners" [ref=e1041] [cursor=pointer]:
+                  - /url: /partners/
+              - listitem [ref=e1042]:
+                - link "Trust, safety & security" [ref=e1043] [cursor=pointer]:
+                  - /url: /trust-and-safety/security/
+              - listitem [ref=e1044]:
+                - link "Modern slavery statement" [ref=e1045] [cursor=pointer]:
+                  - /url: /documents/modern-slavery-statement
+        - generic [ref=e1046]:
+          - generic [ref=e1047]:
+            - heading "Follow us" [level=3] [ref=e1048]
+            - list [ref=e1049]:
+              - listitem [ref=e1050]:
+                - link "Visit Upwork on Facebook" [ref=e1051] [cursor=pointer]:
+                  - /url: https://www.facebook.com/upwork
+                  - generic [ref=e1052]: Visit Upwork on Facebook
+                  - img [ref=e1054]
+              - listitem [ref=e1056]:
+                - link "Read Upwork company news on LinkedIn" [ref=e1057] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/company/upwork
+                  - generic [ref=e1058]: Read Upwork company news on LinkedIn
+                  - img [ref=e1060]
+              - listitem [ref=e1062]:
+                - link "Follow @Upwork on Twitter" [ref=e1063] [cursor=pointer]:
+                  - /url: https://twitter.com/Upwork
+                  - generic [ref=e1064]: Follow @Upwork on Twitter
+                  - img [ref=e1066]
+              - listitem [ref=e1068]:
+                - link "Watch Upwork videos on YouTube" [ref=e1069] [cursor=pointer]:
+                  - /url: https://www.youtube.com/channel/UCvxGFOnwUBDHHcxuPqhe4CQ
+                  - generic [ref=e1070]: Watch Upwork videos on YouTube
+                  - img [ref=e1072]
+              - listitem [ref=e1074]:
+                - link "Follow Upwork on Instagram" [ref=e1075] [cursor=pointer]:
+                  - /url: https://www.instagram.com/upwork/
+                  - generic [ref=e1076]: Follow Upwork on Instagram
+                  - img [ref=e1078]
+              - listitem [ref=e1082]:
+                - link "Join Upwork on Reddit" [ref=e1083] [cursor=pointer]:
+                  - /url: https://www.reddit.com/r/UpworkOfficial/
+                  - generic [ref=e1084]: Join Upwork on Reddit
+                  - img [ref=e1086]
+          - generic [ref=e1088]:
+            - heading "Mobile app" [level=3] [ref=e1089]
+            - list [ref=e1090]:
+              - listitem [ref=e1091]:
+                - link "Download Upwork app from iTunes" [ref=e1092] [cursor=pointer]:
+                  - /url: https://apps.apple.com/us/developer/upwork-global-inc/id329377609
+                  - generic [ref=e1093]: Download Upwork app from iTunes
+                  - img [ref=e1095]
+              - listitem [ref=e1098]:
+                - link "Download Upwork app from Google Play" [ref=e1099] [cursor=pointer]:
+                  - /url: https://play.google.com/store/apps/dev?id=8802639270489632480
+                  - generic [ref=e1100]: Download Upwork app from Google Play
+                  - img [ref=e1102]
+        - generic [ref=e1104]:
+          - paragraph [ref=e1105]: © 2015 - 2026 Upwork® Global LLC
+          - list [ref=e1106]:
+            - listitem [ref=e1107]:
+              - link "Terms of Service" [ref=e1108] [cursor=pointer]:
+                - /url: /legal
+            - listitem [ref=e1109]:
+              - link "Privacy Policy" [ref=e1110] [cursor=pointer]:
+                - /url: /legal#privacy
+            - listitem [ref=e1111]:
+              - link "CA Notice at Collection" [ref=e1112] [cursor=pointer]:
+                - /url: /legal#SupplementalPrivacyNoticeforCaliforniaResidents
+            - listitem [ref=e1113]:
+              - link "Your Privacy Choices California Consumer Privacy Act (CCPA) Opt-Out" [ref=e1114] [cursor=pointer]:
+                - /url: "javascript:"
+                - text: Your Privacy Choices
+                - generic [ref=e1115]: California Consumer Privacy Act (CCPA) Opt-Out
+            - listitem [ref=e1117]:
+              - link "Accessibility" [ref=e1118] [cursor=pointer]:
+                - /url: /legal#accessibility
+            - listitem [ref=e1119]:
+              - link "Sitemap" [ref=e1120] [cursor=pointer]:
+                - /url: /sitemaps/
+  - generic:
+    - region "Cookie banner" [active]:
+      - dialog "Privacy" [ref=e1121]:
+        - generic [ref=e1122]:
+          - generic [ref=e1124]:
+            - text: This site employs data tracking technologies (e.g. cookies and pixels) that we and our third party providers use to collect and analyze data about your interactions with our site and to market to you.
+            - strong [ref=e1125]: By continuing, you agree to the use of these technologies.
+            - text: To customize your preferences, please click the “Manage” button below.
+            - text: To learn more about our data practices, please see our
+            - link "Cookie Policy information, opens in a new tab" [ref=e1126] [cursor=pointer]:
+              - /url: https://www.upwork.com/legal#privacy
+              - text: Privacy Policy
+          - button "Manage, Opens the preference center dialog" [ref=e1129] [cursor=pointer]: Manage
+          - button "Close" [ref=e1131] [cursor=pointer]
+  - textbox [ref=e1132]

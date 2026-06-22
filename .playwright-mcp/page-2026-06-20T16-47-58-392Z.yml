@@ -1,0 +1,940 @@
+- generic [ref=e1]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - generic [ref=e11]:
+        - banner [ref=e12]:
+          - link "Skip to content" [ref=e13] [cursor=pointer]
+          - generic [ref=e14]:
+            - link "Upwork home" [ref=e17] [cursor=pointer]:
+              - /url: /
+              - generic [ref=e18]: Upwork home
+              - img [ref=e20]
+            - generic [ref=e26]:
+              - navigation "Primary" [ref=e27]:
+                - list [ref=e28]:
+                  - listitem [ref=e29]:
+                    - button "Hire talent" [ref=e30] [cursor=pointer]:
+                      - generic [ref=e31]: Hire talent
+                      - img [ref=e33]
+                  - listitem [ref=e35]:
+                    - button "Get outcomes" [ref=e36] [cursor=pointer]:
+                      - generic [ref=e37]: Get outcomes
+                      - img [ref=e39]
+                  - listitem [ref=e41]:
+                    - button "Find work" [ref=e42] [cursor=pointer]:
+                      - generic [ref=e43]: Find work
+                      - img [ref=e45]
+                  - listitem [ref=e47]:
+                    - button "Why Upwork" [ref=e48] [cursor=pointer]:
+                      - generic [ref=e49]: Why Upwork
+                      - img [ref=e51]
+                  - listitem [ref=e53]:
+                    - link "Pricing" [ref=e54] [cursor=pointer]:
+                      - /url: /pricing/client
+                      - generic [ref=e55]: Pricing
+                  - listitem [ref=e56]:
+                    - link "Enterprise" [ref=e57] [cursor=pointer]:
+                      - /url: https://go-lifted.com/
+                      - generic [ref=e58]: Enterprise
+                  - listitem
+              - generic [ref=e59]:
+                - button "Search" [ref=e62] [cursor=pointer]:
+                  - img [ref=e64]
+                - link "Log in" [ref=e66] [cursor=pointer]:
+                  - /url: /ab/account-security/login
+                - link "Sign up" [ref=e67] [cursor=pointer]:
+                  - /url: about:blank
+        - generic "Secondary" [ref=e68]:
+          - generic [ref=e69]: Secondary
+          - list [ref=e70]:
+            - listitem [ref=e71]:
+              - menuitem "Development & IT" [ref=e72] [cursor=pointer]
+            - listitem [ref=e73]:
+              - menuitem "AI Services" [ref=e74] [cursor=pointer]
+            - listitem [ref=e75]:
+              - menuitem "Design & Creative" [ref=e76] [cursor=pointer]
+            - listitem [ref=e77]:
+              - menuitem "Sales & Marketing" [ref=e78] [cursor=pointer]
+            - listitem [ref=e79]:
+              - menuitem "Admin & Customer Support" [ref=e80] [cursor=pointer]
+            - listitem [ref=e81]:
+              - button "More secondary nav" [ref=e82] [cursor=pointer]:
+                - text: More
+                - img [ref=e84]
+      - main [ref=e86]:
+        - generic [ref=e95]:
+          - complementary "profile-identity" [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e100]:
+                - generic [ref=e104]:
+                  - img "Genevieve C." [ref=e105]
+                  - 'img "Status: Offline" [ref=e106]':
+                    - generic [ref=e107]: "Status: Offline"
+                - generic [ref=e108]:
+                  - generic [ref=e109]:
+                    - text: Genevieve C.
+                    - button "Verified" [ref=e111] [cursor=pointer]:
+                      - generic [ref=e112]:
+                        - img [ref=e114]
+                        - generic [ref=e117]: Verified
+                  - generic [ref=e118]: AI Automation & Full-Stack Engineer | SaaS, Claude, Agents, n8n
+                  - generic [ref=e119]:
+                    - button "100% Job Success" [ref=e122] [cursor=pointer]:
+                      - generic [ref=e127]:
+                        - generic [ref=e128]:
+                          - img [ref=e129]
+                          - img [ref=e133]
+                        - generic [ref=e135]:
+                          - text: 100%
+                          - generic [ref=e136]: Job Success
+                    - button "Top Rated Plus" [ref=e140] [cursor=pointer]:
+                      - generic [ref=e141]:
+                        - img [ref=e143]
+                        - generic [ref=e146]: Top Rated Plus
+                    - generic [ref=e148]:
+                      - img [ref=e150]
+                      - generic [ref=e152]: 5.0 (2)
+                  - generic [ref=e153]:
+                    - generic [ref=e154]:
+                      - generic "Victoria , Canada – 9:47 am local time" [ref=e155]:
+                        - img [ref=e157]
+                      - generic [ref=e160]: Victoria
+                      - generic [ref=e161]: ","
+                      - generic [ref=e162]: Canada
+                    - generic [ref=e163]: –
+                    - generic [ref=e165]: 9:47 am local time
+              - generic [ref=e167]:
+                - generic [ref=e168]:
+                  - heading "9" [level=4] [ref=e169]
+                  - generic [ref=e170]: Total jobs
+                - generic [ref=e171]:
+                  - heading "188" [level=4] [ref=e172]
+                  - generic [ref=e173]: Total hours
+              - generic [ref=e175]:
+                - button "Sign up" [ref=e176] [cursor=pointer]
+                - generic [ref=e177]:
+                  - button "Book a consultation" [ref=e179] [cursor=pointer]:
+                    - img [ref=e181]
+                    - text: Book a consultation
+                  - generic [ref=e183]: $175 per 30 min Zoom meeting
+          - generic [ref=e187]:
+            - generic [ref=e189]:
+              - generic [ref=e190] [cursor=pointer]: About
+              - generic [ref=e191] [cursor=pointer]: Work history
+              - generic [ref=e192] [cursor=pointer]: Portfolio
+              - generic [ref=e193] [cursor=pointer]: Skills
+            - generic [ref=e194]:
+              - generic [ref=e197]:
+                - generic [ref=e198]:
+                  - heading "About Genevieve C." [level=4] [ref=e200]
+                  - generic [ref=e202]:
+                    - generic [ref=e203]: $117.50/hr
+                    - generic [ref=e204]: Rate
+                - generic [ref=e208] [cursor=pointer]:
+                  - img "https://youtu.be/zyl8tkvraGc" [ref=e209]
+                  - button "Play video" [ref=e210]:
+                    - img "Play video" [ref=e211]
+                - generic [ref=e212]:
+                  - generic [ref=e213]: "I build bespoke AI automation systems for multi-location businesses: CRM consolidation, lead routing, AI follow-up agents, reporting dashboards, voice AI, Claude Code workflows, and workflow automation across GoHighLevel, HubSpot, Monday, Make, Zapier, Twilio, Supabase, Claude, and OpenAI. Hi, I'm Genevieve 👋 Before this, I ran operations at EA Sports FIFA, a $7B global franchise, and $100M+ Film & TV productions including Skyfall, Avengers, and Game of Thrones. 🎬 IMDB: Genevieve Claire Re…"
+                  - button "Show more" [ref=e215] [cursor=pointer]
+              - generic [ref=e219]:
+                - heading "Client feedback (2)" [level=4] [ref=e221]
+                - generic [ref=e225]:
+                  - generic [ref=e227]:
+                    - generic [ref=e228]: Technical VA – Full CRM & Call Automation Setup (Freshsales, Make, Fireflies, Twilio, JustCall)
+                    - generic [ref=e229]:
+                      - generic [ref=e230]:
+                        - img [ref=e232]
+                        - generic [ref=e234]: January 31, 2026
+                      - generic [ref=e236]:
+                        - generic [ref=e237]:
+                          - img [ref=e238]
+                          - img [ref=e240]
+                          - img [ref=e242]
+                          - img [ref=e244]
+                          - img [ref=e246]
+                        - generic [ref=e248]:
+                          - img [ref=e249]
+                          - img [ref=e251]
+                          - img [ref=e253]
+                          - img [ref=e255]
+                          - img [ref=e257]
+                          - generic [ref=e259]: Rating is 5.0 out of 5.
+                    - emphasis [ref=e263]: "\"I really enjoyed working with her. She’s knowledgeable and adaptable, and the project ended up being more involved than initially expected. She connected phone call summaries to my...\""
+                    - generic [ref=e264]:
+                      - img [ref=e266]
+                      - generic [ref=e269]: Brad H.
+                  - generic [ref=e271]:
+                    - generic [ref=e272]: n8n Workflow Setup with Google Ads API and Telegram Integration
+                    - generic [ref=e273]:
+                      - generic [ref=e274]:
+                        - img [ref=e276]
+                        - generic [ref=e278]: November 28, 2025
+                      - generic [ref=e280]:
+                        - generic [ref=e281]:
+                          - img [ref=e282]
+                          - img [ref=e284]
+                          - img [ref=e286]
+                          - img [ref=e288]
+                          - img [ref=e290]
+                        - generic [ref=e292]:
+                          - img [ref=e293]
+                          - img [ref=e295]
+                          - img [ref=e297]
+                          - img [ref=e299]
+                          - img [ref=e301]
+                          - generic [ref=e303]: Rating is 5.0 out of 5.
+                    - emphasis [ref=e307]: "\"Genevieve is great and a very reliable person. She delivered excellent work, clearly, and was professional. I would definitely hire her again for future projects.\""
+                    - generic [ref=e308]:
+                      - img [ref=e310]
+                      - generic [ref=e313]: Max L.
+              - generic [ref=e317]:
+                - generic [ref=e319]: Work history on Upwork
+                - generic [ref=e320]:
+                  - generic [ref=e321]:
+                    - tablist [ref=e324]:
+                      - tab "Completed jobs 4" [selected] [ref=e325] [cursor=pointer]:
+                        - generic [ref=e327]:
+                          - generic [ref=e328]: Completed jobs
+                          - generic [ref=e329]: "4"
+                    - tabpanel [ref=e331]:
+                      - generic [ref=e332]:
+                        - generic [ref=e336]:
+                          - generic [ref=e337]: AI Operations Infrastructure
+                          - generic [ref=e338]:
+                            - strong [ref=e341]: Private earnings
+                            - generic [ref=e343]:
+                              - img [ref=e345]
+                              - generic [ref=e347]: Mar 18, 2026 - Jun 18, 2026
+                          - generic [ref=e349]:
+                            - text: "Job description:"
+                            - generic [ref=e350]:
+                              - text: A
+                              - text: I
+                              - text: O
+                              - text: p
+                              - text: e
+                              - text: r
+                              - text: a
+                              - text: t
+                              - text: i
+                              - text: o
+                              - text: "n"
+                              - text: s
+                              - text: I
+                              - text: "n"
+                              - text: f
+                              - text: r
+                              - text: a
+                              - text: s
+                              - text: t
+                              - text: r
+                              - text: u
+                              - text: c
+                              - text: t
+                              - text: u
+                              - text: r
+                              - text: e
+                        - generic [ref=e354]:
+                          - generic [ref=e355]: CRM Lead Management System Consultant Needed
+                          - generic [ref=e356]:
+                            - strong [ref=e359]: Private earnings
+                            - generic [ref=e361]:
+                              - img [ref=e363]
+                              - generic [ref=e365]: Feb 5, 2026 - Apr 7, 2026
+                          - generic [ref=e366]:
+                            - group [ref=e368]:
+                              - button "Skip skills" [ref=e369] [cursor=pointer]
+                              - list [ref=e370]:
+                                - generic [ref=e372]: Customer Relationship Management
+                                - generic [ref=e374]: CRM Software
+                                - generic [ref=e376]: Data Entry
+                                - generic [ref=e378]: Lead Generation
+                                - generic [ref=e380]: Communications
+                              - button "Next skills. Update list" [ref=e381] [cursor=pointer]:
+                                - generic [ref=e382]: Next skills. Update list
+                                - img [ref=e384]
+                            - generic [ref=e386]:
+                              - text: "Job description:"
+                              - generic [ref=e387]:
+                                - text: W
+                                - text: e
+                                - text: a
+                                - text: r
+                                - text: e
+                                - text: s
+                                - text: e
+                                - text: e
+                                - text: k
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: a
+                                - text: "n"
+                                - text: e
+                                - text: x
+                                - text: p
+                                - text: e
+                                - text: r
+                                - text: i
+                                - text: e
+                                - text: "n"
+                                - text: c
+                                - text: e
+                                - text: d
+                                - text: c
+                                - text: o
+                                - text: "n"
+                                - text: s
+                                - text: u
+                                - text: l
+                                - text: t
+                                - text: a
+                                - text: "n"
+                                - text: t
+                                - text: t
+                                - text: o
+                                - text: c
+                                - text: o
+                                - text: "n"
+                                - text: d
+                                - text: u
+                                - text: c
+                                - text: t
+                                - text: a
+                                - text: t
+                                - text: h
+                                - text: o
+                                - text: r
+                                - text: o
+                                - text: u
+                                - text: g
+                                - text: h
+                                - text: r
+                                - text: e
+                                - text: v
+                                - text: i
+                                - text: e
+                                - text: w
+                                - text: o
+                                - text: f
+                                - text: o
+                                - text: u
+                                - text: r
+                                - text: c
+                                - text: u
+                                - text: s
+                                - text: t
+                                - text: o
+                                - text: m
+                                - text: C
+                                - text: R
+                                - text: M
+                                - text: "-"
+                                - text: s
+                                - text: t
+                                - text: "y"
+                                - text: l
+                                - text: e
+                                - text: l
+                                - text: e
+                                - text: a
+                                - text: d
+                                - text: m
+                                - text: a
+                                - text: "n"
+                                - text: a
+                                - text: g
+                                - text: e
+                                - text: m
+                                - text: e
+                                - text: "n"
+                                - text: t
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e391]:
+                          - generic [ref=e392]:
+                            - text: Technical VA – Full CRM & Call Automation Setup (Freshsales, Make, Fireflies, Twilio, JustCall)
+                            - generic [ref=e394]:
+                              - generic [ref=e395]:
+                                - img [ref=e396]
+                                - img [ref=e398]
+                                - img [ref=e400]
+                                - img [ref=e402]
+                                - img [ref=e404]
+                              - generic [ref=e406]:
+                                - img [ref=e407]
+                                - img [ref=e409]
+                                - img [ref=e411]
+                                - img [ref=e413]
+                                - img [ref=e415]
+                                - generic [ref=e417]: Rating is 5.0 out of 5.
+                          - generic [ref=e418]:
+                            - strong [ref=e421]: Private earnings
+                            - generic [ref=e423]:
+                              - img [ref=e425]
+                              - generic [ref=e427]: Jan 6, 2026 - Jan 31, 2026
+                          - generic [ref=e428]:
+                            - group [ref=e430]:
+                              - button "Skip skills" [ref=e431] [cursor=pointer]
+                              - list [ref=e432]:
+                                - generic [ref=e434]: CRM Automation
+                                - generic [ref=e436]: Marketing Automation
+                                - generic [ref=e438]: Marketing Automation Audit
+                                - generic [ref=e440]: Marketing Operations & Workflow
+                                - generic [ref=e442]: Customer Relationship Management
+                              - button "Next skills. Update list" [ref=e443] [cursor=pointer]:
+                                - generic [ref=e444]: Next skills. Update list
+                                - img [ref=e446]
+                            - generic [ref=e448]:
+                              - text: "Job description:"
+                              - generic [ref=e449]:
+                                - text: W
+                                - text: e
+                                - text: ’
+                                - text: r
+                                - text: e
+                                - text: l
+                                - text: o
+                                - text: o
+                                - text: k
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: f
+                                - text: o
+                                - text: r
+                                - text: a
+                                - text: t
+                                - text: e
+                                - text: c
+                                - text: h
+                                - text: "n"
+                                - text: i
+                                - text: c
+                                - text: a
+                                - text: l
+                                - text: V
+                                - text: A
+                                - text: t
+                                - text: o
+                                - text: f
+                                - text: u
+                                - text: l
+                                - text: l
+                                - text: "y"
+                                - text: s
+                                - text: e
+                                - text: t
+                                - text: u
+                                - text: p
+                                - text: o
+                                - text: u
+                                - text: r
+                                - text: C
+                                - text: R
+                                - text: M
+                                - text: a
+                                - text: "n"
+                                - text: d
+                                - text: c
+                                - text: a
+                                - text: l
+                                - text: l
+                                - text: a
+                                - text: u
+                                - text: t
+                                - text: o
+                                - text: m
+                                - text: a
+                                - text: t
+                                - text: i
+                                - text: o
+                                - text: "n"
+                                - text: s
+                                - text: t
+                                - text: a
+                                - text: c
+                                - text: k
+                                - text: f
+                                - text: r
+                                - text: o
+                                - text: m
+                                - text: s
+                                - text: c
+                                - text: r
+                                - text: a
+                                - text: t
+                                - text: c
+                                - text: h
+                                - text: .
+                                - text: A
+                                - text: l
+                                - text: l
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e453]:
+                          - generic [ref=e454]:
+                            - text: n8n Workflow Setup with Google Ads API and Telegram Integration
+                            - generic [ref=e456]:
+                              - generic [ref=e457]:
+                                - img [ref=e458]
+                                - img [ref=e460]
+                                - img [ref=e462]
+                                - img [ref=e464]
+                                - img [ref=e466]
+                              - generic [ref=e468]:
+                                - img [ref=e469]
+                                - img [ref=e471]
+                                - img [ref=e473]
+                                - img [ref=e475]
+                                - img [ref=e477]
+                                - generic [ref=e479]: Rating is 5.0 out of 5.
+                          - generic [ref=e480]:
+                            - strong [ref=e483]: Private earnings
+                            - generic [ref=e485]:
+                              - img [ref=e487]
+                              - generic [ref=e489]: Nov 27, 2025 - Nov 28, 2025
+                          - generic [ref=e490]:
+                            - group [ref=e492]:
+                              - button "Skip skills" [ref=e493] [cursor=pointer]
+                              - list [ref=e494]:
+                                - generic [ref=e496]: n8n
+                                - generic [ref=e498]: Google Sheets Automation
+                                - generic [ref=e500]: Google Tag Manager
+                                - generic [ref=e502]: Google APIs
+                                - generic [ref=e504]: Telegram API
+                              - button "Next skills. Update list" [ref=e505] [cursor=pointer]:
+                                - generic [ref=e506]: Next skills. Update list
+                                - img [ref=e508]
+                            - generic [ref=e510]:
+                              - text: "Job description:"
+                              - generic [ref=e511]:
+                                - text: W
+                                - text: e
+                                - text: ’
+                                - text: r
+                                - text: e
+                                - text: a
+                                - text: s
+                                - text: m
+                                - text: a
+                                - text: l
+                                - text: l
+                                - text: e
+                                - text: "-"
+                                - text: c
+                                - text: o
+                                - text: m
+                                - text: m
+                                - text: e
+                                - text: r
+                                - text: c
+                                - text: e
+                                - text: c
+                                - text: o
+                                - text: m
+                                - text: p
+                                - text: a
+                                - text: "n"
+                                - text: "y"
+                                - text: (
+                                - text: "n"
+                                - text: a
+                                - text: t
+                                - text: u
+                                - text: r
+                                - text: a
+                                - text: l
+                                - text: s
+                                - text: u
+                                - text: p
+                                - text: p
+                                - text: l
+                                - text: e
+                                - text: m
+                                - text: e
+                                - text: "n"
+                                - text: t
+                                - text: s
+                                - text: )
+                                - text: .
+                                - text: W
+                                - text: e
+                                - text: ’
+                                - text: v
+                                - text: e
+                                - text: b
+                                - text: u
+                                - text: i
+                                - text: l
+                                - text: t
+                                - text: a
+                                - text: "n"
+                                - text: "n"
+                                - text: "8"
+                                - text: "n"
+                                - text: w
+                                - text: o
+                                - text: r
+                                - text: k
+                                - text: f
+                                - text: l
+                                - text: o
+                                - text: w
+                                - text: f
+                                - text: o
+                                - text: r
+                                - text: a
+                                - text: "n"
+                                - text: i
+                                - text: "n"
+                                - text: t
+                                - text: e
+                                - text: r
+                                - text: "n"
+                                - text: a
+                                - text: l
+                                - text: “
+                                - text: G
+                                - text: o
+                                - text: o
+                                - text: g
+                                - text: l
+                                - text: e
+                                - text: .
+                                - text: .
+                                - text: .
+                  - generic [ref=e512]:
+                    - separator [ref=e513]
+                    - generic [ref=e514]:
+                      - strong [ref=e515]: Genevieve C. has more jobs.
+                      - link "Create an account to review them" [ref=e516] [cursor=pointer]:
+                        - /url: /signup/
+              - generic [ref=e521]:
+                - heading "Portfolio (12)" [level=3] [ref=e523]
+                - generic [ref=e525]:
+                  - generic [ref=e527] [cursor=pointer]:
+                    - img [ref=e532]
+                    - generic [ref=e541]: Claude Certified Expert
+                    - generic [ref=e542]:
+                      - generic [ref=e545]: Claude
+                      - generic [ref=e548]: API
+                      - button "+2" [ref=e551]:
+                        - generic [ref=e553]: "+2"
+                  - generic [ref=e555] [cursor=pointer]:
+                    - img [ref=e560]
+                    - generic [ref=e569]: Custom Claude Skills Library
+                    - generic [ref=e570]:
+                      - generic [ref=e573]: Claude
+                      - generic [ref=e576]: Automation
+                      - generic [ref=e579]: AI Implementation
+                      - generic:
+                        - generic:
+                          - button
+                  - generic [ref=e580]:
+                    - generic [ref=e581]:
+                      - strong [ref=e582]: Want to see more?
+                      - link "Sign up" [ref=e583] [cursor=pointer]:
+                        - /url: /signup/
+                    - strong [ref=e584]
+              - generic [ref=e588]:
+                - heading "Skills" [level=4] [ref=e590]
+                - list [ref=e591]:
+                  - listitem [ref=e592]:
+                    - link "Hire API Integration Freelancers" [ref=e594] [cursor=pointer]:
+                      - /url: /hire/api-integration-freelancers/
+                      - text: API Integration
+                  - listitem [ref=e595]:
+                    - link "Hire Automation Engineers" [ref=e597] [cursor=pointer]:
+                      - /url: /hire/automation-freelancers/
+                      - text: Automation
+                  - listitem [ref=e598]:
+                    - link "Hire Aruba Specialists" [ref=e600] [cursor=pointer]:
+                      - /url: /hire/aruba-specialists/
+                      - text: Artificial Intelligence
+                  - listitem [ref=e601]:
+                    - link "Hire Marketing Automation Consultants" [ref=e603] [cursor=pointer]:
+                      - /url: /hire/marketing-automation-freelancers/
+                      - text: Marketing Automation
+                  - listitem [ref=e604]:
+                    - link "Hire Claude Specialists" [ref=e606] [cursor=pointer]:
+                      - /url: /hire/claude-specialists/
+                      - text: Claude
+                  - listitem [ref=e607]:
+                    - link "Hire N8N Experts" [ref=e609] [cursor=pointer]:
+                      - /url: /hire/n8n-experts/
+                      - text: n8n
+                  - listitem [ref=e610]:
+                    - link "Hire OpenAI Codex Specialists" [ref=e612] [cursor=pointer]:
+                      - /url: /hire/openai-codex-specialists/
+                      - text: OpenAI Codex
+                  - listitem [ref=e613]:
+                    - link "Hire Integromat Freelancers" [ref=e615] [cursor=pointer]:
+                      - /url: /hire/integromat-freelancers/
+                      - text: Make.com
+                  - listitem [ref=e616]:
+                    - link "Hire Airtable Freelancers" [ref=e618] [cursor=pointer]:
+                      - /url: /hire/airtable-freelancers/
+                      - text: Airtable
+                  - listitem [ref=e619]:
+                    - generic [ref=e621]: AI Implementation
+                  - listitem [ref=e622]:
+                    - generic [ref=e624]: Software Integration
+                  - listitem [ref=e625]:
+                    - generic [ref=e627]: Email Automation
+                  - listitem [ref=e628]:
+                    - generic [ref=e630]: CRM Automation
+                  - listitem [ref=e631]:
+                    - generic [ref=e633]: Automated Workflow
+                  - listitem [ref=e634]:
+                    - link "Hire Online Interpreters" [ref=e636] [cursor=pointer]:
+                      - /url: /hire/online-interpreters/
+                      - text: Python
+                  - listitem [ref=e637]:
+                    - generic [ref=e639]: AI Agent Development
+                  - listitem [ref=e640]:
+                    - link "Hire AI Optimization Specialists" [ref=e642] [cursor=pointer]:
+                      - /url: /hire/ai-optimization-specialists/
+                      - text: AI Development
+                  - listitem [ref=e643]:
+                    - link "Hire Next.js Freelancers" [ref=e645] [cursor=pointer]:
+                      - /url: /hire/next.js-freelancers/
+                      - text: Next.js
+                  - listitem [ref=e646]:
+                    - generic [ref=e648]: SaaS Development
+              - generic [ref=e652]:
+                - generic [ref=e653]:
+                  - text: Search for other talent
+                  - search [ref=e654]:
+                    - generic [ref=e657]:
+                      - generic:
+                        - generic:
+                          - img
+                      - searchbox "Search" [ref=e658]
+                - generic [ref=e661]:
+                  - heading "Browse similar freelancers" [level=3] [ref=e662]
+                  - list [ref=e663]:
+                    - listitem [ref=e664]:
+                      - link "API Integration Freelancers" [ref=e665] [cursor=pointer]:
+                        - /url: /hire/api-integration-freelancers/
+                    - listitem [ref=e666]:
+                      - link "Application Integration Specialists" [ref=e667] [cursor=pointer]:
+                        - /url: /hire/application-integration-specialists/
+                    - listitem [ref=e668]:
+                      - link "Composable Application Developers" [ref=e669] [cursor=pointer]:
+                        - /url: /hire/composable-application-developers/
+                    - listitem [ref=e670]:
+                      - link "Chai Developers" [ref=e671] [cursor=pointer]:
+                        - /url: /hire/chai-developers/
+    - contentinfo [ref=e675]:
+      - heading "Footer navigation" [level=2] [ref=e676]
+      - generic [ref=e677]:
+        - generic [ref=e678]:
+          - generic [ref=e679]:
+            - heading "For Clients" [level=3] [ref=e680]
+            - list [ref=e682]:
+              - listitem [ref=e683]:
+                - link "How to hire" [ref=e684] [cursor=pointer]:
+                  - /url: /i/how-it-works/client/
+              - listitem [ref=e685]:
+                - link "Talent Marketplace" [ref=e686] [cursor=pointer]:
+                  - /url: /talent-marketplace/
+              - listitem [ref=e687]:
+                - link "Project Catalog" [ref=e688] [cursor=pointer]:
+                  - /url: /services/
+              - listitem [ref=e689]:
+                - link "Hire an agency" [ref=e690] [cursor=pointer]:
+                  - /url: /agencies
+              - listitem [ref=e691]:
+                - link "Enterprise" [ref=e692] [cursor=pointer]:
+                  - /url: /enterprise/
+              - listitem [ref=e693]:
+                - link "Business Plus" [ref=e694] [cursor=pointer]:
+                  - /url: /business-plus/
+              - listitem [ref=e695]:
+                - link "Any Hire" [ref=e696] [cursor=pointer]:
+                  - /url: /anyhire/
+              - listitem [ref=e697]:
+                - link "Contract-to-hire" [ref=e698] [cursor=pointer]:
+                  - /url: /contract-to-hire/client
+              - listitem [ref=e699]:
+                - link "Direct Contracts" [ref=e700] [cursor=pointer]:
+                  - /url: /direct-contracts/cl
+              - listitem [ref=e701]:
+                - link "Hire worldwide" [ref=e702] [cursor=pointer]:
+                  - /url: /hire/
+              - listitem [ref=e703]:
+                - link "Hire in the USA" [ref=e704] [cursor=pointer]:
+                  - /url: /hire/us/
+          - generic [ref=e705]:
+            - heading "For Talent" [level=3] [ref=e706]
+            - list [ref=e708]:
+              - listitem [ref=e709]:
+                - link "How to find work" [ref=e710] [cursor=pointer]:
+                  - /url: /i/how-it-works/freelancer/
+              - listitem [ref=e711]:
+                - link "Direct Contracts" [ref=e712] [cursor=pointer]:
+                  - /url: /direct-contracts
+              - listitem [ref=e713]:
+                - link "Find freelance jobs worldwide" [ref=e714] [cursor=pointer]:
+                  - /url: /freelance-jobs/
+              - listitem [ref=e715]:
+                - link "Find freelance jobs in the USA" [ref=e716] [cursor=pointer]:
+                  - /url: /freelance-jobs/united-states/
+              - listitem [ref=e717]:
+                - link "Win work with ads" [ref=e718] [cursor=pointer]:
+                  - /url: /work/ads
+              - listitem [ref=e719]:
+                - link "Exclusive resources with Freelancer Plus" [ref=e720] [cursor=pointer]:
+                  - /url: /work/freelancerplus
+          - generic [ref=e721]:
+            - heading "Resources" [level=3] [ref=e722]
+            - list [ref=e724]:
+              - listitem [ref=e725]:
+                - link "Help & support" [ref=e726] [cursor=pointer]:
+                  - /url: https://support.upwork.com/hc/en-us
+              - listitem [ref=e727]:
+                - link "Success stories" [ref=e728] [cursor=pointer]:
+                  - /url: /success-stories
+              - listitem [ref=e729]:
+                - link "Upwork reviews" [ref=e730] [cursor=pointer]:
+                  - /url: /reviews
+              - listitem [ref=e731]:
+                - link "Resources" [ref=e732] [cursor=pointer]:
+                  - /url: /resources
+              - listitem [ref=e733]:
+                - link "Blog" [ref=e734] [cursor=pointer]:
+                  - /url: /blog
+              - listitem [ref=e735]:
+                - link "Affiliate program" [ref=e736] [cursor=pointer]:
+                  - /url: /affiliates
+              - listitem [ref=e737]:
+                - link "Refer a client" [ref=e738] [cursor=pointer]:
+                  - /url: /client-referrals
+              - listitem [ref=e739]:
+                - link "Free Business Tools" [ref=e740] [cursor=pointer]:
+                  - /url: /tools
+              - listitem [ref=e741]:
+                - link "Release notes" [ref=e742] [cursor=pointer]:
+                  - /url: /product-release-notes
+          - generic [ref=e743]:
+            - heading "Company" [level=3] [ref=e744]
+            - list [ref=e746]:
+              - listitem [ref=e747]:
+                - link "About us" [ref=e748] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e749]:
+                - link "Leadership" [ref=e750] [cursor=pointer]:
+                  - /url: /about/team
+              - listitem [ref=e751]:
+                - link "Investor relations" [ref=e752] [cursor=pointer]:
+                  - /url: https://investors.upwork.com/
+              - listitem [ref=e753]:
+                - link "Careers" [ref=e754] [cursor=pointer]:
+                  - /url: /careers
+              - listitem [ref=e755]:
+                - link "Our impact" [ref=e756] [cursor=pointer]:
+                  - /url: /about/our-impact
+              - listitem [ref=e757]:
+                - link "Press" [ref=e758] [cursor=pointer]:
+                  - /url: /press
+              - listitem [ref=e759]:
+                - link "Contact us" [ref=e760] [cursor=pointer]:
+                  - /url: /about/contact
+              - listitem [ref=e761]:
+                - link "Partners" [ref=e762] [cursor=pointer]:
+                  - /url: /partners/
+              - listitem [ref=e763]:
+                - link "Trust, safety & security" [ref=e764] [cursor=pointer]:
+                  - /url: /trust-and-safety/security/
+              - listitem [ref=e765]:
+                - link "Modern slavery statement" [ref=e766] [cursor=pointer]:
+                  - /url: /documents/modern-slavery-statement
+        - generic [ref=e767]:
+          - generic [ref=e768]:
+            - heading "Follow us" [level=3] [ref=e769]
+            - list [ref=e770]:
+              - listitem [ref=e771]:
+                - link "Visit Upwork on Facebook" [ref=e772] [cursor=pointer]:
+                  - /url: https://www.facebook.com/upwork
+                  - generic [ref=e773]: Visit Upwork on Facebook
+                  - img [ref=e775]
+              - listitem [ref=e777]:
+                - link "Read Upwork company news on LinkedIn" [ref=e778] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/company/upwork
+                  - generic [ref=e779]: Read Upwork company news on LinkedIn
+                  - img [ref=e781]
+              - listitem [ref=e783]:
+                - link "Follow @Upwork on Twitter" [ref=e784] [cursor=pointer]:
+                  - /url: https://twitter.com/Upwork
+                  - generic [ref=e785]: Follow @Upwork on Twitter
+                  - img [ref=e787]
+              - listitem [ref=e789]:
+                - link "Watch Upwork videos on YouTube" [ref=e790] [cursor=pointer]:
+                  - /url: https://www.youtube.com/channel/UCvxGFOnwUBDHHcxuPqhe4CQ
+                  - generic [ref=e791]: Watch Upwork videos on YouTube
+                  - img [ref=e793]
+              - listitem [ref=e795]:
+                - link "Follow Upwork on Instagram" [ref=e796] [cursor=pointer]:
+                  - /url: https://www.instagram.com/upwork/
+                  - generic [ref=e797]: Follow Upwork on Instagram
+                  - img [ref=e799]
+              - listitem [ref=e803]:
+                - link "Join Upwork on Reddit" [ref=e804] [cursor=pointer]:
+                  - /url: https://www.reddit.com/r/UpworkOfficial/
+                  - generic [ref=e805]: Join Upwork on Reddit
+                  - img [ref=e807]
+          - generic [ref=e809]:
+            - heading "Mobile app" [level=3] [ref=e810]
+            - list [ref=e811]:
+              - listitem [ref=e812]:
+                - link "Download Upwork app from iTunes" [ref=e813] [cursor=pointer]:
+                  - /url: https://apps.apple.com/us/developer/upwork-global-inc/id329377609
+                  - generic [ref=e814]: Download Upwork app from iTunes
+                  - img [ref=e816]
+              - listitem [ref=e819]:
+                - link "Download Upwork app from Google Play" [ref=e820] [cursor=pointer]:
+                  - /url: https://play.google.com/store/apps/dev?id=8802639270489632480
+                  - generic [ref=e821]: Download Upwork app from Google Play
+                  - img [ref=e823]
+        - generic [ref=e825]:
+          - paragraph [ref=e826]: © 2015 - 2026 Upwork® Global LLC
+          - list [ref=e827]:
+            - listitem [ref=e828]:
+              - link "Terms of Service" [ref=e829] [cursor=pointer]:
+                - /url: /legal
+            - listitem [ref=e830]:
+              - link "Privacy Policy" [ref=e831] [cursor=pointer]:
+                - /url: /legal#privacy
+            - listitem [ref=e832]:
+              - link "CA Notice at Collection" [ref=e833] [cursor=pointer]:
+                - /url: /legal#SupplementalPrivacyNoticeforCaliforniaResidents
+            - listitem [ref=e834]:
+              - link "Your Privacy Choices California Consumer Privacy Act (CCPA) Opt-Out" [ref=e835] [cursor=pointer]:
+                - /url: "javascript:"
+                - text: Your Privacy Choices
+                - generic [ref=e836]: California Consumer Privacy Act (CCPA) Opt-Out
+            - listitem [ref=e838]:
+              - link "Accessibility" [ref=e839] [cursor=pointer]:
+                - /url: /legal#accessibility
+            - listitem [ref=e840]:
+              - link "Sitemap" [ref=e841] [cursor=pointer]:
+                - /url: /sitemaps/
+  - generic:
+    - region "Cookie banner" [active]:
+      - dialog "Privacy" [ref=e842]:
+        - generic [ref=e843]:
+          - generic [ref=e845]:
+            - text: This site employs data tracking technologies (e.g. cookies and pixels) that we and our third party providers use to collect and analyze data about your interactions with our site and to market to you.
+            - strong [ref=e846]: By continuing, you agree to the use of these technologies.
+            - text: To customize your preferences, please click the “Manage” button below.
+            - text: To learn more about our data practices, please see our
+            - link "Cookie Policy information, opens in a new tab" [ref=e847] [cursor=pointer]:
+              - /url: https://www.upwork.com/legal#privacy
+              - text: Privacy Policy
+          - button "Manage, Opens the preference center dialog" [ref=e850] [cursor=pointer]: Manage
+          - button "Close" [ref=e852] [cursor=pointer]
+  - textbox [ref=e853]

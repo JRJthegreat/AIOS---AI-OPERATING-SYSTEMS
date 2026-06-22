@@ -1,0 +1,1505 @@
+- generic [ref=e1]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - generic [ref=e11]:
+        - banner [ref=e12]:
+          - link "Skip to content" [ref=e13] [cursor=pointer]
+          - generic [ref=e14]:
+            - link "Upwork home" [ref=e17] [cursor=pointer]:
+              - /url: /
+              - generic [ref=e18]: Upwork home
+              - img [ref=e20]
+            - generic [ref=e26]:
+              - navigation "Primary" [ref=e27]:
+                - list [ref=e28]:
+                  - listitem [ref=e29]:
+                    - button "Hire talent" [ref=e30] [cursor=pointer]:
+                      - generic [ref=e31]: Hire talent
+                      - img [ref=e33]
+                  - listitem [ref=e35]:
+                    - button "Get outcomes" [ref=e36] [cursor=pointer]:
+                      - generic [ref=e37]: Get outcomes
+                      - img [ref=e39]
+                  - listitem [ref=e41]:
+                    - button "Find work" [ref=e42] [cursor=pointer]:
+                      - generic [ref=e43]: Find work
+                      - img [ref=e45]
+                  - listitem [ref=e47]:
+                    - button "Why Upwork" [ref=e48] [cursor=pointer]:
+                      - generic [ref=e49]: Why Upwork
+                      - img [ref=e51]
+                  - listitem [ref=e53]:
+                    - link "Pricing" [ref=e54] [cursor=pointer]:
+                      - /url: /pricing/client
+                      - generic [ref=e55]: Pricing
+                  - listitem [ref=e56]:
+                    - link "Enterprise" [ref=e57] [cursor=pointer]:
+                      - /url: https://go-lifted.com/
+                      - generic [ref=e58]: Enterprise
+                  - listitem
+              - generic [ref=e59]:
+                - button "Search" [ref=e62] [cursor=pointer]:
+                  - img [ref=e64]
+                - link "Log in" [ref=e66] [cursor=pointer]:
+                  - /url: /ab/account-security/login
+                - link "Sign up" [ref=e67] [cursor=pointer]:
+                  - /url: about:blank
+        - generic "Secondary" [ref=e68]:
+          - generic [ref=e69]: Secondary
+          - list [ref=e70]:
+            - listitem [ref=e71]:
+              - menuitem "Development & IT" [ref=e72] [cursor=pointer]
+            - listitem [ref=e73]:
+              - menuitem "AI Services" [ref=e74] [cursor=pointer]
+            - listitem [ref=e75]:
+              - menuitem "Design & Creative" [ref=e76] [cursor=pointer]
+            - listitem [ref=e77]:
+              - menuitem "Sales & Marketing" [ref=e78] [cursor=pointer]
+            - listitem [ref=e79]:
+              - menuitem "Admin & Customer Support" [ref=e80] [cursor=pointer]
+            - listitem [ref=e81]:
+              - button "More secondary nav" [ref=e82] [cursor=pointer]:
+                - text: More
+                - img [ref=e84]
+      - main [ref=e86]:
+        - generic [ref=e95]:
+          - complementary "profile-identity" [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e100]:
+                - generic [ref=e104]:
+                  - img "Ryan R." [ref=e105]
+                  - 'img "Status: Offline" [ref=e106]':
+                    - generic [ref=e107]: "Status: Offline"
+                - generic [ref=e108]:
+                  - generic [ref=e109]:
+                    - text: Ryan R.
+                    - button "Verified" [ref=e111] [cursor=pointer]:
+                      - generic [ref=e112]:
+                        - img [ref=e114]
+                        - generic [ref=e117]: Verified
+                  - generic [ref=e118]: "Upwork's #1 Ranked AI Specialist | AI Automation | Web Development"
+                  - generic [ref=e119]:
+                    - button "100% Job Success" [ref=e122] [cursor=pointer]:
+                      - generic [ref=e127]:
+                        - generic [ref=e128]:
+                          - img [ref=e129]
+                          - img [ref=e133]
+                        - generic [ref=e135]:
+                          - text: 100%
+                          - generic [ref=e136]: Job Success
+                    - button "Top Rated Plus" [ref=e140] [cursor=pointer]:
+                      - generic [ref=e141]:
+                        - img [ref=e143]
+                        - generic [ref=e146]: Top Rated Plus
+                    - generic [ref=e148]:
+                      - img [ref=e150]
+                      - generic [ref=e152]: 5.0 (43)
+                  - generic [ref=e153]:
+                    - generic [ref=e154]:
+                      - generic "Leicester , United Kingdom – 5:47 pm local time" [ref=e155]:
+                        - img [ref=e157]
+                      - generic [ref=e160]: Leicester
+                      - generic [ref=e161]: ","
+                      - generic [ref=e162]: United Kingdom
+                    - generic [ref=e163]: –
+                    - generic [ref=e165]: 5:47 pm local time
+              - generic [ref=e167]:
+                - generic [ref=e168]:
+                  - heading "63" [level=4] [ref=e169]
+                  - generic [ref=e170]: Total jobs
+                - generic [ref=e171]:
+                  - heading "613" [level=4] [ref=e172]
+                  - generic [ref=e173]: Total hours
+              - button "Sign up" [ref=e176] [cursor=pointer]
+          - generic [ref=e180]:
+            - generic [ref=e182]:
+              - generic [ref=e183] [cursor=pointer]: About
+              - generic [ref=e184] [cursor=pointer]: Client feedback
+              - generic [ref=e185] [cursor=pointer]: Work history
+              - generic [ref=e186] [cursor=pointer]: Portfolio
+              - generic [ref=e187] [cursor=pointer]: Skills
+            - generic [ref=e188]:
+              - generic [ref=e191]:
+                - generic [ref=e192]:
+                  - heading "About Ryan R." [level=4] [ref=e194]
+                  - generic [ref=e195]:
+                    - generic [ref=e196]:
+                      - generic [ref=e197]: $50.00/hr
+                      - generic [ref=e198]: Rate
+                    - button "Ryan Ramshaw. Agency" [ref=e202] [cursor=pointer]:
+                      - link "Ryan Ramshaw." [ref=e204]:
+                        - /url: /agencies/2059502356310955116/
+                      - generic [ref=e205]: Agency
+                - generic [ref=e209] [cursor=pointer]:
+                  - img "https://youtu.be/AqHf5B8iqCk" [ref=e210]
+                  - button "Play video" [ref=e211]:
+                    - img "Play video" [ref=e212]
+                - generic [ref=e213]:
+                  - generic [ref=e214]: "Im Currently Upwork's #1 Ranked Ai Automation Expert In The UK (Via UpworkMrr Rankings) Give me something to build and i'll build it so it works for you 24/7. Thats my promise. If you shoot me a invitation or message ill send you a personalised loom video back on how i may be able to help you! A little more about me: I help growth-focused businesses save time and scale fast by automating tasks and building AI-powered workflows. From data scraping and marketing automations to AI chatbots and …"
+                  - button "Show more" [ref=e216] [cursor=pointer]
+              - generic [ref=e220]:
+                - heading "Client feedback (28)" [level=4] [ref=e222]
+                - generic [ref=e225]:
+                  - generic [ref=e226]:
+                    - generic [ref=e228]:
+                      - generic [ref=e229]: Olala! group digital transformation
+                      - generic [ref=e230]:
+                        - generic [ref=e231]:
+                          - img [ref=e233]
+                          - generic [ref=e235]: April 30, 2026
+                        - generic [ref=e237]:
+                          - generic [ref=e238]:
+                            - img [ref=e239]
+                            - img [ref=e241]
+                            - img [ref=e243]
+                            - img [ref=e245]
+                            - img [ref=e247]
+                          - generic [ref=e249]:
+                            - img [ref=e250]
+                            - img [ref=e252]
+                            - img [ref=e254]
+                            - img [ref=e256]
+                            - img [ref=e258]
+                            - generic [ref=e260]: Rating is 5.0 out of 5.
+                      - emphasis [ref=e264]: "\"Working with Ryan has been a great experience. He led the development of our Invoice Automation platform — a multi-API workflow built on n8n and Google Cloud Run that automated our...\""
+                      - generic [ref=e265]:
+                        - img [ref=e267]
+                        - generic [ref=e270]: Froi M.
+                    - generic [ref=e272]:
+                      - generic [ref=e273]: AI Training
+                      - generic [ref=e274]:
+                        - generic [ref=e275]:
+                          - img [ref=e277]
+                          - generic [ref=e279]: April 4, 2026
+                        - generic [ref=e281]:
+                          - generic [ref=e282]:
+                            - img [ref=e283]
+                            - img [ref=e285]
+                            - img [ref=e287]
+                            - img [ref=e289]
+                            - img [ref=e291]
+                          - generic [ref=e293]:
+                            - img [ref=e294]
+                            - img [ref=e296]
+                            - img [ref=e298]
+                            - img [ref=e300]
+                            - img [ref=e302]
+                            - generic [ref=e304]: Rating is 5.0 out of 5.
+                      - emphasis [ref=e308]: "\"A fantastic hire and worth every dollar spent.\""
+                  - navigation "Pagination" [ref=e311]:
+                    - generic [ref=e312]: Pagination
+                    - list [ref=e313]:
+                      - listitem [ref=e314]:
+                        - button "Previous page" [disabled] [ref=e317]:
+                          - img [ref=e319]
+                      - listitem [ref=e321]:
+                        - button "Current page 1 of 14" [ref=e322] [cursor=pointer]:
+                          - generic [ref=e323]:
+                            - generic [ref=e324]: Current page 1 of 14
+                            - text: "1"
+                      - listitem [ref=e325]:
+                        - button "go to page 2" [ref=e326] [cursor=pointer]:
+                          - generic [ref=e327]:
+                            - generic [ref=e328]: go to page
+                            - text: "2"
+                      - listitem [ref=e329]:
+                        - button "go to page 3" [ref=e330] [cursor=pointer]:
+                          - generic [ref=e331]:
+                            - generic [ref=e332]: go to page
+                            - text: "3"
+                      - listitem [ref=e333]:
+                        - button "go to page 4" [ref=e334] [cursor=pointer]:
+                          - generic [ref=e335]:
+                            - generic [ref=e336]: go to page
+                            - text: "4"
+                      - listitem [ref=e337]: ...
+                      - listitem [ref=e338]:
+                        - button "Next page" [ref=e341] [cursor=pointer]:
+                          - img [ref=e343]
+                    - generic [ref=e345]: Current page 1 of 14
+              - generic [ref=e349]:
+                - generic [ref=e351]: Work history on Upwork
+                - generic [ref=e352]:
+                  - generic [ref=e353]:
+                    - tablist [ref=e356]:
+                      - tab "Completed jobs 50" [selected] [ref=e357] [cursor=pointer]:
+                        - generic [ref=e359]:
+                          - generic [ref=e360]: Completed jobs
+                          - generic [ref=e361]: "50"
+                    - tabpanel [ref=e363]:
+                      - generic [ref=e364]:
+                        - generic [ref=e368]:
+                          - generic [ref=e369]: Software Developer for YouTube Automation (Custom AI Agent)
+                          - generic [ref=e370]:
+                            - strong [ref=e373]: Private earnings
+                            - generic [ref=e375]:
+                              - img [ref=e377]
+                              - generic [ref=e379]: Feb 2, 2026 - Jun 4, 2026
+                          - generic [ref=e380]:
+                            - group [ref=e382]:
+                              - button "Skip skills" [ref=e383] [cursor=pointer]
+                              - list [ref=e384]:
+                                - generic [ref=e386]: API
+                                - generic [ref=e388]: JavaScript
+                                - generic [ref=e390]: Python
+                                - generic [ref=e392]: Desktop Application
+                                - generic [ref=e394]: Java
+                                - generic [ref=e396]: Artificial Intelligence
+                                - generic [ref=e398]: Automation
+                              - button "Next skills. Update list" [ref=e399] [cursor=pointer]:
+                                - generic [ref=e400]: Next skills. Update list
+                                - img [ref=e402]
+                            - generic [ref=e404]:
+                              - text: "Job description:"
+                              - generic [ref=e405]:
+                                - text: W
+                                - text: e
+                                - text: a
+                                - text: r
+                                - text: e
+                                - text: s
+                                - text: e
+                                - text: e
+                                - text: k
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: a
+                                - text: t
+                                - text: a
+                                - text: l
+                                - text: e
+                                - text: "n"
+                                - text: t
+                                - text: e
+                                - text: d
+                                - text: s
+                                - text: o
+                                - text: f
+                                - text: t
+                                - text: w
+                                - text: a
+                                - text: r
+                                - text: e
+                                - text: d
+                                - text: e
+                                - text: v
+                                - text: e
+                                - text: l
+                                - text: o
+                                - text: p
+                                - text: e
+                                - text: r
+                                - text: t
+                                - text: o
+                                - text: c
+                                - text: r
+                                - text: e
+                                - text: a
+                                - text: t
+                                - text: e
+                                - text: a
+                                - text: u
+                                - text: t
+                                - text: o
+                                - text: m
+                                - text: a
+                                - text: t
+                                - text: i
+                                - text: o
+                                - text: "n"
+                                - text: t
+                                - text: o
+                                - text: o
+                                - text: l
+                                - text: s
+                                - text: f
+                                - text: o
+                                - text: r
+                                - text: "Y"
+                                - text: o
+                                - text: u
+                                - text: T
+                                - text: u
+                                - text: b
+                                - text: e
+                                - text: e
+                                - text: d
+                                - text: i
+                                - text: t
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: w
+                                - text: i
+                                - text: t
+                                - text: h
+                                - text: A
+                                - text: I
+                                - text: .
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e409]:
+                          - generic [ref=e410]:
+                            - text: Olala! group digital transformation
+                            - generic [ref=e412]:
+                              - generic [ref=e413]:
+                                - img [ref=e414]
+                                - img [ref=e416]
+                                - img [ref=e418]
+                                - img [ref=e420]
+                                - img [ref=e422]
+                              - generic [ref=e424]:
+                                - img [ref=e425]
+                                - img [ref=e427]
+                                - img [ref=e429]
+                                - img [ref=e431]
+                                - img [ref=e433]
+                                - generic [ref=e435]: Rating is 5.0 out of 5.
+                          - generic [ref=e436]:
+                            - strong [ref=e439]: Private earnings
+                            - generic [ref=e441]:
+                              - img [ref=e443]
+                              - generic [ref=e445]: Mar 10, 2026 - Apr 30, 2026
+                          - generic [ref=e446]:
+                            - group [ref=e448]:
+                              - button "Skip skills" [ref=e449] [cursor=pointer]
+                              - list [ref=e450]:
+                                - generic [ref=e452]: JavaScript
+                                - generic [ref=e454]: React
+                                - generic [ref=e456]: Next.js
+                                - generic [ref=e458]: Node.js
+                                - generic [ref=e460]: Angular
+                                - generic [ref=e462]: AI Development
+                                - generic [ref=e464]: Python
+                                - generic [ref=e466]: Web Development
+                                - generic [ref=e468]: FastAPI
+                                - generic [ref=e470]: n8n
+                                - generic [ref=e472]: Make.com
+                                - generic [ref=e474]: AI Chatbot
+                                - generic [ref=e476]: .NET Core
+                                - generic [ref=e478]: Cloud Architecture
+                                - generic [ref=e480]: TypeScript
+                              - button "Next skills. Update list" [ref=e481] [cursor=pointer]:
+                                - generic [ref=e482]: Next skills. Update list
+                                - img [ref=e484]
+                            - generic [ref=e486]:
+                              - text: "Job description:"
+                              - generic [ref=e487]:
+                                - text: W
+                                - text: e
+                                - text: a
+                                - text: r
+                                - text: e
+                                - text: a
+                                - text: h
+                                - text: o
+                                - text: s
+                                - text: p
+                                - text: i
+                                - text: t
+                                - text: a
+                                - text: l
+                                - text: i
+                                - text: t
+                                - text: "y"
+                                - text: a
+                                - text: "n"
+                                - text: d
+                                - text: r
+                                - text: e
+                                - text: a
+                                - text: l
+                                - text: e
+                                - text: s
+                                - text: t
+                                - text: a
+                                - text: t
+                                - text: e
+                                - text: g
+                                - text: r
+                                - text: o
+                                - text: u
+                                - text: p
+                                - text: o
+                                - text: p
+                                - text: e
+                                - text: r
+                                - text: a
+                                - text: t
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: h
+                                - text: o
+                                - text: t
+                                - text: e
+                                - text: l
+                                - text: s
+                                - text: a
+                                - text: "n"
+                                - text: d
+                                - text: s
+                                - text: e
+                                - text: r
+                                - text: v
+                                - text: i
+                                - text: c
+                                - text: e
+                                - text: d
+                                - text: a
+                                - text: p
+                                - text: a
+                                - text: r
+                                - text: t
+                                - text: m
+                                - text: e
+                                - text: "n"
+                                - text: t
+                                - text: s
+                                - text: a
+                                - text: c
+                                - text: r
+                                - text: o
+                                - text: s
+                                - text: s
+                                - text: s
+                                - text: e
+                                - text: v
+                                - text: e
+                                - text: r
+                                - text: a
+                                - text: l
+                                - text: c
+                                - text: o
+                                - text: u
+                                - text: "n"
+                                - text: t
+                                - text: r
+                                - text: i
+                                - text: e
+                                - text: s
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e491]:
+                          - generic [ref=e492]:
+                            - text: AI Training
+                            - generic [ref=e494]:
+                              - generic [ref=e495]:
+                                - img [ref=e496]
+                                - img [ref=e498]
+                                - img [ref=e500]
+                                - img [ref=e502]
+                                - img [ref=e504]
+                              - generic [ref=e506]:
+                                - img [ref=e507]
+                                - img [ref=e509]
+                                - img [ref=e511]
+                                - img [ref=e513]
+                                - img [ref=e515]
+                                - generic [ref=e517]: Rating is 5.0 out of 5.
+                          - generic [ref=e518]:
+                            - strong [ref=e521]: Private earnings
+                            - generic [ref=e523]:
+                              - img [ref=e525]
+                              - generic [ref=e527]: Dec 31, 2025 - Apr 4, 2026
+                          - generic [ref=e529]:
+                            - text: "Job description:"
+                            - generic [ref=e530]:
+                              - text: A
+                              - text: I
+                              - text: T
+                              - text: r
+                              - text: a
+                              - text: i
+                              - text: "n"
+                              - text: i
+                              - text: "n"
+                              - text: g
+                        - generic [ref=e534]:
+                          - generic [ref=e535]:
+                            - text: Legal & Document Automation
+                            - generic [ref=e537]:
+                              - generic [ref=e538]:
+                                - img [ref=e539]
+                                - img [ref=e541]
+                                - img [ref=e543]
+                                - img [ref=e545]
+                                - img [ref=e547]
+                              - generic [ref=e549]:
+                                - img [ref=e550]
+                                - img [ref=e552]
+                                - img [ref=e554]
+                                - img [ref=e556]
+                                - img [ref=e558]
+                                - generic [ref=e560]: Rating is 5.0 out of 5.
+                          - generic [ref=e561]:
+                            - strong [ref=e564]: Private earnings
+                            - generic [ref=e566]:
+                              - img [ref=e568]
+                              - generic [ref=e570]: Feb 13, 2026 - Mar 11, 2026
+                          - generic [ref=e571]:
+                            - group [ref=e573]:
+                              - list [ref=e574]:
+                                - generic [ref=e576]: n8n
+                                - generic [ref=e578]: Typeform
+                                - generic [ref=e580]: CRM Automation
+                            - generic [ref=e581]:
+                              - text: "Job description:"
+                              - generic [ref=e582]:
+                                - text: W
+                                - text: h
+                                - text: a
+                                - text: t
+                                - text: "Y"
+                                - text: o
+                                - text: u
+                                - text: W
+                                - text: i
+                                - text: l
+                                - text: l
+                                - text: B
+                                - text: u
+                                - text: i
+                                - text: l
+                                - text: d
+                                - text: (
+                                - text: E
+                                - text: "n"
+                                - text: d
+                                - text: "-"
+                                - text: t
+                                - text: o
+                                - text: "-"
+                                - text: E
+                                - text: "n"
+                                - text: d
+                                - text: )
+                                - text: "1"
+                                - text: .
+                                - text: S
+                                - text: t
+                                - text: r
+                                - text: u
+                                - text: c
+                                - text: t
+                                - text: u
+                                - text: r
+                                - text: e
+                                - text: d
+                                - text: C
+                                - text: l
+                                - text: i
+                                - text: e
+                                - text: "n"
+                                - text: t
+                                - text: D
+                                - text: a
+                                - text: t
+                                - text: a
+                                - text: C
+                                - text: a
+                                - text: p
+                                - text: t
+                                - text: u
+                                - text: r
+                                - text: e
+                                - text: (
+                                - text: T
+                                - text: "y"
+                                - text: p
+                                - text: e
+                                - text: f
+                                - text: o
+                                - text: r
+                                - text: m
+                                - text: )
+                                - text: "Y"
+                                - text: o
+                                - text: u
+                                - text: w
+                                - text: i
+                                - text: l
+                                - text: l
+                                - text: ":"
+                                - text: D
+                                - text: e
+                                - text: s
+                                - text: i
+                                - text: g
+                                - text: "n"
+                                - text: T
+                                - text: "y"
+                                - text: p
+                                - text: e
+                                - text: f
+                                - text: o
+                                - text: r
+                                - text: m
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e586]:
+                          - generic [ref=e587]: AI lead generation standalone product
+                          - generic [ref=e588]:
+                            - strong [ref=e591]: Private earnings
+                            - generic [ref=e593]:
+                              - img [ref=e595]
+                              - generic [ref=e597]: Jan 13, 2026 - Feb 24, 2026
+                          - generic [ref=e599]:
+                            - text: "Job description:"
+                            - generic [ref=e600]:
+                              - text: A
+                              - text: I
+                              - text: l
+                              - text: e
+                              - text: a
+                              - text: d
+                              - text: g
+                              - text: e
+                              - text: "n"
+                              - text: e
+                              - text: r
+                              - text: a
+                              - text: t
+                              - text: i
+                              - text: o
+                              - text: "n"
+                              - text: s
+                              - text: t
+                              - text: a
+                              - text: "n"
+                              - text: d
+                              - text: a
+                              - text: l
+                              - text: o
+                              - text: "n"
+                              - text: e
+                              - text: p
+                              - text: r
+                              - text: o
+                              - text: d
+                              - text: u
+                              - text: c
+                              - text: t
+                        - generic [ref=e604]:
+                          - generic [ref=e605]:
+                            - text: Joshua Taimoor Nana
+                            - generic [ref=e607]:
+                              - generic [ref=e608]:
+                                - img [ref=e609]
+                                - img [ref=e611]
+                                - img [ref=e613]
+                                - img [ref=e615]
+                                - img [ref=e617]
+                              - generic [ref=e619]:
+                                - img [ref=e620]
+                                - img [ref=e622]
+                                - img [ref=e624]
+                                - img [ref=e626]
+                                - img [ref=e628]
+                                - generic [ref=e630]: Rating is 5.0 out of 5.
+                          - generic [ref=e631]:
+                            - strong [ref=e634]: Private earnings
+                            - generic [ref=e636]:
+                              - img [ref=e638]
+                              - generic [ref=e640]: Nov 25, 2025 - Feb 11, 2026
+                          - generic [ref=e641]:
+                            - group [ref=e643]:
+                              - button "Skip skills" [ref=e644] [cursor=pointer]
+                              - list [ref=e645]:
+                                - generic [ref=e647]: Automation
+                                - generic [ref=e649]: Automated Workflow
+                                - generic [ref=e651]: AI Consulting
+                                - generic [ref=e653]: AI Agent Development
+                                - generic [ref=e655]: AI Implementation
+                                - generic [ref=e657]: AI App Development
+                                - generic [ref=e659]: AI Chatbot
+                                - generic [ref=e661]: AI Image Generation
+                                - generic [ref=e663]: n8n
+                                - generic [ref=e665]: JavaScript
+                                - generic [ref=e667]: Mockup
+                                - generic [ref=e669]: 3D Mockup
+                                - generic [ref=e671]: 3D Modeling
+                                - generic [ref=e673]: Product Design
+                                - generic [ref=e675]: Adobe Photoshop
+                              - button "Next skills. Update list" [ref=e676] [cursor=pointer]:
+                                - generic [ref=e677]: Next skills. Update list
+                                - img [ref=e679]
+                            - generic [ref=e681]:
+                              - text: "Job description:"
+                              - generic [ref=e682]:
+                                - text: W
+                                - text: e
+                                - text: a
+                                - text: r
+                                - text: e
+                                - text: l
+                                - text: o
+                                - text: o
+                                - text: k
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: f
+                                - text: o
+                                - text: r
+                                - text: a
+                                - text: "n"
+                                - text: u
+                                - text: m
+                                - text: b
+                                - text: e
+                                - text: r
+                                - text: o
+                                - text: f
+                                - text: d
+                                - text: i
+                                - text: f
+                                - text: f
+                                - text: e
+                                - text: r
+                                - text: e
+                                - text: "n"
+                                - text: t
+                                - text: t
+                                - text: h
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: s
+                                - text: r
+                                - text: e
+                                - text: v
+                                - text: o
+                                - text: l
+                                - text: v
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: a
+                                - text: r
+                                - text: o
+                                - text: u
+                                - text: "n"
+                                - text: d
+                                - text: A
+                                - text: I
+                                - text: a
+                                - text: u
+                                - text: t
+                                - text: o
+                                - text: m
+                                - text: a
+                                - text: t
+                                - text: i
+                                - text: o
+                                - text: "n"
+                                - text: a
+                                - text: "n"
+                                - text: d
+                                - text: u
+                                - text: s
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: "N"
+                                - text: "8"
+                                - text: "N"
+                                - text: f
+                                - text: r
+                                - text: o
+                                - text: m
+                                - text: c
+                                - text: o
+                                - text: "n"
+                                - text: v
+                                - text: e
+                                - text: r
+                                - text: t
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e686]:
+                          - generic [ref=e687]:
+                            - text: Automation expert
+                            - generic [ref=e689]:
+                              - generic [ref=e690]:
+                                - img [ref=e691]
+                                - img [ref=e693]
+                                - img [ref=e695]
+                                - img [ref=e697]
+                                - img [ref=e699]
+                              - generic [ref=e701]:
+                                - img [ref=e702]
+                                - img [ref=e704]
+                                - img [ref=e706]
+                                - img [ref=e708]
+                                - img [ref=e710]
+                                - generic [ref=e712]: Rating is 5.0 out of 5.
+                          - generic [ref=e713]:
+                            - strong [ref=e716]: Private earnings
+                            - generic [ref=e718]:
+                              - img [ref=e720]
+                              - generic [ref=e722]: Nov 25, 2025 - Jan 28, 2026
+                          - generic [ref=e723]:
+                            - group [ref=e725]:
+                              - list [ref=e726]:
+                                - generic [ref=e728]: n8n
+                                - generic [ref=e730]: Make.com
+                                - generic [ref=e732]: Automation
+                            - generic [ref=e733]:
+                              - text: "Job description:"
+                              - generic [ref=e734]:
+                                - text: "#"
+                                - text: S
+                                - text: u
+                                - text: m
+                                - text: m
+                                - text: a
+                                - text: r
+                                - text: "y"
+                                - text: W
+                                - text: e
+                                - text: "'"
+                                - text: r
+                                - text: e
+                                - text: b
+                                - text: u
+                                - text: i
+                                - text: l
+                                - text: d
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: t
+                                - text: h
+                                - text: e
+                                - text: "n"
+                                - text: e
+                                - text: x
+                                - text: t
+                                - text: g
+                                - text: e
+                                - text: "n"
+                                - text: e
+                                - text: r
+                                - text: a
+                                - text: t
+                                - text: i
+                                - text: o
+                                - text: "n"
+                                - text: a
+                                - text: g
+                                - text: e
+                                - text: "n"
+                                - text: t
+                                - text: b
+                                - text: u
+                                - text: i
+                                - text: l
+                                - text: d
+                                - text: e
+                                - text: r
+                                - text: a
+                                - text: t
+                                - text: h
+                                - text: t
+                                - text: t
+                                - text: p
+                                - text: s
+                                - text: ":"
+                                - text: /
+                                - text: /
+                                - text: t
+                                - text: w
+                                - text: i
+                                - text: "n"
+                                - text: .
+                                - text: s
+                                - text: o
+                                - text: /
+                                - text: b
+                                - text: u
+                                - text: i
+                                - text: l
+                                - text: d
+                                - text: e
+                                - text: r
+                                - text: .
+                                - text: O
+                                - text: u
+                                - text: r
+                                - text: p
+                                - text: l
+                                - text: a
+                                - text: t
+                                - text: f
+                                - text: o
+                                - text: r
+                                - text: m
+                                - text: a
+                                - text: l
+                                - text: l
+                                - text: o
+                                - text: w
+                                - text: s
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e738]:
+                          - generic [ref=e739]:
+                            - text: AI Automation Specialist for Business Process Automation
+                            - generic [ref=e741]:
+                              - generic [ref=e742]:
+                                - img [ref=e743]
+                                - img [ref=e745]
+                                - img [ref=e747]
+                                - img [ref=e749]
+                                - img [ref=e751]
+                              - generic [ref=e753]:
+                                - img [ref=e754]
+                                - img [ref=e756]
+                                - img [ref=e758]
+                                - img [ref=e760]
+                                - img [ref=e762]
+                                - generic [ref=e764]: Rating is 5.0 out of 5.
+                          - generic [ref=e765]:
+                            - strong [ref=e768]: Private earnings
+                            - generic [ref=e770]:
+                              - img [ref=e772]
+                              - generic [ref=e774]: Dec 4, 2025 - Jan 22, 2026
+                          - generic [ref=e775]:
+                            - group [ref=e777]:
+                              - button "Skip skills" [ref=e778] [cursor=pointer]
+                              - list [ref=e779]:
+                                - generic [ref=e781]: Zapier
+                                - generic [ref=e783]: Make.com
+                                - generic [ref=e785]: HubSpot
+                                - generic [ref=e787]: Marketing Automation
+                                - generic [ref=e789]: Business Development
+                                - generic [ref=e791]: Marketing Strategy
+                                - generic [ref=e793]: Gmail
+                                - generic [ref=e795]: Instagram
+                                - generic [ref=e797]: Facebook
+                                - generic [ref=e799]: Facebook Ads Manager
+                                - generic [ref=e801]: Google Ad Manager
+                              - button "Next skills. Update list" [ref=e802] [cursor=pointer]:
+                                - generic [ref=e803]: Next skills. Update list
+                                - img [ref=e805]
+                            - generic [ref=e807]:
+                              - text: "Job description:"
+                              - generic [ref=e808]:
+                                - text: I
+                                - text: ’
+                                - text: m
+                                - text: h
+                                - text: i
+                                - text: r
+                                - text: i
+                                - text: "n"
+                                - text: g
+                                - text: a
+                                - text: "n"
+                                - text: A
+                                - text: I
+                                - text: A
+                                - text: u
+                                - text: t
+                                - text: o
+                                - text: m
+                                - text: a
+                                - text: t
+                                - text: i
+                                - text: o
+                                - text: "n"
+                                - text: S
+                                - text: p
+                                - text: e
+                                - text: c
+                                - text: i
+                                - text: a
+                                - text: l
+                                - text: i
+                                - text: s
+                                - text: t
+                                - text: t
+                                - text: o
+                                - text: h
+                                - text: e
+                                - text: l
+                                - text: p
+                                - text: m
+                                - text: e
+                                - text: s
+                                - text: t
+                                - text: r
+                                - text: e
+                                - text: a
+                                - text: m
+                                - text: l
+                                - text: i
+                                - text: "n"
+                                - text: e
+                                - text: a
+                                - text: "n"
+                                - text: d
+                                - text: a
+                                - text: u
+                                - text: t
+                                - text: o
+                                - text: m
+                                - text: a
+                                - text: t
+                                - text: e
+                                - text: k
+                                - text: e
+                                - text: "y"
+                                - text: p
+                                - text: a
+                                - text: r
+                                - text: t
+                                - text: s
+                                - text: o
+                                - text: f
+                                - text: m
+                                - text: "y"
+                                - text: b
+                                - text: u
+                                - text: s
+                                - text: i
+                                - text: "n"
+                                - text: e
+                                - text: s
+                                - text: s
+                                - text: a
+                                - text: "n"
+                                - text: d
+                                - text: .
+                                - text: .
+                                - text: .
+                        - generic [ref=e812]:
+                          - generic [ref=e813]: Prompt Engineering
+                          - generic [ref=e814]:
+                            - strong [ref=e817]: Private earnings
+                            - generic [ref=e819]:
+                              - img [ref=e821]
+                              - generic [ref=e823]: Dec 31, 2025 - Dec 31, 2025
+                          - generic [ref=e825]:
+                            - text: "Job description:"
+                            - generic [ref=e826]:
+                              - text: P
+                              - text: r
+                              - text: o
+                              - text: m
+                              - text: p
+                              - text: t
+                              - text: E
+                              - text: "n"
+                              - text: g
+                              - text: i
+                              - text: "n"
+                              - text: e
+                              - text: e
+                              - text: r
+                              - text: i
+                              - text: "n"
+                              - text: g
+                        - generic [ref=e830]:
+                          - generic [ref=e831]:
+                            - text: Prompt Engineering Specialist for AI Agent Product
+                            - generic [ref=e833]:
+                              - generic [ref=e834]:
+                                - img [ref=e835]
+                                - img [ref=e837]
+                                - img [ref=e839]
+                                - img [ref=e841]
+                                - img [ref=e843]
+                              - generic [ref=e845]:
+                                - img [ref=e846]
+                                - img [ref=e848]
+                                - img [ref=e850]
+                                - img [ref=e852]
+                                - img [ref=e854]
+                                - generic [ref=e856]: Rating is 5.0 out of 5.
+                          - generic [ref=e857]:
+                            - strong [ref=e860]: Private earnings
+                            - generic [ref=e862]:
+                              - img [ref=e864]
+                              - generic [ref=e866]: Nov 17, 2025 - Dec 31, 2025
+                          - generic [ref=e868]:
+                            - text: "Job description:"
+                            - generic [ref=e869]:
+                              - text: P
+                              - text: r
+                              - text: o
+                              - text: m
+                              - text: p
+                              - text: t
+                              - text: E
+                              - text: "n"
+                              - text: g
+                              - text: i
+                              - text: "n"
+                              - text: e
+                              - text: e
+                              - text: r
+                              - text: i
+                              - text: "n"
+                              - text: g
+                              - text: S
+                              - text: p
+                              - text: e
+                              - text: c
+                              - text: i
+                              - text: a
+                              - text: l
+                              - text: i
+                              - text: s
+                              - text: t
+                              - text: f
+                              - text: o
+                              - text: r
+                              - text: A
+                              - text: I
+                              - text: A
+                              - text: g
+                              - text: e
+                              - text: "n"
+                              - text: t
+                              - text: P
+                              - text: r
+                              - text: o
+                              - text: d
+                              - text: u
+                              - text: c
+                              - text: t
+                  - generic [ref=e870]:
+                    - separator [ref=e871]
+                    - generic [ref=e872]:
+                      - strong [ref=e873]: Ryan R. has more jobs.
+                      - link "Create an account to review them" [ref=e874] [cursor=pointer]:
+                        - /url: /signup/
+              - generic [ref=e879]:
+                - heading "Portfolio (32)" [level=3] [ref=e881]
+                - generic [ref=e883]:
+                  - generic [ref=e885] [cursor=pointer]:
+                    - img [ref=e890]
+                    - generic [ref=e899]: "WATCH THIS: Automated Content Distribution: Full Loom Breakdown!"
+                    - generic [ref=e900]:
+                      - generic [ref=e903]: n8n
+                      - generic [ref=e906]: Zapier
+                      - generic [ref=e909]: Make.com
+                      - button "+2" [ref=e912]:
+                        - generic [ref=e914]: "+2"
+                  - generic [ref=e916] [cursor=pointer]:
+                    - img [ref=e921]
+                    - generic [ref=e930]: "WATCH THIS: Custom RAG Lead Routing Assistant: Full Loom Breakdown!"
+                    - generic [ref=e931]:
+                      - generic [ref=e934]: n8n
+                      - generic [ref=e937]: Zapier
+                      - generic [ref=e940]: Make.com
+                      - button "+2" [ref=e943]:
+                        - generic [ref=e945]: "+2"
+                  - generic [ref=e946]:
+                    - generic [ref=e947]:
+                      - strong [ref=e948]: Want to see more?
+                      - link "Sign up" [ref=e949] [cursor=pointer]:
+                        - /url: /signup/
+                    - strong [ref=e950]
+              - generic [ref=e954]:
+                - heading "Skills" [level=4] [ref=e956]
+                - list [ref=e957]:
+                  - listitem [ref=e958]:
+                    - link "Hire Automation Engineers" [ref=e960] [cursor=pointer]:
+                      - /url: /hire/automation-freelancers/
+                      - text: Automation
+                  - listitem [ref=e961]:
+                    - link "Hire N8N Experts" [ref=e963] [cursor=pointer]:
+                      - /url: /hire/n8n-experts/
+                      - text: n8n
+                  - listitem [ref=e964]:
+                    - link "Hire Xero Developer" [ref=e966] [cursor=pointer]:
+                      - /url: /hire/xero-developer/
+                      - text: API
+                  - listitem [ref=e967]:
+                    - link "Hire API Integration Freelancers" [ref=e969] [cursor=pointer]:
+                      - /url: /hire/api-integration-freelancers/
+                      - text: API Integration
+                  - listitem [ref=e970]:
+                    - generic [ref=e972]: AI Agent Development
+                  - listitem [ref=e973]:
+                    - link "Hire Zapier Developers" [ref=e975] [cursor=pointer]:
+                      - /url: /hire/zapier-developers/
+                      - text: Zapier
+                  - listitem [ref=e976]:
+                    - link "Hire Integromat Freelancers" [ref=e978] [cursor=pointer]:
+                      - /url: /hire/integromat-freelancers/
+                      - text: Make.com
+                  - listitem [ref=e979]:
+                    - link "Hire AI Chatbot Specialists" [ref=e981] [cursor=pointer]:
+                      - /url: /hire/ai-chatbot-specialists/
+                      - text: AI Chatbot
+                  - listitem [ref=e982]:
+                    - link "Hire HTML Developers" [ref=e984] [cursor=pointer]:
+                      - /url: /hire/html-developers/
+                      - text: HTML
+                  - listitem [ref=e985]:
+                    - generic [ref=e987]: AI Implementation
+                  - listitem [ref=e988]:
+                    - link "Hire JavaScript ES6 Developers" [ref=e990] [cursor=pointer]:
+                      - /url: /hire/javascript-es6-developers/
+                      - text: JavaScript
+                  - listitem [ref=e991]:
+                    - link "Hire Prompt Engineers" [ref=e993] [cursor=pointer]:
+                      - /url: /hire/prompt-engineering-specialists/
+                      - text: Prompt Engineering
+                  - listitem [ref=e994]:
+                    - generic [ref=e996]: AI Consulting
+                  - listitem [ref=e997]:
+                    - link "Hire ChatGPT Specialists" [ref=e999] [cursor=pointer]:
+                      - /url: /hire/chatgpt-specialists/
+                      - text: ChatGPT
+                  - listitem [ref=e1000]:
+                    - generic [ref=e1002]: AI Trading
+              - generic [ref=e1006]:
+                - generic [ref=e1007]:
+                  - text: Search for other talent
+                  - search [ref=e1008]:
+                    - generic [ref=e1011]:
+                      - generic:
+                        - generic:
+                          - img
+                      - searchbox "Search" [ref=e1012]
+                - generic [ref=e1015]:
+                  - heading "Browse similar freelancers" [level=3] [ref=e1016]
+                  - list [ref=e1017]:
+                    - listitem [ref=e1018]:
+                      - link "Automation Engineers" [ref=e1019] [cursor=pointer]:
+                        - /url: /hire/automation-freelancers/
+                    - listitem [ref=e1020]:
+                      - link "Scripting Specialists" [ref=e1021] [cursor=pointer]:
+                        - /url: /hire/scripting-freelancers/
+                    - listitem [ref=e1022]:
+                      - link "Zapier Developers" [ref=e1023] [cursor=pointer]:
+                        - /url: /hire/zapier-developers/
+                    - listitem [ref=e1024]:
+                      - link "Selenium Developers" [ref=e1025] [cursor=pointer]:
+                        - /url: /hire/selenium-developers/
+                    - listitem [ref=e1026]:
+                      - link "JSON Developers" [ref=e1027] [cursor=pointer]:
+                        - /url: /hire/json-developers/
+    - contentinfo [ref=e1031]:
+      - heading "Footer navigation" [level=2] [ref=e1032]
+      - generic [ref=e1033]:
+        - generic [ref=e1034]:
+          - generic [ref=e1035]:
+            - heading "For Clients" [level=3] [ref=e1036]
+            - list [ref=e1038]:
+              - listitem [ref=e1039]:
+                - link "How to hire" [ref=e1040] [cursor=pointer]:
+                  - /url: /i/how-it-works/client/
+              - listitem [ref=e1041]:
+                - link "Talent Marketplace" [ref=e1042] [cursor=pointer]:
+                  - /url: /talent-marketplace/
+              - listitem [ref=e1043]:
+                - link "Project Catalog" [ref=e1044] [cursor=pointer]:
+                  - /url: /services/
+              - listitem [ref=e1045]:
+                - link "Hire an agency" [ref=e1046] [cursor=pointer]:
+                  - /url: /agencies
+              - listitem [ref=e1047]:
+                - link "Enterprise" [ref=e1048] [cursor=pointer]:
+                  - /url: /enterprise/
+              - listitem [ref=e1049]:
+                - link "Business Plus" [ref=e1050] [cursor=pointer]:
+                  - /url: /business-plus/
+              - listitem [ref=e1051]:
+                - link "Any Hire" [ref=e1052] [cursor=pointer]:
+                  - /url: /anyhire/
+              - listitem [ref=e1053]:
+                - link "Contract-to-hire" [ref=e1054] [cursor=pointer]:
+                  - /url: /contract-to-hire/client
+              - listitem [ref=e1055]:
+                - link "Direct Contracts" [ref=e1056] [cursor=pointer]:
+                  - /url: /direct-contracts/cl
+              - listitem [ref=e1057]:
+                - link "Hire worldwide" [ref=e1058] [cursor=pointer]:
+                  - /url: /hire/
+              - listitem [ref=e1059]:
+                - link "Hire in the USA" [ref=e1060] [cursor=pointer]:
+                  - /url: /hire/us/
+          - generic [ref=e1061]:
+            - heading "For Talent" [level=3] [ref=e1062]
+            - list [ref=e1064]:
+              - listitem [ref=e1065]:
+                - link "How to find work" [ref=e1066] [cursor=pointer]:
+                  - /url: /i/how-it-works/freelancer/
+              - listitem [ref=e1067]:
+                - link "Direct Contracts" [ref=e1068] [cursor=pointer]:
+                  - /url: /direct-contracts
+              - listitem [ref=e1069]:
+                - link "Find freelance jobs worldwide" [ref=e1070] [cursor=pointer]:
+                  - /url: /freelance-jobs/
+              - listitem [ref=e1071]:
+                - link "Find freelance jobs in the USA" [ref=e1072] [cursor=pointer]:
+                  - /url: /freelance-jobs/united-states/
+              - listitem [ref=e1073]:
+                - link "Win work with ads" [ref=e1074] [cursor=pointer]:
+                  - /url: /work/ads
+              - listitem [ref=e1075]:
+                - link "Exclusive resources with Freelancer Plus" [ref=e1076] [cursor=pointer]:
+                  - /url: /work/freelancerplus
+          - generic [ref=e1077]:
+            - heading "Resources" [level=3] [ref=e1078]
+            - list [ref=e1080]:
+              - listitem [ref=e1081]:
+                - link "Help & support" [ref=e1082] [cursor=pointer]:
+                  - /url: https://support.upwork.com/hc/en-us
+              - listitem [ref=e1083]:
+                - link "Success stories" [ref=e1084] [cursor=pointer]:
+                  - /url: /success-stories
+              - listitem [ref=e1085]:
+                - link "Upwork reviews" [ref=e1086] [cursor=pointer]:
+                  - /url: /reviews
+              - listitem [ref=e1087]:
+                - link "Resources" [ref=e1088] [cursor=pointer]:
+                  - /url: /resources
+              - listitem [ref=e1089]:
+                - link "Blog" [ref=e1090] [cursor=pointer]:
+                  - /url: /blog
+              - listitem [ref=e1091]:
+                - link "Affiliate program" [ref=e1092] [cursor=pointer]:
+                  - /url: /affiliates
+              - listitem [ref=e1093]:
+                - link "Refer a client" [ref=e1094] [cursor=pointer]:
+                  - /url: /client-referrals
+              - listitem [ref=e1095]:
+                - link "Free Business Tools" [ref=e1096] [cursor=pointer]:
+                  - /url: /tools
+              - listitem [ref=e1097]:
+                - link "Release notes" [ref=e1098] [cursor=pointer]:
+                  - /url: /product-release-notes
+          - generic [ref=e1099]:
+            - heading "Company" [level=3] [ref=e1100]
+            - list [ref=e1102]:
+              - listitem [ref=e1103]:
+                - link "About us" [ref=e1104] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e1105]:
+                - link "Leadership" [ref=e1106] [cursor=pointer]:
+                  - /url: /about/team
+              - listitem [ref=e1107]:
+                - link "Investor relations" [ref=e1108] [cursor=pointer]:
+                  - /url: https://investors.upwork.com/
+              - listitem [ref=e1109]:
+                - link "Careers" [ref=e1110] [cursor=pointer]:
+                  - /url: /careers
+              - listitem [ref=e1111]:
+                - link "Our impact" [ref=e1112] [cursor=pointer]:
+                  - /url: /about/our-impact
+              - listitem [ref=e1113]:
+                - link "Press" [ref=e1114] [cursor=pointer]:
+                  - /url: /press
+              - listitem [ref=e1115]:
+                - link "Contact us" [ref=e1116] [cursor=pointer]:
+                  - /url: /about/contact
+              - listitem [ref=e1117]:
+                - link "Partners" [ref=e1118] [cursor=pointer]:
+                  - /url: /partners/
+              - listitem [ref=e1119]:
+                - link "Trust, safety & security" [ref=e1120] [cursor=pointer]:
+                  - /url: /trust-and-safety/security/
+              - listitem [ref=e1121]:
+                - link "Modern slavery statement" [ref=e1122] [cursor=pointer]:
+                  - /url: /documents/modern-slavery-statement
+        - generic [ref=e1123]:
+          - generic [ref=e1124]:
+            - heading "Follow us" [level=3] [ref=e1125]
+            - list [ref=e1126]:
+              - listitem [ref=e1127]:
+                - link "Visit Upwork on Facebook" [ref=e1128] [cursor=pointer]:
+                  - /url: https://www.facebook.com/upwork
+                  - generic [ref=e1129]: Visit Upwork on Facebook
+                  - img [ref=e1131]
+              - listitem [ref=e1133]:
+                - link "Read Upwork company news on LinkedIn" [ref=e1134] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/company/upwork
+                  - generic [ref=e1135]: Read Upwork company news on LinkedIn
+                  - img [ref=e1137]
+              - listitem [ref=e1139]:
+                - link "Follow @Upwork on Twitter" [ref=e1140] [cursor=pointer]:
+                  - /url: https://twitter.com/Upwork
+                  - generic [ref=e1141]: Follow @Upwork on Twitter
+                  - img [ref=e1143]
+              - listitem [ref=e1145]:
+                - link "Watch Upwork videos on YouTube" [ref=e1146] [cursor=pointer]:
+                  - /url: https://www.youtube.com/channel/UCvxGFOnwUBDHHcxuPqhe4CQ
+                  - generic [ref=e1147]: Watch Upwork videos on YouTube
+                  - img [ref=e1149]
+              - listitem [ref=e1151]:
+                - link "Follow Upwork on Instagram" [ref=e1152] [cursor=pointer]:
+                  - /url: https://www.instagram.com/upwork/
+                  - generic [ref=e1153]: Follow Upwork on Instagram
+                  - img [ref=e1155]
+              - listitem [ref=e1159]:
+                - link "Join Upwork on Reddit" [ref=e1160] [cursor=pointer]:
+                  - /url: https://www.reddit.com/r/UpworkOfficial/
+                  - generic [ref=e1161]: Join Upwork on Reddit
+                  - img [ref=e1163]
+          - generic [ref=e1165]:
+            - heading "Mobile app" [level=3] [ref=e1166]
+            - list [ref=e1167]:
+              - listitem [ref=e1168]:
+                - link "Download Upwork app from iTunes" [ref=e1169] [cursor=pointer]:
+                  - /url: https://apps.apple.com/us/developer/upwork-global-inc/id329377609
+                  - generic [ref=e1170]: Download Upwork app from iTunes
+                  - img [ref=e1172]
+              - listitem [ref=e1175]:
+                - link "Download Upwork app from Google Play" [ref=e1176] [cursor=pointer]:
+                  - /url: https://play.google.com/store/apps/dev?id=8802639270489632480
+                  - generic [ref=e1177]: Download Upwork app from Google Play
+                  - img [ref=e1179]
+        - generic [ref=e1181]:
+          - paragraph [ref=e1182]: © 2015 - 2026 Upwork® Global LLC
+          - list [ref=e1183]:
+            - listitem [ref=e1184]:
+              - link "Terms of Service" [ref=e1185] [cursor=pointer]:
+                - /url: /legal
+            - listitem [ref=e1186]:
+              - link "Privacy Policy" [ref=e1187] [cursor=pointer]:
+                - /url: /legal#privacy
+            - listitem [ref=e1188]:
+              - link "CA Notice at Collection" [ref=e1189] [cursor=pointer]:
+                - /url: /legal#SupplementalPrivacyNoticeforCaliforniaResidents
+            - listitem [ref=e1190]:
+              - link "Your Privacy Choices California Consumer Privacy Act (CCPA) Opt-Out" [ref=e1191] [cursor=pointer]:
+                - /url: "javascript:"
+                - text: Your Privacy Choices
+                - generic [ref=e1192]: California Consumer Privacy Act (CCPA) Opt-Out
+            - listitem [ref=e1194]:
+              - link "Accessibility" [ref=e1195] [cursor=pointer]:
+                - /url: /legal#accessibility
+            - listitem [ref=e1196]:
+              - link "Sitemap" [ref=e1197] [cursor=pointer]:
+                - /url: /sitemaps/
+  - generic:
+    - region "Cookie banner" [active]:
+      - dialog "Privacy" [ref=e1198]:
+        - generic [ref=e1199]:
+          - generic [ref=e1201]:
+            - text: This site employs data tracking technologies (e.g. cookies and pixels) that we and our third party providers use to collect and analyze data about your interactions with our site and to market to you.
+            - strong [ref=e1202]: By continuing, you agree to the use of these technologies.
+            - text: To customize your preferences, please click the “Manage” button below.
+            - text: To learn more about our data practices, please see our
+            - link "Cookie Policy information, opens in a new tab" [ref=e1203] [cursor=pointer]:
+              - /url: https://www.upwork.com/legal#privacy
+              - text: Privacy Policy
+          - button "Manage, Opens the preference center dialog" [ref=e1206] [cursor=pointer]: Manage
+          - button "Close" [ref=e1208] [cursor=pointer]
+  - textbox [ref=e1209]

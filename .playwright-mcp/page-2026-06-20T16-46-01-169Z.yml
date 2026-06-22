@@ -1,0 +1,15 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - img "Upwork logo" [ref=e3]
+  - main [ref=e4]:
+    - generic [ref=e5]:
+      - main:
+        - generic:
+          - heading [level=2]
+          - paragraph
+  - contentinfo [ref=e6]:
+    - paragraph [ref=e7]:
+      - text: "Cloudflare Ray ID:"
+      - strong [ref=e8]: a0ec3f463b2bc4ed
+    - paragraph [ref=e9]: "Your IP: 123.192.90.13"
+    - paragraph [ref=e10]: © 2015 - 2026 Upwork® Global Inc.
