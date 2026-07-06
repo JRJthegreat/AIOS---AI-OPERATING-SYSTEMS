@@ -2,6 +2,7 @@
 .env
 token.json
 credentials.json
+.mcp.json
 
 # Intermediate files
 .tmp/

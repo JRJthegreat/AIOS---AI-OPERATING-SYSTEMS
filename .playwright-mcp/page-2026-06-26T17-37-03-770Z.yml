@@ -1,0 +1,726 @@
+- generic [active] [ref=e1]:
+  - region "We value your privacy" [ref=e2]:
+    - generic [ref=e4]:
+      - heading "We value your privacy" [level=2] [ref=e5]
+      - generic [ref=e6]:
+        - paragraph [ref=e8]: We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.
+        - generic [ref=e9]:
+          - button "Customize" [ref=e10] [cursor=pointer]
+          - button "Reject All" [ref=e11] [cursor=pointer]
+          - button "Accept All" [ref=e12] [cursor=pointer]
+  - link "Skip to content" [ref=e13] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=e14]:
+    - generic [ref=e16]:
+      - link [ref=e21] [cursor=pointer]:
+        - /url: https://www.blazeinfosec.com
+      - navigation "Main nav" [ref=e27]:
+        - list [ref=e28]:
+          - listitem [ref=e29]:
+            - button "Services" [ref=e30] [cursor=pointer]:
+              - link "Services" [ref=e31]:
+                - /url: "#"
+                - generic [ref=e33]: Services
+          - listitem [ref=e34]:
+            - button "Solutions" [ref=e35] [cursor=pointer]:
+              - link "Solutions" [ref=e36]:
+                - /url: "#"
+                - generic [ref=e38]: Solutions
+          - listitem [ref=e39]:
+            - button "Partners" [ref=e40] [cursor=pointer]:
+              - link "Partners" [ref=e41]:
+                - /url: https://www.blazeinfosec.com/partners/
+                - generic [ref=e43]: Partners
+          - listitem [ref=e44]:
+            - button "Resources" [ref=e45] [cursor=pointer]:
+              - link "Resources" [ref=e46]:
+                - /url: "#"
+                - generic [ref=e48]: Resources
+          - listitem [ref=e49]:
+            - button "Company" [ref=e50] [cursor=pointer]:
+              - link "Company" [ref=e51]:
+                - /url: "#"
+                - generic [ref=e53]: Company
+      - navigation "Menu" [ref=e58]:
+        - list [ref=e59]:
+          - listitem [ref=e60]:
+            - link "EN" [ref=e61] [cursor=pointer]:
+              - /url: "#pll_switcher"
+              - text: EN
+              - img [ref=e63]
+      - link "Get secured" [ref=e70] [cursor=pointer]:
+        - /url: https://www.blazeinfosec.com/contact-us/
+        - generic [ref=e72]: Get secured
+  - generic [ref=e73]:
+    - generic [ref=e79]:
+      - generic [ref=e81]:
+        - 'heading "PCI penetration testing: Requirements, frequency, and compliance guide" [level=1] [ref=e84]'
+        - list [ref=e87]:
+          - listitem [ref=e88]:
+            - img "Picture of Julio Fort" [ref=e90]
+            - generic [ref=e91]: Julio Fort
+          - listitem [ref=e92]:
+            - link "Published on May 11, 2026" [ref=e93] [cursor=pointer]:
+              - /url: https://www.blazeinfosec.com/post/2026/05/11/
+              - img [ref=e95]
+              - generic [ref=e97]:
+                - text: Published on
+                - time [ref=e98]: May 11, 2026
+        - list [ref=e101]:
+          - listitem [ref=e102]:
+            - generic [ref=e103]: Last updated on May 11, 2026
+        - list [ref=e106]:
+          - listitem [ref=e107]:
+            - generic [ref=e109]:
+              - link "compliance" [ref=e110] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/post/tag/compliance/
+              - text: ","
+              - link "cybersecurity" [ref=e111] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/post/tag/cybersecurity/
+              - text: ","
+              - link "pci compliance" [ref=e112] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/post/tag/pci-compliance/
+              - text: ","
+              - link "pci dss" [ref=e113] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/post/tag/pci-dss/
+              - text: ","
+              - link "pci dss pentest" [ref=e114] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/post/tag/pci-dss-pentest/
+              - text: ","
+              - link "pci penetration test" [ref=e115] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/post/tag/pci-penetration-test/
+              - text: ","
+              - link "pci penetration testing" [ref=e116] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/post/tag/pci-penetration-testing/
+              - text: ","
+              - link "pci pentest" [ref=e117] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/post/tag/pci-pentest/
+      - figure [ref=e122]:
+        - img "PCI pentest cover" [ref=e124]
+    - generic [ref=e130]:
+      - generic [ref=e132]:
+        - heading "SHARE" [level=4] [ref=e135]
+        - list [ref=e138]:
+          - listitem [ref=e139]:
+            - button "Share on facebook" [ref=e140] [cursor=pointer]:
+              - img [ref=e142]
+          - listitem [ref=e144]:
+            - button "Share on twitter" [ref=e145] [cursor=pointer]:
+              - img [ref=e147]
+          - listitem [ref=e149]:
+            - button "Share on linkedin" [ref=e150] [cursor=pointer]:
+              - img [ref=e152]
+      - generic [ref=e157]:
+        - generic [ref=e160]:
+          - text: Contents
+          - generic [ref=e161]:
+            - text: "["
+            - link "show" [ref=e162] [cursor=pointer]:
+              - /url: "#"
+            - text: "]"
+        - generic [ref=e165]:
+          - paragraph [ref=e166]: Adhering to the Payment Card Industry Data Security Standard (PCI DSS) is required for organizations that store, process, or transmit cardholder data, or that can impact its security.
+          - paragraph [ref=e167]: For many merchants, payment processors, SaaS companies, fintech platforms, and service providers, this means running regular security testing against the cardholder data environment (CDE). Two of the most common testing activities are vulnerability scanning and penetration testing.
+          - paragraph [ref=e168]: They are related, but they are not the same.
+          - paragraph [ref=e169]: A PCI DSS vulnerability scan helps identify known vulnerabilities, misconfigurations, and exposed services. A PCI DSS penetration test goes further by validating whether weaknesses can be exploited and whether an attacker could use them to compromise systems, move through the environment, or access cardholder data.
+          - paragraph [ref=e170]: In this guide, we explain how PCI DSS penetration testing works, what Requirement 11.4 expects, how penetration testing differs from vulnerability scanning, how often testing is required, and what your report should include for compliance and audit readiness.
+          - paragraph [ref=e171]:
+            - text: We have also published a separate article on the
+            - link "common vulnerabilities and findings we encounter in PCI DSS penetration testing assessments" [ref=e172] [cursor=pointer]:
+              - /url: https://www.blazeinfosec.com/post/pci-dss-penetration-testing-findings/
+            - text: ", based on a study of more than 660 pentests performed by Blaze in 2025."
+          - heading "What is PCI penetration testing?" [level=2] [ref=e173]
+          - paragraph [ref=e174]: PCI penetration testing is a security assessment focused on the systems, applications, networks, APIs, and segmentation controls that make up or support an organization’s cardholder data environment.
+          - paragraph [ref=e175]: The goal is to test whether exploitable vulnerabilities or security weaknesses could affect the confidentiality, integrity, or availability of cardholder data.
+          - paragraph [ref=e176]: "In PCI DSS v4.x, penetration testing is primarily addressed under Requirement 11.4: external and internal penetration testing is regularly performed, and exploitable vulnerabilities and security weaknesses are corrected."
+          - paragraph [ref=e177]: "A PCI DSS penetration test usually includes:"
+          - list [ref=e178]:
+            - listitem [ref=e179]: Internal penetration testing
+            - listitem [ref=e180]: External penetration testing
+            - listitem [ref=e181]: Application-layer testing
+            - listitem [ref=e182]: Network-layer testing
+            - listitem [ref=e183]: Segmentation testing, if segmentation is used to reduce the PCI scope
+            - listitem [ref=e184]: Retesting of exploitable findings after remediation
+            - listitem [ref=e185]: Documentation suitable for audit or QSA review
+          - paragraph [ref=e186]: "The main objectives of PCI DSS penetration testing are:"
+          - heading "Identifying exploitable vulnerabilities" [level=3] [ref=e187]:
+            - strong [ref=e189]: Identifying exploitable vulnerabilities
+          - paragraph [ref=e190]: A PCI penetration test should identify weaknesses that could be exploited to compromise systems in or connected to the CDE. This includes exposed services, insecure applications, weak access controls, misconfigurations, authentication flaws, and network paths that should not exist.
+          - heading "Validating security controls" [level=3] [ref=e191]:
+            - strong [ref=e193]: Validating security controls
+          - paragraph [ref=e194]: A penetration test helps verify whether security controls are working as intended. This includes network segmentation, firewall rules, authentication controls, access restrictions, monitoring coverage, and application-layer defenses.
+          - heading "Supporting PCI DSS compliance" [level=3] [ref=e195]:
+            - strong [ref=e197]: Supporting PCI DSS compliance
+          - paragraph [ref=e198]: The test provides evidence that the organization has conducted internal and external penetration testing in accordance with a defined methodology and has corrected exploitable weaknesses.
+          - heading "Prioritizing remediation" [level=3] [ref=e199]:
+            - strong [ref=e201]: Prioritizing remediation
+          - paragraph [ref=e202]: A PCI DSS penetration test should help teams focus on the issues that matter most. Findings should be ranked by risk, exploitability, business impact, and potential effect on cardholder data.
+          - heading "Improving security over time" [level=3] [ref=e203]:
+            - strong [ref=e205]: Improving security over time
+          - paragraph [ref=e206]: PCI DSS penetration testing is not only an audit exercise. When done properly, it helps teams understand how their environment can be attacked and how to reduce real risk across applications, infrastructure, and payment flows.
+          - heading "PCI penetration testing process" [level=2] [ref=e207]
+          - heading "Scope definition" [level=3] [ref=e208]:
+            - strong [ref=e210]: Scope definition
+          - blockquote [ref=e211]
+          - paragraph [ref=e212]: Every PCI DSS penetration test should start with a scope. Before testing begins, the organization and penetration testing provider need to identify the systems, applications, APIs, networks, cloud assets, endpoints, and third-party connections that store, process, transmit, or could impact the security of cardholder data.
+          - paragraph [ref=e213]: This is where many PCI testing projects go wrong. If the scope is too narrow, the test may miss systems that can affect the CDE. For example, testing only a public-facing payment page may not be enough if internal APIs, administrative interfaces, cloud networks, or segmentation controls also support the payment environment.
+          - paragraph [ref=e214]: The scope should include the CDE itself, the CDE perimeter, critical systems, and any connected systems that could create a path into the CDE. It should also define what is out of scope and why.
+          - heading "External and internal penetration testing (networks and applications)" [level=3] [ref=e215]:
+            - strong [ref=e217]: External and internal penetration testing (networks and applications)
+          - paragraph [ref=e218]:
+            - text: PCI DSS-focused penetration testing should evaluate external and internal attack surfaces to identify potential vulnerabilities and validate security controls, following the
+            - link "pentesting guidance" [ref=e219] [cursor=pointer]:
+              - /url: https://listings.pcisecuritystandards.org/documents/Penetration-Testing-Guidance-v1_1.pdf
+            - text: outlined by the PCI Security Standards Council
+          - paragraph [ref=e220]: External penetration testing targets systems and services at the perimeter that are accessible from the internet, such as public-facing networks, servers, web applications, and APIs. This type of testing helps uncover security risks that external attackers could exploit to gain unauthorized access to cardholder data or disrupt services.
+          - paragraph [ref=e221]: Internal testing, as the name implies, focuses on the organization’s internal network, applications, and critical systems in the CDE scope. This testing aims to identify flaws that could be exploited by insiders and threat actors who have breached the external perimeter.
+          - heading "Network segmentation testing" [level=3] [ref=e222]:
+            - strong [ref=e224]: Network segmentation testing
+          - paragraph [ref=e225]: Segmentation testing is an essential component of PCI DSS, specifically targeting organizations that implement network segmentation to isolate their CDEs from other networks. The primary goal of segmentation testing is to verify the effectiveness of the implemented controls and ensure they are robust enough to prevent unauthorized access to the CDE.
+          - paragraph [ref=e226]:
+            - text: Segmentation tests must be executed twice per year. The PCI Security Standards Council created comprehensive
+            - link "guidance on segmentation" [ref=e227] [cursor=pointer]:
+              - /url: https://listings.pcisecuritystandards.org/documents/Guidance-PCI-DSS-Scoping-and-Segmentation_v1.pdf
+            - text: ", which is the authoritative reference on the topic."
+          - heading "Documentation and reporting" [level=3] [ref=e228]:
+            - strong [ref=e230]: Documentation and reporting
+          - paragraph [ref=e231]:
+            - text: Maintaining detailed documentation and reporting of the assessment is crucial for demonstrating PCI DSS compliance. The PCI penetration test report should include clear information about the test scope, penetration testing methodology, details about all identified vulnerabilities, remediation recommendations, and retest results. Organizations should retain these
+            - link "reports" [ref=e232] [cursor=pointer]:
+              - /url: https://www.blazeinfosec.com/post/penetration-testing-report/
+            - text: as evidence of compliance during PCI DSS audits.
+          - paragraph [ref=e233]: In our experience, some auditors may also request that the report include the exact date and time a vulnerability was identified and exploited, as well as the same information for when it was marked as fixed after retesting.
+          - heading "Understanding PCI penetration testing requirements" [level=2] [ref=e234]
+          - paragraph [ref=e235]: PCI DSS Requirement 11 focuses on regularly testing the security of systems and networks within the CDE environment for organizations that handle cardholder data.
+          - paragraph [ref=e236]: For PCI DSS penetration testing, the most relevant section is Requirement 11.4.
+          - paragraph [ref=e237]: A common source of confusion is the change in numbering between PCI DSS 3.2.1 and PCI DSS v4.x. In PCI DSS 3.2.1, penetration testing was covered under Requirement 11.3. In PCI DSS v4.x, penetration testing moved to Requirement 11.4.
+          - paragraph [ref=e238]: This means older articles, reports, and audit notes may still refer to Requirement 11.3 when discussing penetration testing. For current PCI DSS v4.x assessments, the key penetration testing requirement is 11.4.
+          - paragraph [ref=e239]: "For the purposes of pentesting, the following sub-items of Requirement 11 are important to be addressed:"
+          - paragraph [ref=e240]:
+            - strong [ref=e241]: PCI DSS Requirement 11.3
+            - text: is the cornerstone of penetration testing within PCI DSS 3.2.1, ensuring organizations safeguard their CDEs through comprehensive and regular security assessments. The norm says that security testing must be performed based on recognized industry methodologies – it explicitly mentions
+            - link "NIST SP 800-115" [ref=e242] [cursor=pointer]:
+              - /url: https://www.nist.gov/privacy-framework/nist-sp-800-115
+            - text: ", but others, such as OSSTMM, OWASP and PTES, also apply, per"
+            - link "4.4 in Penetration Testing Guidance" [ref=e243] [cursor=pointer]:
+              - /url: https://listings.pcisecuritystandards.org/documents/Penetration-Testing-Guidance-v1_1.pdf
+            - text: .
+          - paragraph [ref=e244]: "The requirement is divided into three primary components: addressing network penetration testing, internal penetration testing, and segmentation controls."
+          - paragraph [ref=e245]:
+            - text: Firstly,
+            - strong [ref=e246]: Requirement 11.3.1
+            - text: focuses on external network penetration testing, emphasizing that organizations must test their internet-facing servers and networks to identify vulnerabilities that could be exploited by external adversaries. By conducting an annual network penetration test, businesses can proactively identify security weaknesses and implement appropriate measures to protect sensitive cardholder data.
+          - paragraph [ref=e247]:
+            - text: Next,
+            - strong [ref=e248]: Requirement 11.3.2
+            - text: pertains to internal penetration testing, requiring organizations to evaluate their internal systems, networks, and applications for potential security gaps. Internal penetration testing plays a crucial role in uncovering risks that may not be visible from the outside but could be exploited by an insider or an attacker who has already gained access to the internal network. It needs to be done at least once per year.
+          - paragraph [ref=e249]:
+            - strong [ref=e250]: Requirement 11.3.3
+            - text: addresses retesting and emphasizes the need for timely remediation.
+          - paragraph [ref=e251]:
+            - text: Finally,
+            - strong [ref=e252]: Requirement 11.3.4
+            - text: addresses the need to test segmentation controls if an organization uses network segmentation as a method to isolate its CDE from other networks. This requirement ensures that network isolation controls are functioning effectively and that there is no unauthorized access to the CDE.
+          - paragraph [ref=e253]: "Other security-relevant requirements of item 11 are the following:"
+          - paragraph [ref=e254]:
+            - strong [ref=e255]: Requirement 11.1
+            - text: intends to ensure the security of an organization’s wireless networks within or connected to the cardholder data environment. The main focus is on rogue access points, and sweeps must be conducted quarterly.
+          - paragraph [ref=e256]:
+            - strong [ref=e257]: Requirement 11.2
+            - text: defines rules for running internal and external network vulnerability scans at least quarterly and after any significant change in the network. There are rules that require (or allow) the use of a PCI-approved scanning vendor to perform such scans.
+          - paragraph [ref=e258]: Requirement 6 (Develop and maintain secure systems and applications) of PCI DSS is equally important for security testing, particularly requirements 6.5.1 through 6.5.6 (based on secure development practices) and 6.6 (testing).
+          - paragraph [ref=e259]:
+            - strong [ref=e260]: Requirement 6.6
+            - text: explicitly mentions that companies seeking PCI DSS compliance must perform security evaluations of public-facing web applications (and APIs, per
+            - link "4.2.1 Application Layer" [ref=e261] [cursor=pointer]:
+              - /url: https://listings.pcisecuritystandards.org/documents/Penetration-Testing-Guidance-v1_1.pdf
+            - text: ) using manual testing or automated tools for application vulnerability scanning
+            - strong [ref=e262]: at least annually
+            - text: and after any relevant changes.
+          - paragraph [ref=e263]:
+            - link "OWASP Top 10" [ref=e264] [cursor=pointer]:
+              - /url: https://owasp.org/www-project-top-ten/
+            - text: and
+            - link "OWASP ASVS" [ref=e265] [cursor=pointer]:
+              - /url: https://owasp.org/www-project-application-security-verification-standard/
+            - text: are the most popular methodologies for application-layer testing and security of web applications/APIs, and they are, without a doubt, the most relevant penetration testing methodologies for this item.
+          - paragraph [ref=e266]: An important note above is that the vulnerability scans in Requirement 11.2 are not the same as the assessments needed to address 6.6.
+          - paragraph [ref=e267]:
+            - strong [ref=e268]: In PCI DSS 4.0, the requirement for web application security testing has changed to Requirement 6.4 (Public-facing web applications are protected against attacks).
+          - paragraph [ref=e269]: "We have created an infographic to visually illustrate these requirements:"
+          - paragraph [ref=e270]:
+            - img "PCI penetration testing requirements" [ref=e272]
+          - heading "PCI penetration testing frequency" [level=3] [ref=e273]:
+            - strong [ref=e275]: PCI penetration testing frequency
+          - paragraph [ref=e276]:
+            - text: PCI DSS penetration testing should generally be performed
+            - strong [ref=e277]: at least once every 12 months
+            - text: and after any significant infrastructure or application upgrade or change.
+          - paragraph [ref=e278]: A significant change could include a new payment application, a major application release, a new payment API, a cloud migration, firewall or segmentation changes, new third-party connectivity, a major platform upgrade, or any change that affects how cardholder data is stored, processed, transmitted, or protected.
+          - paragraph [ref=e279]: "The exact definition depends on the environment. A useful rule is this: if a change could affect the security of the CDE or create a new path to cardholder data, it should be reviewed for its impact on PCI DSS testing."
+          - heading "Remediation and retesting process" [level=3] [ref=e280]:
+            - strong [ref=e282]: Remediation and retesting process
+          - paragraph [ref=e283]: After the penetration test, the organization should prioritize and remediate findings based on risk, exploitability, and potential impact on the CDE.
+          - paragraph [ref=e284]: Fixing the issue is only part of the process. The fix should also be validated. Retesting provides evidence that exploitable vulnerabilities and security weaknesses were corrected.
+          - paragraph [ref=e285]: This evidence is important for compliance review. A report that lists findings but does not indicate whether exploitable issues have been fixed may create problems during an audit or QSA assessment.
+          - heading "What is the difference between a PCI penetration test and a regular pentest?" [level=2] [ref=e286]:
+            - generic [ref=e287]: What is the difference between a PCI penetration test and a regular pentest?
+          - paragraph [ref=e288]: A PCI penetration test and a regular penetration test use many of the same testing techniques, but they differ in scope, purpose, reporting, and compliance expectations.
+          - paragraph [ref=e289]: A regular penetration test may focus on a single application, API, cloud environment, network, product, or business-critical system. The scope is usually defined by the organization’s security priorities.
+          - paragraph [ref=e290]: A PCI penetration test focuses on the cardholder data environment and systems that can affect cardholder data security. It must address PCI DSS expectations for internal testing, external testing, segmentation testing where applicable, methodology, remediation, and evidence retention.
+          - heading "Key differences between PCI DSS penetration testing and regular penetration testing" [level=3] [ref=e291]:
+            - strong [ref=e293]: Key differences between PCI DSS penetration testing and regular penetration testing
+          - table [ref=e294]:
+            - rowgroup [ref=e295]:
+              - row "Area PCI DSS penetration test Regular penetration test" [ref=e296]:
+                - cell "Area" [ref=e297]:
+                  - strong [ref=e298]: Area
+                - cell "PCI DSS penetration test" [ref=e299]:
+                  - strong [ref=e300]: PCI DSS penetration test
+                - cell "Regular penetration test" [ref=e301]:
+                  - strong [ref=e302]: Regular penetration test
+              - row "Primary purpose Validate the security of the CDE and support PCI DSS compliance Identify security weaknesses in a defined target or environment" [ref=e303]:
+                - cell "Primary purpose" [ref=e304]
+                - cell "Validate the security of the CDE and support PCI DSS compliance" [ref=e305]
+                - cell "Identify security weaknesses in a defined target or environment" [ref=e306]
+              - row "Scope CDE, CDE perimeter, critical systems, connected systems, segmentation controls Defined by business risk, product scope, or security objectives" [ref=e307]:
+                - cell "Scope" [ref=e308]
+                - cell "CDE, CDE perimeter, critical systems, connected systems, segmentation controls" [ref=e309]
+                - cell "Defined by business risk, product scope, or security objectives" [ref=e310]
+              - row "Frequency At least annually and after significant changes Based on the internal security program, risk appetite, customer requirements, or release cadence" [ref=e311]:
+                - cell "Frequency" [ref=e312]
+                - cell "At least annually and after significant changes" [ref=e313]
+                - cell "Based on the internal security program, risk appetite, customer requirements, or release cadence" [ref=e314]
+              - row "Reporting Must support compliance and audit review May be more flexible depending on the audience" [ref=e315]:
+                - cell "Reporting" [ref=e316]
+                - cell "Must support compliance and audit review" [ref=e317]
+                - cell "May be more flexible depending on the audience" [ref=e318]
+              - row "Retesting Expected for exploitable findings Strongly recommended, but not always required by a framework" [ref=e319]:
+                - cell "Retesting" [ref=e320]
+                - cell "Expected for exploitable findings" [ref=e321]
+                - cell "Strongly recommended, but not always required by a framework" [ref=e322]
+              - row "Segmentation testing Required if segmentation is used to reduce PCI DSS scope Usually not required unless included in scope" [ref=e323]:
+                - cell "Segmentation testing" [ref=e324]
+                - cell "Required if segmentation is used to reduce PCI DSS scope" [ref=e325]
+                - cell "Usually not required unless included in scope" [ref=e326]
+              - row "Methodology Must be defined, documented, and aligned with accepted approaches Methodology may vary by provider and objective" [ref=e327]:
+                - cell "Methodology" [ref=e328]
+                - cell "Must be defined, documented, and aligned with accepted approaches" [ref=e329]
+                - cell "Methodology may vary by provider and objective" [ref=e330]
+          - paragraph [ref=e331]: Both types of testing are valuable. The key is to make sure the PCI DSS penetration test is scoped and reported in a way that satisfies Requirement 11.4, rather than treating a generic pentest report as automatically PCI-ready.
+          - heading "PCI penetration testing vs PCI vulnerability scanning" [level=2] [ref=e332]:
+            - generic [ref=e333]: PCI penetration testing vs PCI vulnerability scanning
+          - paragraph [ref=e334]: A PCI vulnerability scan is not the same as a PCI penetration test.
+          - paragraph [ref=e335]: Vulnerability scanning is usually broader and more automated. It identifies known vulnerabilities, missing patches, weak configurations, exposed services, and other security issues.
+          - paragraph [ref=e336]: Penetration testing is more manual and adversarial. It attempts to validate exploitability, link chain weaknesses, and determine what an attacker could actually achieve.
+          - table [ref=e337]:
+            - rowgroup [ref=e338]:
+              - row "Area Vulnerability scan Penetration test" [ref=e339]:
+                - cell "Area" [ref=e340]:
+                  - strong [ref=e341]: Area
+                - cell "Vulnerability scan" [ref=e342]:
+                  - strong [ref=e343]: Vulnerability scan
+                - cell "Penetration test" [ref=e344]:
+                  - strong [ref=e345]: Penetration test
+              - row "Main goal Identify known vulnerabilities and misconfigurations Validate exploitability and attack paths" [ref=e346]:
+                - cell "Main goal" [ref=e347]
+                - cell "Identify known vulnerabilities and misconfigurations" [ref=e348]
+                - cell "Validate exploitability and attack paths" [ref=e349]
+              - row "PCI DSS section Requirement 11.3 Requirement 11.4" [ref=e350]:
+                - cell "PCI DSS section" [ref=e351]
+                - cell "Requirement 11.3" [ref=e352]
+                - cell "Requirement 11.4" [ref=e353]
+              - row "Frequency At least quarterly and after significant changes, depending on scan type At least annually and after significant changes" [ref=e354]:
+                - cell "Frequency" [ref=e355]
+                - cell "At least quarterly and after significant changes, depending on scan type" [ref=e356]
+                - cell "At least annually and after significant changes" [ref=e357]
+              - row "External requirement External scans may require an ASV Tester must be qualified and independent; not required to be a QSA or ASV" [ref=e358]:
+                - cell "External requirement" [ref=e359]
+                - cell "External scans may require an ASV" [ref=e360]
+                - cell "Tester must be qualified and independent; not required to be a QSA or ASV" [ref=e361]
+              - row "Method Mostly automated, with validation Manual testing supported by tools" [ref=e362]:
+                - cell "Method" [ref=e363]
+                - cell "Mostly automated, with validation" [ref=e364]
+                - cell "Manual testing supported by tools" [ref=e365]
+              - row "Output Vulnerability scan report Exploitation evidence, impact analysis, remediation guidance, and retest evidence" [ref=e366]:
+                - cell "Output" [ref=e367]
+                - cell "Vulnerability scan report" [ref=e368]
+                - cell "Exploitation evidence, impact analysis, remediation guidance, and retest evidence" [ref=e369]
+              - row "Compliance role Required security testing activity Separate required security testing activity" [ref=e370]:
+                - cell "Compliance role" [ref=e371]
+                - cell "Required security testing activity" [ref=e372]
+                - cell "Separate required security testing activity" [ref=e373]
+          - paragraph [ref=e374]: Most organizations subject to PCI DSS need both activities. A passing ASV scan does not prove that a penetration test was performed, and a penetration test does not replace required vulnerability scans.
+          - heading "Key differences between PCI DSS 4.x and PCI DSS 3.2.1" [level=2] [ref=e375]
+          - paragraph [ref=e376]: "The core idea behind PCI penetration testing has not changed: organizations need to test their environments, identify exploitable weaknesses, fix them, and verify remediation."
+          - paragraph [ref=e377]: However, PCI DSS v4.x changed how the requirements are organized and clarified several expectations.
+          - paragraph [ref=e378]: The most important change is numbering. Penetration testing moved from Requirement 11.3 in PCI DSS 3.2.1 to Requirement 11.4 in PCI DSS v4.x.
+          - paragraph [ref=e379]: "Other important changes and clarifications include:"
+          - list [ref=e380]:
+            - listitem [ref=e381]: More explicit expectations for a documented penetration testing methodology
+            - listitem [ref=e382]: Clearer internal and external testing requirements
+            - listitem [ref=e383]: Clearer segmentation testing expectations
+            - listitem [ref=e384]: More emphasis on application-layer and network-layer testing
+            - listitem [ref=e385]: Retention of penetration testing and remediation results for at least 12 months
+            - listitem [ref=e386]: Explicit use of authenticated internal vulnerability scanning under Requirement 11.3.1.2
+            - listitem [ref=e387]: Newer requirements around payment page change and tamper detection under Requirement 11.6
+            - listitem [ref=e388]: More focus on roles, responsibilities, targeted risk analysis, and continuous security processes
+          - paragraph [ref=e389]: For current assessments, organizations should work from PCI DSS v4.0.1 or the version in force at the time of assessment. References to PCI DSS 3.2.1 should be treated as historical unless an auditor is reviewing older evidence.
+          - paragraph [ref=e390]:
+            - text: For instance, it now states,
+            - emphasis [ref=e391]: “Testing from inside the network (or ‘internal penetration testing’) means testing from both inside the CDE and into the CDE from trusted and untrusted internal networks”
+            - text: and
+            - emphasis [ref=e392]: “Testing from outside the network (or ‘external penetration testing’) means testing the exposed external perimeter of trusted networks, and critical systems connected to or accessible to public network infrastructures.”
+            - text: ", to properly define what PCI means when it says internal and external pentesting and from which vantage point it must be executed."
+          - paragraph [ref=e393]:
+            - text: Another item worth mentioning is
+            - emphasis [ref=e394]: “11.3.1.2 Internal vulnerability scans are performed via authenticated scanning.”
+            - text: – before that, there was no explicit requirement for grey-box automated testing or for scans to be authenticated; now it ensures the vulnerability scanner covers a larger surface area.
+          - paragraph [ref=e395]:
+            - text: In our opinion, the most significant introduction in 4.0 was 11.6, Unauthorized changes on payment pages are detected and responded to. This item was introduced to prevent code tampering in e-commerce platforms and combat JavaScript-based skimming, known as
+            - link "Magecart attacks," [ref=e396] [cursor=pointer]:
+              - /url: https://www.imperva.com/learn/application-security/magecart/
+            - text: such as the one that
+            - link "impacted British Airways" [ref=e397] [cursor=pointer]:
+              - /url: https://www.theregister.com/2020/10/16/british_airways_ico_fine_20m/
+            - text: in 2020.
+          - paragraph [ref=e398]:
+            - img "Differences PCI DSS 4.0 and 3.2.1" [ref=e400]
+          - heading "Common tools used in PCI penetration testing" [level=2] [ref=e401]
+          - paragraph [ref=e402]: In PCI penetration testing, a wide range of tools is employed to assess the security of the CDE environment and identify potential vulnerabilities that attackers could exploit.
+          - paragraph [ref=e403]: "These tools are crucial in evaluating various aspects of an organization’s security posture, including network configurations, web applications, wireless networks, and system vulnerabilities. The choice of tools may vary depending on the specific needs and goals of the penetration test, but some commonly used tools in a PCI penetration test include:"
+          - list [ref=e404]:
+            - listitem [ref=e405]:
+              - strong [ref=e406]: Nmap
+              - text: ": For network scanning and discovery of open ports and services, as well as segmentation checks."
+            - listitem [ref=e407]:
+              - strong [ref=e408]: Nessus
+              - text: ": To automate the process of identifying known vulnerabilities in systems, networks, and applications. It can also be used for ASV scans, as it can perform PCI vulnerability scanning."
+            - listitem [ref=e409]:
+              - strong [ref=e410]: Metasploit
+              - text: ": A comprehensive exploitation framework for developing and executing exploit code against identified vulnerabilities."
+            - listitem [ref=e411]:
+              - strong [ref=e412]: Burp Suite
+              - text: ": A powerful web application security testing tool with features such as an intercepting proxy, web vulnerability scanning, and session manipulation."
+            - listitem [ref=e413]:
+              - strong [ref=e414]: Wireshark
+              - text: ": A network protocol analyzer for capturing and analyzing network traffic, providing valuable insights into potential vulnerabilities and attack vectors. Particularly useful for verifying whether card data is traversing the network unencrypted."
+            - listitem [ref=e415]:
+              - strong [ref=e416]: Memory scraping tool
+              - text: ": A regex-based RAM scraping tool can be useful in PCI security testing to identify credit card data temporarily stored in the memory of a CDE-located server once the pentester has compromised it."
+          - paragraph [ref=e417]:
+            - img "PCI pentest tools" [ref=e419]
+          - paragraph [ref=e420]: The list above is non-exhaustive, and several other tools can be used depending on the assessment’s needs.
+          - heading "What should a PCI penetration test report include?" [level=2] [ref=e421]:
+            - generic [ref=e422]: What should a PCI penetration test report include?
+          - paragraph [ref=e423]: "A PCI DSS penetration test report should help three audiences:"
+          - list [ref=e424]:
+            - listitem [ref=e425]: Technical teams that need to fix the issues
+            - listitem [ref=e426]: Security leaders who need to understand risk
+            - listitem [ref=e427]: Auditors or QSAs who need evidence that testing was performed properly
+          - paragraph [ref=e428]: At a minimum, the report should include the scope, test dates, rules of engagement, methodology, internal and external testing coverage, application and network testing coverage, segmentation testing details where applicable, findings, evidence, impact, severity, remediation guidance, and retest status.
+          - paragraph [ref=e429]: For PCI DSS, reporting should be specific enough to show that testing covered the CDE, critical systems, and segmentation controls where applicable.
+          - heading "Engaging a qualified penetration testing company" [level=2] [ref=e430]
+          - paragraph [ref=e431]: PCI DSS does not require the penetration tester to be a QSA or ASV. However, the tester must be qualified, and organizational independence must exist.
+          - paragraph [ref=e432]: That means the test should not be performed by someone responsible for managing, developing, or maintaining the systems being tested.
+          - paragraph [ref=e433]: When choosing a PCI penetration testing provider, look for experience in testing payment environments, familiarity with PCI DSS Requirement 11.4, application and network testing capability, segmentation testing experience, clear rules of engagement, evidence-based reporting, retesting support, and relevant credentials such as CREST, OSCP, OSWE, GPEN, GWAPT, or similar.
+          - paragraph [ref=e434]: A good provider should help you scope the engagement properly, explain what evidence the report will contain, and avoid treating a generic vulnerability scan as a PCI DSS penetration test.
+          - paragraph [ref=e435]: To help organizations navigate supplier selection, we have created a complete guide to choosing the right penetration testing company.
+          - paragraph [ref=e436]:
+            - link "Read our guide to choosing a penetration testing company." [ref=e437] [cursor=pointer]:
+              - /url: https://www.blazeinfosec.com/post/choosing-a-penetration-testing-company/
+          - heading "How can Blaze help with your PCI penetration testing requirements?" [level=2] [ref=e438]:
+            - generic [ref=e439]: How can Blaze help with your PCI penetration testing requirements?
+          - paragraph [ref=e440]:
+            - text: At Blaze, we have our roots in providing penetration testing services for the financial sector, including banking and payments. We have performed dozens of
+            - link "PCI pentesting" [ref=e441] [cursor=pointer]:
+              - /url: https://www.blazeinfosec.com/solutions/pci-penetration-testing
+            - text: assessments throughout the years.
+          - paragraph [ref=e442]: Blaze can support PCI DSS internal penetration testing, external penetration testing, segmentation testing, web application and API penetration testing, network penetration testing, cloud environment testing, retesting, remediation validation, QSA-ready reporting, and CREST-accredited penetration testing engagements.
+          - paragraph [ref=e443]:
+            - text: If you’re ready to invest in your business’s security and compliance and are looking for a pentesting provider with relevant experience conducting PCI DSS assessments, we invite you to contact
+            - link "our experts" [ref=e444] [cursor=pointer]:
+              - /url: https://www.blazeinfosec.com/contact-us-form/
+            - text: to discuss how we can help you achieve your security objectives.
+          - heading "Conclusion" [level=2] [ref=e445]
+          - paragraph [ref=e446]: PCI DSS penetration testing is a core part of protecting cardholder data and demonstrating compliance.
+          - paragraph [ref=e447]: Under PCI DSS v4.x, organizations need to pay close attention to Requirement 11.4, which covers internal and external penetration testing, methodology, remediation, retesting, segmentation testing, and evidence retention.
+          - paragraph [ref=e448]: The most common mistake is treating a vulnerability scan, ASV scan, or generic pentest as a complete PCI DSS penetration test. These activities overlap, but they do not serve the same purpose.
+          - paragraph [ref=e449]: A strong PCI DSS penetration test should be properly scoped around the cardholder data environment, performed by qualified and independent testers, include application-layer and network-layer testing, validate segmentation where applicable, and provide clear evidence that exploitable weaknesses were corrected.
+          - paragraph [ref=e450]: For merchants, service providers, SaaS companies, fintech platforms, and any organization handling payment data, PCI penetration testing should be treated as both a compliance requirement and a practical way to reduce payment security risk.
+          - heading "FAQ" [level=2] [ref=e451]
+        - generic [ref=e453]:
+          - generic [ref=e454]:
+            - heading "Does PCI require penetration testing?" [level=3] [ref=e455]:
+              - strong [ref=e457]: Does PCI require penetration testing?
+            - paragraph [ref=e459]: Yes, PCI requires penetration testing per Requirements 11.3 and 6.6 in PCI 3.2.1, and per Requirements 11.4 and 6.4 in PCI 4.0.
+          - generic [ref=e460]:
+            - heading "How often does PCI require penetration testing?" [level=3] [ref=e461]:
+              - strong [ref=e463]: How often does PCI require penetration testing?
+            - paragraph [ref=e465]: PCI pentesting is mandatory once a year or whenever there is a major change to networks, servers or systems.
+          - generic [ref=e466]:
+            - heading "When does PCI DSS 4.0 go into effect?" [level=3] [ref=e467]:
+              - strong [ref=e469]: When does PCI DSS 4.0 go into effect?
+            - paragraph [ref=e471]: PCI DSS 4.0 went into effect on March 31, 2024, and organizations had until March 31, 2025, to phase in new requirements.
+          - generic [ref=e472]:
+            - heading "What PCI DSS requirement covers penetration testing?" [level=3] [ref=e473]
+            - paragraph [ref=e475]: In PCI DSS v4.x, penetration testing is covered under Requirement 11.4. In PCI DSS 3.2.1, penetration testing was covered under Requirement 11.3. This numbering change is important because older reports, guides, and audit notes may still refer to Requirement 11.3 when discussing penetration testing.
+          - generic [ref=e476]:
+            - heading "Is a PCI vulnerability scan the same as a PCI penetration test?" [level=3] [ref=e477]
+            - paragraph [ref=e479]: No. A vulnerability scan identifies known vulnerabilities and misconfigurations. A penetration test validates whether weaknesses can be exploited and whether an attacker could use them to compromise systems or access cardholder data. PCI DSS treats vulnerability scanning and penetration testing as separate security testing activities.
+          - generic [ref=e480]:
+            - heading "Is an ASV scan enough for PCI DSS penetration testing?" [level=3] [ref=e481]
+            - paragraph [ref=e483]: No. An ASV scan is an external vulnerability scan performed by a PCI SSC-approved scanning vendor. It does not replace the need for penetration testing under Requirement 11.4 where penetration testing applies.
+          - generic [ref=e484]:
+            - heading "Who can perform a PCI DSS penetration test?" [level=3] [ref=e485]
+            - paragraph [ref=e487]: A PCI DSS penetration test can be performed by a qualified internal resource or a qualified external third party, provided organizational independence exists. The tester does not need to be a QSA or ASV, but they should have relevant penetration testing skills, experience, and methodology.
+          - generic [ref=e488]:
+            - heading "What changed from PCI DSS 3.2.1 to PCI DSS v4.x for penetration testing?" [level=3] [ref=e489]
+            - paragraph [ref=e491]: The core requirement to perform penetration testing remains, but the numbering changed from Requirement 11.3 in PCI DSS 3.2.1 to Requirement 11.4 in PCI DSS v4.x. PCI DSS v4.x also provides clearer expectations for methodology, internal and external testing, segmentation validation, risk-based remediation, evidence retention, and payment page security.
+        - paragraph
+    - generic [ref=e499]:
+      - heading "About the author" [level=2] [ref=e502]
+      - generic [ref=e505]:
+        - img "Picture of Julio Fort" [ref=e507]
+        - generic [ref=e508]:
+          - heading "Julio Fort" [level=3] [ref=e510]
+          - generic [ref=e511]: Julio has been professionally in the field of cybersecurity for over 15 years. With extensive international experience, he worked as a security consultant for London Olympics 2012, and served as a senior application security advisor at a global investment bank. Julio holds a master’s degree from Royal Holloway, University of London, in application security and fuzzing.
+    - generic [ref=e515]:
+      - heading "RELATED POSTS" [level=3] [ref=e518]
+      - list [ref=e521]:
+        - listitem [ref=e522]:
+          - link [ref=e523] [cursor=pointer]:
+            - /url: https://www.blazeinfosec.com/post/saas-penetration-testing/
+          - generic [ref=e525]:
+            - 'heading "SaaS Penetration Testing: What to Test Beyond the Web App" [level=3] [ref=e526]':
+              - 'link "SaaS Penetration Testing: What to Test Beyond the Web App" [ref=e527] [cursor=pointer]':
+                - /url: https://www.blazeinfosec.com/post/saas-penetration-testing/
+            - generic [ref=e528]:
+              - generic [ref=e529]: Ewelina Baran
+              - generic [ref=e530]: June 3, 2026
+            - paragraph [ref=e532]: SaaS penetration testing goes beyond standard web application testing. Learn how to assess APIs, tenant isolation, cloud infrastructure, SSO, integrations, admin tooling, and business logic across a modern SaaS product.
+            - 'link "Read more about SaaS Penetration Testing: What to Test Beyond the Web App" [ref=e533] [cursor=pointer]':
+              - /url: https://www.blazeinfosec.com/post/saas-penetration-testing/
+              - text: Read more ›
+        - listitem [ref=e534]:
+          - link [ref=e535] [cursor=pointer]:
+            - /url: https://www.blazeinfosec.com/post/types-of-penetration-testing/
+          - generic [ref=e537]:
+            - heading "Types of penetration testing – What is the best one for your company?" [level=3] [ref=e538]:
+              - link "Types of penetration testing – What is the best one for your company?" [ref=e539] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/post/types-of-penetration-testing/
+            - generic [ref=e540]:
+              - generic [ref=e541]: Ewelina Baran
+              - generic [ref=e542]: June 2, 2026
+            - paragraph [ref=e544]: Discover the different types of penetration tests and find out which one is best suited for your company’s security needs.
+            - link "Read more about Types of penetration testing – What is the best one for your company?" [ref=e545] [cursor=pointer]:
+              - /url: https://www.blazeinfosec.com/post/types-of-penetration-testing/
+              - text: Read more ›
+        - listitem [ref=e546]:
+          - link [ref=e547] [cursor=pointer]:
+            - /url: https://www.blazeinfosec.com/post/cloud-penetration-testing-buyers-guide/
+          - generic [ref=e549]:
+            - 'heading "Cloud Penetration Testing: 2026 Buyer’s Guide for AWS, Azure & GCP" [level=3] [ref=e550]':
+              - 'link "Cloud Penetration Testing: 2026 Buyer’s Guide for AWS, Azure & GCP" [ref=e551] [cursor=pointer]':
+                - /url: https://www.blazeinfosec.com/post/cloud-penetration-testing-buyers-guide/
+            - generic [ref=e552]:
+              - generic [ref=e553]: Joana Coelho
+              - generic [ref=e554]: June 2, 2026
+            - paragraph [ref=e556]: Cloud penetration testing helps organizations identify exploitable risks across cloud infrastructure, identities, services, and configurations. This guide explains how cloud pentests work, how to prepare for an assessment, what findings to expect, and how testing differs across AWS, Azure, and Google Cloud.
+            - 'link "Read more about Cloud Penetration Testing: 2026 Buyer’s Guide for AWS, Azure & GCP" [ref=e557] [cursor=pointer]':
+              - /url: https://www.blazeinfosec.com/post/cloud-penetration-testing-buyers-guide/
+              - text: Read more ›
+        - listitem [ref=e558]:
+          - link "Penetration testing cost in the UK cover" [ref=e559] [cursor=pointer]:
+            - /url: https://www.blazeinfosec.com/post/penetration-testing-cost-uk/
+            - img "Penetration testing cost in the UK cover" [ref=e561]
+          - generic [ref=e562]:
+            - heading "How much does penetration testing cost in the UK?" [level=3] [ref=e563]:
+              - link "How much does penetration testing cost in the UK?" [ref=e564] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/post/penetration-testing-cost-uk/
+            - generic [ref=e565]:
+              - generic [ref=e566]: Julio Fort
+              - generic [ref=e567]: May 27, 2026
+            - paragraph [ref=e569]: "Penetration testing cost in the UK explained: pricing benchmarks, realistic price ranges, day rates, CREST/CHECK factors, and how to compare quotes."
+            - link "Read more about How much does penetration testing cost in the UK?" [ref=e570] [cursor=pointer]:
+              - /url: https://www.blazeinfosec.com/post/penetration-testing-cost-uk/
+              - text: Read more ›
+    - generic [ref=e582]:
+      - heading "Ready to take your security to the next level?" [level=2] [ref=e586]:
+        - text: Ready to take your security
+        - text: to the next level?
+      - paragraph [ref=e589]: We are! Let’s discuss how we can work together to create strong defenses against real-life cyber threats.
+      - link "Talk to an expert" [ref=e593] [cursor=pointer]:
+        - /url: https://www.blazeinfosec.com/contact-us/
+        - generic [ref=e595]: Talk to an expert
+  - contentinfo [ref=e602]:
+    - generic [ref=e604]:
+      - link [ref=e609] [cursor=pointer]:
+        - /url: https://www.blazeinfosec.com
+      - generic [ref=e611]:
+        - heading "Services" [level=3] [ref=e614]
+        - navigation "Menu" [ref=e617]:
+          - list [ref=e618]:
+            - listitem [ref=e619]:
+              - link "Application Security" [ref=e620] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/services/application-security/application-penetration-testing/
+            - listitem [ref=e621]:
+              - link "Network Security" [ref=e622] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/services/penetration-testing/network-pentest/
+            - listitem [ref=e623]:
+              - link "Cloud Security" [ref=e624] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/services/cloud-security/
+            - listitem [ref=e625]:
+              - link "Red Teaming" [ref=e626] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/services/red-team/
+      - generic [ref=e628]:
+        - heading "INDUSTRIES" [level=3] [ref=e631]
+        - navigation "Menu" [ref=e634]:
+          - list [ref=e635]:
+            - listitem [ref=e636]:
+              - link "Banking & Fintech" [ref=e637] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/solutions/penetration-testing-fintech-banking/
+            - listitem [ref=e638]:
+              - link "E-commerce & Retail" [ref=e639] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/solutions/ecommerce/
+            - listitem [ref=e640]:
+              - link "Technology" [ref=e641] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/solutions/tech/
+            - listitem [ref=e642]:
+              - link "Healthcare" [ref=e643] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/solutions/healthcare/
+            - listitem [ref=e644]:
+              - link "Casino & Gambling" [ref=e645] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/solutions/penetration-testing-igaming/
+            - listitem [ref=e646]:
+              - link "Energy, Oil & Gas" [ref=e647] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/solutions/energy-oil-gas/
+      - generic [ref=e649]:
+        - heading "Company" [level=3] [ref=e652]
+        - navigation "Menu" [ref=e655]:
+          - list [ref=e656]:
+            - listitem [ref=e657]:
+              - link "About Blaze" [ref=e658] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/company/
+            - listitem [ref=e659]:
+              - link "Blog" [ref=e660] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/blog/
+            - listitem [ref=e661]:
+              - link "Labs" [ref=e662] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/labs/
+            - listitem [ref=e663]:
+              - link "Partners" [ref=e664] [cursor=pointer]:
+                - /url: https://www.blazeinfosec.com/partners/
+        - list [ref=e667]:
+          - listitem [ref=e668]:
+            - link "Download our public PGP key" [ref=e669] [cursor=pointer]:
+              - /url: https://www.github.com/blazeinfosec/resources/blob/main/blaze-pgp-key.asc
+              - generic [ref=e670]: Download our public PGP key
+    - generic [ref=e672]:
+      - generic [ref=e703]:
+        - link [ref=e708] [cursor=pointer]:
+          - /url: https://www.blazeinfosec.com/wp-content/uploads/2022/11/RHAQ_Blaze.pdf
+        - link [ref=e713] [cursor=pointer]:
+          - /url: https://www.blazeinfosec.com/wp-content/uploads/2022/11/RHAQ_Blaze.pdf
+        - link [ref=e718] [cursor=pointer]:
+          - /url: https://www.blazeinfosec.com/wp-content/uploads/2022/11/RHAQ_Blaze.pdf
+      - list [ref=e729]:
+        - listitem [ref=e730]:
+          - link "Facebook-f" [ref=e731] [cursor=pointer]:
+            - /url: https://www.facebook.com/blazeinfosec
+            - generic [ref=e732]: Facebook-f
+            - img [ref=e733]
+        - listitem [ref=e735]:
+          - link [ref=e736] [cursor=pointer]:
+            - /url: https://x.com/blazeinfosec
+            - img [ref=e738]
+        - listitem [ref=e740]:
+          - link "Linkedin-in" [ref=e741] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/blaze-information-security
+            - generic [ref=e742]: Linkedin-in
+            - img [ref=e743]
+        - listitem [ref=e745]:
+          - link "Github" [ref=e746] [cursor=pointer]:
+            - /url: https://www.github.com/blazeinfosec
+            - generic [ref=e747]: Github
+            - img [ref=e748]
+    - generic [ref=e751]:
+      - heading "©2026 Blaze Information Security" [level=2] [ref=e756]
+      - navigation "Menu" [ref=e761]:
+        - list [ref=e762]:
+          - listitem [ref=e763]:
+            - link "Careers" [ref=e764] [cursor=pointer]:
+              - /url: https://www.blazeinfosec.com/careers/
+          - listitem [ref=e765]:
+            - link "Ombudsman" [ref=e766] [cursor=pointer]:
+              - /url: https://www.blazeinfosec.com/legal/ombudsman/
+          - listitem [ref=e767]:
+            - link "Imprint" [ref=e768] [cursor=pointer]:
+              - /url: https://www.blazeinfosec.com/legal/imprint/
+          - listitem [ref=e769]:
+            - link "Privacy Policy" [ref=e770] [cursor=pointer]:
+              - /url: https://www.blazeinfosec.com/legal/privacy-policy/
+          - listitem [ref=e771]:
+            - link "Terms of Service" [ref=e772] [cursor=pointer]:
+              - /url: https://www.blazeinfosec.com/legal/terms/
+    - generic [ref=e780]:
+      - heading "Contact Us" [level=2] [ref=e783]:
+        - link "Contact Us" [ref=e784] [cursor=pointer]:
+          - /url: void(0);
+          - generic [ref=e785]: Contact Us
+          - img [ref=e786]
+      - generic [ref=e791]:
+        - heading "Contact Us" [level=2] [ref=e794]
+        - generic [ref=e799]:
+          - generic [ref=e801]:
+            - generic [ref=e802]:
+              - generic [ref=e803]:
+                - text: Name
+                - generic [ref=e805]: (Required)
+              - textbox "Name (Required)" [ref=e807]:
+                - /placeholder: Name
+            - generic [ref=e808]:
+              - generic [ref=e809]:
+                - text: Business Email
+                - generic [ref=e811]: (Required)
+              - textbox "Business Email (Required)" [ref=e813]:
+                - /placeholder: Business email
+            - generic [ref=e814]:
+              - generic [ref=e815]:
+                - text: Company name
+                - generic [ref=e817]: (Required)
+              - textbox "Company name (Required)" [ref=e819]:
+                - /placeholder: Company name
+            - generic [ref=e820]:
+              - generic [ref=e821]: Phone
+              - textbox "Phone" [ref=e823]:
+                - /placeholder: Phone number
+            - generic [ref=e824]:
+              - generic [ref=e825]:
+                - text: Estimated budget
+                - generic [ref=e827]: (Required)
+              - combobox "Estimated budget (Required)" [ref=e829]:
+                - option "Estimated budget" [selected]
+                - option "I don't have a defined budget yet"
+                - option "Under $10,000"
+                - option "$10,000 - $25,000"
+                - option "$25,000 - $50,000"
+                - option "$50,000 - $75,000"
+                - option "$75,000 - $100,000"
+                - option "Above $100,000"
+            - generic [ref=e830]:
+              - generic [ref=e831]:
+                - text: Tell us more about your cybersecurity needs
+                - generic [ref=e833]: (Required)
+              - textbox "Tell us more about your cybersecurity needs (Required)" [ref=e835]:
+                - /placeholder: Tell us more about your cybersecurity needs
+            - generic [ref=e836]:
+              - generic [ref=e837]: CAPTCHA
+              - iframe [ref=e841]:
+                - generic [ref=f4e2]:
+                  - generic [ref=f4e3]:
+                    - checkbox "I'm not a robot" [ref=f4e7]
+                    - generic [ref=f4e11]: I'm not a robot
+                  - generic [ref=f4e15]: reCAPTCHA
+          - button "GET SECURE TODAY" [ref=e843] [cursor=pointer]
+  - generic [ref=e844]: desktop

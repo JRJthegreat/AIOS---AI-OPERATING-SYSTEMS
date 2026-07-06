@@ -14,6 +14,7 @@ Usage:
 """
 
 import os
+import re
 import sys
 import json
 import argparse
@@ -263,9 +264,22 @@ def get_credentials():
     return creds
 
 
-def get_or_create_sheet(sheet_url: str = None, sheet_name: str = None) -> tuple:
+def _init_worksheet_headers(worksheet):
+    """Write header row, bold it, freeze it."""
+    worksheet.update(values=[LEAD_COLUMNS], range_name='A1')
+    worksheet.format('A1:AK1', {
+        "textFormat": {"bold": True},
+        "backgroundColor": {"red": 0.9, "green": 0.9, "blue": 0.9}
+    })
+    worksheet.freeze(rows=1)
+
+
+def get_or_create_sheet(sheet_url: str = None, sheet_name: str = None,
+                        worksheet_name: str = None) -> tuple:
     """
-    Get existing sheet or create a new one.
+    Get existing sheet or create a new one. If worksheet_name is given, leads
+    go to that tab (created if missing) so one spreadsheet can hold multiple
+    categories.
 
     Returns:
         Tuple of (spreadsheet, worksheet, is_new)
@@ -281,30 +295,30 @@ def get_or_create_sheet(sheet_url: str = None, sheet_name: str = None) -> tuple:
             sheet_id = sheet_url
 
         spreadsheet = client.open_by_key(sheet_id)
-        worksheet = spreadsheet.sheet1
         is_new = False
         print(f"Opened existing sheet: {spreadsheet.title}")
     else:
-        # Create new sheet
         name = sheet_name or DEFAULT_SHEET_NAME
         spreadsheet = client.create(name)
-        worksheet = spreadsheet.sheet1
-
-        # Set up headers
-        worksheet.update(values=[LEAD_COLUMNS], range_name='A1')
-
-        # Format header row (bold)
-        worksheet.format('A1:AK1', {
-            "textFormat": {"bold": True},
-            "backgroundColor": {"red": 0.9, "green": 0.9, "blue": 0.9}
-        })
-
-        # Freeze header row
-        worksheet.freeze(rows=1)
-
         is_new = True
         print(f"Created new sheet: {name}")
         print(f"Sheet URL: {spreadsheet.url}")
+
+    if worksheet_name:
+        try:
+            worksheet = spreadsheet.worksheet(worksheet_name)
+        except gspread.exceptions.WorksheetNotFound:
+            if is_new:
+                worksheet = spreadsheet.sheet1
+                worksheet.update_title(worksheet_name)
+            else:
+                worksheet = spreadsheet.add_worksheet(
+                    title=worksheet_name, rows=2000, cols=len(LEAD_COLUMNS))
+            _init_worksheet_headers(worksheet)
+    else:
+        worksheet = spreadsheet.sheet1
+        if is_new:
+            _init_worksheet_headers(worksheet)
 
     return spreadsheet, worksheet, is_new
 
@@ -411,6 +425,12 @@ def run_pipeline(
     location: str = None,
     sheet_url: str = None,
     sheet_name: str = None,
+    worksheet_name: str = None,
+    include_regex: str = None,
+    exclude_regex: str = None,
+    require_website: bool = False,
+    min_stars: str = None,
+    from_raw: str = None,
     workers: int = 3,
     save_intermediate: bool = True,
 ) -> dict:
@@ -444,11 +464,18 @@ def run_pipeline(
     print(f"STEP 1: Scraping Google Maps for '{search_query}'")
     print(f"{'='*60}")
 
-    businesses = scrape_google_maps(
-        search_query=search_query,
-        max_results=max_results,
-        location=location,
-    )
+    if from_raw:
+        with open(from_raw) as f:
+            businesses = json.load(f)
+        print(f"Loaded {len(businesses)} businesses from {from_raw} (no scrape)")
+    else:
+        businesses = scrape_google_maps(
+            search_query=search_query,
+            max_results=max_results,
+            location=location,
+            website_filter="withWebsite" if require_website else None,
+            min_stars=min_stars,
+        )
 
     if not businesses:
         results["errors"].append("No businesses found on Google Maps")
@@ -457,12 +484,63 @@ def run_pipeline(
     results["businesses_found"] = len(businesses)
     print(f"Found {len(businesses)} businesses")
 
+    # Drop noise rows by name/category BEFORE paying for enrichment
+    if include_regex or exclude_regex:
+        def _keep(b):
+            text = f"{b.get('title', '')} {b.get('categoryName', '')}"
+            if include_regex and not re.search(include_regex, text, re.I):
+                return False
+            if exclude_regex and re.search(exclude_regex, text, re.I):
+                return False
+            return True
+
+        before = len(businesses)
+        businesses = [b for b in businesses if _keep(b)]
+        print(f"Noise filter: dropped {before - len(businesses)}, {len(businesses)} remain")
+
+    # Rows without a website can't be enriched or emailed - optionally drop them
+    if require_website:
+        before = len(businesses)
+        businesses = [b for b in businesses if b.get("website")]
+        print(f"Website filter: dropped {before - len(businesses)}, {len(businesses)} remain")
+
+    results["businesses_kept"] = len(businesses)
+    if not businesses:
+        results["errors"].append("All results dropped by filters")
+        return results
+
     # Save intermediate results
     if save_intermediate:
         os.makedirs(".tmp", exist_ok=True)
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         with open(f".tmp/gmaps_raw_{timestamp}.json", "w") as f:
             json.dump(businesses, f, indent=2)
+
+    # Open the sheet and drop already-scraped places BEFORE paying for enrichment
+    try:
+        spreadsheet, worksheet, is_new = get_or_create_sheet(sheet_url, sheet_name, worksheet_name)
+        results["sheet_url"] = spreadsheet.url
+        existing_ids = get_existing_lead_ids(worksheet)
+    except Exception as e:
+        results["errors"].append(f"Google Sheets error: {str(e)}")
+        print(f"Error opening sheet: {e}")
+        return results
+
+    if existing_ids:
+        before = len(businesses)
+        businesses = [b for b in businesses
+                      if generate_lead_id(b.get("title", ""), b.get("address", "")) not in existing_ids]
+        print(f"Dedupe vs sheet: {before - len(businesses)} already present, {len(businesses)} to enrich")
+        if not businesses:
+            print("Nothing new to enrich.")
+            return results
+
+    # In from-raw mode, max_results caps AFTER dedupe: take the best-rated slice
+    if from_raw and max_results and len(businesses) > max_results:
+        businesses.sort(key=lambda b: (float(b.get("totalScore") or 0),
+                                       int(b.get("reviewsCount") or 0)), reverse=True)
+        businesses = businesses[:max_results]
+        print(f"Capped to top {max_results} by rating/reviews")
 
     # Step 2: Enrich with website data
     print(f"\n{'='*60}")
@@ -477,9 +555,10 @@ def run_pipeline(
     print(f"STEP 3: Processing lead records")
     print(f"{'='*60}")
 
+    recorded_query = f"{search_query} [{location}]" if location else search_query
     leads = []
     for item in enriched:
-        lead = flatten_lead(item["gmaps"], item["contacts"], search_query)
+        lead = flatten_lead(item["gmaps"], item["contacts"], recorded_query)
         leads.append(lead)
 
     # Save intermediate enriched data
@@ -493,9 +572,7 @@ def run_pipeline(
     print(f"{'='*60}")
 
     try:
-        spreadsheet, worksheet, is_new = get_or_create_sheet(sheet_url, sheet_name)
-        results["sheet_url"] = spreadsheet.url
-
+        # Re-read ids in case another run appended while we were enriching
         existing_ids = get_existing_lead_ids(worksheet)
         added = append_leads_to_sheet(worksheet, leads, existing_ids)
         results["leads_added"] = added
@@ -543,6 +620,12 @@ Examples:
     parser.add_argument("--location", help="Location to focus search")
     parser.add_argument("--sheet-url", help="Existing Google Sheet URL to append to")
     parser.add_argument("--sheet-name", help="Name for new sheet (if not using existing)")
+    parser.add_argument("--tab", help="Worksheet/tab name inside the sheet (created if missing)")
+    parser.add_argument("--include", help="Case-insensitive regex; keep only rows whose name/category matches")
+    parser.add_argument("--exclude", help="Case-insensitive regex; drop rows whose name/category matches")
+    parser.add_argument("--require-website", action="store_true", help="Drop rows without a website (actor-native filter)")
+    parser.add_argument("--min-stars", help="Minimum Google rating, e.g. 4 or 4.5 (actor-native filter)")
+    parser.add_argument("--from-raw", help="Skip scraping; load businesses from a raw JSON file (already-paid dataset)")
     parser.add_argument("--workers", type=int, default=3, help="Parallel workers for enrichment (default: 3)")
     parser.add_argument("--no-intermediate", action="store_true", help="Don't save intermediate JSON files")
     parser.add_argument("--json", action="store_true", help="Output results as JSON")
@@ -555,6 +638,12 @@ Examples:
         location=args.location,
         sheet_url=args.sheet_url,
         sheet_name=args.sheet_name,
+        worksheet_name=args.tab,
+        include_regex=args.include,
+        exclude_regex=args.exclude,
+        require_website=args.require_website,
+        min_stars=args.min_stars,
+        from_raw=args.from_raw,
         workers=args.workers,
         save_intermediate=not args.no_intermediate,
     )

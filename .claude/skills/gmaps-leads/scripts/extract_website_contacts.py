@@ -25,7 +25,7 @@ from dotenv import load_dotenv
 
 import httpx
 import html2text
-import anthropic
+from openai import AzureOpenAI
 
 load_dotenv()
 
@@ -57,8 +57,13 @@ CONTACT_PAGE_PATTERNS = [
     r'/offices',
 ]
 
-# Claude model for extraction (cheap and fast)
-CLAUDE_MODEL = "claude-3-5-haiku-20241022"
+# Azure OpenAI deployment for extraction (bulk per-row work uses the FAST deployment)
+AZURE_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
+AZURE_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
+AZURE_API_VERSION = os.getenv("AZURE_OPENAI_API_VERSION", "2024-10-21")
+AZURE_DEPLOYMENT = os.getenv("AZURE_OPENAI_DEPLOYMENT_FAST", "gpt-4.1")
+_azure = AzureOpenAI(azure_endpoint=AZURE_ENDPOINT, api_key=AZURE_API_KEY,
+                     api_version=AZURE_API_VERSION) if AZURE_ENDPOINT else None
 
 # Maximum content length to send to Claude (in characters)
 MAX_CONTENT_LENGTH = 50000
@@ -222,9 +227,9 @@ def search_for_contacts(business_name: str, location: str = None) -> str:
         return ""
 
 
-def extract_contacts_with_claude(content: str, business_name: str = None) -> dict:
+def extract_contacts_with_llm(content: str, business_name: str = None) -> dict:
     """
-    Use Claude to extract structured contact information from website content.
+    Use Azure OpenAI to extract structured contact information from website content.
 
     Args:
         content: Markdown content from the website
@@ -233,12 +238,9 @@ def extract_contacts_with_claude(content: str, business_name: str = None) -> dic
     Returns:
         Dictionary with extracted contact information
     """
-    api_key = os.getenv("ANTHROPIC_API_KEY")
-    if not api_key:
-        print("Error: ANTHROPIC_API_KEY not found in .env", file=sys.stderr)
+    if _azure is None or not AZURE_API_KEY:
+        print("Error: AZURE_OPENAI_ENDPOINT/AZURE_OPENAI_API_KEY not found in .env", file=sys.stderr)
         return {}
-
-    client = anthropic.Anthropic(api_key=api_key)
 
     # Truncate content if too long
     if len(content) > MAX_CONTENT_LENGTH:
@@ -289,14 +291,26 @@ WEBSITE CONTENT:
 
 Respond with ONLY the JSON object, no other text."""
 
+    import time
+    import random
     try:
-        response = client.messages.create(
-            model=CLAUDE_MODEL,
-            max_tokens=2000,
-            messages=[{"role": "user", "content": prompt}],
-        )
+        response = None
+        for attempt in range(5):
+            try:
+                response = _azure.chat.completions.create(
+                    model=AZURE_DEPLOYMENT,
+                    max_tokens=2000,
+                    response_format={"type": "json_object"},
+                    messages=[{"role": "user", "content": prompt}],
+                )
+                break
+            except Exception as e:
+                if ("429" in str(e) or "rate limit" in str(e).lower()) and attempt < 4:
+                    time.sleep((2 ** attempt) * 5 + random.uniform(0, 3))
+                    continue
+                raise
 
-        result_text = response.content[0].text.strip()
+        result_text = response.choices[0].message.content.strip()
 
         # Clean up response if it has markdown code blocks
         if result_text.startswith("```"):
@@ -306,10 +320,10 @@ Respond with ONLY the JSON object, no other text."""
         return json.loads(result_text)
 
     except json.JSONDecodeError as e:
-        print(f"  Error parsing Claude response: {e}")
+        print(f"  Error parsing LLM response: {e}")
         return {}
     except Exception as e:
-        print(f"  Error calling Claude API: {e}")
+        print(f"  Error calling Azure OpenAI API: {e}")
         return {}
 
 
@@ -364,8 +378,8 @@ def scrape_website_contacts(url: str, business_name: str = None, fast_mode: bool
         if search_content:
             combined_content += f"\n\n{search_content}"
 
-    # Extract contacts using Claude
-    contacts = extract_contacts_with_claude(combined_content, business_name)
+    # Extract contacts using the LLM
+    contacts = extract_contacts_with_llm(combined_content, business_name)
 
     # Add metadata
     contacts["_source_url"] = url

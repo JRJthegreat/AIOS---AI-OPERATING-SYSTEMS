@@ -25,6 +25,8 @@ def scrape_google_maps(
     max_results: int = 10,
     location: str = None,
     language: str = "en",
+    website_filter: str = None,   # "withWebsite" / "withoutWebsite" (actor-native, avoids paying for filtered rows)
+    min_stars: str = None,        # "4" / "4.5" etc. -> actor-native placeMinimumStars
 ) -> list[dict]:
     """
     Run the Apify Google Maps scraper actor.
@@ -45,20 +47,28 @@ def scrape_google_maps(
 
     client = ApifyClient(api_token)
 
-    # Build search string with location if provided
-    full_search = search_query
-    if location and location.lower() not in search_query.lower():
-        full_search = f"{search_query} in {location}"
-
     run_input = {
-        "searchStringsArray": [full_search],
+        "searchStringsArray": [search_query],
         "maxCrawledPlacesPerSearch": max_results,
         "language": language,
         "deeperCityScrape": False,
         "oneReviewPerRow": False,
     }
 
-    print(f"Starting Google Maps scrape: '{full_search}' (limit: {max_results})...")
+    # locationQuery makes the actor geocode the area and auto-split it into
+    # sub-regions (works for whole states), instead of one map-view search.
+    if location:
+        run_input["locationQuery"] = location
+
+    if website_filter:
+        run_input["website"] = website_filter
+
+    if min_stars:
+        stars_map = {"2": "two", "2.5": "twoAndHalf", "3": "three",
+                     "3.5": "threeAndHalf", "4": "four", "4.5": "fourAndHalf"}
+        run_input["placeMinimumStars"] = stars_map.get(str(min_stars), min_stars)
+
+    print(f"Starting Google Maps scrape: '{search_query}' in '{location or 'area from query'}' (limit: {max_results})...")
 
     try:
         run = client.actor(ACTOR_ID).call(run_input=run_input)
