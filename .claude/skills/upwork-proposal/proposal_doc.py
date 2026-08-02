@@ -33,6 +33,9 @@ from google.oauth2.credentials import Credentials as UC
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets",
           "https://www.googleapis.com/auth/drive"]
 FONT = "font-family:'Bricolage Grotesque',sans-serif"
+# House rule (Aug 2026, Jude): list items need breathing room. Drive's HTML->Doc
+# conversion maps margin-bottom on <li> to the paragraph's space-after.
+LI_SPACE = ";margin-bottom:10px"
 
 
 def _creds():
@@ -53,7 +56,8 @@ def _prep(html):
     # add the font to BARE block tags only; tags that already carry a
     # style="..." (e.g. from a Google HTML export) are left untouched.
     return re.sub(r"<(h1|h2|h3|p|li|td|th)>",
-                  lambda m: '<%s style="%s">' % (m.group(1), FONT), html)
+                  lambda m: '<%s style="%s">' % (
+                      m.group(1), FONT + (LI_SPACE if m.group(1) == "li" else "")), html)
 
 
 def cmd_create(a):

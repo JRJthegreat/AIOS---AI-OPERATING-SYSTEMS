@@ -106,17 +106,26 @@ def build_html(p: dict) -> str:
         rows = "".join(f"<li>{cell(x)}</li>" for x in p.get(key, []) if str(x).strip())
         return f"<{tag}>{rows}</{tag}>"
 
+    # house style: blank-line spacing between blocks via <p>&nbsp;</p>
+    gap = "<p>&nbsp;</p>"
     parts = [
         f"<p>{cell(p.get('greeting', 'Hey,'))}</p>",
+        gap,
         f"<p>{cell(p.get('opening', ''))}</p>",
+        gap,
         f"<p>{cell(p.get('proof', ''))}</p>",
+        gap,
         "<h2>My proposed approach</h2>",
         items("approach", "ol"),
+        gap,
         "<h2>What you'll get</h2>",
         items("deliverables", "ul"),
+        gap,
         "<h2>Timeline</h2>",
         f"<p>{cell(p.get('timeline', ''))}</p>",
+        gap,
         f"<p>{cell(p.get('close', ''))}</p>",
+        gap,
         "<p>Jude</p>",
     ]
     return "\n".join(parts)
@@ -143,7 +152,23 @@ def main():
     ap.add_argument("--client", help="client/company name (used in the doc title)")
     ap.add_argument("--title", help="explicit doc title (overrides --client)")
     ap.add_argument("--dump-html", help="also write the generated HTML body here (debug)")
+    ap.add_argument(
+        "--body-html",
+        help="render this authored HTML body instead of calling the LLM "
+             "(skips the JD entirely; still gets Bricolage + em-dash guard + link share)",
+    )
     args = ap.parse_args()
+
+    # authored-body path: agent wrote the proposal itself, just render + share it
+    if args.body_html:
+        title = args.title or (
+            f"Upwork Proposal - {args.client}" if args.client else "Upwork Proposal"
+        )
+        body = _sanitize(Path(args.body_html).read_text(encoding="utf-8"))
+        doc_id, url = create_doc(title, body)
+        print("URL:", url)
+        print("ID:", doc_id)
+        return
 
     if args.jd_file:
         jd = Path(args.jd_file).read_text(encoding="utf-8")
