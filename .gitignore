@@ -10,3 +10,13 @@ credentials.json
 # OS / tool junk
 .DS_Store
 .playwright-mcp/
+
+# Python / Apify actor local artifacts
+__pycache__/
+*.pyc
+.venv/
+storage/
+
+# Rendered proposal diagrams — the PNG is base64-embedded into the Google Doc,
+# so the copy that lands in the repo root is an intermediate, not a deliverable
+flowchart_*.png

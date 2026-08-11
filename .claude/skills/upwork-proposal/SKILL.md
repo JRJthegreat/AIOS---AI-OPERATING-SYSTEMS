@@ -105,6 +105,13 @@ expected, unlike cold outreach. Save it next to the body as
 
 ## Quick path: proposal straight from a job description
 
+**Job URL is a required input (Aug 2026, Jude).** Jude runs several proposal tabs in
+parallel and matches deliverables to jobs by URL afterward. If he did not provide the
+Upwork job URL with the JD, ask for it before handing off. Save it next to the other
+deliverables as `.tmp/job_url_<slug>.txt`, and ALWAYS echo it in the final handoff
+message alongside the doc URL and cover letter (format: "Job: <url>"). Upwork job pages
+are login-gated, so never try to fetch the URL; it is an identifier, not an input source.
+
 For a one-off Upwork proposal where the only input is a pasted job description
 (no discovery call, no case-study sheet), use `proposal_from_jd.py`. It runs the
 copy through **Azure `gpt-5.1`** (`AZURE_OPENAI_DEPLOYMENT`), then renders the

@@ -22,20 +22,33 @@ python3 .claude/skills/scrape-leads/scripts/update_sheet.py .tmp/leads.json --ti
 python3 setup_google_auth.py
 
 # Apify actors (standalone, deployed separately via Apify CLI)
-cd healthcare-recruitment-actor && pip install -r requirements.txt && apify push
-cd nchcr-job-board-actor       && pip install -r requirements.txt && apify push
+cd healthcare-recruitment-actor  && pip install -r requirements.txt && apify push
+cd nchcr-job-board-actor         && pip install -r requirements.txt && apify push
+cd productionhub-directory-actor && pip install -r requirements.txt && apify push
+
+# Run an actor locally (reads .actor/../storage/key_value_stores/default/INPUT.json)
+cd productionhub-directory-actor && python3 -m src   # set testMode:true in INPUT.json first
 ```
 
-There is no repo-wide test/lint/build step — this is a scripts + skills repo. Validate by running the
-specific script against a small sample and eyeballing the `.tmp/` output.
+**Always invoke skill scripts from the repo root** (as written above), never after `cd`-ing into the
+skill dir. Google credentials are resolved CWD-relative (`os.path.exists('token.json')`), so from any
+other directory auth falls through to the service-account branch and dies with a misleading
+`Credentials file 'service_account.json' not found`. Only `gmaps-leads`'s `heal_enrichment.py` and
+`verify_email_persona.py` anchor to a `PROJECT_ROOT` constant; the other ~69 scripts do not.
+
+There is no repo-wide test/lint/build step and no root `requirements.txt` — skill scripts run on system
+`python3` against already-installed deps (`gspread`, `python-dotenv`, `openai`, `google-auth*`,
+`requests`); only the three Apify actors pin their own. Validate by running the specific script against
+a small sample and eyeballing the `.tmp/` output.
 
 ## LLM provider (IMPORTANT)
 
-The working LLM is **Azure OpenAI `gpt-4.1`**, NOT Anthropic. The `ANTHROPIC_API_KEY` in `.env` is
+The working LLM is **Azure OpenAI**, NOT Anthropic. The `ANTHROPIC_API_KEY` in `.env` is
 expired (returns 401). Scripts read these env vars:
 
 - `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_API_VERSION`
-- `AZURE_OPENAI_DEPLOYMENT` (default model) / `AZURE_OPENAI_DEPLOYMENT_FAST` (bulk per-row work, default `gpt-4.1`)
+- `AZURE_OPENAI_DEPLOYMENT` (quality/one-shot work, currently `gpt-5.1` — used by `proposal_from_jd.py`)
+- `AZURE_OPENAI_DEPLOYMENT_FAST` (bulk per-row work, currently `gpt-4.1`)
 
 When adding LLM calls to a script, follow this pattern (Azure client, `*_FAST` deployment for per-row
 batches, a small thread pool e.g. `LLM_WORKERS = 8`). Do not reintroduce Anthropic calls without asking.
@@ -72,11 +85,18 @@ healthcare-recruitment-actor/   # Standalone Apify actor (Python, async) — 8 s
 nchcr-job-board-actor/          # Standalone Apify actor — scrapes nchcr.com job board
   src/scraper.py                #   healthcare recruiting firms (name, recruiter, phone, email)
 
+productionhub-directory-actor/  # Standalone Apify actor — productionhub.com (Cloudflare-fronted)
+  src/scraper.py                #   patchright + headed Chrome; listing crawl + profile visit
+
 reddit-lead-intelligence.workflow.json  # n8n workflow: Reddit → Apify → lead enrichment
 setup_google_auth.py                    # one-time OAuth flow for Google APIs
 token.json                              # Google OAuth token (gitignored)
 .tmp/                                   # intermediate files (gitignored) — never commit
 ```
+
+**Repo hygiene:** `.gitignore` covers secrets and `.tmp/` but *not* actor-local `.venv/`,
+`storage/`, or `__pycache__/`, nor the `flowchart_*.png` files that land in the repo root when
+rendering proposal diagrams (see below). Never `git add -A` blind — stage explicit paths.
 
 **Key principle:** Local files are only for processing. Deliverables live in Google Sheets, Slides, or
 other cloud services — the Sheet URL (not a local file) is what you hand to Jude.
@@ -188,6 +208,26 @@ Deployed to Apify separately from the skills system (`apify push`).
   (company, recruiter, phone, email; website derived from email domain). One deduped record per firm.
   The same source also exists as the `nchcr` module inside the healthcare actor — changes to the scrape
   logic likely apply to both.
+- **`productionhub-directory-actor/`** — scrapes productionhub.com for video production companies.
+  Two modes off one input: a listing crawl over `{categorySlug, locationPath, metroKey}` targets, or
+  `profileIds` visit-only (re-enrich rows that already passed classification). Records push per
+  finished target, so a killed run still yields data. **Anti-bot is the whole design and is fragile —
+  do not "simplify" it:** the site is Cloudflare-fronted, so it uses `patchright` (not plain
+  playwright), `launch_persistent_context(channel="chrome")`, `headless=False` under `xvfb-run` in
+  the Dockerfile, and a **sticky** Apify residential session (`new_url(session_id=...)`) because
+  `cf_clearance` is issued to a single IP. Plain headless Chromium, bare `chromium.launch()`, and
+  rotating proxies each hang on "Verification successful. Waiting for … to respond". A company
+  website only ever appears free-text inside the profile description, so `extract_website()`
+  regex-mines it — there is no website field.
+
+## Rendering images (proposal flowcharts, mockups)
+
+Diagrams are authored as fixed-layout HTML at 2x scale and screenshotted with the **Playwright MCP**
+browser. Two constraints that bite every time: `file://` URLs are blocked, so serve the directory with
+`python3 -m http.server <port>` and navigate to localhost (kill the server after); and
+`browser_take_screenshot` writes the PNG to the **repo root**, not the scratchpad — read it back,
+eyeball it, then move or delete it. Full recipe (palette, arrow SVG underlay, base64 embed that
+survives the Drive HTML→Doc conversion) lives in `upwork-proposal/SKILL.md`.
 
 ## Google OAuth
 
