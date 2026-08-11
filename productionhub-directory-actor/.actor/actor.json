@@ -1,0 +1,12 @@
+{
+    "actorSpecification": 1,
+    "name": "productionhub-directory-scraper",
+    "title": "ProductionHUB Directory — Production Company Scraper",
+    "version": "1.0",
+    "buildTag": "latest",
+    "input": "./input_schema.json",
+    "dockerfile": "../Dockerfile",
+    "description": "Scrapes ProductionHUB directory listings (productionhub.com) for commercial video production companies by category and location: company name, city/state, full profile description, member-since year, and any website found in the profile text. One deduplicated record per profile.",
+    "categories": ["LEAD_GENERATION", "BUSINESS"],
+    "labels": ["video production", "production companies", "leads", "B2B", "productionhub", "directory"]
+}

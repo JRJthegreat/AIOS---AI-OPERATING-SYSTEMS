@@ -1,0 +1,58 @@
+{
+    "title": "ProductionHUB Directory Scraper — Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "profileIds": {
+            "title": "Profile IDs (visit-only mode)",
+            "type": "array",
+            "description": "When set, skip the listing crawl entirely and visit only these profile detail pages (full description, website, phone, LinkedIn, Vimeo). Use to enrich rows that already passed classification.",
+            "editor": "json"
+        },
+        "targets": {
+            "title": "Targets",
+            "type": "array",
+            "description": "List of {categorySlug, locationPath, metroKey} objects. categorySlug e.g. 'commercial-production-companies'; locationPath e.g. 'us/california/los-angeles' (empty string = category-wide, all locations); metroKey is your own label stamped on each record.",
+            "editor": "json",
+            "prefill": [
+                {
+                    "categorySlug": "commercial-production-companies",
+                    "locationPath": "us/california/los-angeles",
+                    "metroKey": "LA"
+                }
+            ]
+        },
+        "maxPagesPerList": {
+            "title": "Max Pages Per List",
+            "type": "integer",
+            "description": "Cap on paginated listing pages crawled per target (~21 profiles per page).",
+            "default": 50
+        },
+        "radius": {
+            "title": "Radius (miles)",
+            "type": "integer",
+            "description": "Search radius around the location, in miles. ProductionHUB's own default is 100.",
+            "default": 100
+        },
+        "visitProfiles": {
+            "title": "Visit Profile Pages",
+            "type": "boolean",
+            "description": "Visit each profile detail page for the full (untruncated) description — the only place a website URL can be found. Adds one page load per profile.",
+            "default": true
+        },
+        "testMode": {
+            "title": "Test Mode",
+            "type": "boolean",
+            "description": "Crawl only 1 listing page per target and at most 5 profile visits. Use to verify the actor quickly.",
+            "default": false
+        },
+        "proxyConfiguration": {
+            "title": "Proxy Configuration",
+            "type": "object",
+            "description": "Apify proxy settings. Residential proxy recommended for cloud runs — Cloudflare scores datacenter IPs harshly.",
+            "editor": "proxy",
+            "prefill": {"useApifyProxy": true, "apifyProxyGroups": ["RESIDENTIAL"]}
+        }
+    },
+    "required": ["targets"]
+}
