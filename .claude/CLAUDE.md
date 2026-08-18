@@ -138,7 +138,7 @@ calls AI Ark over its **HTTP JSON-RPC endpoint directly** (stateless, token read
 implementation (`find_dm.py` + `AI_ARK_HANDOFF.md` in the removed `b2b-sales-leads-indeed` skill) is
 recoverable from git history.
 
-## Skills (18)
+## Skills (19)
 
 ### Lead Generation
 | Skill | What it does |
@@ -160,7 +160,8 @@ recoverable from git history.
 | Skill | What it does |
 |-------|-------------|
 | `create-proposal` | PandaDoc proposal from sheet data or call transcript. **Stub — directory is currently empty (no `SKILL.md`/scripts); needs rebuilding before use.** |
-| `upwork-proposal` | Discovery-call transcript + case-study Sheet → client-facing Upwork proposal as a native Google Doc via `proposal_doc.py` (Drive HTML-upload+convert; no Docs API). Bricolage Grotesque, reply-only CTA, Upwork-consultant byline, em dashes blocked at upload. Has a safe-edit (export→edit→update) flow once the client hand-edits. Also handles a single pasted JD via `proposal_from_jd.py` (LLM path, or `--body-html` to render a hand-authored body with the same styling guards) — this, not `upwork-apply`, is the path for one hand-picked job; see its SKILL.md for the skill-choice rules and the separate hand-written cover letter deliverable. |
+| `upwork-proposal` | Discovery-call transcript + case-study Sheet → client-facing Upwork proposal as a native Google Doc via `proposal_doc.py` (Drive HTML-upload+convert; no Docs API). Bricolage Grotesque, reply-only CTA, Upwork-consultant byline, em dashes blocked at upload. Has a safe-edit (export→edit→update) flow once the client hand-edits. Also handles a single pasted JD via `proposal_from_jd.py` (LLM path, or `--body-html` to render a hand-authored body with the same styling guards) — this, not `upwork-apply`, is the path for one hand-picked job; see its SKILL.md for the skill-choice rules. The doc is only the attachment; pair it with `upwork-cover-letter` for the text that actually gets submitted. |
+| `upwork-cover-letter` | Writes the actual Upwork cover letter text Jude submits (job post + his Loom link, optionally a proposal-doc link and client name → copy-pasteable letter). Fixed structure: hook with Loom link inside Upwork's ~230-char preview window, credibility paragraph pulled from the verified claims bank, optional technical-insight paragraph, standard bio/close/PS. Has a `scripts/check_hook_length.py` helper for the hook's character budget. |
 | `upwork-apply` | Scrape Upwork jobs → generate personalized proposals. Batch-only (needs Apify-scraped job arrays, truncates JDs to 500 chars) — not for a single hand-picked job |
 | `design-website` | Single-page HTML mockup for a prospect (buildinamsterdam.com aesthetic) |
 | `monday-crm` | Law-firm CRM on Monday.com — cases, leads, hearings, tasks |

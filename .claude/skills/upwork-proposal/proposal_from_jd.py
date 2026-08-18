@@ -138,10 +138,7 @@ def create_doc(title: str, body_html: str) -> tuple[str, str]:
     meta = {"name": title, "mimeType": "application/vnd.google-apps.document"}
     f = drive.files().create(body=meta, media_body=media, fields="id,webViewLink").execute()
     doc_id, url = f["id"], f["webViewLink"]
-    # share anyone-with-link (reader) so the Upwork client can open it
-    drive.permissions().create(
-        fileId=doc_id, body={"type": "anyone", "role": "reader"}, fields="id"
-    ).execute()
+    proposal_doc._share(drive, doc_id)  # anyone-with-link reader, so the client can always open it
     return doc_id, url
 
 

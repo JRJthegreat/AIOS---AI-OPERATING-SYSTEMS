@@ -50,6 +50,19 @@ def _drive():
     return build("drive", "v3", credentials=_creds())
 
 
+def _share(drive, file_id):
+    """Grant anyone-with-link viewer access so the client (a non-owner) can always
+    open it, not just Jude's own Google account. `create`/`update` never did this
+    before (Aug 2026 bug: Jude reported some doc links he sent were unopenable by
+    others); idempotent, safe to call on every create/update."""
+    perms = drive.permissions().list(fileId=file_id, fields="permissions(type)").execute()
+    if any(p.get("type") == "anyone" for p in perms.get("permissions", [])):
+        return
+    drive.permissions().create(
+        fileId=file_id, body={"type": "anyone", "role": "reader"}, fields="id"
+    ).execute()
+
+
 def _prep(html):
     if "—" in html or "&mdash;" in html:
         sys.exit("ERROR: em dash found in body. Remove all em dashes (house rule) before upload.")
@@ -64,7 +77,9 @@ def cmd_create(a):
     html = _prep(open(a.html, encoding="utf-8").read())
     media = MediaInMemoryUpload(html.encode("utf-8"), mimetype="text/html", resumable=False)
     meta = {"name": a.title, "mimeType": "application/vnd.google-apps.document"}
-    f = _drive().files().create(body=meta, media_body=media, fields="id,webViewLink").execute()
+    drive = _drive()
+    f = drive.files().create(body=meta, media_body=media, fields="id,webViewLink").execute()
+    _share(drive, f["id"])
     print("URL:", f["webViewLink"])
     print("ID:", f["id"])
 
@@ -72,7 +87,9 @@ def cmd_create(a):
 def cmd_update(a):
     html = _prep(open(a.html, encoding="utf-8").read())
     media = MediaInMemoryUpload(html.encode("utf-8"), mimetype="text/html", resumable=False)
-    f = _drive().files().update(fileId=a.id, media_body=media, fields="id,webViewLink").execute()
+    drive = _drive()
+    f = drive.files().update(fileId=a.id, media_body=media, fields="id,webViewLink").execute()
+    _share(drive, a.id)
     print("URL:", f["webViewLink"])
 
 

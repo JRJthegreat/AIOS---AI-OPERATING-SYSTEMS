@@ -28,15 +28,88 @@ These were learned the hard way; the client cares about all of them:
   call themselves, accept it plainly and say what to bring. The rule bans pushing
   a call, not agreeing to one; deflecting their own ask reads as evasive.
 - **Lead with proof.** The "Why me?" section opens on hard-number case studies.
+- **Frame the doc as a FREE AUDIT (Jude, Aug 15 2026, standing rule).** The doc title and the
+  researched technical-flags section carry audit language (e.g. title "... Automation Audit for
+  <Client>", flags section "Your free audit: ..."), and the opener tells the client they're
+  getting a free audit of their stack. The researched-constraints section IS the audit's
+  substance, so never drop it when using this framing; reciprocity is the point ("that guy
+  gave me something free"). The matching cover letter line lives in `upwork-cover-letter`
+  (its free-audit doc-line default). First applied: LGNDRY Marketing GHL doc.
+- **Every link is BOTH visible literal text AND an actual clickable hyperlink (Aug 2026,
+  Jude, in two parts same day: first "sometimes people can't see it, the thing is just text,"
+  then "make them hyperlinks so people can click").** Always write
+  `<a href="URL">URL</a>`, the URL as both the href and the visible text. Never
+  `<a href="URL">the testimonial</a>` (URL hidden behind other words), and never bare `URL`
+  with no `<a>` tag either, that renders as plain unclickable text once Drive converts the
+  HTML (confirmed by export: a bare URL with no `<a>` stays plain text, it does not
+  auto-linkify). Applies to every link in a proposal doc: testimonial videos, live portfolio
+  sites, GitHub, all of it. After render, spot-check with
+  `export --html | grep 'href="https://www.google.com/url'` (Drive wraps real hyperlinks in
+  its own redirect URL on export, a bare `<span>` with the literal text means it did not
+  become a link).
 - **Problem Overview is natural prose grounded only in what the prospect said
   on the call.** No invented pain. No sub-headings stacked on top of each other.
 - **No horizontal separator bars** between sections (they read as AI-generated);
   sections divide by their headings. Blank line spacing via `<p>&nbsp;</p>`.
+- **Every `<p>...</p>` to `<p>...</p>` transition gets a `<p>&nbsp;</p>` gap between them,
+  with no exceptions (Aug 2026, real regression: a subagent drafted a doc where the header
+  metadata block and the first two body paragraphs ran together with zero spacing, "the
+  spacing of the document is terrible," because it copied the numbered-step gap pattern from
+  the template but missed that the rule is general, not specific to numbered lists). `<h1>`/
+  `<h2>` headings carry their own space-before/space-after from Google Docs' Heading style, so
+  a plain paragraph immediately after a heading does not need one, but two consecutive plain
+  `<p>` tags always do. The only exception is a signature block or the `<br/>`-joined lines
+  inside one metadata `<p>` (those stay tight on purpose). When delegating body-copy drafting
+  to a subagent, paste this exact rule into its prompt rather than assuming it will infer it
+  from one example; verify the returned HTML against it before rendering.
 - **List items get breathing room (Aug 2026, Jude: cramped lists are "starting to
   be a little annoying").** The driver auto-injects `margin-bottom:10px` on every
   bare `<li>`; Drive's HTML->Doc conversion turns it into a 7.5pt space-after per
   item. Nothing to do when authoring bare-tag HTML; when safe-editing an exported
   doc, preserve the `padding-bottom:7.5pt` on `<li>` styles.
+
+## Speed: parallelize, and cut waste everywhere except the flowchart (Aug 2026)
+
+**The flowchart's design quality is never the speed lever.** Jude was explicit (Aug 2026):
+the bespoke, agent-designed flowchart is what makes a proposal land, "this is what gets the
+client to say, oh wow, this is interesting." Do not template it, do not simplify its ambition,
+do not cut the subagent's own eyeball-and-fix cycle when it is building the actual diagram.
+"Keep the layout simple" below means clean, non-crowded geometry so arrows do not cross and
+labels do not collide, a robustness technique, not a ceiling on creativity, content, color, or
+how impressive the result looks. If a proposal is still taking too long, the fix is cutting
+process waste elsewhere, never the flowchart's quality bar.
+
+Where real time was actually lost on record, and the fix for each:
+- **Sequential steps in the main thread** (research, then copy, then flowchart, one after
+  another). Fix: dispatch with the Agent tool, **all in one message with parallel tool
+  calls**, so wall-clock is the slowest agent, not the sum of all of them.
+- **A subagent told to "read the SKILL.md file"** for the flowchart or copy recipe, which
+  costs a full file-read-and-interpret round trip on a long file. Fix: paste the exact
+  recipe text (palette, layout rules, Playwright steps, house-style rules) directly into the
+  subagent's prompt instead of pointing it at the file.
+- **A bug only caught by Jude after render** (Aug 2026: a missing paragraph-spacing gap
+  shipped because nobody checked for it before the doc existed). Fix: run
+  `scripts/check_proposal_html.py <body.html>` on the copy agent's returned HTML **before**
+  creating the doc, catches em dashes, bracketed placeholders, and missing spacing gaps
+  deterministically, without a Google Docs round trip. Only fall back to a live Playwright
+  check of the actual doc for things the linter cannot see (the image genuinely rendered,
+  the font genuinely loaded), not for anything text-shaped.
+
+Agents to dispatch in one message, in parallel:
+
+- **Copy agent**: drafts the body (5-section transcript structure, or the apply-style JD
+  structure below, whichever applies), including any technical grounding it needs
+  (WebSearch/WebFetch) done inside its own run, not as a separate step beforehand.
+- **Flowchart agent**: builds and screenshots the diagram (recipe below), doing its own
+  eyeball-and-fix pass internally before returning; this is real, protected time, not
+  something to rush.
+- **Cover letter agent** (JD path only): drafts the Upwork cover letter off the same JD and
+  the claims bank, in parallel, since it does not depend on the copy agent's exact wording.
+
+Then in the main thread: run `check_proposal_html.py` on the copy agent's HTML and fix
+anything it flags, embed the flowchart's base64, run the doc script **once** (`create` /
+`update` / `proposal_from_jd.py --body-html`), do one quick structural check (`export --html |
+grep '<img'`), and hand off doc URL + cover letter + job URL together.
 
 ## Proposal structure
 
@@ -79,9 +152,11 @@ python3 -W ignore .claude/skills/upwork-proposal/proposal_doc.py update \
   --id <DOC_ID> --html .tmp/body.html
 ```
 
-The driver auto-injects Bricolage Grotesque and blocks em dashes on `create`
-and `update`. Live example doc (current Kualitatem proposal):
-`16wc5sSCttuQU-9ySslPeyPfVj7G1FjdiVXLW1SIvVlo`.
+The driver auto-injects Bricolage Grotesque, blocks em dashes, and shares the doc
+anyone-with-link/reader on `create` and `update` (Aug 2026 fix: `create`/`update` never
+granted this before, so some doc links Jude sent were only openable by his own Google
+account, not the client; `_share()` is idempotent, safe to call every time). Live example
+doc (current Kualitatem proposal): `16wc5sSCttuQU-9ySslPeyPfVj7G1FjdiVXLW1SIvVlo`.
 
 ## Which skill: this one vs `upwork-apply`
 
@@ -96,12 +171,11 @@ Both make Upwork proposals; they are not interchangeable.
 
 **A single-job application is two deliverables, not one.** The Google Doc is the
 attachment; the **cover letter is what actually gets submitted**, and nothing here
-generates it. Author it by hand against the `reference_upwork_cover_letter_preview`
-memory (no greeting, hook + link inside ~220 chars since that is all the client previews,
-then goodwill beat, 1 infra + 1 diagnosis question, then the CTA). Note the CTA rule
-inverts here: on Upwork the client is actively hiring, so a value-framed call ask is
-expected, unlike cold outreach. Save it next to the body as
-`.tmp/cover_letter_<slug>.txt`. Shipping the doc alone is half the job.
+generates it. Use the **`upwork-cover-letter`** skill for that (Aug 2026: it replaced the
+old hand-authored-per-job approach this section used to describe, which Jude never actually
+used). Pass it the job post, Jude's Loom link, and this doc's URL as the optional proposal-doc
+input. Save its output next to the body as `.tmp/cover_letter_<slug>.txt`. Shipping the doc
+alone is half the job.
 
 ## Quick path: proposal straight from a job description
 
@@ -185,9 +259,17 @@ Coordinator proposal:
 2. Render with the Playwright MCP browser. **`file://` is blocked** — serve the scratchpad
    dir with `python3 -m http.server <port>` and navigate to localhost. Resize the browser to
    the canvas size first, then `browser_take_screenshot` with `fullPage: true` and a
-   `filename`; **the PNG lands in the repo root**, not the scratchpad. Kill the server after.
-3. **Read the PNG and eyeball it** (label collisions, arrow geometry, font actually loaded)
-   before embedding. Iterate until it's genuinely clean.
+   `filename`; **the PNG lands in the repo root**, not the scratchpad. Kill the server after,
+   and **close the Playwright tab with `browser_close` once you're done with it** (Jude, Aug
+   2026: don't leave it open). This applies any time this skill opens a Playwright tab, including
+   navigating to the live Google Doc afterward to visually verify spacing/images/font before
+   handing off, not just the flowchart render itself.
+3. **Read the PNG and eyeball it once** (label collisions, arrow geometry, font actually
+   loaded) before embedding. Per the speed rule above, this should be a single build-and-check,
+   not a live iterate-until-clean loop in the main thread: pick generous, non-crowded card
+   coordinates up front (a simple column/grid layout with wide gutters rarely needs a second
+   pass) rather than discovering overlaps and re-editing SVG paths turn by turn. If the agent
+   building it is a subagent, it does the eyeball-and-fix cycle itself before returning.
 4. Embed as base64: `<img src="data:image/png;base64,..." style="width:624px;">` in the body
    HTML (inject with a small Python script, not a hand edit — the string is ~300KB). This
    survives the Drive HTML→Doc conversion intact (verify with `export --html | grep '<img'`).
@@ -228,6 +310,15 @@ section numbering is still correct.
   `--html` when you need to see or edit styles.
 - **`update` keeps the same doc ID and URL**, so a link you already shared stays
   valid.
+
+## Cleanup (Aug 2026, Jude)
+
+The doc itself lives in Google Drive; every local `.tmp/` file (`body.html`, exported
+`cur.html`/`cur.txt`, flowchart source and PNG, `job_url_<slug>.txt`) is a working
+intermediate only, and these piled up badly before this rule. Once Jude confirms in chat that
+he's done with a doc for this job (sent, or otherwise finished with it), delete that job's
+`.tmp/` files right away, in the same turn. Do not delete before confirmation, and do not
+bulk-delete older files from other sessions without asking, since their status is unknown.
 
 ## Troubleshooting
 
