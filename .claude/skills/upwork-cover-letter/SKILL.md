@@ -140,6 +140,15 @@ mentions of a blockchain decentralized exchange, an AI hedge fund, and a stock a
 **Never invent a client, number, or result beyond what is in that memory.** If nothing in the
 bank fits the job, keep the credibility paragraph general instead of stretching a claim to fit.
 
+The bank also holds proof-asset **links**, not just claims: the HiveIQ founder testimonial
+YouTube link (https://youtu.be/gwt_qoaR6d0) and Jude's GitHub (https://github.com/JRJthegreat)
+are both on file there. When the Loom promises either link "in my cover letter", include the
+actual URL in the letter (Aug 2026 miss: a letter shipped saying "you'll find it in my
+portfolio" when the YouTube link was sitting in the bank). And apply the bank's audience and
+framing rules, not just its facts: Grenke is named for Australian-market clients only
+(anonymous "equipment finance company" otherwise), and HiveIQ is always "lead AI engineer"
+with "we", never a solo end-to-end build claim.
+
 ## Hard rules
 
 - **No dashes of any kind, em or en.** Commas, parentheses, or restructure the sentence.
