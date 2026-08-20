@@ -293,32 +293,60 @@ Every proposal doc gets a **high-quality flowchart of the proposed system** when
 value (Jude: "don't give me anything sloppy"). Working recipe, learned on the AI Maintenance
 Coordinator proposal:
 
-1. Author the diagram as a fixed-layout HTML page at **2x scale** (e.g. 1248px canvas →
-   displayed at 624px): absolutely-positioned cards + one SVG underlay for arrows with
-   `<marker>` arrowheads. Font is **Bricolage Grotesque via Google Fonts** to match the doc.
-   Neutral ink/gray palette; status colors only for true status (red = emergency path,
-   amber = review queue), one blue accent for the AI/key step; every node labeled so color
-   is never the only carrier. Small uppercase stage labels (1 · Intake, 2 · Normalize, …)
-   read well. A dark full-width "foundation" bar (e.g. the system of record) anchors the
-   bottom nicely.
-2. Render with the Playwright MCP browser. **`file://` is blocked** — serve the scratchpad
-   dir with `python3 -m http.server <port>` and navigate to localhost. Resize the browser to
-   the canvas size first, then `browser_take_screenshot` with `fullPage: true` and a
-   `filename`; **the PNG lands in the repo root**, not the scratchpad. Kill the server after,
-   and **close the Playwright tab with `browser_close` once you're done with it** (Jude, Aug
-   2026: don't leave it open). This applies any time this skill opens a Playwright tab, including
-   navigating to the live Google Doc afterward to visually verify spacing/images/font before
-   handing off, not just the flowchart render itself.
-3. **Read the PNG and eyeball it once** (label collisions, arrow geometry, font actually
-   loaded) before embedding. Per the speed rule above, this should be a single build-and-check,
-   not a live iterate-until-clean loop in the main thread: pick generous, non-crowded card
-   coordinates up front (a simple column/grid layout with wide gutters rarely needs a second
-   pass) rather than discovering overlaps and re-editing SVG paths turn by turn. If the agent
-   building it is a subagent, it does the eyeball-and-fix cycle itself before returning.
-4. Embed as base64: `<img src="data:image/png;base64,..." style="width:624px;">` in the body
-   HTML (inject with a small Python script, not a hand edit — the string is ~300KB). This
-   survives the Drive HTML→Doc conversion intact (verify with `export --html | grep '<img'`).
-   624px = full page width; a 1248-wide PNG displays at 2x sharpness.
+**Two rules that Jude sent a diagram back for (Aug 2026). Read these before authoring:**
+
+- **Every font size must be DOUBLE its intended on-page size.** The canvas is 1248px and it
+  displays at 624px, so the page halves everything. A 12px label authored at canvas scale
+  renders at 6px in the doc: Jude's words, "somebody can see things moving up and down, but
+  they cannot actually read what it says." **Floor: 23px authored body text** (11.5px on the
+  page), 28px+ for headings. Big type means less text per box, so cut the copy to fit rather
+  than shrinking the type. Six readable boxes beat twelve unreadable ones.
+- **The background is white (`#ffffff`), never a tinted page colour.** A grey canvas makes the
+  image read as a screenshot of a web page sitting awkwardly in the document instead of a
+  diagram printed on it (Jude: "there is a background you add, which is a bit grey, why is
+  that there?"). Card fills stay white too; drop box-shadows. Colour is only for meaning
+  (red = a hard constraint, amber = review queue, one blue accent for the AI step) and a dark
+  full-width "foundation" bar still anchors the bottom nicely.
+
+1. Author the diagram as an HTML page at **2x scale** (1248px canvas → displayed at 624px).
+   Font is **Bricolage Grotesque via Google Fonts** to match the doc. Every node labelled, so
+   colour is never the only carrier of meaning.
+2. **Lay out with flexbox and auto heights, and draw the arrows from measured geometry in JS.
+   Never hand-place arrow coordinates against fixed card heights.** Hand-placed coordinates
+   were the cause of a real regression: type got bigger, fixed-height cards stayed the same,
+   and text spilled out of every box while the arrows pointed at nothing. Give cards
+   `height:auto` inside `display:flex` rows, then after `document.fonts.ready` measure each
+   card with `getBoundingClientRect()` and emit orthogonal `<path>` strings into an absolutely
+   positioned SVG underlay. Copy can then change freely without breaking the picture.
+   **Start from `templates/flowchart_base.html`**, which is the working implementation of all
+   of this (2x type scale, white background, flex rows, measured arrows). Swap the card copy
+   and the node ids in the `draw()` call list; leave the sizing and the measuring code alone.
+3. Render it. **`file://` is blocked**, so serve the scratchpad dir with
+   `python3 -m http.server <port>` and load localhost. Preferred: the Playwright MCP browser
+   (resize to canvas width, `browser_take_screenshot` with `fullPage: true` and a `filename`;
+   **the PNG lands in the repo root**, not the scratchpad). **Fallback when Playwright errors
+   with "Browser is already in use"** (a parallel Claude session holds the profile lock, which
+   happens often): do not kill it, shell out to headless Chrome instead, which needs no lock:
+   ```bash
+   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu \
+     --hide-scrollbars --force-device-scale-factor=1 --virtual-time-budget=9000 \
+     --window-size=1248,1400 --screenshot="$PWD/fc.png" http://localhost:<port>/index.html
+   ```
+   `--virtual-time-budget` is what lets the webfont load and the arrow JS run before capture.
+   With auto heights you cannot know the final height up front, so shoot tall and crop the
+   trailing white with PIL: `ImageChops.difference(im, white).getbbox()` then `im.crop(...)`.
+   Kill the http server after, and **close the Playwright tab with `browser_close`** if you
+   used it (Jude, Aug 2026: don't leave it open). That applies to any tab this skill opens,
+   including the live Google Doc you verify against before handing off.
+4. **Read the PNG back and eyeball it once** before embedding: text overflowing its box, arrows
+   landing on nothing, label collisions, font actually loaded. One build-and-check, not a
+   turn-by-turn iterate-until-clean loop. If a subagent is building it, it does that cycle
+   itself before returning.
+5. Embed as base64: `<img src="data:image/png;base64,..." style="width:624px;">` in the body
+   HTML (inject with a small Python script, not a hand edit, the string is ~300KB). This
+   survives the Drive HTML→Doc conversion intact. Verify with
+   `export --html | grep -o 'width: [0-9.]*px; height: [0-9.]*px'`, which shows the real
+   rendered size; 624px wide is full page width.
 
 ## Safe-edit workflow (once the client edits the doc by hand)
 
