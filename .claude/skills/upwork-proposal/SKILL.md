@@ -298,6 +298,21 @@ section numbering is still correct.
   the driver injects `font-family:'Bricolage Grotesque'` on bare block tags. The
   injection **no-ops on already-styled HTML** (e.g. a Google export), so it is
   safe to run `update` on exported-then-edited HTML.
+- **Styling a table kills the font document-wide (Aug 20 2026, learned on the property
+  portal doc, cost three round trips).** `_prep` only injects Bricolage into BARE block tags,
+  so a styled `<td>`/`<th>` loses it. Worse, Drive's HTML->Doc converter reacts to certain
+  table CSS by dropping the injected font from the ENTIRE document, `<p>` and `<h2>` included,
+  so the doc silently comes back as Arial. Verified by experiment:
+  - **Works:** cell styles carrying `font-family` themselves plus `border`, `padding`,
+    `vertical-align`, `background-color`, `text-align`, with the `<table>` tag left bare.
+  - **Breaks everything:** any `style` on the `<table>` tag itself (`border-collapse`,
+    `width:100%`), and `width:` inside a `<td>`/`<th>` style. Both zero out Bricolage globally.
+  So: never style `<table>`, never set cell widths, and always repeat
+  `font-family:'Bricolage Grotesque',sans-serif;` inside every `<td>`/`<th>` style you add.
+  Column widths are simply not available; keep table copy short instead.
+  **Always confirm after any table change** with
+  `export --html | grep -o Bricolage | wc -l` (should be in the hundreds, never 0).
+
 - **Font may need a one-time enable.** If the doc shows a default font, open it,
   Select All, font menu > More fonts > add "Bricolage Grotesque". It then sticks.
 - **Mixed editing clobbers.** Either you drive via the script, or the client
