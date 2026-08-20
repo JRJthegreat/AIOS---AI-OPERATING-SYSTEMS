@@ -13,9 +13,14 @@ Checks (all deterministic, no LLM call):
      them, UNLESS the second <p> immediately follows an <h1>/<h2>/<h3> (headings carry
      their own space-before/after from Google Docs' Heading style).
   4. Exactly one <h1> present (the doc title).
+  5. Body length. Jude, Aug 2026: "nobody is gonna sit down and read eight pages of
+     documents." Calibrated against three docs that actually won work: 538 words (the
+     Paris boat operator, won a paid two-developer bake-off), 1,140 (the quotation
+     follow-up system), 2,436 (the HubSpot build, the outlier). A 3,129-word draft got
+     sent back. Under 1,200 is the target, over 1,800 fails unless you pass --allow-long.
 
 Usage:
-  python3 check_proposal_html.py .tmp/body.html
+  python3 check_proposal_html.py .tmp/body.html [--allow-long]
 Exit code 0 and "PASS" if clean; exit code 1 and a list of problems otherwise.
 """
 import re
@@ -28,6 +33,19 @@ PLACEHOLDER_RE = re.compile(r"\[[A-Za-z][^\]\n]{0,40}\]")
 # non-bracket token so it can't itself trip the placeholder check below
 IMG_DATA_RE = re.compile(r'(src="data:image/[a-zA-Z]+;base64,)[^"]+(")')
 SIGNOFF_OPENERS = {"best,", "cheers,", "regards,", "sincerely,"}
+
+# Length budget, in visible words (tags and base64 stripped). See the docstring for
+# where these numbers come from.
+WORDS_TARGET = 1200   # above this: warn, and say what to cut
+WORDS_HARD = 1800     # above this: fail, unless --allow-long is passed
+
+
+def visible_word_count(html):
+    """Words a human actually reads: no tags, no base64 payload, no &nbsp; spacers."""
+    text = strip_image_data(html)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = text.replace("&nbsp;", " ")
+    return len(text.split())
 
 
 def strip_image_data(html):
@@ -77,9 +95,11 @@ def find_spacing_gaps(html):
 
 
 def main():
-    if len(sys.argv) != 2:
-        sys.exit("Usage: check_proposal_html.py <file.html>")
-    path = Path(sys.argv[1])
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    allow_long = "--allow-long" in sys.argv
+    if len(args) != 1:
+        sys.exit("Usage: check_proposal_html.py <file.html> [--allow-long]")
+    path = Path(args[0])
     html = path.read_text(encoding="utf-8")
     html_stripped = strip_image_data(html)
 
@@ -103,6 +123,15 @@ def main():
     elif h1_count > 1:
         problems.append(f"Found {h1_count} <h1> tags, expected exactly 1.")
 
+    words = visible_word_count(html)
+    if words > WORDS_HARD and not allow_long:
+        problems.append(
+            f"Body is {words} words, over the {WORDS_HARD} hard limit. Nobody reads a "
+            f"proposal this long. Cut it to one proof story instead of a case-study list, "
+            f"one-sentence answers instead of paragraphs, and let the flowchart carry the "
+            f"architecture. Pass --allow-long only if the JD genuinely demands this much."
+        )
+
     if problems:
         print("FAIL:")
         for p in problems:
@@ -110,6 +139,14 @@ def main():
         sys.exit(1)
 
     print("PASS: no em dashes, no bracketed placeholders, spacing consistent, one <h1>.")
+    if words > WORDS_TARGET:
+        print(
+            f"WARNING: {words} words, over the {WORDS_TARGET}-word target. It will render "
+            f"long. Trim unless the JD demands the extra length (a mandated question list, "
+            f"for example)."
+        )
+    else:
+        print(f"Length: {words} words, within the {WORDS_TARGET}-word target.")
 
 
 if __name__ == "__main__":

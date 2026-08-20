@@ -17,6 +17,27 @@ All paths below are relative to the repo root. Run everything from the repo root
 
 These were learned the hard way; the client cares about all of them:
 
+- **Keep it SHORT. Target under 1,200 words (Jude, Aug 2026, said twice).** His words:
+  "nobody is gonna sit down and read eight pages of documents." A 3,129-word draft on the
+  Microsoft 365 email assistant job was sent back for this reason alone; the content was
+  right and the length killed it. **Calibrate against the docs that actually won work**
+  (export them with `proposal_doc.py export --id <ID>` before authoring if you need the feel):
+  - `1voalYmJcXn_E35zA2LeFq6NZAL0o9zQYhAV_xubnrN4` **538 words**, the Paris boat operator,
+    won a paid two-developer bake-off. The shortest doc on file is also the biggest win.
+  - `1Q6JxthIXIHGB3RNLXiMzzZdBGQQBd0GPacqtHCpMIF8` **1,140 words**, quotation follow-up system.
+  - `15OCpAmq1PH7LK38b07WeJPUHg1LqEZMaZax31sAeRJc` **2,436 words**, HubSpot build. The outlier,
+    not the model to copy.
+  `scripts/check_proposal_html.py` now **enforces** this: it prints the visible word count on
+  every run, warns over 1,200, and **fails over 1,800** unless you pass `--allow-long`. Do not
+  reach for the override to avoid editing. A JD with a mandated question list (answer all ten
+  of these) is the one honest reason to sit in the 1,200 to 1,800 band.
+- **What to cut first, in order:** the case-study list down to ONE proof story (a second only
+  if it proves something different); multi-sentence answers down to one sentence; any standalone
+  section whose content fits inside a table row (an "ownership" or "what you'll get" section
+  usually does); the formal `Prepared for / Prepared by / Date` block down to a two-line byline.
+  **Never cut the flowchart to save length.** It is the single biggest word-saver in the doc,
+  a good diagram replaces roughly 400 words of architecture prose, and per the standing rule
+  below it is the thing that makes the proposal land.
 - **No em dashes, ever.** Use commas, colons, periods, or parentheses. The
   driver refuses to upload any body that contains an em dash.
 - **Font is Bricolage Grotesque.** The driver injects it; do not change it.
@@ -90,8 +111,8 @@ Where real time was actually lost on record, and the fix for each:
 - **A bug only caught by Jude after render** (Aug 2026: a missing paragraph-spacing gap
   shipped because nobody checked for it before the doc existed). Fix: run
   `scripts/check_proposal_html.py <body.html>` on the copy agent's returned HTML **before**
-  creating the doc, catches em dashes, bracketed placeholders, and missing spacing gaps
-  deterministically, without a Google Docs round trip. Only fall back to a live Playwright
+  creating the doc, catches em dashes, bracketed placeholders, missing spacing gaps and an
+  over-long body deterministically, without a Google Docs round trip. Only fall back to a live Playwright
   check of the actual doc for things the linter cannot see (the image genuinely rendered,
   the font genuinely loaded), not for anything text-shaped.
 
@@ -219,13 +240,37 @@ python3 -W ignore .claude/skills/upwork-proposal/proposal_from_jd.py \
   --body-html .tmp/body.html --title "<Doc title>"
 ```
 
-Structure that works for a screening-question JD: header block (byline + focus), a
-2-line opening that mirrors the JD, a proof line with REAL verified numbers, **"Your
-two questions, answered first"**, "How I would build it" (numbered, one step per phase
-of their spec), **"Two things I would push back on"** (where the real expertise shows,
-name the wrong tool choices in their spec and the fix), "What you'll get", "Timeline"
-(call out the one blocker on their side), reply-only next step, signed
-"Best, / Rood Judeley Joseph (Jude)" (full-name sign-off, never a bare "Jude"; "Cheers," also OK).
+**Structure: write a LETTER, not a consulting report (Aug 2026, derived from the three
+winning docs above).** Every doc that won work follows the same shape, and none of them
+has a standalone ownership section, a five-item case-study list, or an essay per question:
+
+1. Two-line byline header (name + `Focus:` line). Not the formal Prepared-for block.
+2. `Hey <Name>,` then ONE paragraph mirroring what they asked for, in their own terms,
+   grounded only in the JD. Fold the free-audit line in here.
+3. The flowchart, with a one-line caption. Put it high; it answers "recommended
+   architecture" in a glance and buys back hundreds of words.
+4. If the JD mandates a question list, a **compact table** (`You asked | Answer`), one or
+   two sentences per row. A checklist buyer wants to tick items off, and a table does that
+   far better than prose. Absorb what would otherwise be standalone sections into rows.
+5. **"N things I checked before writing this"** or "Two things I would push back on": the
+   researched constraints and the wrong tool choices in their spec. This is the free audit
+   and the part no competitor can copy, so it survives every trim. Keep each item to 3 or 4
+   sentences.
+6. **"How I would build it"**: numbered milestones. Give each an objective
+   *Signed off when* acceptance test, which doubles as the "what you'll get" section so you
+   do not need a separate one.
+7. **Similar work**: ONE proof story told properly, a second only if it proves something the
+   first does not. Then any real skill gap in a single sentence (see
+   `feedback_honest_gap_framing`), never a paragraph.
+8. Reply-only next step offering something specific and free.
+9. `Best,` / `Rood Judeley Joseph (Jude)` (full name, never a bare "Jude"; "Cheers," also OK).
+
+**Timeline wording (Jude, Aug 2026): give milestones, not durations.** He builds with Claude
+Code, so week-based estimates are inflated and quoting a short timeline invites the client to
+reprice the work downward. State the sequence, name the dependencies that actually set the
+calendar (client-side admin access, a real data window to tune against), and say you will
+commit to dates at kickoff. Fixed-price milestones mean efficiency gains accrue to Jude, which
+is the whole reason not to bill hourly. Money still never appears in the doc.
 
 How the LLM path differs from the transcript path above:
 - **Proposal only** (no cover letter), **no Google Sheet**.
