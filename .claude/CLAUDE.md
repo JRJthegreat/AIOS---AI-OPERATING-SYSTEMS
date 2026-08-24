@@ -42,7 +42,8 @@ cd productionhub-directory-actor && python3 -m src   # set testMode:true in INPU
 skill dir. Google credentials are resolved CWD-relative (`os.path.exists('token.json')`), so from any
 other directory auth falls through to the service-account branch and dies with a misleading
 `Credentials file 'service_account.json' not found`. Only `gmaps-leads`'s `heal_enrichment.py` and
-`verify_email_persona.py` anchor to a `PROJECT_ROOT` constant; the other ~69 scripts do not.
+`verify_email_persona.py` anchor to a `PROJECT_ROOT` constant; of the 73 scripts under
+`.claude/skills/`, 18 do the CWD-relative `token.json` check and only those two anchor.
 
 There is no repo-wide test/build step and no root `requirements.txt` — skill scripts run on system
 `python3` against already-installed deps (`gspread`, `python-dotenv`, `openai`, `google-auth*`,
@@ -104,14 +105,28 @@ productionhub-directory-actor/  # Standalone Apify actor — productionhub.com (
 reddit-lead-intelligence.workflow.json  # n8n workflow: Reddit → Apify → lead enrichment
 setup_google_auth.py                    # one-time OAuth flow for Google APIs
 token.json                              # Google OAuth token (gitignored)
-.tmp/                                   # intermediate files (gitignored) — never commit
+.tmp/                                   # intermediate files: gitignored, but see Repo hygiene
 ```
 
 **Repo hygiene:** `.gitignore` now covers secrets (`.env`, `token.json`, `credentials.json`,
 `.mcp.json`), `.tmp/`, actor-local `.venv/` / `storage/` / `__pycache__/`, `.playwright-mcp/` session
 logs, the root `flowchart_*.png` renders, and the `campaign_archive` symlink (points at
-`~/nexam-campaign-archive`, outside this repo). One-off artifacts still land untracked at the root
-(e.g. `damian-photo.png`), so never `git add -A` blind: stage explicit paths.
+`~/nexam-campaign-archive`, outside this repo).
+
+Two traps the `.gitignore` does **not** solve, because ignore rules never untrack what was already
+committed:
+
+- **11 `.tmp/` files are still tracked** (`.tmp/upwork_jobs_*.json`, `.tmp/proposals*.json`,
+  `.tmp/single_*.json`, `.tmp/merge_sheet.py`, `.tmp/current_sheet_id.txt`). Overwriting any of them
+  during a run makes `git status` dirty, and a blind `git add -A` commits scratch data. Check
+  `git ls-files .tmp/` before staging; to actually retire them use `git rm --cached`.
+- **`damian-photo.png` is tracked** at the root, not untracked. It is a committed one-off artifact.
+
+So never `git add -A` blind: stage explicit paths. (`.pytest_cache/` at the root looks unignored but
+self-ignores via pytest's own `.pytest_cache/.gitignore`; leave it alone.)
+
+`.tmp/` is currently ~636 entries / ~191 MB. It is never cleaned automatically, so delete a job's
+files once its deliverable is confirmed sent.
 
 **Key principle:** Local files are only for processing. Deliverables live in Google Sheets, Slides, or
 other cloud services — the Sheet URL (not a local file) is what you hand to Jude.
@@ -244,7 +259,8 @@ Deployed to Apify separately from the skills system (`apify push`).
   `profileIds` visit-only (re-enrich rows that already passed classification). Records push per
   finished target, so a killed run still yields data. **Anti-bot is the whole design and is fragile —
   do not "simplify" it:** the site is Cloudflare-fronted, so it uses `patchright` (not plain
-  playwright), `launch_persistent_context(channel="chrome")`, `headless=False` under `xvfb-run` in
+  playwright), `launch_persistent_context(channel="chrome")` with a fallback to patchright's own
+  patched Chromium when Chrome is absent, `headless=False` under `xvfb-run` in
   the Dockerfile, and a **sticky** Apify residential session (`new_url(session_id=...)`) because
   `cf_clearance` is issued to a single IP. Plain headless Chromium, bare `chromium.launch()`, and
   rotating proxies each hang on "Verification successful. Waiting for … to respond". A company
