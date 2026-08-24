@@ -135,10 +135,25 @@ Instantly campaigns are always **created PAUSED** for Jude to review and launch.
 
 ## MCP servers
 
-`.mcp.json` (gitignored) defines two: **`ai-ark`** (lead enrichment, below) and **`make`**
-(Make.com scenarios). Note `settings.local.json` also lists `context7`, `gmail`, and `pandadoc` under
-`enabledMcpjsonServers`, but none of them are defined in this repo's `.mcp.json` — those entries are
-inert here unless the server comes from a global config.
+`.mcp.json` (gitignored) defines three: **`ai-ark`** (lead enrichment, below), **`make`**
+(Make.com scenarios), and **`upwork`** (official Upwork server, below). Note `settings.local.json` also
+lists `context7`, `gmail`, and `pandadoc` under `enabledMcpjsonServers`, but none of them are defined
+in this repo's `.mcp.json` — those entries are inert here unless the server comes from a global config.
+
+### Upwork (official, added Aug 25 2026)
+
+Endpoint `https://mcp.upwork.com/mcp`, transport HTTP. Auth is **OAuth 2.1 + PKCE only** (no API key
+to paste): its `/.well-known/oauth-protected-resource` points the token exchange at
+`www.upwork.com/api/v3/oauth2/token`, so the config carries no secret and the login must be completed
+interactively with `/mcp` in a real terminal session. A headless/non-interactive session cannot
+authorize it, and the endpoint returns 401 until it is.
+
+Upwork announced it Aug 10 2026 and the published framing is **hiring-side** (turn a request into a job
+post, find talent, draft offers, manage contracts); freelancer-side use is claimed in secondary coverage
+but the tool list has not been verified here, and **no keyword/profile ranking capability is documented**
+— do not plan around one. Verify the actual tools with `/mcp` after authorizing, before wiring it into
+the `upwork-proposal` / `upwork-cover-letter` flows. Those skills stay the source of proposal quality;
+the MCP is at most a way to pull the JD in and push the result back.
 
 ### AI Ark (lead enrichment)
 
