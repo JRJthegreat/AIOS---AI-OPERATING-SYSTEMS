@@ -7,9 +7,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```bash
 # Run any skill script directly (each skill bundles its own scripts/)
 python3 .claude/skills/<skill-name>/scripts/<script>.py [args]
-# Exception: upwork-proposal keeps its scripts at the skill root, not under scripts/
+# Exception: upwork-proposal keeps its two builders at the skill root; its scripts/ holds the linter
 python3 .claude/skills/upwork-proposal/proposal_doc.py [args]      # from a call transcript
 python3 .claude/skills/upwork-proposal/proposal_from_jd.py [args]  # from a job description
+
+# The repo's only lint gate. Run on the proposal body HTML BEFORE rendering/upload.
+# Fails on: em dashes, [bracketed placeholders], a missing <p>&nbsp;</p> gap between blocks,
+# zero or >1 <h1>, and a body over 1,800 words (warns over the 1,200-word target).
+python3 .claude/skills/upwork-proposal/scripts/check_proposal_html.py .tmp/body.html [--allow-long]
+
+# Cover-letter hook vs Upwork's ~230-char preview cutoff (arg, or stdin via pbpaste)
+python3 .claude/skills/upwork-cover-letter/scripts/check_hook_length.py "Hi Name. ... https://loom.com/..."
 
 # scrape-leads: test a scrape (25-item sample) BEFORE a full run — Apify bills per result
 python3 .claude/skills/scrape-leads/scripts/scrape_apify.py \
@@ -36,10 +44,14 @@ other directory auth falls through to the service-account branch and dies with a
 `Credentials file 'service_account.json' not found`. Only `gmaps-leads`'s `heal_enrichment.py` and
 `verify_email_persona.py` anchor to a `PROJECT_ROOT` constant; the other ~69 scripts do not.
 
-There is no repo-wide test/lint/build step and no root `requirements.txt` — skill scripts run on system
+There is no repo-wide test/build step and no root `requirements.txt` — skill scripts run on system
 `python3` against already-installed deps (`gspread`, `python-dotenv`, `openai`, `google-auth*`,
-`requests`); only the three Apify actors pin their own. Validate by running the specific script against
-a small sample and eyeballing the `.tmp/` output.
+`requests`); only the three Apify actors pin their own. The single lint gate is
+`check_proposal_html.py` above, and it only covers proposal HTML. Validate everything else by running
+the specific script against a small sample and eyeballing the `.tmp/` output. When a script's logic
+warrants real tests, write them throwaway into `.tmp/` and run `python3 -m pytest .tmp/test_x.py`
+(see `.tmp/test_find_company_domains.py`). Nothing under `.tmp/` is committed, so tests here are
+per-change scaffolding, never a suite to keep green.
 
 ## LLM provider (IMPORTANT)
 
@@ -70,9 +82,10 @@ scripts in order, and self-heals on errors.
 
 ```
 .claude/
-  skills/          # 18 skills, each = SKILL.md + scripts/
+  skills/          # 19 dirs, 17 invocable (a skill needs a SKILL.md); each = SKILL.md + scripts/
   agents/          # Subagents: code-reviewer, research, qa, email-classifier
-  settings.local.json
+  plans/           # Saved plan-mode output, read by nothing
+  settings.local.json  # Permissions: git push / reset --hard / clean are DENIED
 
 .mcp.json          # MCP servers: ai-ark (lead enrichment) + make — gitignored, holds API keys
 .env               # All API keys (Apify, Azure OpenAI, Instantly, Monday, etc.) — gitignored
@@ -94,9 +107,11 @@ token.json                              # Google OAuth token (gitignored)
 .tmp/                                   # intermediate files (gitignored) — never commit
 ```
 
-**Repo hygiene:** `.gitignore` covers secrets and `.tmp/` but *not* actor-local `.venv/`,
-`storage/`, or `__pycache__/`, nor the `flowchart_*.png` files that land in the repo root when
-rendering proposal diagrams (see below). Never `git add -A` blind — stage explicit paths.
+**Repo hygiene:** `.gitignore` now covers secrets (`.env`, `token.json`, `credentials.json`,
+`.mcp.json`), `.tmp/`, actor-local `.venv/` / `storage/` / `__pycache__/`, `.playwright-mcp/` session
+logs, the root `flowchart_*.png` renders, and the `campaign_archive` symlink (points at
+`~/nexam-campaign-archive`, outside this repo). One-off artifacts still land untracked at the root
+(e.g. `damian-photo.png`), so never `git add -A` blind: stage explicit paths.
 
 **Key principle:** Local files are only for processing. Deliverables live in Google Sheets, Slides, or
 other cloud services — the Sheet URL (not a local file) is what you hand to Jude.
@@ -138,7 +153,7 @@ calls AI Ark over its **HTTP JSON-RPC endpoint directly** (stateless, token read
 implementation (`find_dm.py` + `AI_ARK_HANDOFF.md` in the removed `b2b-sales-leads-indeed` skill) is
 recoverable from git history.
 
-## Skills (19)
+## Skills (19 dirs, 17 invocable)
 
 ### Lead Generation
 | Skill | What it does |
@@ -227,8 +242,11 @@ Diagrams are authored as fixed-layout HTML at 2x scale and screenshotted with th
 browser. Two constraints that bite every time: `file://` URLs are blocked, so serve the directory with
 `python3 -m http.server <port>` and navigate to localhost (kill the server after); and
 `browser_take_screenshot` writes the PNG to the **repo root**, not the scratchpad — read it back,
-eyeball it, then move or delete it. Full recipe (palette, arrow SVG underlay, base64 embed that
-survives the Drive HTML→Doc conversion) lives in `upwork-proposal/SKILL.md`.
+eyeball it, then move or delete it. Start from `upwork-proposal/templates/flowchart_base.html`, the
+working implementation: authored at 2x (1248px wide, white background, Bricolage Grotesque, SVG wire
+underlay) and displayed at 624px in the doc, so every px in that file is double its on-page size. Full
+recipe (palette, arrow SVG underlay, base64 embed that survives the Drive HTML→Doc conversion) lives
+in `upwork-proposal/SKILL.md`.
 
 ## Google OAuth
 
