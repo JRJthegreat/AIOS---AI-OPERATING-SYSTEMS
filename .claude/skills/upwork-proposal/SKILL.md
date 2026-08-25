@@ -342,11 +342,16 @@ Coordinator proposal:
    landing on nothing, label collisions, font actually loaded. One build-and-check, not a
    turn-by-turn iterate-until-clean loop. If a subagent is building it, it does that cycle
    itself before returning.
-5. Embed as base64: `<img src="data:image/png;base64,..." style="width:624px;">` in the body
-   HTML (inject with a small Python script, not a hand edit, the string is ~300KB). This
-   survives the Drive HTML→Doc conversion intact. Verify with
-   `export --html | grep -o 'width: [0-9.]*px; height: [0-9.]*px'`, which shows the real
-   rendered size; 624px wide is full page width.
+5. Embed as base64: `<img src="data:image/png;base64,..." width="624" height="752">` in the
+   body HTML (inject with a small Python script, not a hand edit, the string is ~300KB), with
+   the real half-scale pixel size in the `width`/`height` ATTRIBUTES. **Never
+   `style="width:624px;"` on the img (Aug 25 2026, Indeed screening doc): a `width:` inside an
+   img `style` triggers the same converter bug as table width styles below and zeroes Bricolage
+   out of the ENTIRE document (isolated by A/B upload: same body with attribute sizing kept the
+   font, style sizing came back all Arial).** An img with no size at all keeps the font too but
+   renders at the full 1248px, double page width. Verify BOTH after upload:
+   `export --html | grep -o 'width: [0-9.]*px; height: [0-9.]*px'` (should be 624px wide) and
+   `export --html | grep -o Bricolage | wc -l` (never 0).
 
 ## Safe-edit workflow (once the client edits the doc by hand)
 
@@ -383,8 +388,10 @@ section numbering is still correct.
   So: never style `<table>`, never set cell widths, and always repeat
   `font-family:'Bricolage Grotesque',sans-serif;` inside every `<td>`/`<th>` style you add.
   Column widths are simply not available; keep table copy short instead.
-  **Always confirm after any table change** with
-  `export --html | grep -o Bricolage | wc -l` (should be in the hundreds, never 0).
+  **The same bug hits `<img>` (Aug 25 2026):** `style="width:624px;"` on the flowchart img
+  zeroes the font document-wide; size images with `width`/`height` attributes instead (see
+  flowchart step 5). **Always confirm after any table or image change** with
+  `export --html | grep -o Bricolage | wc -l` (never 0; a full doc typically shows dozens).
 
 - **Font may need a one-time enable.** If the doc shows a default font, open it,
   Select All, font menu > More fonts > add "Bricolage Grotesque". It then sticks.
