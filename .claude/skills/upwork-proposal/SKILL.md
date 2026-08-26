@@ -247,8 +247,12 @@ has a standalone ownership section, a five-item case-study list, or an essay per
 1. Two-line byline header (name + `Focus:` line). Not the formal Prepared-for block.
 2. `Hey <Name>,` then ONE paragraph mirroring what they asked for, in their own terms,
    grounded only in the JD. Fold the free-audit line in here.
-3. The flowchart, with a one-line caption. Put it high; it answers "recommended
-   architecture" in a glance and buys back hundreds of words.
+3. The flowchart, with its one-line caption ABOVE it, never below (a caption under the image gets
+   orphaned onto the next page when the image moves). Default position is high, right after the opener.
+   **Jude moved it once (Aug 27 2026, Lark Base portal doc) to sit after "How I would build it"**, where
+   the diagram reads as the picture of the milestones just described; use that placement when the
+   milestones carry the architecture, and keep it high when the diagram is the architecture answer
+   itself.
 4. If the JD mandates a question list, a **compact table** (`You asked | Answer`), one or
    two sentences per row. A checklist buyer wants to tick items off, and a table does that
    far better than prose. Absorb what would otherwise be standalone sections into rows.
@@ -342,6 +346,17 @@ Coordinator proposal:
    landing on nothing, label collisions, font actually loaded. One build-and-check, not a
    turn-by-turn iterate-until-clean loop. If a subagent is building it, it does that cycle
    itself before returning.
+**Height cap: the finished image must be at most ~300px DISPLAYED (600px canvas at 2x)**
+   (Aug 27 2026, Jude, on the Lark Base portal doc: "in the first page, there's a huge chunk of white
+   space, why is that there" and "the flowchart is way too big"). A Google Doc page body is ~648px tall
+   and Docs will not split an image, so anything taller than roughly half a page jumps to the next page
+   and leaves the rest of the current page blank. A 681px image left a full blank page; 410px still left
+   a half page. 248px flowed clean. Get the height down by cutting rows and copy (one line per card,
+   drop any row the body text already covers), never by shrinking the type below the 23px floor.
+   **Verify by rendering, not by guessing:** export the finished doc to PDF and look at the pages
+   (`files().export(mimeType='application/pdf')`, then `pdftoppm -png -r 62` and stitch them side by
+   side). That is the only way to see a page-break gap before Jude does.
+
 5. Embed as base64: `<img src="data:image/png;base64,..." width="624" height="752">` in the
    body HTML (inject with a small Python script, not a hand edit, the string is ~300KB), with
    the real half-scale pixel size in the `width`/`height` ATTRIBUTES. **Never
@@ -393,6 +408,12 @@ section numbering is still correct.
   flowchart step 5). **Always confirm after any table or image change** with
   `export --html | grep -o Bricolage | wc -l` (never 0; a full doc typically shows dozens).
 
+- **The font injection is FLAKY on Drive's side: check it after EVERY create/update** (Aug 27 2026).
+  The exact same body HTML uploaded twice gave 0 Bricolage occurrences on one run and 67 on the next,
+  with no content change. It is a converter race, not a bug in the body. So always run
+  `export --html | grep -o Bricolage | wc -l` after an upload, and if it comes back 0, simply re-run the
+  identical `update` and check again. Do not go hunting for a styling cause first: reproduce it twice
+  before assuming the HTML is at fault.
 - **Font may need a one-time enable.** If the doc shows a default font, open it,
   Select All, font menu > More fonts > add "Bricolage Grotesque". It then sticks.
 - **Mixed editing clobbers.** Either you drive via the script, or the client
