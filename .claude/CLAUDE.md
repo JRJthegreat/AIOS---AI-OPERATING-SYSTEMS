@@ -83,7 +83,8 @@ scripts in order, and self-heals on errors.
 
 ```
 .claude/
-  skills/          # 19 dirs, 17 invocable (a skill needs a SKILL.md); each = SKILL.md + scripts/
+  skills/          # 18 tracked dirs, 17 invocable (a skill needs a SKILL.md); each = SKILL.md + scripts/
+                   #   + an empty, untracked create-proposal/ locally: 19 dirs on this machine, 18 on a clone
   agents/          # Subagents: code-reviewer, research, qa, email-classifier
   plans/           # Saved plan-mode output, read by nothing
   settings.local.json  # Permissions: git push / reset --hard / clean are DENIED
@@ -125,7 +126,7 @@ committed:
 So never `git add -A` blind: stage explicit paths. (`.pytest_cache/` at the root looks unignored but
 self-ignores via pytest's own `.pytest_cache/.gitignore`; leave it alone.)
 
-`.tmp/` is currently ~636 entries / ~191 MB. It is never cleaned automatically, so delete a job's
+`.tmp/` runs to hundreds of files / ~200 MB and is never cleaned automatically, so delete a job's
 files once its deliverable is confirmed sent.
 
 **Key principle:** Local files are only for processing. Deliverables live in Google Sheets, Slides, or
@@ -163,12 +164,30 @@ to paste): its `/.well-known/oauth-protected-resource` points the token exchange
 interactively with `/mcp` in a real terminal session. A headless/non-interactive session cannot
 authorize it, and the endpoint returns 401 until it is.
 
-Upwork announced it Aug 10 2026 and the published framing is **hiring-side** (turn a request into a job
-post, find talent, draft offers, manage contracts); freelancer-side use is claimed in secondary coverage
-but the tool list has not been verified here, and **no keyword/profile ranking capability is documented**
-— do not plan around one. Verify the actual tools with `/mcp` after authorizing, before wiring it into
-the `upwork-proposal` / `upwork-cover-letter` flows. Those skills stay the source of proposal quality;
-the MCP is at most a way to pull the JD in and push the result back.
+The tool surface is now visible in an authorized session (observed Aug 27 2026), and it is **not
+hiring-side only**. The freelancer-side tools are real. The ones that matter for Jude's flows:
+
+- **Pull a job in:** `find_jobs`, `get_job_posting`, `save_job`, `find_saved_jobs`
+- **Submit / track an application:** `manage_proposals`, `list_freelancer_proposals`, `get_draft` /
+  `update_draft` / `confirm_draft`, `respond_to_offer`, `list_offers`
+- **Attach the proposal doc:** `start_attachment_upload` then `confirm_attachment_upload` then
+  `store_uploaded_files`, with `get_upload_status`
+- **Profile / rates / pipeline:** `get_profile`, `update_profile`, `boost_profile`, `get_rate_insights`,
+  `get_freelancer_dashboard`, `get_freelancer_financials`, `list_contracts`, `list_milestones` /
+  `manage_milestones` / `submit_milestones`, `get_messages`, `send_message`
+- Hiring-side tools also exist (`post_job`, `find_freelancers`, `invite_freelancer`, `manage_offers`, ...)
+  and are irrelevant here.
+
+Still true: **no keyword or profile-ranking tool exists**, so do not plan around one. `get_tool_help`,
+`set_tool_mode`, and `set_tool_permission` are the server's own introspection/permission tools; call
+`get_tool_help` before a first use of anything above, since none of these have been exercised against
+live data here: the list is the advertised surface, not a tested one.
+
+`upwork-proposal` / `upwork-cover-letter` stay the source of proposal quality. The MCP's role is the
+plumbing at either end: `get_job_posting` to pull the JD in place of a paste, and the attachment plus
+`manage_proposals` chain to push the doc and letter back out. Submitting an application is outward-facing
+and irreversible, so confirm with Jude before any `manage_proposals` / `confirm_draft` / `send_message`
+call, never on your own initiative.
 
 ### AI Ark (lead enrichment)
 
@@ -183,7 +202,7 @@ calls AI Ark over its **HTTP JSON-RPC endpoint directly** (stateless, token read
 implementation (`find_dm.py` + `AI_ARK_HANDOFF.md` in the removed `b2b-sales-leads-indeed` skill) is
 recoverable from git history.
 
-## Skills (19 dirs, 17 invocable)
+## Skills (18 tracked dirs, 17 invocable)
 
 ### Lead Generation
 | Skill | What it does |
@@ -204,7 +223,7 @@ recoverable from git history.
 ### Sales & Proposals
 | Skill | What it does |
 |-------|-------------|
-| `create-proposal` | PandaDoc proposal from sheet data or call transcript. **Stub — directory is currently empty (no `SKILL.md`/scripts); needs rebuilding before use.** |
+| `create-proposal` | PandaDoc proposal from sheet data or call transcript. **Does not exist: the local dir is empty and git tracks nothing under it, so a fresh clone has no `create-proposal` at all. Needs building from scratch before use.** |
 | `upwork-proposal` | Discovery-call transcript + case-study Sheet → client-facing Upwork proposal as a native Google Doc via `proposal_doc.py` (Drive HTML-upload+convert; no Docs API). Bricolage Grotesque, reply-only CTA, Upwork-consultant byline, em dashes blocked at upload. Has a safe-edit (export→edit→update) flow once the client hand-edits. Also handles a single pasted JD via `proposal_from_jd.py` (LLM path, or `--body-html` to render a hand-authored body with the same styling guards) — this, not `upwork-apply`, is the path for one hand-picked job; see its SKILL.md for the skill-choice rules. The doc is only the attachment; pair it with `upwork-cover-letter` for the text that actually gets submitted. |
 | `upwork-cover-letter` | Writes the actual Upwork cover letter text Jude submits (job post + his Loom link, optionally a proposal-doc link and client name → copy-pasteable letter). Fixed structure: hook with Loom link inside Upwork's ~230-char preview window, credibility paragraph pulled from the verified claims bank, optional technical-insight paragraph, standard bio/close/PS. Has a `scripts/check_hook_length.py` helper for the hook's character budget. |
 | `upwork-apply` | Scrape Upwork jobs → generate personalized proposals. Batch-only (needs Apify-scraped job arrays, truncates JDs to 500 chars) — not for a single hand-picked job |
