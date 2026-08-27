@@ -1,48 +1,88 @@
-<h1>Outbound GTM Proposal for [CLIENT]</h1>
-<p><strong>Prepared for:</strong> [Name], [Title], [Company]<br/>
-<strong>Prepared by:</strong> Rood Judeley Joseph (Jude), Upwork consultant<br/>
-<strong>Date:</strong> [Month DD, YYYY]<br/>
-<strong>Focus:</strong> [scope, e.g. US market, testing pillar first]</p>
-
-<h2>1. Problem Overview</h2>
-<p>[Natural prose, grounded ONLY in what the prospect said on the call. Name the things that are not working. Lead with the human constraint (founder bandwidth, no owner), then message/offer, then targeting/infra. No headings inside. Optionally a bulleted list of the specific problems.]</p>
-
-<h2>2. Solution</h2>
-<p>To solve all of those issues and get your outbound working, here is my approach:</p>
+<!-- Letter structure, per SKILL.md. Replace every [bracket]; check_proposal_html.py fails
+     on any that survive. Two hard rules this template encodes:
+     1. NO pricing, rate, hours or "Investment" section, ever. Money is a call conversation.
+     2. The audit section is mandatory. A doc without it is a brochure. -->
+<h1>[Thing] Automation Audit for [Client]</h1>
+<p>Rood Judeley Joseph (Jude), Upwork consultant<br/>
+Focus: [scope in 4 to 8 words, e.g. quote follow up, status dashboard]</p>
 <p>&nbsp;</p>
-<p><strong>1. [First step, usually the infra/foundation].</strong> [One or two lines.]</p>
+
+<p>Hey [Name],</p>
 <p>&nbsp;</p>
-<p><strong>2. Signal-based targeting.</strong> Build lists from buying signals, the signs that a company needs testing right now, so outreach only reaches people already in the market. Every list is built around one clear profile (ICP):</p>
-<ul>
-<li>Title: [role]</li>
-<li>Company size: [range]</li>
-<li>Region: [region]</li>
-<li>Industry: [industries]</li>
-</ul>
-<p>Within that profile, here are the signals we would go for:</p>
-<p>a) [signal + one line]</p>
-<p>b) [signal + one line]</p>
-<p>c) [signal + one line]</p>
+<p>[ONE paragraph mirroring what they asked for, in their own terms, grounded only in the call
+or the JD. No invented pain. Close it by telling them this is a free audit of the stack they
+have picked, and that the findings are theirs to keep whoever they hire.]</p>
 <p>&nbsp;</p>
-<p><strong>3. [Door-opener / lead-magnet play].</strong> [One or two lines. Reply-only CTA, never ask for a call up front.]</p>
+<p>[Optional single proof sentence: the closest thing you have already built. Real numbers only.]</p>
+<p>&nbsp;</p>
 
-<h2>3. Payment Structure</h2>
-<p>Rate: $[X] per hour.</p>
-<p>Commitment: [N] hours per week, which comes to $[N*X] per week.</p>
-<p>Billing: [weekly / milestones] through Upwork, with the first week paid upfront when we start.</p>
-
-<h2>4. Why me?</h2>
-<p>The same outbound system, proven across very different industries:</p>
-<ul>
-<li><strong>[Client] ([niche]):</strong> [hard-number result].</li>
-<li><strong>[Client] ([niche]):</strong> [hard-number result].</li>
-<li><strong>[Client] ([niche]):</strong> [hard-number result].</li>
-</ul>
-<p>Different niches, same playbook: find the companies that are in-market, reach them with a sharp message, and turn it into booked conversations. That is exactly what I would build for [Client].</p>
-
-<h2>5. Subscriptions and Platforms</h2>
+<!-- Only if the JD mandates a question list. Never style the <table> tag and never set cell
+     widths: both zero out Bricolage document-wide. Repeat font-family in every cell. -->
+<h2>[The N things you asked for]</h2>
 <table>
-<tr><th>Platform</th><th>Price</th></tr>
-<tr><td>[Tool] ([what it does])</td><td>$[X] / month</td></tr>
-<tr><td>New tools total</td><td>~$[total] / month</td></tr>
+<tr>
+  <th style="font-family:'Bricolage Grotesque',sans-serif;border:1px solid #d0d0d0;padding:8px;text-align:left;">You asked</th>
+  <th style="font-family:'Bricolage Grotesque',sans-serif;border:1px solid #d0d0d0;padding:8px;text-align:left;">Short answer</th>
+</tr>
+<tr>
+  <td style="font-family:'Bricolage Grotesque',sans-serif;border:1px solid #d0d0d0;padding:8px;vertical-align:top;">[their question]</td>
+  <td style="font-family:'Bricolage Grotesque',sans-serif;border:1px solid #d0d0d0;padding:8px;vertical-align:top;">[one or two sentences]</td>
+</tr>
 </table>
+<p>&nbsp;</p>
+
+<!-- THE SECTION THAT MAKES THE DOC WORTH OPENING. Match the count in the heading to the
+     number of items. Each item: 3 to 4 sentences, and across the set cover at least two of
+     (a) a gap or false assumption in their plan, or a prerequisite on THEIR side,
+     (b) a trap that bites after launch, and what prevents it,
+     (c) the stack call, with the alternative you reject and why.
+     Every item names a specific product, plan tier, limit, price or API behaviour, and links
+     its source as <a href="URL">URL</a>. Cut anything a competitor could have written without
+     doing the research. -->
+<h2>[N] things I checked before writing this</h2>
+<p><strong>1. [The finding as a flat statement, not a topic.]</strong> [What the source actually
+says, with the specific limit, tier or behaviour. What it means for their build. What you would
+do instead. Source: <a href="[URL]">[URL]</a>]</p>
+<p>&nbsp;</p>
+<p><strong>2. [A prerequisite on THEIR side, if there is one. These are the highest-value finds,
+because they set the calendar and nobody else will have mentioned them.]</strong> [Who has to do
+what, and why it stalls the project if it starts late.]</p>
+<p>&nbsp;</p>
+<p><strong>3. [The stack call.]</strong> [The tool you would use, the reason, and the alternative
+you are rejecting with why. If a tool in their own spec is the wrong call, push back here.]</p>
+<p>&nbsp;</p>
+
+<h2>How I would build it</h2>
+<p>I work in fixed price milestones, so the order matters more than a week count. Each one has a
+test you can run yourself.</p>
+<p>&nbsp;</p>
+<p><strong>Milestone 1, [name].</strong> [What gets built.] Signed off when [an objective test the
+client can run themselves].</p>
+<p>&nbsp;</p>
+<p><strong>Milestone 2, [name].</strong> [What gets built.] Signed off when [test].</p>
+<p>&nbsp;</p>
+<p>[The dependencies that actually set the calendar, e.g. admin access, merchant onboarding, a
+real data window. Then: get those started and I will commit to dates at kickoff. NEVER give week
+counts or durations.]</p>
+<p>&nbsp;</p>
+
+<!-- The flowchart goes HERE, at the end of the build section (Jude, Aug 27 2026), caption
+     ABOVE the image, never below. Size with width/height ATTRIBUTES, never style="width:..",
+     which zeroes Bricolage document-wide. Target height <= ~240px displayed. -->
+<p>[One line introducing it, e.g. Here is the whole build in one picture.]</p>
+<p><img src="data:image/png;base64,[PNG]" width="624" height="[HALF THE CANVAS HEIGHT]"/></p>
+<p>&nbsp;</p>
+
+<h2>Similar work</h2>
+<p>[ONE proof story told properly: the problem, what you built, the outcome with real numbers.
+A second only if it proves something the first does not. Links as <a href="[URL]">[URL]</a>.]</p>
+<p>&nbsp;</p>
+<p>[Any real skill gap in ONE sentence, then straight back to strength. No apologetic lead-in.]</p>
+<p>&nbsp;</p>
+
+<h2>Next step</h2>
+<p>[Reply-only. Offer something specific and free that you can send before they commit to
+anything, e.g. a one page data model, a permission checklist. Never ask for a call up front.]</p>
+<p>&nbsp;</p>
+<p>Best,</p>
+<p>Rood Judeley Joseph (Jude)</p>

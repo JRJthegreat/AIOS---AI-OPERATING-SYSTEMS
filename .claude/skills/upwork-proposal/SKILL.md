@@ -56,6 +56,10 @@ These were learned the hard way; the client cares about all of them:
   substance, so never drop it when using this framing; reciprocity is the point ("that guy
   gave me something free"). The matching cover letter line lives in `upwork-cover-letter`
   (its free-audit doc-line default). First applied: LGNDRY Marketing GHL doc.
+- **The doc must be genuinely USEFUL, not just correct (Jude, Aug 27 2026).** Gaps in their plan,
+  the traps ahead of them, and the stack call with its reasoning are mandatory, not decoration.
+  See **The audit section** below; this is the single rule most likely to have quietly rotted, so
+  check it before anything else when a draft feels flat.
 - **Every link is BOTH visible literal text AND an actual clickable hyperlink (Aug 2026,
   Jude, in two parts same day: first "sometimes people can't see it, the thing is just text,"
   then "make them hyperlinks so people can click").** Always write
@@ -118,9 +122,11 @@ Where real time was actually lost on record, and the fix for each:
 
 Agents to dispatch in one message, in parallel:
 
-- **Copy agent**: drafts the body (5-section transcript structure, or the apply-style JD
-  structure below, whichever applies), including any technical grounding it needs
-  (WebSearch/WebFetch) done inside its own run, not as a separate step beforehand.
+- **Copy agent**: drafts the body in the letter structure below, including **the research the
+  audit section depends on** (WebSearch/WebFetch into the client's actual stack and its API
+  docs), done inside its own run rather than as a separate step beforehand. Paste the three
+  audit requirements into its prompt verbatim; a copy agent that is not told to hunt for gaps,
+  traps and the stack call returns a competent brochure.
 - **Flowchart agent**: builds and screenshots the diagram (recipe below), doing its own
   eyeball-and-fix pass internally before returning; this is real, protected time, not
   something to rush.
@@ -132,19 +138,65 @@ anything it flags, embed the flowchart's base64, run the doc script **once** (`c
 `update` / `proposal_from_jd.py --body-html`), do one quick structural check (`export --html |
 grep '<img'`), and hand off doc URL + cover letter + job URL together.
 
+## The audit section: the reason the doc is worth opening (Jude, Aug 27 2026)
+
+**The complaint that created this rule:** "I see the proposal now, it's just a Google doc, there's
+no value brought to it." A proposal that only restates the JD, lists milestones and shows a diagram
+is a brochure. The client can get that from anyone. What they cannot get from anyone is **a
+consultant telling them what is wrong with their own plan before being paid**, which is also the
+whole mechanism behind the free-audit framing (reciprocity: "that guy gave me something free").
+
+So every proposal carries a section, usually titled **"N things I checked before writing this"**,
+and it must do all three of these. Not one of them, all three:
+
+1. **Name the gaps in what they asked for.** Something their spec assumes that is not true, or a
+   requirement they have not thought of yet. Prerequisites on THEIR side are the highest-value
+   find of all, because they set the calendar and nobody else will have mentioned them (a Lark
+   admin has to approve the app before a single record can be read; CleanCloud gates API access
+   behind its Grow plan; Meta System User tokens do not expire).
+2. **Flag what they should look out for.** The trap that bites after the build is live: the fee
+   that eats the margin on small transactions, the record ceiling they will hit, the double-credit
+   on a refreshed payment tab, the CRM that is dirty inside a month because neither tool dedupes.
+   Say what breaks, when, and what prevents it.
+3. **Make the stack call and justify it, including what you would NOT use.** Never present a tool
+   list as a given. Name the choice, the reason, and the alternative you rejected with why:
+   "Softr and Glide cannot read Lark Base, both publish their supported sources and it is on
+   neither, so a Softr build means two versions of the truth. Skip the middleman." Where a tool in
+   THEIR spec is the wrong call, that belongs here too, framed as a push-back, not a complaint.
+
+**The test for every item: could a competent competitor have written this sentence without doing
+the research?** If yes, it is filler, cut it. A real item names a specific document, limit, price,
+API behaviour or version, and links the source with `<a href="URL">URL</a>` where one exists.
+Generic caution ("data quality will be important", "we should scope carefully") is worse than
+nothing, since it takes the slot a real finding should have had.
+
+Length: 3 or 4 sentences per item, 3 to 5 items. This is also why the research has to happen
+inside the copy agent's own run (WebSearch + WebFetch on the client's actual stack and its API
+docs). **A doc that reaches the render step without this section is not shippable**, and
+`scripts/check_proposal_html.py` now fails on it rather than letting it drift again.
+
 ## Proposal structure
 
-Five sections (this order; "Why me?" sits after Payment per client preference):
+**Both paths use the same letter structure** (listed in full under the JD path below): byline,
+opener, optional question table, **the audit**, "How I would build it" with the flowchart at its
+end, similar work, reply-only next step, sign-off. Start from `templates/proposal_body.html`,
+which encodes it.
 
-1. **Problem Overview**: what is not working, from the call.
-2. **Solution**: numbered approach. Step 1 is usually the email-infra audit.
-   Includes the ICP (title, company size, region, industry) and the buying
-   signals as an `a) b) c)` list, then the cold door-opener play.
-3. **Payment Structure**: rate, weekly hours, weekly total, billing.
-4. **Why me?**: case-study bullets with hard numbers, then a one-line tie-back.
-5. **Subscriptions and Platforms**: a Platform/Price `<table>`.
+What a call-derived proposal adds, versus one from a pasted JD:
 
-Start from `templates/proposal_body.html` and fill it in.
+- The opener becomes a **Problem Overview** in natural prose, grounded ONLY in what the prospect
+  actually said on the call. No invented pain, no sub-headings stacked on each other.
+- For an outbound GTM engagement, the build section carries the **ICP** (title, company size,
+  region, industry) and the buying signals as an `a) b) c)` list, then the cold door-opener play.
+- **Why me?** can stand as its own section with case-study bullets when the call surfaced a
+  specific credibility question, instead of the single "Similar work" proof story.
+
+**Two sections that used to be in this template and must not come back:** a **Payment Structure**
+section (rate, weekly hours, weekly total) and a **Subscriptions and Platforms** price table. Money
+never appears in a proposal doc; it is a call conversation (standing rule, `feedback_no_pricing_in_proposal_doc`).
+The old template carried both, plus no audit section at all, which is a large part of why the docs
+drifted into being "just a Google doc" (Jude, Aug 27 2026). Also gone: the formal
+`Prepared for / Prepared by / Date` block, now a two-line byline.
 
 ## Prerequisites
 
@@ -247,27 +299,25 @@ has a standalone ownership section, a five-item case-study list, or an essay per
 1. Two-line byline header (name + `Focus:` line). Not the formal Prepared-for block.
 2. `Hey <Name>,` then ONE paragraph mirroring what they asked for, in their own terms,
    grounded only in the JD. Fold the free-audit line in here.
-3. The flowchart, with its one-line caption ABOVE it, never below (a caption under the image gets
-   orphaned onto the next page when the image moves). Default position is high, right after the opener.
-   **Jude moved it once (Aug 27 2026, Lark Base portal doc) to sit after "How I would build it"**, where
-   the diagram reads as the picture of the milestones just described; use that placement when the
-   milestones carry the architecture, and keep it high when the diagram is the architecture answer
-   itself.
-4. If the JD mandates a question list, a **compact table** (`You asked | Answer`), one or
+3. If the JD mandates a question list, a **compact table** (`You asked | Answer`), one or
    two sentences per row. A checklist buyer wants to tick items off, and a table does that
    far better than prose. Absorb what would otherwise be standalone sections into rows.
-5. **"N things I checked before writing this"** or "Two things I would push back on": the
-   researched constraints and the wrong tool choices in their spec. This is the free audit
-   and the part no competitor can copy, so it survives every trim. Keep each item to 3 or 4
-   sentences.
-6. **"How I would build it"**: numbered milestones. Give each an objective
+4. **The audit: "N things I checked before writing this"** (or "Two things I would push back
+   on"). The gaps in their own plan, the traps ahead of them, and the stack call with its
+   reasoning. This is the whole reason the doc is worth opening, so it survives every trim.
+   See **The audit section** above for what each item has to contain; a doc without it is the
+   failure Jude named on Aug 27 2026.
+5. **"How I would build it"**: numbered milestones. Give each an objective
    *Signed off when* acceptance test, which doubles as the "what you'll get" section so you
-   do not need a separate one.
-7. **Similar work**: ONE proof story told properly, a second only if it proves something the
+   do not need a separate one. **The flowchart goes here, at the end of this section**
+   (Jude, Aug 27 2026), with its one-line caption ABOVE it, never below (a caption under the
+   image gets orphaned onto the next page when the image moves). See the placement rule under
+   **Flowchart** below.
+6. **Similar work**: ONE proof story told properly, a second only if it proves something the
    first does not. Then any real skill gap in a single sentence (see
    `feedback_honest_gap_framing`), never a paragraph.
-8. Reply-only next step offering something specific and free.
-9. `Best,` / `Rood Judeley Joseph (Jude)` (full name, never a bare "Jude"; "Cheers," also OK).
+7. Reply-only next step offering something specific and free.
+8. `Best,` / `Rood Judeley Joseph (Jude)` (full name, never a bare "Jude"; "Cheers," also OK).
 
 **Timeline wording (Jude, Aug 2026): give milestones, not durations.** He builds with Claude
 Code, so week-based estimates are inflated and quoting a short timeline invites the client to
@@ -278,10 +328,16 @@ is the whole reason not to bill hourly. Money still never appears in the doc.
 
 How the LLM path differs from the transcript path above:
 - **Proposal only** (no cover letter), **no Google Sheet**.
-- Structure is the apply-style proposal: opening that mirrors the JD, a proof
-  line, "My proposed approach" (numbered), "What you'll get", "Timeline", a
-  **reply-only** close, signed "Best, / Rood Judeley Joseph (Jude)" (never a bare
-  "Jude"). Not the 5-section bespoke structure.
+- Structure is the same letter shape as the authored path (Aug 27 2026: it now emits an
+  `<h1>` title, the byline, **the audit section**, "How I would build it" with `Signed off when`
+  tests, "Timeline", a **reply-only** close, and signs "Best, / Rood Judeley Joseph (Jude)").
+  Before that fix it emitted no audit section, no `<h1>`, a "What you'll get" list, a
+  week-count timeline and a bare "Jude", so its output was exactly the valueless doc Jude
+  complained about, and it failed the linter on the missing `<h1>`.
+- **It cannot research and it cannot draw.** The audit it writes is limited to what the JD and
+  the model's training data support, and there is no flowchart. So its audit is a starting point
+  to sharpen with real WebSearch/WebFetch findings, never the thing you ship. For a job Jude is
+  really sending, author the body and render with `--body-html`.
 - **The LLM still emits bracketed placeholders** (e.g. `[500+ calls/day]`) so it
   never invents a metric, but **NO placeholder may survive into the delivered
   doc** (house rule, Jul 2026: a forgotten bracket reads as templated and kills
@@ -297,7 +353,23 @@ Every proposal doc gets a **high-quality flowchart of the proposed system** when
 value (Jude: "don't give me anything sloppy"). Working recipe, learned on the AI Maintenance
 Coordinator proposal:
 
-**Two rules that Jude sent a diagram back for (Aug 2026). Read these before authoring:**
+**Placement: at the END of "How I would build it", not high up (Jude, Aug 27 2026).** His words:
+"the flowchart that you create should be in the section that explains how I would build this."
+The milestones name the pieces, then the diagram shows them wired together, so the reader meets
+every box in the picture having just read what it is. Introduce it with a one-line caption ABOVE
+the image ("Here is the whole build in one picture."). Do not put it right after the opener any
+more; that placement is retired, not an alternative.
+
+**Three rules that Jude sent a diagram back for (Aug 2026). Read these before authoring:**
+
+- **It must be SMALL: at most ~240px DISPLAYED, so ~480px of canvas at 2x** (Jude, Aug 27 2026:
+  "the flowcharts that you're creating right now, they are way too big, they take too much space").
+  A Google Doc page body is ~648px tall and Docs will not split an image, so a tall diagram both
+  eats the page and shoves whatever follows onto the next one. Measured history: 681px displayed
+  left a full blank page, 410px left half a page, 248px flowed clean. `templates/flowchart_base.html`
+  was itself the cause of the drift, since it rendered at 535px displayed while this section
+  claimed a 300px cap; it is now 240px, so **start from the template and stay near its height
+  rather than growing it**.
 
 - **Every font size must be DOUBLE its intended on-page size.** The canvas is 1248px and it
   displays at 624px, so the page halves everything. A 12px label authored at canvas scale
@@ -346,14 +418,21 @@ Coordinator proposal:
    landing on nothing, label collisions, font actually loaded. One build-and-check, not a
    turn-by-turn iterate-until-clean loop. If a subagent is building it, it does that cycle
    itself before returning.
-**Height cap: the finished image must be at most ~300px DISPLAYED (600px canvas at 2x)**
-   (Aug 27 2026, Jude, on the Lark Base portal doc: "in the first page, there's a huge chunk of white
-   space, why is that there" and "the flowchart is way too big"). A Google Doc page body is ~648px tall
-   and Docs will not split an image, so anything taller than roughly half a page jumps to the next page
-   and leaves the rest of the current page blank. A 681px image left a full blank page; 410px still left
-   a half page. 248px flowed clean. Get the height down by cutting rows and copy (one line per card,
-   drop any row the body text already covers), never by shrinking the type below the 23px floor.
-   **Verify by rendering, not by guessing:** export the finished doc to PDF and look at the pages
+**Hitting the ~480px canvas budget (see the size rule above).** The 23px type floor is fixed, so
+   height comes out of LAYOUT, never out of the font size. In order: at most **3 bands** (two card
+   rows plus one full-width bar); **one line of subtitle copy per card**, which is worth ~50px of
+   canvas per row versus two lines; drop any band the body text already explains; fold a
+   `.guard` callout into the dark `.foundation` bar instead of giving it its own band (~85px).
+   Six readable boxes beat twelve unreadable ones, and four beat six.
+   **Measure it, do not guess:** the template's `draw()` writes the live canvas height into
+   `document.title` as `H<px>`, so read it straight off a headless load before you even screenshot:
+   ```bash
+   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu \
+     --virtual-time-budget=8000 --window-size=1248,2000 --dump-dom \
+     http://localhost:<port>/index.html 2>/dev/null | grep -o "<title>H[0-9]*</title>"
+   ```
+   Halve that number for the on-page height. If it is over ~480, cut a band before rendering.
+   For a final check of real page breaks, export the finished doc to PDF and look at the pages
    (`files().export(mimeType='application/pdf')`, then `pdftoppm -png -r 62` and stitch them side by
    side). That is the only way to see a page-break gap before Jude does.
 

@@ -9,6 +9,13 @@ rendered to a native Google Doc via the upwork-proposal renderer
 Proposal only (no cover letter). No Google Sheet. Proof lines use bracketed
 placeholders (e.g. "[500+ calls/day]") so the model never invents a metric.
 
+IMPORTANT, this path is the fallback, not the default. It has no web access, so the
+audit section it writes can only reason from the JD plus training data, and the audit is
+the part of the proposal that actually wins work (it needs live research into the client's
+stack and its API docs). It also cannot build the flowchart. For any job Jude is really
+sending, author the body yourself with research and a diagram and render it with
+--body-html. Use the LLM path for a fast first draft or a low-priority job only.
+
 Auth: token.json in the CWD (Drive scope). Run from the repo root.
 
 Usage:
@@ -46,20 +53,23 @@ JOB DESCRIPTION:
 
 Return ONLY a JSON object with these fields:
 {{
+  "focus": "4 to 8 words naming the scope of the work, for the 'Focus:' byline line.",
   "greeting": "Hey [first name only if it is clearly in the JD, otherwise just 'Hey'],",
-  "opening": "1-2 sentences mirroring their SPECIFIC pain or goal. Reference something concrete from the JD, not generic filler.",
+  "opening": "1-2 sentences mirroring their SPECIFIC pain or goal. Reference something concrete from the JD, not generic filler. End by telling them this document is a free audit of the approach they have picked.",
   "proof": "Start: 'I've built similar [specific thing relevant to THIS job].' Then one proof sentence. For EVERY number, result, timeframe, or client name use a bracketed placeholder, e.g. '[500+ calls/day]' or '[a SaaS client]'. NEVER invent a real metric or client name.",
-  "approach": ["4 to 6 steps. Each: what you would do, WHY, and the specific tools where relevant. Plain sentence, do NOT number it yourself."],
-  "deliverables": ["2 to 3 concrete, specific deliverables"],
-  "timeline": "realistic estimate in a conversational tone",
-  "close": "A REPLY-ONLY close: offer to send something (a short walkthrough, a quick plan) and ask them to reply. NEVER ask for a call or meeting."
+  "audit_heading": "e.g. 'Three things I checked before writing this' or 'Two things I would push back on'. Match the count to the number of items you actually return.",
+  "audit": ["THE MOST IMPORTANT FIELD. 3 or 4 items, 3 to 4 sentences each. Every item must do ONE of these three jobs, and across the set you must cover at least two of them: (a) name a GAP or a false assumption in their spec, or a prerequisite on THEIR side they have not thought of, (b) flag a TRAP that bites after launch and say what prevents it, (c) make the TOOL or STACK call, with the reason AND the alternative you are rejecting and why. Name the specific product, plan tier, API limit or behaviour. Where a tool in THEIR OWN spec is the wrong call, say so plainly as a push-back. If you are not certain a technical fact is still current, write it as the thing you would verify first and say what it changes about the build, rather than asserting it. NEVER write generic caution: 'data quality is important', 'we should scope carefully' and 'testing is key' are all banned, they are worse than nothing because they take the slot a real finding should have had."],
+  "approach": ["4 to 6 milestones. Each: what gets built and WHY, with the specific tools where relevant. End each one with an objective acceptance test in the form 'Signed off when: ...' that the client could run themselves. Plain sentence, do NOT number it yourself."],
+  "timeline": "Name the SEQUENCE and the dependencies that actually set the calendar (client-side admin access, credentials, a real data window to tune against), then say you commit to dates at kickoff. NEVER give week counts, day counts or any duration estimate.",
+  "close": "A REPLY-ONLY close: offer to send something specific and free (a data model, a permission checklist, a short walkthrough) and ask them to reply. NEVER ask for a call or meeting."
 }}
 
 RULES:
-- Do NOT mention budget or pricing anywhere.
+- Do NOT mention budget, pricing, rates or hours anywhere.
 - NEVER use em dashes or en dashes. Use periods, commas, or the word 'and'.
 - No markdown symbols (no **, #, etc.).
-- Whole proposal ~300 words.
+- Plain language, no jargon. A smart non-specialist is reading.
+- Body ~600 words, and the audit gets the largest share of them.
 - Output valid JSON only, nothing before or after."""
 
 
@@ -98,7 +108,13 @@ def _sanitize(s: str) -> str:
     return (str(s).replace("—", ", ").replace("–", "-").replace("&mdash;", ", "))
 
 
-def build_html(p: dict) -> str:
+def build_html(p: dict, title: str) -> str:
+    """Render the JSON into the house-style letter.
+
+    Section order matches the SKILL.md letter structure: byline, opener, proof, THE AUDIT,
+    how I would build it, next step, sign-off. The audit sits before the build plan on
+    purpose: it is what earns the reader's attention for everything after it.
+    """
     def cell(s):
         return html.escape(_sanitize(s))
 
@@ -108,25 +124,39 @@ def build_html(p: dict) -> str:
 
     # house style: blank-line spacing between blocks via <p>&nbsp;</p>
     gap = "<p>&nbsp;</p>"
+    focus = str(p.get("focus", "")).strip()
+    byline = "Rood Judeley Joseph (Jude), Upwork consultant"
+    if focus:
+        byline += f"<br/>Focus: {cell(focus)}"
+
+    audit_heading = str(p.get("audit_heading", "")).strip() or "Things I checked before writing this"
+
     parts = [
+        f"<h1>{cell(title)}</h1>",
+        f"<p>{byline}</p>",
+        gap,
         f"<p>{cell(p.get('greeting', 'Hey,'))}</p>",
         gap,
         f"<p>{cell(p.get('opening', ''))}</p>",
         gap,
         f"<p>{cell(p.get('proof', ''))}</p>",
         gap,
-        "<h2>My proposed approach</h2>",
-        items("approach", "ol"),
+        # The audit: gaps, traps and the justified stack call. Never drop this section.
+        f"<h2>{cell(audit_heading)}</h2>",
+        items("audit", "ol"),
         gap,
-        "<h2>What you'll get</h2>",
-        items("deliverables", "ul"),
+        "<h2>How I would build it</h2>",
+        items("approach", "ol"),
         gap,
         "<h2>Timeline</h2>",
         f"<p>{cell(p.get('timeline', ''))}</p>",
         gap,
+        "<h2>Next step</h2>",
         f"<p>{cell(p.get('close', ''))}</p>",
         gap,
-        "<p>Jude</p>",
+        # House rule: never a bare "Jude" in a client deliverable.
+        "<p>Best,</p>",
+        "<p>Rood Judeley Joseph (Jude)</p>",
     ]
     return "\n".join(parts)
 
@@ -159,7 +189,8 @@ def main():
     # authored-body path: agent wrote the proposal itself, just render + share it
     if args.body_html:
         title = args.title or (
-            f"Upwork Proposal - {args.client}" if args.client else "Upwork Proposal"
+            f"Automation Audit and Build Plan for {args.client}"
+            if args.client else "Automation Audit and Build Plan"
         )
         body = _sanitize(Path(args.body_html).read_text(encoding="utf-8"))
         doc_id, url = create_doc(title, body)
@@ -176,17 +207,26 @@ def main():
     if not jd.strip():
         sys.exit("ERROR: no job description provided (use --jd-file, --jd, or stdin).")
 
-    title = args.title or (f"Upwork Proposal - {args.client}" if args.client else "Upwork Proposal")
+    title = args.title or (
+        f"Automation Audit and Build Plan for {args.client}"
+        if args.client else "Automation Audit and Build Plan"
+    )
 
     print("Generating proposal with gpt-5.1...", flush=True)
     proposal = generate(jd)
-    body = build_html(proposal)
+    body = build_html(proposal, title)
     if args.dump_html:
         Path(args.dump_html).write_text(body, encoding="utf-8")
 
     doc_id, url = create_doc(title, body)
     print("URL:", url)
     print("ID:", doc_id)
+    print(
+        "NOTE: bracketed placeholders are still in this draft. Replace every one with a real "
+        "number, sharpen the audit section against real research, add the flowchart, then "
+        "re-render. Lint with scripts/check_proposal_html.py before sending.",
+        file=sys.stderr,
+    )
 
 
 if __name__ == "__main__":

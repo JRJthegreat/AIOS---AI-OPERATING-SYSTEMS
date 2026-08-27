@@ -13,8 +13,9 @@ python3 .claude/skills/upwork-proposal/proposal_from_jd.py [args]  # from a job 
 
 # The repo's only lint gate. Run on the proposal body HTML BEFORE rendering/upload.
 # Fails on: em dashes, [bracketed placeholders], a missing <p>&nbsp;</p> gap between blocks,
-# zero or >1 <h1>, and a body over 1,800 words (warns over the 1,200-word target).
-python3 .claude/skills/upwork-proposal/scripts/check_proposal_html.py .tmp/body.html [--allow-long]
+# zero or >1 <h1>, a body over 1,800 words (warns over the 1,200-word target), and a missing
+# audit section (the gaps/traps/stack-call section; --no-audit to override, warns if it is thin).
+python3 .claude/skills/upwork-proposal/scripts/check_proposal_html.py .tmp/body.html [--allow-long] [--no-audit]
 
 # Cover-letter hook vs Upwork's ~230-char preview cutoff (arg, or stdin via pbpaste)
 python3 .claude/skills/upwork-cover-letter/scripts/check_hook_length.py "Hi Name. ... https://loom.com/..."
