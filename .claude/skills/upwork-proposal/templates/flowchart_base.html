@@ -1,47 +1,65 @@
 <!doctype html>
+<!-- WORKING BASE for a proposal flowchart. Swap the card copy and the node ids in draw(),
+     leave the sizing and the measuring code alone.
+
+     THE CONTENT RULE (Jude, Aug 27 2026): this is a TECHNICAL ARCHITECTURE diagram, never a
+     picture of the milestones. The milestones are already in prose directly above the image,
+     so a diagram that redraws them says the same thing twice. Every box is a real named
+     component (Telegram Bot API, Jupiter Swap API, Jito block engine, Postgres), never a phase
+     ("1. Trigger", "2. Quote"). Subtitles carry the specific technical detail: actual method
+     names, actual parameters, actual guarantees. Test before you render: strip the numbers off
+     and ask whether a developer could start building from the picture.
+
+     The shape below is the one that works for a service build, and it is what the example
+     content demonstrates: a row of INPUTS (eyebrow-labelled by type), a full-width accent bar
+     for the ENGINE they all feed into, an ordered EXECUTION row, and the dark foundation bar
+     for PERSISTENCE plus the security guarantee, all inside the dashed .tenant box saying
+     where it runs and whose keys it uses.
+
+     SIZE: authored at 2x (1248px canvas) and displayed at 624px, so every px here is double
+     its on-page size and 23px is the hard type floor. Target <= ~480px canvas (240 displayed);
+     this example runs 534 (267 displayed), which is the honest ceiling for an 8-component
+     architecture. Over ~540, cut a BAND, never the font size. draw() writes the live canvas
+     height into document.title as H<px> so you can measure it headlessly before screenshotting.
+-->
 <html><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
 <style>
   * { box-sizing:border-box; margin:0; padding:0; }
-  /* White, never grey: this image sits ON the document, it is not a screenshot of a page. */
   body { width:1248px; background:#ffffff;
          font-family:'Bricolage Grotesque', system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
   #canvas { position:relative; width:1248px; background:#ffffff; padding:14px 14px 16px; }
   svg#wires { position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
 
-  /* Authored at 2x, displayed at 624px in the doc, so every size here is DOUBLE its
-     on-page size. Body text at 23px reads as ~11.5px on the page. Nothing smaller.
-     SPACING, by contrast, is kept tight on purpose: the whole image has to fit in
-     ~400px of canvas (200px on the page) or it forces a page break. */
-  .tenant { border:3px dashed #c5cad1; border-radius:18px; padding:30px 22px 22px;
+  .tenant { border:3px dashed #c5cad1; border-radius:18px; padding:28px 20px 16px;
             position:relative; background:transparent;
-            display:flex; flex-direction:column; gap:24px; }
+            display:flex; flex-direction:column; gap:18px; }
   .tenant-chip { position:absolute; left:24px; top:-13px; background:#ffffff; padding:0 12px;
                  font-size:22px; font-weight:600; letter-spacing:1.6px;
                  text-transform:uppercase; color:#7d8592; }
 
-  .row { display:flex; gap:24px; align-items:stretch; }
+  .row { display:flex; gap:18px; align-items:stretch; }
   .row > * { flex:1 1 0; }
 
-  .card { background:#ffffff; border:3px solid #dfe3e8; border-radius:14px; padding:16px 20px; z-index:1; }
-  .card .h { font-size:29px; font-weight:600; color:#14161a; line-height:1.2; }
-  .card .s { font-size:23px; font-weight:400; color:#5f6773; line-height:1.35; margin-top:6px; }
+  .card { background:#ffffff; border:3px solid #dfe3e8; border-radius:14px; padding:13px 14px; z-index:1; }
+  .card .h { font-size:26px; font-weight:600; color:#14161a; line-height:1.18; }
+  .card .s { font-size:23px; font-weight:400; color:#5f6773; line-height:1.32; margin-top:5px; }
+  .card .t { font-size:20px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase;
+             color:#9aa1ac; line-height:1; margin-bottom:6px; }
 
   .accent { border-color:#a8c3ee; background:#f5f9ff; }
   .accent .h { color:#1a56c4; }
+  .accent .t { color:#7ea2dd; }
 
-  /* Optional hard-constraint callout. Costs ~85px of canvas (~42px on the page), so add
-     it only when the constraint IS the point of the diagram. */
-  .guard { background:#ffffff; border:3px solid #eec8c3; border-left:12px solid #b42318;
-           border-radius:14px; padding:14px 24px; z-index:1; }
-  .guard .h { font-size:28px; font-weight:700; color:#b42318; line-height:1.2; }
-  .guard .s { font-size:23px; font-weight:400; color:#6f4340; line-height:1.35; margin-top:5px; }
+  .stop { border-color:#eec8c3; background:#fff7f6; }
+  .stop .h { color:#b42318; }
+  .stop .s { color:#6f4340; }
+  .stop .t { color:#cf9a93; }
 
-  .foundation { background:#14161a; border-radius:14px; padding:14px 24px; z-index:1; }
-  .foundation .h { font-size:28px; font-weight:600; color:#ffffff; line-height:1.2; }
-  .foundation .s { font-size:23px; font-weight:400; color:#b0b6c0; line-height:1.35; margin-top:5px; }
+  .foundation { background:#14161a; border-radius:14px; padding:12px 22px; z-index:1; }
+  .foundation .h { font-size:26px; font-weight:600; color:#ffffff; line-height:1.25; }
 </style></head>
 <body><div id="canvas">
   <svg id="wires">
@@ -54,58 +72,76 @@
   </svg>
 
   <div class="tenant">
-    <div class="tenant-chip">Inside your Microsoft 365 and Azure tenant</div>
+    <div class="tenant-chip">One container on your VPS, your API keys, your wallet</div>
 
     <div class="row">
-      <div class="card" id="n1">
-        <div class="h">1. New mail arrives</div>
-        <div class="s">Graph pushes it to a Function in your tenant.</div>
+      <div class="card" id="tg">
+        <div class="t">Command in</div>
+        <div class="h">Telegram Bot API</div>
+        <div class="s">aiogram webhook, inline keyboards, per user limits.</div>
       </div>
-      <div class="card" id="n2">
-        <div class="h">2. Safety rules first</div>
-        <div class="s">Legal, HR, contracts, Purview labels, before any AI sees it.</div>
+      <div class="card" id="ws">
+        <div class="t">Market in</div>
+        <div class="h">PumpPortal websocket</div>
+        <div class="s">New token, migration and trade events.</div>
       </div>
-      <div class="card accent" id="n3">
-        <div class="h">3. Azure OpenAI</div>
-        <div class="s">Summary, priority, draft reply. Your keys.</div>
+      <div class="card" id="rpc">
+        <div class="t">Chain in</div>
+        <div class="h">Dedicated Solana RPC</div>
+        <div class="s">Account subscriptions, transaction confirmation.</div>
       </div>
     </div>
 
     <div class="row">
-      <div class="card" id="n4">
-        <div class="h">4. You review in Outlook</div>
-        <div class="s">Approve, edit or reject. The mailbox is untouched until you do.</div>
+      <div class="card accent" id="orch">
+        <div class="h">Order engine: asyncio workers, a Redis lock per wallet, idempotent order ids</div>
       </div>
-      <div class="card" id="n5">
-        <div class="h">5. Only then it acts</div>
-        <div class="s">Categorise, save to Drafts, create a task. Sending stays your click.</div>
+    </div>
+
+    <div class="row">
+      <div class="card stop" id="gate">
+        <div class="h">1. Safety gate</div>
+        <div class="s">Freeze authority, hooks, LP, holders.</div>
+      </div>
+      <div class="card" id="jup">
+        <div class="h">2. Jupiter Swap API</div>
+        <div class="s">Route, slippage bps, fee per trade.</div>
+      </div>
+      <div class="card" id="jito">
+        <div class="h">3. Jito bundle out</div>
+        <div class="s">Bundle, jitodontfront at index 0.</div>
+      </div>
+      <div class="card" id="pos">
+        <div class="h">4. Position tracker</div>
+        <div class="s">Fill parsed, stop and take profit.</div>
       </div>
     </div>
 
     <div class="foundation">
-      <div class="h">Mail.Send is never granted, and every step writes to your audit log</div>
+      <div class="h">Postgres holds orders, fills and positions. The signing key is sealed at rest and never logged.</div>
     </div>
   </div>
 </div>
 
 <script>
-// Arrows are drawn from MEASURED geometry, never hand-placed coordinates. Card heights
-// are auto so copy can change without text overflowing or arrows pointing at nothing.
 function draw() {
   const root = document.getElementById('canvas').getBoundingClientRect();
   const box = id => { const r = document.getElementById(id).getBoundingClientRect();
     return { l:r.left-root.left, r:r.right-root.left, t:r.top-root.top, b:r.bottom-root.top,
              cx:(r.left+r.right)/2-root.left, cy:(r.top+r.bottom)/2-root.top }; };
-  const GAP = 10;                      // stop short of the border so the head is visible
+  const GAP = 9;
   const seg = [];
   const across = (a,b) => { const A=box(a), B=box(b);
     seg.push(`M${A.r+GAP},${A.cy} L${B.l-GAP},${B.cy}`); };
-  across('n1','n2'); across('n2','n3'); across('n4','n5');
-  // n3 down, back across, into the top of n4
-  const A = box('n3'), B = box('n4'), mid = (A.b + B.t) / 2;
-  seg.push(`M${A.cx},${A.b+GAP} L${A.cx},${mid} L${B.cx},${mid} L${B.cx},${B.t-GAP}`);
-  document.getElementById('paths').innerHTML =
-    seg.map(d => `<path d="${d}"/>`).join('');
+  // the three inputs drop straight into the full width order engine
+  const bar = box('orch');
+  ['tg','ws','rpc'].forEach(id => { const A = box(id);
+    seg.push(`M${A.cx},${A.b+GAP} L${A.cx},${bar.t-GAP}`); });
+  // engine down into the gate, then left to right through the execution path
+  const G = box('gate');
+  seg.push(`M${G.cx},${bar.b+GAP} L${G.cx},${G.t-GAP}`);
+  across('gate','jup'); across('jup','jito'); across('jito','pos');
+  document.getElementById('paths').innerHTML = seg.map(d => `<path d="${d}"/>`).join('');
   document.title = 'H' + Math.ceil(document.getElementById('canvas').getBoundingClientRect().height);
 }
 document.fonts.ready.then(draw);

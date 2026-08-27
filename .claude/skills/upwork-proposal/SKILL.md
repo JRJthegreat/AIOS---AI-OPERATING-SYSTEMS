@@ -355,10 +355,41 @@ Coordinator proposal:
 
 **Placement: at the END of "How I would build it", not high up (Jude, Aug 27 2026).** His words:
 "the flowchart that you create should be in the section that explains how I would build this."
-The milestones name the pieces, then the diagram shows them wired together, so the reader meets
-every box in the picture having just read what it is. Introduce it with a one-line caption ABOVE
-the image ("Here is the whole build in one picture."). Do not put it right after the opener any
+The milestones say what gets built in what order, then the diagram shows the architecture those
+milestones add up to, so the reader meets every component having just read why it exists. It shows
+the SYSTEM, not the milestones (see Content below). Introduce it with a one-line caption ABOVE
+the image ("Here is the architecture those milestones add up to, every moving piece named."). Do not put it right after the opener any
 more; that placement is retired, not an alternative.
+
+**Content: it is a TECHNICAL ARCHITECTURE diagram, never a picture of the milestones (Jude,
+Aug 27 2026).** His words, on a diagram that redrew the build steps: "the flowchart needs to be
+super technical. In this case you just outline the four milestones. The flowchart is not about
+the four milestones, it's supposed to be about the technical architecture." The milestones are
+already written directly above it in prose, so a diagram that repeats them is the same content
+twice and adds nothing. What the diagram is for is the thing prose is bad at: which named
+components exist and how data moves between them.
+
+So every box is a **real named component**, not a phase: `Telegram Bot API (aiogram webhook)`,
+`PumpPortal websocket`, `dedicated Solana RPC`, `Jupiter Swap API`, `Jito block engine`,
+`Postgres`, `Redis lock per wallet`, not `1. Trigger`, `2. Safety gate`, `3. Quote`. The subtitle
+under each carries the specific technical detail (the actual method names, the actual parameters,
+the actual guarantee), which is also where the audit's research gets to show up a second time
+visually. **Test before rendering: strip the numbers off the boxes and ask whether a developer
+could start building from this picture.** If it only reads as a sequence of things that happen,
+it is a process diagram and it needs rewriting.
+
+A layout that works for a service-shaped build: a row of INPUTS (labelled by type with a small
+eyebrow, e.g. `COMMAND IN` / `MARKET IN` / `CHAIN IN`), a full-width accent bar for the ENGINE
+they all feed into, a row for the ordered EXECUTION path, and the dark `.foundation` bar for
+PERSISTENCE and the security guarantee. Wrap the whole thing in the dashed `.tenant` box labelled
+with where it runs and whose keys it uses.
+
+Note the size tension this creates: an architecture diagram carries more boxes than a process one.
+Buy the extra components out of LAYOUT and COPY (one-line headings, two-line subtitles, four narrow
+cards in a row instead of three wide ones), never out of the 23px type floor. The Telegram trading
+bot doc landed at 534px canvas / 267px displayed with 8 named components, slightly over the ~240px
+target below; that is the honest ceiling for this shape, so treat ~240 as the goal and ~270 as the
+point where you cut a band instead of shipping it.
 
 **Three rules that Jude sent a diagram back for (Aug 2026). Read these before authoring:**
 
