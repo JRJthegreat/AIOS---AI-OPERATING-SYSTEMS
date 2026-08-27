@@ -111,12 +111,30 @@ Optional:
    entirely if there's no genuine finding for this job; do not force one.
 6. **"A little bit about me" paragraph, always this exact shape:**
    `A little bit about me: I'm a top-rated AI automation engineer with hands-on experience building [3-4 relevant things]. I've shipped dozens of high-performing systems for [relevant client type], many of which have scaled to $1M+ in revenue. I'm extremely proficient at [4-6 relevant tools/skills].`
-7. **Close.** `Let me know if you're interested in working together.` plus one specific next
-   step tied to the job.
+7. **One specific free next step, tied to the job.** A single sentence offering something
+   concrete you can send before they commit (a data model, an entity diagram, a permission
+   checklist), framed so it is theirs whoever they hire. **Do not open this with "Let me know
+   if you're interested in working together"** (Jude, Aug 27 2026: "I don't like this"). The
+   interest line moved to step 9, where it doubles as the CTA.
 8. **Social proof line.**
    `Below are a few samples of recent reviews from clients and systems I've created. I can provide dozens of additional examples upon request.`
-9. **Sign-off.** `Looking forward to connecting!` / `Best,` / `Jude`
-10. **PS, always the last line.** `PS: I work US hours, feel free to message me anytime.` Swap
+   Keep `dozens`. Jude approved this exact wording, and a bigger number reads as a boast.
+9. **Interest plus CTA, in this position.** Jude dictated the order (Aug 27 2026): social proof
+   line first, then this.
+   `I'd love to help you build your [their thing, in their own words]. Let me know if you're open to a quick chat.`
+   **This asks for a chat on purpose, and it does NOT violate the reply-only rule.** That rule
+   (`feedback_low_friction_ask`) governs COLD outreach and proposal docs, where a call ask is
+   friction against someone who never asked to hear from you. An Upwork client who posted a job
+   is already planning to interview candidates, so offering a chat matches what they expect.
+   Do not "correct" this back to a reply-only CTA.
+10. **Sign-off.** `Best,` / `Jude`
+    A bare `Jude` is right here: his Upwork **display name is now Jude** (changed Aug 2026), so
+    the letter matches the profile the client is reading it on. Do not expand it to
+    `Rood Judeley Joseph (Jude)`; that byline belongs on the proposal DOC, not the letter. This
+    is a real exception to `feedback_upwork_byline`, recorded there too.
+    Also drop the old `Looking forward to connecting!` line: it is redundant next to the chat
+    CTA in step 9.
+11. **PS, always the last line.** `PS: I work US hours, feel free to message me anytime.` Swap
     for a timezone-overlap line instead if the client is in Australia, Hong Kong, Japan,
     Singapore, or New Zealand (e.g. "PS: I'm in a similar timezone to you, so overlap won't be
     an issue.").
