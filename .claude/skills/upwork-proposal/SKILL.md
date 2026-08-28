@@ -31,10 +31,23 @@ These were learned the hard way; the client cares about all of them:
   every run, warns over 1,200, and **fails over 1,800** unless you pass `--allow-long`. Do not
   reach for the override to avoid editing. A JD with a mandated question list (answer all ten
   of these) is the one honest reason to sit in the 1,200 to 1,800 band.
+- **NO TABLES, EVER (Jude, Aug 28 2026, on the ICT Fair Value Gap doc: "no tables in the Google
+  doc, tables make this look AI generated").** Not for a mandated question list, not for a
+  comparison, not for a spec summary, not for anything. A grid of short cells is the most
+  recognisable LLM tell in a client document, right alongside stacked citation URLs and
+  horizontal separator bars, and it is now banned for the same reason those are.
+  `scripts/check_proposal_html.py` **fails** on any `<table>` in the body.
+  **What replaces one:** answer the JD's list as ONE prose paragraph that runs their items
+  together in their own words, or as bold lead-in paragraphs (`<b>Milestone 2, the risk
+  layer.</b> ...`), which is the shape the audit and milestone sections already use. In
+  practice most of a question table duplicates the milestones and the audit anyway, so the
+  honest fix is usually to delete it and let those two sections carry the answers: on the ICT
+  doc, cutting the table and folding its one unique clause into Milestone 1 took the body from
+  1,311 words to 1,170 and lost nothing.
 - **What to cut first, in order:** the case-study list down to ONE proof story (a second only
   if it proves something different); multi-sentence answers down to one sentence; any standalone
-  section whose content fits inside a table row (an "ownership" or "what you'll get" section
-  usually does); the formal `Prepared for / Prepared by / Date` block down to a two-line byline.
+  section the milestones already cover (an "ownership" or "what you'll get" section usually is
+  one); the formal `Prepared for / Prepared by / Date` block down to a two-line byline.
   **Never cut the flowchart to save length.** It is the single biggest word-saver in the doc,
   a good diagram replaces roughly 400 words of architecture prose, and per the standing rule
   below it is the thing that makes the proposal land.
@@ -72,6 +85,14 @@ These were learned the hard way; the client cares about all of them:
   `export --html | grep 'href="https://www.google.com/url'` (Drive wraps real hyperlinks in
   its own redirect URL on export, a bare `<span>` with the literal text means it did not
   become a link).
+- **But NEVER link a documentation or vendor reference URL (Jude, Aug 28 2026: "remove the links
+  makes it look AI generated").** On the TEC Specialty Products RAG doc the audit section carried
+  three raw `learn.microsoft.com` URLs, one per finding, to source the constraints; he had all
+  three removed and kept only the HiveIQ testimonial link. Stacked citation URLs inside body copy
+  are the most recognisable LLM tell in a client document. Research the constraint, state it in
+  prose with the specific number, version or parameter that proves you read the source, and stop.
+  The rule above governs only the links that DO belong: Jude's own proof assets (testimonial
+  videos, live portfolio sites, GitHub repos).
 - **Problem Overview is natural prose grounded only in what the prospect said
   on the call.** No invented pain. No sub-headings stacked on top of each other.
 - **No horizontal separator bars** between sections (they read as AI-generated);
@@ -166,7 +187,7 @@ and it must do all three of these. Not one of them, all three:
 
 **The test for every item: could a competent competitor have written this sentence without doing
 the research?** If yes, it is filler, cut it. A real item names a specific document, limit, price,
-API behaviour or version, and links the source with `<a href="URL">URL</a>` where one exists.
+API behaviour or version. Do NOT link the source; see the no-reference-URLs rule in House style.
 Generic caution ("data quality will be important", "we should scope carefully") is worse than
 nothing, since it takes the slot a real finding should have had.
 
@@ -178,7 +199,7 @@ docs). **A doc that reaches the render step without this section is not shippabl
 ## Proposal structure
 
 **Both paths use the same letter structure** (listed in full under the JD path below): byline,
-opener, optional question table, **the audit**, "How I would build it" with the flowchart at its
+opener, **the audit**, "How I would build it" with the flowchart at its
 end, similar work, reply-only next step, sign-off. Start from `templates/proposal_body.html`,
 which encodes it.
 
@@ -299,9 +320,10 @@ has a standalone ownership section, a five-item case-study list, or an essay per
 1. Two-line byline header (name + `Focus:` line). Not the formal Prepared-for block.
 2. `Hey <Name>,` then ONE paragraph mirroring what they asked for, in their own terms,
    grounded only in the JD. Fold the free-audit line in here.
-3. If the JD mandates a question list, a **compact table** (`You asked | Answer`), one or
-   two sentences per row. A checklist buyer wants to tick items off, and a table does that
-   far better than prose. Absorb what would otherwise be standalone sections into rows.
+3. If the JD mandates a question list, answer it in **prose, never a table** (see the no-tables
+   rule in House style): one paragraph that runs their items together in their own words, one
+   clause each. Check it against the milestones first, since a checklist answer that repeats
+   Milestone 1 to 4 should just be deleted.
 4. **The audit: "N things I checked before writing this"** (or "Two things I would push back
    on"). The gaps in their own plan, the traps ahead of them, and the stack call with its
    reasoning. This is the whole reason the doc is worth opening, so it survives every trim.
@@ -471,7 +493,7 @@ point where you cut a band instead of shipping it.
    body HTML (inject with a small Python script, not a hand edit, the string is ~300KB), with
    the real half-scale pixel size in the `width`/`height` ATTRIBUTES. **Never
    `style="width:624px;"` on the img (Aug 25 2026, Indeed screening doc): a `width:` inside an
-   img `style` triggers the same converter bug as table width styles below and zeroes Bricolage
+   img `style` triggers the converter bug described in Gotchas below and zeroes Bricolage
    out of the ENTIRE document (isolated by A/B upload: same body with attribute sizing kept the
    font, style sizing came back all Arial).** An img with no size at all keeps the font too but
    renders at the full 1248px, double page width. Verify BOTH after upload:
@@ -501,28 +523,39 @@ section numbering is still correct.
   the driver injects `font-family:'Bricolage Grotesque'` on bare block tags. The
   injection **no-ops on already-styled HTML** (e.g. a Google export), so it is
   safe to run `update` on exported-then-edited HTML.
-- **Styling a table kills the font document-wide (Aug 20 2026, learned on the property
-  portal doc, cost three round trips).** `_prep` only injects Bricolage into BARE block tags,
-  so a styled `<td>`/`<th>` loses it. Worse, Drive's HTML->Doc converter reacts to certain
-  table CSS by dropping the injected font from the ENTIRE document, `<p>` and `<h2>` included,
-  so the doc silently comes back as Arial. Verified by experiment:
-  - **Works:** cell styles carrying `font-family` themselves plus `border`, `padding`,
-    `vertical-align`, `background-color`, `text-align`, with the `<table>` tag left bare.
-  - **Breaks everything:** any `style` on the `<table>` tag itself (`border-collapse`,
-    `width:100%`), and `width:` inside a `<td>`/`<th>` style. Both zero out Bricolage globally.
-  So: never style `<table>`, never set cell widths, and always repeat
-  `font-family:'Bricolage Grotesque',sans-serif;` inside every `<td>`/`<th>` style you add.
-  Column widths are simply not available; keep table copy short instead.
-  **The same bug hits `<img>` (Aug 25 2026):** `style="width:624px;"` on the flowchart img
-  zeroes the font document-wide; size images with `width`/`height` attributes instead (see
-  flowchart step 5). **Always confirm after any table or image change** with
-  `export --html | grep -o Bricolage | wc -l` (never 0; a full doc typically shows dozens).
+- **`style` on an `<img>` kills the font document-wide (Aug 25 2026).** `_prep` only injects
+  Bricolage into BARE block tags, and Drive's HTML->Doc converter reacts to certain inline CSS
+  by dropping the injected font from the ENTIRE document, `<p>` and `<h2>` included, so the doc
+  silently comes back as Arial. `style="width:624px;"` on the flowchart img does exactly this;
+  size images with `width`/`height` ATTRIBUTES instead (see flowchart step 5). **Always confirm
+  after any image change** with `export --html | grep -o Bricolage | wc -l` (never 0; a full doc
+  typically shows dozens).
+  *Historical note, now moot:* tables triggered the same converter bug (any `style` on the
+  `<table>` tag, or `width:` in a `<td>`, zeroed Bricolage globally, Aug 20 2026, property portal
+  doc, three round trips). Tables are banned outright as of Aug 28 2026 for a copy reason, not a
+  technical one, so the workaround it cost is no longer needed. Do not reintroduce a table
+  because you find the styling recipe in git history.
 
+- **A large embedded PNG zeroes the font document-wide, same symptom as the table/img-style bug (Aug 28 2026,
+  TEC Specialty Products architecture figure).** A 473 KB PNG (627 KB of base64) came back with **0**
+  Bricolage occurrences on two consecutive identical uploads, so it is NOT the converter race below.
+  Isolated by A/B: the same body with the `<p>FLOWCHART</p>` placeholder instead of the image gave 64.
+  Quantizing the identical image to a 256-colour palette (165 KB) and re-uploading restored 64. Flat-colour
+  diagrams lose nothing to quantization, so **keep the embedded PNG under ~200 KB**:
+  ```python
+  from PIL import Image
+  im = Image.open('fc.png').convert('RGB')
+  im.quantize(colors=256, method=Image.MEDIANCUT, dither=Image.NONE).save('fc_q.png', optimize=True)
+  ```
+  Check `export --html | grep -o Bricolage | wc -l` after every image change; if it is 0 and a re-upload does
+  not fix it, shrink the PNG before looking anywhere else.
 - **The font injection is FLAKY on Drive's side: check it after EVERY create/update** (Aug 27 2026).
   The exact same body HTML uploaded twice gave 0 Bricolage occurrences on one run and 67 on the next,
   with no content change. It is a converter race, not a bug in the body. So always run
   `export --html | grep -o Bricolage | wc -l` after an upload, and if it comes back 0, simply re-run the
-  identical `update` and check again. Do not go hunting for a styling cause first: reproduce it twice
+  identical `update` and check again. **It can fail several times running** (Aug 28 2026, TEC doc: two
+  consecutive re-uploads of a payload that had already succeeded once both came back 0, the third gave 71),
+  so retry at least three times before suspecting the body, and rule out the PNG-size cause above first. Do not go hunting for a styling cause first: reproduce it twice
   before assuming the HTML is at fault.
 - **Font may need a one-time enable.** If the doc shows a default font, open it,
   Select All, font menu > More fonts > add "Bricolage Grotesque". It then sticks.

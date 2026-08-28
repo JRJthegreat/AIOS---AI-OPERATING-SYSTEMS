@@ -18,7 +18,12 @@ Checks (all deterministic, no LLM call):
      Paris boat operator, won a paid two-developer bake-off), 1,140 (the quotation
      follow-up system), 2,436 (the HubSpot build, the outlier). A 3,129-word draft got
      sent back. Under 1,200 is the target, over 1,800 fails unless you pass --allow-long.
-  6. An audit section is present ("N things I checked before writing this" or similar).
+  6. No <table> anywhere. Aug 28 2026, Jude, on the ICT Fair Value Gap doc: "no tables in
+     the Google doc, tables make this look AI generated." A grid of short cells is an LLM
+     tell in a client document, same family as stacked citation URLs and separator bars.
+     Answer a mandated question list in prose, or delete it and let the milestones and the
+     audit carry the answers (which is usually what it was duplicating).
+  7. An audit section is present ("N things I checked before writing this" or similar).
      Aug 27 2026, Jude: "I see the proposal now, it's just a Google doc, there's no value
      brought to it." The section carrying the gaps in the client's plan, the traps ahead of
      them, and the justified stack call is what makes the doc worth opening, and it had
@@ -157,6 +162,15 @@ def main():
 
     if EM_DASH_RE.search(html_stripped):
         problems.append("Em dash (or &mdash;) found. House rule: no em dashes, ever.")
+
+    if re.search(r"<table[\s>]", html_stripped, re.I):
+        problems.append(
+            "A <table> was found. House rule, Jude, Aug 28 2026: no tables in a proposal "
+            "doc, ever, because 'tables make this look AI generated'. Answer a mandated "
+            "question list as one prose paragraph, or as bold lead-in paragraphs like the "
+            "milestones use. Most question tables just duplicate the milestones and the "
+            "audit, so check whether the honest fix is deleting the section outright."
+        )
 
     placeholders = PLACEHOLDER_RE.findall(html_stripped)
     if placeholders:
