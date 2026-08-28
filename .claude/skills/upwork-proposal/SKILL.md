@@ -56,6 +56,12 @@ These were learned the hard way; the client cares about all of them:
 - **Font is Bricolage Grotesque.** The driver injects it; do not change it.
 - **Byline is `Rood Judeley Joseph (Jude), Upwork consultant`.** Never mention
   NEXAM in a client deliverable.
+- **Never leave a browser tab open on the doc (Jude, Aug 28 2026: "I can see there are some
+  profiles that are looking at the doc right now").** A Playwright tab left on a Google Doc keeps
+  showing as a live viewer avatar in the doc's header, so Jude (and the CLIENT, once the link is
+  sent) sees phantom people reading it. Close the tab with `browser_close` the moment a visual
+  check is done, every time, including the doc itself and any localhost page used to render the
+  flowchart. See **Finding a stale viewer** in Gotchas for how to hunt one down after the fact.
 - **Plain language, no jargon.** Explain like a smart non-specialist is reading.
 - **CTAs are reply-only.** Never ask for a call or meeting up front; offer to
   send something and ask for a reply. **Exception:** if the prospect asked for a
@@ -557,6 +563,21 @@ section numbering is still correct.
   consecutive re-uploads of a payload that had already succeeded once both came back 0, the third gave 71),
   so retry at least three times before suspecting the body, and rule out the PNG-size cause above first. Do not go hunting for a styling cause first: reproduce it twice
   before assuming the HTML is at fault.
+- **Finding a stale viewer on a doc (Aug 28 2026).** Jude runs a dozen Claude sessions at once,
+  each with its own Playwright MCP browser, so a phantom viewer is usually another session's
+  leftover tab, not this one's. `browser_tabs list` only sees THIS session's browser, so it will
+  come back clean and prove nothing. The browsers launch with `--remote-debugging-pipe`, so there
+  is no port to attach to either. What works is reading each profile's history on disk:
+
+  ```bash
+  cd /Users/air/Library/Caches/ms-playwright-mcp && for d in mcp-chrome-*; do
+    cp "$d/Default/History" /tmp/h.db 2>/dev/null && echo "$d :: $(sqlite3 /tmp/h.db \
+      "select url from urls where url like '%docs.google.com%' order by last_visit_time desc limit 3")"
+  done
+  ```
+  Match the doc id, then `kill` that profile's top-level `Google Chrome` pid (find it with
+  `pgrep -f mcp-chrome-<hash>`). Killing it is cheap and safe: the owning MCP server relaunches a
+  browser on its next call. Do not kill the `playwright-mcp` node servers or Jude's own Chrome.
 - **Font may need a one-time enable.** If the doc shows a default font, open it,
   Select All, font menu > More fonts > add "Bricolage Grotesque". It then sticks.
 - **Mixed editing clobbers.** Either you drive via the script, or the client
