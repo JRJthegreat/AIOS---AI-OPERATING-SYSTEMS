@@ -63,10 +63,21 @@ These were learned the hard way; the client cares about all of them:
   check is done, every time, including the doc itself and any localhost page used to render the
   flowchart. See **Finding a stale viewer** in Gotchas for how to hunt one down after the fact.
 - **Plain language, no jargon.** Explain like a smart non-specialist is reading.
-- **CTAs are reply-only.** Never ask for a call or meeting up front; offer to
-  send something and ask for a reply. **Exception:** if the prospect asked for a
-  call themselves, accept it plainly and say what to bring. The rule bans pushing
-  a call, not agreeing to one; deflecting their own ask reads as evasive.
+- **The close asks for a short scoping call (Jude, Sep 2 2026, SUPERSEDES the old
+  reply-only close for proposal docs).** His reason: the old "reply and I will send you X"
+  close never once worked. His words, "no one ever replied to me and say, hey, you said
+  you'll send me this, please send it over." An unclaimed free offer asks the client to do
+  work to collect a second gift whose value they cannot see yet, and the doc already gave
+  them the audit for free. So end on: if you like this approach, let us have a quick chat
+  and scope it properly. Make it concrete and low friction, name the two or three open
+  decisions the call would actually settle (pulled from the audit findings, so the call has
+  an agenda they can see), and ask them to send a time. **This does NOT apply to cold
+  outreach**, where `feedback_low_friction_ask` still stands: a call ask is premature when
+  the prospect never raised their hand. An Upwork client has posted a job and expects to
+  interview, so a scoping call is the move they were already going to make.
+  **Knock-on check:** if an earlier section promises the thing the old close offered (a
+  recording, a sample), fix that cross-reference too, or the doc points at something that
+  no longer exists.
 - **Lead with proof.** The "Why me?" section opens on hard-number case studies.
 - **Frame the doc as a FREE AUDIT (Jude, Aug 15 2026, standing rule).** The doc title and the
   researched technical-flags section carry audit language (e.g. title "... Automation Audit for
@@ -206,7 +217,7 @@ docs). **A doc that reaches the render step without this section is not shippabl
 
 **Both paths use the same letter structure** (listed in full under the JD path below): byline,
 opener, **the audit**, "How I would build it" with the flowchart at its
-end, similar work, reply-only next step, sign-off. Start from `templates/proposal_body.html`,
+end, similar work, scoping-call next step, sign-off. Start from `templates/proposal_body.html`,
 which encodes it.
 
 What a call-derived proposal adds, versus one from a pasted JD:
@@ -344,7 +355,7 @@ has a standalone ownership section, a five-item case-study list, or an essay per
 6. **Similar work**: ONE proof story told properly, a second only if it proves something the
    first does not. Then any real skill gap in a single sentence (see
    `feedback_honest_gap_framing`), never a paragraph.
-7. Reply-only next step offering something specific and free.
+7. Next step: a short scoping call, with the open decisions it would settle named.
 8. `Best,` / `Rood Judeley Joseph (Jude)` (full name, never a bare "Jude"; "Cheers," also OK).
 
 **Timeline wording (Jude, Aug 2026): give milestones, not durations.** He builds with Claude
@@ -421,7 +432,55 @@ point where you cut a band instead of shipping it.
 
 **Three rules that Jude sent a diagram back for (Aug 2026). Read these before authoring:**
 
-- **It must be SMALL: at most ~240px DISPLAYED, so ~480px of canvas at 2x** (Jude, Aug 27 2026:
+- **SIZE RULE UPDATED (Jude, Aug 28 2026): "the flowcharts can be bigger and larger" and "the very
+  detailed flowchart is the value of the google doc proposal."** The 240px cap below is SUPERSEDED.
+  The real ceiling is one page: **at most ~620px displayed, ~1240px of canvas at 2x**, because a
+  Google Doc page body is ~648px and Docs will not split an image. Fill that budget with COMPONENTS
+  and WHITESPACE, never with more words per box. Spend the height.
+
+- **The failure mode to avoid, and it took three rejected drafts to name (Aug 28 2026, TEC job).**
+  Asked for "more technical" I added sentences inside the boxes; asked for "bigger" I added more
+  rows; I never added air. The result was 24 boxes of small grey prose at 8px padding and
+  `line-height:1.2`, and Jude's verdict was "why is the flowchart so concentrated... they are bad."
+  **A box gets a component name plus a FRAGMENT of 3 to 8 words** (`410 resyncRequired forces a full
+  recrawl`, `No citation, no answer`, `Re-reads superseded_by at send`), never a sentence and never
+  two. The explanation belongs in the prose above the image. Concretely, the layout that worked:
+  a left **swim-lane label column** (~132px, uppercase 23px) naming each stage (INGEST, PROCESS,
+  INDEX, ANSWER, DELIVER, EVALUATE), **3 cards per lane maximum**, card padding 13-17px, `gap:34px`
+  between cards, `gap:20px` between lanes, heading **28px**, subtitle **24px**, and one full-width
+  tinted panel for the centrepiece (the index schema). Detail comes from having 15 real components
+  and one hard technical fragment on each, not from cramming.
+
+- **THE EXEMPLAR: doc `1IJOCoYPBlNK2-fZWz08WCj7KdWez1vAMZ8KZ2qvOQKE` (the quotation-system diagram).**
+  Jude pointed at this one as the flowchart that works, after rejecting three of mine. Pull it with
+  `proposal_doc.py export --id <ID> --html` and base64-decode the `<img>` before authoring a new
+  diagram. Its design language, which is now the house standard:
+  - **A title and subtitle inside the image** ("How the quotation system fits together" / one line of
+    plain-English framing). Not a tenant chip, an actual headline.
+  - **Numbered eyebrows**: `1 · REQUEST`, `2 · AI CLEANUP`, 21px, 700, letter-spacing 2.6px, uppercase,
+    `#8a9099`. The sequence is explicit.
+  - **Black borders and black arrows.** `border:3px solid #14161a`, arrows `stroke:#14161a` at 4px with
+    a solid triangular head. Pale grey borders (`#dde1e7`) and thin grey arrows are why my versions read
+    as washed out and mushy.
+  - **Varied box widths and a real branch.** Not a grid. The reference fans one wide box into three
+    outcome boxes, then funnels two of them onward. On the TEC job the honest branch was
+    `cited answer | refused: confidence | refused: category`, all three converging on the escalation box.
+    A diagram of N equal rows of equal boxes is a table, and Jude reads it as one.
+  - **Colour used sparingly, for meaning only**: blue (`#2563eb` border, `#eff5fe` fill) on the two boxes
+    that are the system's core, amber (`#d0932a` / `#fdf6ea`) on the single human step, light grey
+    (`#f2f4f6`) on the outcome boxes, dark bar for the system of record. Never flood whole rows.
+  - Type: title 34px, subtitle 24px, heading 29px/700, body 24px/`#4b5563`, padding 12-16px.
+
+- **Arrowheads flip direction when the path length goes negative.** `across`/`elbow` start at
+  `A.right + GAP` and end at `B.left - GAP`, so if the CSS `gap` between cards is smaller than
+  `2 * GAP` the segment inverts and the marker renders pointing backwards, or a stub with no line.
+  Hit twice on this job (card `gap:14px` with `GAP=8`, then lane `gap:20px` with `G=11`). **Keep
+  `2 * GAP` at least 10px below the CSS gap** and eyeball every arrow in the render before shipping.
+  This bit a THIRD time on the same job because I shrank the row gap for height without touching `G`,
+  so do not hardcode it: derive it, `const G = Math.max(3, Math.min(9, ROW_GAP/2 - 3));`, and re-check
+  the render after any spacing change.
+
+- SUPERSEDED, kept for context: **it must be SMALL: at most ~240px DISPLAYED, so ~480px of canvas at 2x** (Jude, Aug 27 2026:
   "the flowcharts that you're creating right now, they are way too big, they take too much space").
   A Google Doc page body is ~648px tall and Docs will not split an image, so a tall diagram both
   eats the page and shoves whatever follows onto the next one. Measured history: 681px displayed
