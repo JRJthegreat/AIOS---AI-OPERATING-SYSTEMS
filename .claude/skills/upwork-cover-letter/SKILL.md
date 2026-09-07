@@ -45,6 +45,13 @@ Optional:
 
 ## Short form (the DEFAULT, Jude, Sep 8 2026)
 
+**OUTPUT THE LETTER AND NOTHING ELSE (Jude, Sep 8 2026, after having to ask five times in one
+session: "I always tell you that").** No job-post summary, no client-quality read, no budget or
+connects analysis, no "three things worth noting", no explanation of why a proof phrase was
+chosen, before or after the letter. He asks when he wants that. Deliver the letter text alone.
+This overrides the instinct to be helpful with context: the context IS the noise.
+
+
 Jude's actual sending habit. On the Hani trading/agentic-AI job he took the full long-form
 letter below, cut roughly 80% of it, and sent this shape instead, then asked for it as a
 template. **Use this by default.** The long form is now the exception, not the rule.
@@ -230,9 +237,10 @@ with "we", never a solo end-to-end build claim.
 
 ## Output format
 
-Clean, copy-pasteable text. No commentary before or after, unless Jude asks for it. If
-something required is missing, above all the Loom link or the Loom transcript/notes, ask
-before writing anything.
+Clean, copy-pasteable text. **No commentary before or after, ever, unless Jude explicitly asks
+for it.** See the hard rule at the top of the short form section: this is the single most
+repeated correction in this skill's history. If something required is missing, above all the
+Loom link or the Loom transcript/notes, ask before writing anything.
 
 ## Character budget check
 
