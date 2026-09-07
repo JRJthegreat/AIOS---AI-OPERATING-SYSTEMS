@@ -8,10 +8,12 @@ description: Write the actual text Jude submits in Upwork's cover letter field w
 Generates the cover letter text Jude pastes straight into Upwork's application box. This is
 what actually gets submitted (per Jude, Aug 2026: he never used the ad hoc cover letters this
 repo used to hand-author under `upwork-proposal`; this skill replaces that). Pure copywriting:
-Claude authors the text directly to the fixed structure below. No API call, no Google Doc.
+Claude authors the text directly. No API call, no Google Doc.
 
-For a bigger job that also gets a Google Doc proposal (custom system breakdown, flowchart,
-etc.), build that first with `upwork-proposal` and pass its link in as an input here.
+**Two lanes. Default to the short form** (`templates/short_letter.txt`), which is what Jude
+actually sends. Use the long form only when the letter carries a Google Doc proposal link and
+has to sell that doc; in that case build the doc first with `upwork-proposal` and pass its link
+in as an input here.
 
 ## About Jude (baked-in context, do not re-derive each time)
 
@@ -41,7 +43,52 @@ Optional:
 - A Google Doc proposal link (from `upwork-proposal`).
 - The client's first name.
 
-## Structure (every letter, in this exact order)
+## Short form (the DEFAULT, Jude, Sep 8 2026)
+
+Jude's actual sending habit. On the Hani trading/agentic-AI job he took the full long-form
+letter below, cut roughly 80% of it, and sent this shape instead, then asked for it as a
+template. **Use this by default.** The long form is now the exception, not the rule.
+
+Template lives at `templates/short_letter.txt`. Five parts, nothing else:
+
+1. **Hook**, same rules as the long form (the word `custom`, the Loom link inside Upwork's
+   ~230 character preview, checked with `scripts/check_hook_length.py`). Two phrasings:
+   - `Hi {Name}. I created a custom Loom video for you about how I would approach your project: {LOOM}`
+   - `Hi {Name}. I created a custom Loom video for you, showing an example of {what it shows}: {LOOM}`
+   Jude picked the first on the Hani job even though that Loom was mostly a portfolio
+   walkthrough. He was told about the mismatch and kept it, so **do not silently swap the
+   approach phrasing for the example phrasing**: raise it once, then use whichever he picks.
+2. **One experience line.** This is the only sentence that changes per job:
+   `I have direct experience with these types of {DOMAIN} projects, from {PROOF_ONE} to {PROOF_TWO}, so I should be able to handle your project straightforwardly.`
+   - `{DOMAIN}` is lifted from the client's own words in the post ("trading and agent AI").
+   - `{PROOF_ONE}` and `{PROOF_TWO}` are two real, contrasting claims-bank assets written as
+     generic capability phrases, no links and no client names ("custom-coded decentralized
+     exchange platforms" to "AI investment analysis workflows"). The plural is deliberate.
+   - This single line replaces the long form's credibility, technical insight, "a little bit
+     about me", free next step and CTA paragraphs. Do not smuggle any of them back in.
+3. **Social proof line**, verbatim, on the line immediately after the experience line with **no
+   blank line between them**.
+4. **PS**, verbatim: `PS: I have a 100% success score here on Upwork, so you are in safe hands.`
+   It sits ABOVE the sign-off here, unlike the long form where the PS is the last line.
+5. **Close**, verbatim and doubled: `Speak soon,` / blank line / `Best,` / `Jude`
+   The two-line close is intentional. It was flagged to Jude twice and kept both times.
+
+**"We decide what to send" (Jude, Sep 8 2026).** A job post's own instructions do not drive the
+letter. The Hani post demanded an attached brief and carried two screening questions, and the
+sent letter answered neither. Surface that kind of requirement once as a note to Jude, then
+drop it. Never let it grow the letter or hold up sending.
+
+**Still binding in the short form:** no em or en dashes, contractions throughout, the hook
+character budget, claims-bank-only proof, the French-client rule, never promising guaranteed
+financial returns, and the `.tmp/` cleanup rule.
+
+## Long form structure (the exception: a letter that ships with a proposal doc)
+
+Kept because Jude approved every step of it and it is still the right shape when the letter
+carries a proposal doc link (step 3) and has to sell that doc. For everything else, use the
+short form above.
+
+The order below is exact:
 
 1. **Required keyword/phrase, if the post buries one.** Goes on its own line, above
    everything else, including the hook.
@@ -214,3 +261,5 @@ files from earlier sessions without asking first, since their sent/unsent status
   claim.
 - `feedback_upwork_cover_letters_unused` memory: why the old hand-authored-per-job cover
   letters got replaced by this skill.
+- `templates/short_letter.txt`: the short-form template, the default shape for a letter that
+  ships on its own.

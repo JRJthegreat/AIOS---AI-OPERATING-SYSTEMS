@@ -1,0 +1,11 @@
+Hi {FIRST_NAME}. I created a custom Loom video for you about how I would approach your project: {LOOM_LINK}
+
+I have direct experience with these types of {DOMAIN} projects, from {PROOF_ONE} to {PROOF_TWO}, so I should be able to handle your project straightforwardly.
+Below are a few samples of recent reviews from clients and systems I've created. I can provide dozens of additional examples upon request.
+
+PS: I have a 100% success score here on Upwork, so you are in safe hands.
+
+Speak soon,
+
+Best,
+Jude
