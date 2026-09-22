@@ -25,7 +25,7 @@ python3 .claude/skills/scrape-leads/scripts/scrape_apify.py \
   --query "INDUSTRY" --location "LOCATION" --max_items 25 --no-email-filter --output .tmp/test_leads.json
 
 # Push results to a Google Sheet (note: update_sheet.py is copied into several skills)
-python3 .claude/skills/scrape-leads/scripts/update_sheet.py .tmp/leads.json --title "Leads - INDUSTRY"
+python3 .claude/skills/scrape-leads/scripts/update_sheet.py .tmp/leads.json --sheet_name "Leads - INDUSTRY"
 
 # Google OAuth setup (Sheets/Drive/Docs) — run once, generates token.json
 python3 setup_google_auth.py
