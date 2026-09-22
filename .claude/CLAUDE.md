@@ -124,10 +124,19 @@ committed:
   `git ls-files .tmp/` before staging; to actually retire them use `git rm --cached`.
 - **`damian-photo.png` is tracked** at the root, not untracked. It is a committed one-off artifact.
 
+- **A second, untracked copy of the whole skills tree lives in `.agents/skills/`**, alongside an
+  untracked root `AGENTS.md` and `.codex/` (an OpenAI Codex port of this system, created Sep 21 2026).
+  None of the three is in `.gitignore`, so they are exactly what a blind `git add -A` would sweep in.
+  The Python scripts there are byte-identical to `.claude/skills/`; only the `SKILL.md` files differ,
+  and today only by a `.claude` → `.Codex` / Claude → Codex find-and-replace. That rename points those
+  copies at `.Codex/skills/...`, a path that does not exist (the real dir is `.agents/skills/`), so the
+  commands in them are broken as written. Treat `.claude/skills/` as canonical: edit there, and mirror
+  into `.agents/skills/` only if Jude is still running the Codex port.
+
 So never `git add -A` blind: stage explicit paths. (`.pytest_cache/` at the root looks unignored but
 self-ignores via pytest's own `.pytest_cache/.gitignore`; leave it alone.)
 
-`.tmp/` runs to hundreds of files / ~200 MB and is never cleaned automatically, so delete a job's
+`.tmp/` runs to ~940 files / 2.2 GB (measured Sep 23 2026) and is never cleaned automatically, so delete a job's
 files once its deliverable is confirmed sent.
 
 **Key principle:** Local files are only for processing. Deliverables live in Google Sheets, Slides, or
@@ -154,7 +163,7 @@ Instantly campaigns are always **created PAUSED** for Jude to review and launch.
 
 `.mcp.json` (gitignored) defines three: **`ai-ark`** (lead enrichment, below), **`make`**
 (Make.com scenarios), and **`upwork`** (official Upwork server, below). Note `settings.local.json` also
-lists `context7`, `gmail`, and `pandadoc` under `enabledMcpjsonServers`, but none of them are defined
+lists `chrome-devtools`, `context7`, `gmail`, and `pandadoc` under `enabledMcpjsonServers`, but none of them are defined
 in this repo's `.mcp.json` — those entries are inert here unless the server comes from a global config.
 
 ### Upwork (official, added Aug 25 2026)
@@ -168,7 +177,12 @@ authorize it, and the endpoint returns 401 until it is.
 The tool surface is now visible in an authorized session (observed Aug 27 2026), and it is **not
 hiring-side only**. The freelancer-side tools are real. The ones that matter for Jude's flows:
 
-- **Pull a job in:** `find_jobs`, `get_job_posting`, `save_job`, `find_saved_jobs`
+- **Pull a job in:** `find_jobs`, `save_job`, `find_saved_jobs`. Verified Sep 9 2026: every call needs
+  `org_uid` from `list_accounts` (Jude TALENT `1318336437461753857`, NEXAM CLIENT `2053682225683378013`).
+  Fetch a JD with **`find_jobs` action=`get`**, passing the full job URL as `params.id`; it returns the full
+  description, contract terms, bid stats, client spend/feedback and the connects cost. `get_job_posting` is
+  **client-side only** (it 403s on the freelancer org) so it is not the JD path. `find_jobs` action=`search`
+  takes `title` (title-only, ANDed words) or `query` (whole-posting, semantic), never both.
 - **Submit / track an application:** `manage_proposals`, `list_freelancer_proposals`, `get_draft` /
   `update_draft` / `confirm_draft`, `respond_to_offer`, `list_offers`
 - **Attach the proposal doc:** `start_attachment_upload` then `confirm_attachment_upload` then
