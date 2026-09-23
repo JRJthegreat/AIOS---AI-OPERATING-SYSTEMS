@@ -136,7 +136,7 @@ committed:
 So never `git add -A` blind: stage explicit paths. (`.pytest_cache/` at the root looks unignored but
 self-ignores via pytest's own `.pytest_cache/.gitignore`; leave it alone.)
 
-`.tmp/` runs to ~940 files / 2.2 GB (measured Sep 23 2026) and is never cleaned automatically, so delete a job's
+`.tmp/` runs to ~960 files / 2.2 GB (measured Sep 24 2026) and is never cleaned automatically, so delete a job's
 files once its deliverable is confirmed sent.
 
 **Key principle:** Local files are only for processing. Deliverables live in Google Sheets, Slides, or
