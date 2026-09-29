@@ -56,7 +56,7 @@ WORDS_HARD = 1800     # above this: fail, unless --allow-long is passed
 # won work ("Four things I checked before writing this", "Your free audit: ...", "Two
 # things I would push back on", "On Softr: start without it"), so match on intent.
 AUDIT_HEADING_RE = re.compile(
-    r"things i (?:checked|noticed|would (?:push back|flag))"
+    r"things i (?:checked|noticed|would (?:push back|flag|check))"
     r"|before writing this"
     r"|free audit"
     r"|push back"
