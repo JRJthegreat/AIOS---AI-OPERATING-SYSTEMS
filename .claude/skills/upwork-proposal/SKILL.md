@@ -171,8 +171,11 @@ Agents to dispatch in one message, in parallel:
 - **Cover letter agent** (JD path only): drafts the Upwork cover letter off the same JD and
   the claims bank, in parallel, since it does not depend on the copy agent's exact wording.
 
-Then in the main thread: run `check_proposal_html.py` on the copy agent's HTML and fix
-anything it flags, embed the flowchart's base64, run the doc script **once** (`create` /
+Then in the main thread: read the "Similar work" section against the claims bank sentence by
+sentence (Sep 29 2026: one agent added a made-up "its main issue was Notion's rate limit" to a real
+project, another described Grenke as leasing "to healthcare businesses"; neither is on file), and
+ask the agent for the saved query/output behind any statistic it produced itself. Then run
+`check_proposal_html.py` on the copy agent's HTML and fix anything it flags, embed the flowchart's base64, run the doc script **once** (`create` /
 `update` / `proposal_from_jd.py --body-html`), do one quick structural check (`export --html |
 grep '<img'`), and hand off doc URL + cover letter + job URL together.
 
