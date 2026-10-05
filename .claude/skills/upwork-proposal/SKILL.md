@@ -8,8 +8,11 @@ description: Create, build, generate, or write a client-facing Upwork proposal a
 Turns a discovery-call transcript (plus a case-study Google Sheet) into a
 polished, client-facing **Upwork proposal as a native Google Doc**. The doc is
 built and edited through the driver `proposal_doc.py`, which talks to the Google
-**Drive** API (HTML upload + convert) and **Sheets** API. There is no Docs-API
-access on the token, so styling is done in the uploaded HTML.
+**Drive** API (HTML upload + convert) and **Sheets** API. Styling starts in the
+uploaded HTML. **Environment verified Oct 2, 2026 (rechecked Oct 6):** the current token also
+permits Google Docs API reads and `batchUpdate` (the Drive scope covers it), useful for final
+paragraph/page layout. Check access with a read-only call rather than assuming the old
+no-Docs-API limitation.
 
 All paths below are relative to the repo root. Run everything from the repo root.
 
@@ -272,16 +275,11 @@ granted this before, so some doc links Jude sent were only openable by his own G
 account, not the client; `_share()` is idempotent, safe to call every time). Live example
 doc (current Kualitatem proposal): `16wc5sSCttuQU-9ySslPeyPfVj7G1FjdiVXLW1SIvVlo`.
 
-## Which skill: this one vs `upwork-apply`
+## Single-job applications
 
-Both make Upwork proposals; they are not interchangeable.
-
-- **`upwork-apply` is batch-only.** It needs an array of *scraped* jobs (Apify output with
-  `title`/`url`/`skills`/`budget`) and fans out ~30 at a time to a Sheet. It also
-  **truncates the JD to 500 chars** before prompting, and calls **Anthropic**, whose key in
-  `.env` is expired. Do not reach for it for one hand-picked job.
-- **This skill handles a single job**, including a JD pasted straight into chat, via
-  `proposal_from_jd.py` below.
+This is the only Upwork proposal path (the old batch `upwork-apply` skill was deleted Oct 6 2026;
+git history has it). It handles one job at a time, from a JD pasted into chat or pulled with the
+Upwork MCP's `find_jobs` action=`get`, via `proposal_from_jd.py` below.
 
 **A single-job application is two deliverables, not one.** The Google Doc is the
 attachment; the **cover letter is what actually gets submitted**, and nothing here
@@ -568,6 +566,31 @@ point where you cut a band instead of shipping it.
    `export --html | grep -o 'width: [0-9.]*px; height: [0-9.]*px'` (should be 624px wide) and
    `export --html | grep -o Bricolage | wc -l` (never 0).
 
+## Final pagination check (verified Oct 2, 2026)
+
+The current OAuth token can call the Google Docs API using the existing `_creds()`.
+After Drive conversion, `documents.get` and `documents.batchUpdate` can adjust layout
+without reimporting the body or disturbing the embedded image/font. On a batch of ten
+proposals, use of `keepWithNext` for the architecture caption and intervening blank
+paragraph kept the caption with its image. `keepLinesTogether` and
+`avoidWidowAndOrphan` prevented split paragraphs; keeping the signature paragraphs
+together removed lone-name pages. Modest 48pt top/bottom margins and 6pt blank spacer
+paragraphs preserved readable body text and diagrams. These are optional layout
+adjustments, not mandatory page-count shortcuts. If a final signature still spills,
+trim repetitive proof prose before shrinking the diagram.
+
+Export PDF after these edits and inspect it. Re-export HTML as the live source for
+any subsequent safe edits: uploading an older authored body would undo API formatting.
+Do not assume permission from a previous environment; verify access read-only first.
+
+When reimporting a live HTML export to replace a figure, preserve the live content,
+replace the image source, and restore numeric width/height attributes. Check actual
+PDF font names afterward: exported spacer runs can return as Arial even while the
+body retains Bricolage. A whole-document `weightedFontFamily.fontFamily` update can
+also normalize bold runs to regular. Preserve or explicitly restore each heading
+and bold lead-in's `bold` flag and 700 weight, then verify both Bricolage Regular
+and Bold in the exported PDF. Reapply pagination after any HTML reimport.
+
 ## Safe-edit workflow (once the client edits the doc by hand)
 
 Re-running `create`/`update` from a freshly authored body **wipes the client's
@@ -587,7 +610,8 @@ section numbering is still correct.
 
 ## Gotchas
 
-- **Drive scope only, no Docs API.** Font is set via inline CSS in the HTML, so
+- **Drive HTML import remains the creation path.** Docs API access is verified (Oct 2, 2026) but
+  only for post-conversion layout (see Final pagination check). Font is set via inline CSS in the HTML, so
   the driver injects `font-family:'Bricolage Grotesque'` on bare block tags. The
   injection **no-ops on already-styled HTML** (e.g. a Google export), so it is
   safe to run `update` on exported-then-edited HTML.
