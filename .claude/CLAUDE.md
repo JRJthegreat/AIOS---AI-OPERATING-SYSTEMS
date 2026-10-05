@@ -13,8 +13,8 @@ python3 .claude/skills/upwork-proposal/proposal_from_jd.py [args]  # from a job 
 
 # The repo's only lint gate. Run on the proposal body HTML BEFORE rendering/upload.
 # Fails on: em dashes, [bracketed placeholders], a missing <p>&nbsp;</p> gap between blocks,
-# zero or >1 <h1>, a body over 1,800 words (warns over the 1,200-word target), and a missing
-# audit section (the gaps/traps/stack-call section; --no-audit to override, warns if it is thin).
+# zero or >1 <h1>, any <table>, a body over 1,800 words (warns over the 1,200-word target), and a
+# missing audit section (the gaps/traps/stack-call section; --no-audit to override, warns if thin).
 python3 .claude/skills/upwork-proposal/scripts/check_proposal_html.py .tmp/body.html [--allow-long] [--no-audit]
 
 # Cover-letter hook vs Upwork's ~230-char preview cutoff (arg, or stdin via pbpaste)
@@ -127,16 +127,18 @@ committed:
 - **A second, untracked copy of the whole skills tree lives in `.agents/skills/`**, alongside an
   untracked root `AGENTS.md` and `.codex/` (an OpenAI Codex port of this system, created Sep 21 2026).
   None of the three is in `.gitignore`, so they are exactly what a blind `git add -A` would sweep in.
-  The Python scripts there are byte-identical to `.claude/skills/`; only the `SKILL.md` files differ,
-  and today only by a `.claude` → `.Codex` / Claude → Codex find-and-replace. That rename points those
-  copies at `.Codex/skills/...`, a path that does not exist (the real dir is `.agents/skills/`), so the
-  commands in them are broken as written. Treat `.claude/skills/` as canonical: edit there, and mirror
-  into `.agents/skills/` only if Jude is still running the Codex port.
+  It was a snapshot: on Sep 21 the Python scripts were byte-identical to `.claude/skills/` and the
+  `SKILL.md` files differed only by a `.claude` → `.Codex` / Claude → Codex find-and-replace. Nothing
+  syncs it, so it now lags: `upwork-proposal/SKILL.md` and `check_proposal_html.py` were committed
+  after the snapshot (and `gmaps-leads`/`upwork-cover-letter` have uncommitted edits as of Oct 6).
+  The rename also points those copies at `.Codex/skills/...`, a path that does not exist (the real
+  dir is `.agents/skills/`), so the commands in them are broken as written. Treat `.claude/skills/` as
+  canonical: edit there, and mirror into `.agents/skills/` only if Jude is still running the Codex port.
 
 So never `git add -A` blind: stage explicit paths. (`.pytest_cache/` at the root looks unignored but
 self-ignores via pytest's own `.pytest_cache/.gitignore`; leave it alone.)
 
-`.tmp/` runs to ~960 files / 2.2 GB (measured Sep 24 2026) and is never cleaned automatically, so delete a job's
+`.tmp/` runs to ~980 top-level entries (~2,000 files recursively) / 2.2 GB (measured Oct 6 2026) and is never cleaned automatically, so delete a job's
 files once its deliverable is confirmed sent.
 
 **Key principle:** Local files are only for processing. Deliverables live in Google Sheets, Slides, or
@@ -184,25 +186,28 @@ hiring-side only**. The freelancer-side tools are real. The ones that matter for
   **client-side only** (it 403s on the freelancer org) so it is not the JD path. `find_jobs` action=`search`
   takes `title` (title-only, ANDed words) or `query` (whole-posting, semantic), never both.
 - **Submit / track an application:** `manage_proposals`, `list_freelancer_proposals`, `get_draft` /
-  `update_draft` / `confirm_draft`, `respond_to_offer`, `list_offers`
+  `confirm_draft`, `get_preview` / `confirm_preview`, `respond_to_offer`, `list_offers` (there is no
+  `update_draft`, despite the earlier advertised list)
 - **Attach the proposal doc:** `start_attachment_upload` then `confirm_attachment_upload` then
   `store_uploaded_files`, with `get_upload_status`
 - **Profile / rates / pipeline:** `get_profile`, `update_profile`, `boost_profile`, `get_rate_insights`,
-  `get_freelancer_dashboard`, `get_freelancer_financials`, `list_contracts`, `list_milestones` /
-  `manage_milestones` / `submit_milestones`, `get_messages`, `send_message`
+  `get_freelancer_dashboard`, `get_freelancer_financials`, `list_contracts`, `update_contract` /
+  `end_contract`, `list_milestones` / `manage_milestones` / `submit_milestones`, `get_messages`,
+  `send_message`
 - Hiring-side tools also exist (`post_job`, `find_freelancers`, `invite_freelancer`, `manage_offers`, ...)
   and are irrelevant here.
 
 Still true: **no keyword or profile-ranking tool exists**, so do not plan around one. `get_tool_help`,
-`set_tool_mode`, and `set_tool_permission` are the server's own introspection/permission tools; call
-`get_tool_help` before a first use of anything above, since none of these have been exercised against
-live data here: the list is the advertised surface, not a tested one.
+`set_tool_mode`, and `set_tool_permission` are the server's own introspection/permission tools. Only
+the `find_jobs` shapes above are documented here as verified; call `get_tool_help` before a first use
+of anything else, since argument shapes are not recorded in this file.
 
 `upwork-proposal` / `upwork-cover-letter` stay the source of proposal quality. The MCP's role is the
-plumbing at either end: `get_job_posting` to pull the JD in place of a paste, and the attachment plus
-`manage_proposals` chain to push the doc and letter back out. Submitting an application is outward-facing
-and irreversible, so confirm with Jude before any `manage_proposals` / `confirm_draft` / `send_message`
-call, never on your own initiative.
+plumbing at either end: `find_jobs` action=`get` to pull the JD in place of a paste, and the attachment
+plus `manage_proposals` chain to push the doc and letter back out. Submitting an application or acting
+on a contract is outward-facing and irreversible, so confirm with Jude before any `manage_proposals` /
+`confirm_draft` / `confirm_preview` / `send_message` / `update_contract` / `end_contract` call, never
+on your own initiative.
 
 ### AI Ark (lead enrichment)
 
@@ -239,8 +244,8 @@ recoverable from git history.
 | Skill | What it does |
 |-------|-------------|
 | `create-proposal` | PandaDoc proposal from sheet data or call transcript. **Does not exist: the local dir is empty and git tracks nothing under it, so a fresh clone has no `create-proposal` at all. Needs building from scratch before use.** |
-| `upwork-proposal` | Discovery-call transcript + case-study Sheet → client-facing Upwork proposal as a native Google Doc via `proposal_doc.py` (Drive HTML-upload+convert; no Docs API). Bricolage Grotesque, reply-only CTA, Upwork-consultant byline, em dashes blocked at upload. Has a safe-edit (export→edit→update) flow once the client hand-edits. Also handles a single pasted JD via `proposal_from_jd.py` (LLM path, or `--body-html` to render a hand-authored body with the same styling guards) — this, not `upwork-apply`, is the path for one hand-picked job; see its SKILL.md for the skill-choice rules. The doc is only the attachment; pair it with `upwork-cover-letter` for the text that actually gets submitted. |
-| `upwork-cover-letter` | Writes the actual Upwork cover letter text Jude submits (job post + his Loom link, optionally a proposal-doc link and client name → copy-pasteable letter). Fixed structure: hook with Loom link inside Upwork's ~230-char preview window, credibility paragraph pulled from the verified claims bank, optional technical-insight paragraph, standard bio/close/PS. Has a `scripts/check_hook_length.py` helper for the hook's character budget. |
+| `upwork-proposal` | Discovery-call transcript + case-study Sheet → client-facing Upwork proposal as a native Google Doc via `proposal_doc.py` (Drive HTML-upload+convert; no Docs API). Bricolage Grotesque, closes on a short scoping call (superseded the old reply-only close, Sep 2 2026), no tables, Upwork-consultant byline, em dashes blocked at upload. Has a safe-edit (export→edit→update) flow once the client hand-edits. Also handles a single pasted JD via `proposal_from_jd.py` (LLM path, or `--body-html` to render a hand-authored body with the same styling guards) — this, not `upwork-apply`, is the path for one hand-picked job; see its SKILL.md for the skill-choice rules. The doc is only the attachment; pair it with `upwork-cover-letter` for the text that actually gets submitted. |
+| `upwork-cover-letter` | Writes the actual Upwork cover letter text Jude submits (job post + his Loom link, optionally a proposal-doc link and client name → copy-pasteable letter). Two lanes: the **short form is the default** (Sep 8 2026; `templates/short_letter.txt`: hook with the Loom link inside Upwork's ~230-char preview, one per-job experience line, verbatim social-proof line, PS, close); the long form (credibility + technical-insight paragraphs from the claims bank) only when the letter has to sell a proposal-doc link. Hard gates: needs the Loom transcript/notes before drafting, and outputs the letter text and nothing else. Has a `scripts/check_hook_length.py` helper for the hook's character budget. |
 | `upwork-apply` | Scrape Upwork jobs → generate personalized proposals. Batch-only (needs Apify-scraped job arrays, truncates JDs to 500 chars) — not for a single hand-picked job |
 | `design-website` | Single-page HTML mockup for a prospect (buildinamsterdam.com aesthetic) |
 | `monday-crm` | Law-firm CRM on Monday.com — cases, leads, hearings, tasks |
