@@ -115,14 +115,11 @@ token.json                              # Google OAuth token (gitignored)
 logs, the root `flowchart_*.png` renders, and the `campaign_archive` symlink (points at
 `~/nexam-campaign-archive`, outside this repo).
 
-Two traps the `.gitignore` does **not** solve, because ignore rules never untrack what was already
-committed:
+Traps the `.gitignore` does **not** solve:
 
-- **11 `.tmp/` files are still tracked** (`.tmp/upwork_jobs_*.json`, `.tmp/proposals*.json`,
-  `.tmp/single_*.json`, `.tmp/merge_sheet.py`, `.tmp/current_sheet_id.txt`). Overwriting any of them
-  during a run makes `git status` dirty, and a blind `git add -A` commits scratch data. Check
-  `git ls-files .tmp/` before staging; to actually retire them use `git rm --cached`.
-- **`damian-photo.png` is tracked** at the root, not untracked. It is a committed one-off artifact.
+- **`damian-photo.png` is tracked** at the root, because ignore rules never untrack what was already
+  committed. It is a committed one-off artifact. (The 11 `.tmp/` files that were tracked the same way
+  were retired with `git rm --cached` on Oct 6 2026; `git ls-files .tmp/` should now be empty.)
 
 - **A second, untracked copy of the whole skills tree lives in `.agents/skills/`**, alongside an
   untracked root `AGENTS.md` and `.codex/` (an OpenAI Codex port of this system, created Sep 21 2026).
@@ -138,8 +135,11 @@ committed:
 So never `git add -A` blind: stage explicit paths. (`.pytest_cache/` at the root looks unignored but
 self-ignores via pytest's own `.pytest_cache/.gitignore`; leave it alone.)
 
-`.tmp/` runs to ~980 top-level entries (~2,000 files recursively) / 2.2 GB (measured Oct 6 2026) and is never cleaned automatically, so delete a job's
-files once its deliverable is confirmed sent.
+`.tmp/` is never cleaned automatically, so delete a job's files once its deliverable is confirmed sent.
+It had grown to 2.35 GB (2 GB of it one video edit) before an Oct 6 2026 sweep cut it to 88 MB: that
+sweep moved everything older than 30 days to the macOS Trash (`/usr/bin/trash`, recoverable) except
+files for still-open work (Grenke + its medical vertical, FJD golf, PN Digital, Kualitatem, VENTIQ,
+the ClickUp backup). Repeat that pattern rather than `rm`.
 
 **Key principle:** Local files are only for processing. Deliverables live in Google Sheets, Slides, or
 other cloud services — the Sheet URL (not a local file) is what you hand to Jude.
