@@ -5,332 +5,224 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Common Commands
 
 ```bash
-# Run any skill script directly (each skill bundles its own scripts/)
+# Run any skill script from the REPO ROOT (each skill bundles its own scripts/)
 python3 .claude/skills/<skill-name>/scripts/<script>.py [args]
-# Exception: upwork-proposal keeps its two builders at the skill root; its scripts/ holds the linter
-python3 .claude/skills/upwork-proposal/proposal_doc.py [args]      # from a call transcript
-python3 .claude/skills/upwork-proposal/proposal_from_jd.py [args]  # from a job description
+
+# upwork-proposal keeps its two builders at the skill root; its scripts/ holds the linter
+python3 .claude/skills/upwork-proposal/proposal_doc.py create --title "T" --html .tmp/body.html  # also: update --id, export --id, sheet --id
+python3 .claude/skills/upwork-proposal/proposal_from_jd.py --jd-file .tmp/jd.txt --client "Name"  # --body-html F renders a hand-authored body instead
 
 # The repo's only lint gate. Run on the proposal body HTML BEFORE rendering/upload.
 # Fails on: em dashes, [bracketed placeholders], a missing <p>&nbsp;</p> gap between blocks,
-# zero or >1 <h1>, any <table>, a body over 1,800 words (warns over the 1,200-word target), and a
-# missing audit section (the gaps/traps/stack-call section; --no-audit to override, warns if thin).
+# zero or >1 <h1>, any <table>, a body over 1,800 words (warns over 1,200), and a missing audit
+# section (the gaps/traps/stack-call section; --no-audit to override, warns if thin).
 python3 .claude/skills/upwork-proposal/scripts/check_proposal_html.py .tmp/body.html [--allow-long] [--no-audit]
 
 # Cover-letter hook vs Upwork's ~230-char preview cutoff (arg, or stdin via pbpaste)
 python3 .claude/skills/upwork-cover-letter/scripts/check_hook_length.py "Hi Name. ... https://loom.com/..."
 
-# scrape-leads: test a scrape (25-item sample) BEFORE a full run — Apify bills per result
+# scrape-leads: 25-item test scrape BEFORE any full run (Apify bills per result)
 python3 .claude/skills/scrape-leads/scripts/scrape_apify.py \
   --query "INDUSTRY" --location "LOCATION" --max_items 25 --no-email-filter --output .tmp/test_leads.json
 
-# Push results to a Google Sheet (note: update_sheet.py is copied into several skills)
+# Push results to a Google Sheet
 python3 .claude/skills/scrape-leads/scripts/update_sheet.py .tmp/leads.json --sheet_name "Leads - INDUSTRY"
 
-# Google OAuth setup (Sheets/Drive/Docs) — run once, generates token.json
+# Google OAuth (Sheets + Drive scopes; Drive also covers Docs API calls): one-time, needs credentials.json, writes token.json
 python3 setup_google_auth.py
 
-# Apify actors (standalone, deployed separately via Apify CLI)
-cd healthcare-recruitment-actor  && pip install -r requirements.txt && apify push
-cd nchcr-job-board-actor         && pip install -r requirements.txt && apify push
-cd productionhub-directory-actor && pip install -r requirements.txt && apify push
+# Regenerate the Codex port after editing any skill, agent, or this file (dry run without --apply)
+python3 sync_codex_mirror.py --apply
 
-# Run an actor locally (reads .actor/../storage/key_value_stores/default/INPUT.json)
-cd productionhub-directory-actor && python3 -m src   # set testMode:true in INPUT.json first
+# Apify actors: deploy from inside the actor dir
+cd <actor-dir> && pip install -r requirements.txt && apify push
+cd productionhub-directory-actor && python3 -m src   # local run off storage/key_value_stores/default/INPUT.json; set testMode:true first
 ```
 
-**Always invoke skill scripts from the repo root** (as written above), never after `cd`-ing into the
-skill dir. Google credentials are resolved CWD-relative (`os.path.exists('token.json')`), so from any
-other directory auth falls through to the service-account branch and dies with a misleading
-`Credentials file 'service_account.json' not found`. Only `gmaps-leads`'s `heal_enrichment.py` and
-`verify_email_persona.py` anchor to a `PROJECT_ROOT` constant; of the 73 scripts under
-`.claude/skills/`, 18 do the CWD-relative `token.json` check and only those two anchor.
+**Run skill scripts from the repo root, never after `cd`-ing into a skill dir.** Google auth is
+resolved CWD-relative (`os.path.exists('token.json')`); from anywhere else it falls through to the
+service-account branch and dies with a misleading `Credentials file 'service_account.json' not found`.
+Only `gmaps-leads`'s `heal_enrichment.py` and `verify_email_persona.py` anchor to a `PROJECT_ROOT`.
 
-There is no repo-wide test/build step and no root `requirements.txt` — skill scripts run on system
-`python3` against already-installed deps (`gspread`, `python-dotenv`, `openai`, `google-auth*`,
-`requests`); only the three Apify actors pin their own. The single lint gate is
-`check_proposal_html.py` above, and it only covers proposal HTML. Validate everything else by running
-the specific script against a small sample and eyeballing the `.tmp/` output. When a script's logic
-warrants real tests, write them throwaway into `.tmp/` and run `python3 -m pytest .tmp/test_x.py`
-(see `.tmp/test_find_company_domains.py`). Nothing under `.tmp/` is committed, so tests here are
-per-change scaffolding, never a suite to keep green.
+There is no build step, test suite, or root `requirements.txt`. Skill scripts run on the system
+`python3`, **which is 3.9** (no `match`, no runtime `X | Y` types, no `tomllib`), against
+already-installed deps (`gspread`, `python-dotenv`, `openai`, `google-auth*`, `requests`); only the
+Apify actors pin their own. Validate a change by running the script on a small sample and checking the
+`.tmp/` output. When logic warrants real tests, write them throwaway in `.tmp/` and run
+`python3 -m pytest .tmp/test_x.py` (example: `.tmp/test_find_company_domains.py`).
 
 ## LLM provider (IMPORTANT)
 
-The working LLM is **Azure OpenAI**, NOT Anthropic. The `ANTHROPIC_API_KEY` in `.env` is
-expired (returns 401). Scripts read these env vars:
+Use **Azure OpenAI**, not Anthropic: `ANTHROPIC_API_KEY` in `.env` is expired (401, rechecked
+Oct 6 2026). Env vars:
 
 - `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_API_VERSION`
-- `AZURE_OPENAI_DEPLOYMENT` (quality/one-shot work, currently `gpt-5.1` — used by `proposal_from_jd.py`)
-- `AZURE_OPENAI_DEPLOYMENT_FAST` (bulk per-row work, currently `gpt-4.1`)
+- `AZURE_OPENAI_DEPLOYMENT` = `gpt-5.1`, for quality/one-shot work (`proposal_from_jd.py`)
+- `AZURE_OPENAI_DEPLOYMENT_FAST` = `gpt-4.1`, for bulk per-row work
 
-When adding LLM calls to a script, follow this pattern (Azure client, `*_FAST` deployment for per-row
-batches, a small thread pool e.g. `LLM_WORKERS = 8`). Do not reintroduce Anthropic calls without asking.
+New LLM calls follow that pattern: Azure client, the `*_FAST` deployment for per-row batches, a small
+thread pool (`LLM_WORKERS = 8`). Reference implementation:
+`gmaps-leads/scripts/extract_website_contacts.py`. Don't reintroduce Anthropic calls without asking.
 
-**The Azure migration is only partial.** Migrated so far: `gmaps-leads`'s LLM scripts
-(`extract_website_contacts.py`, `verify_email_persona.py`), `scrape-leads`'s
-`classify_decision_makers.py` / `classify_staffing_leads.py` / `find_company_contacts.py`, and
-`upwork-proposal/proposal_from_jd.py`. Still hard-coded to the dead Anthropic key (will 401 until ported):
-**`casualize-names`** (all scripts), **`classify-leads`**, **`upwork-apply`**,
-**`instantly-autoreply`**, **`cross-niche-outliers`**, and `scrape-leads`'s `classify_leads_llm.py` +
-`generate_email_variables.py`. Before running any of these, port the LLM call to the Azure pattern
-above (see `gmaps-leads/scripts/extract_website_contacts.py` as a reference implementation).
+**Still on the dead key** (port to Azure before running): `casualize-names`, `classify-leads`,
+`instantly-autoreply`, and `scrape-leads`'s `classify_leads_llm.py` + `generate_email_variables.py`.
 
 ## Architecture
 
-This repo is a **Claude Code Skills** system — bundled capabilities pairing natural-language instructions
-(`SKILL.md`) with deterministic Python scripts. Claude orchestrates: reads the `SKILL.md`, runs the right
-scripts in order, and self-heals on errors.
+A Claude Code Skills system: each skill pairs instructions (`SKILL.md`) with deterministic Python
+scripts. Claude reads the `SKILL.md`, runs the scripts in order, and fixes them when they break.
 
 ```
 .claude/
-  skills/          # 18 tracked dirs, 17 invocable (a skill needs a SKILL.md); each = SKILL.md + scripts/
-                   #   + an empty, untracked create-proposal/ locally: 19 dirs on this machine, 18 on a clone
-  agents/          # Subagents: code-reviewer, research, qa, email-classifier
-  plans/           # Saved plan-mode output, read by nothing
-  settings.local.json  # Permissions: git push / reset --hard / clean are DENIED
-
-.mcp.json          # MCP servers: ai-ark (lead enrichment) + make — gitignored, holds API keys
-.env               # All API keys (Apify, Azure OpenAI, Instantly, Monday, etc.) — gitignored
-
-healthcare-recruitment-actor/   # Standalone Apify actor (Python, async) — 8 sources
-  src/__main__.py               #   entrypoint → SCRAPER_MAP → async per-source → merge/dedup
-  src/scrapers/                 #   one module per source (linkedin_jobs, nppes_npi, …)
-  src/utils/merge.py            #   dedup: domain match → normalized name match
-
-nchcr-job-board-actor/          # Standalone Apify actor — scrapes nchcr.com job board
-  src/scraper.py                #   healthcare recruiting firms (name, recruiter, phone, email)
-
-productionhub-directory-actor/  # Standalone Apify actor — productionhub.com (Cloudflare-fronted)
-  src/scraper.py                #   patchright + headed Chrome; listing crawl + profile visit
-
-reddit-lead-intelligence.workflow.json  # n8n workflow: Reddit → Apify → lead enrichment
-setup_google_auth.py                    # one-time OAuth flow for Google APIs
-token.json                              # Google OAuth token (gitignored)
-.tmp/                                   # intermediate files: gitignored, but see Repo hygiene
+  skills/              # one dir per skill (build-scrapers is docs-only, no SKILL.md)
+  agents/              # subagents: code-reviewer, research, qa
+  settings.local.json  # git push / reset --hard / clean are DENIED
+.mcp.json              # MCP servers ai-ark, make, upwork (gitignored, holds keys)
+.env                   # all API keys (gitignored)
+setup_google_auth.py   # one-time Google OAuth -> token.json (gitignored)
+sync_codex_mirror.py   # regenerates the Codex port (see Repo hygiene)
+healthcare-recruitment-actor/  nchcr-job-board-actor/  productionhub-directory-actor/   # Apify actors
+reddit-lead-intelligence.workflow.json   # n8n workflow: Reddit -> Apify -> lead enrichment
+.tmp/                  # intermediates (gitignored)
 ```
 
-**Repo hygiene:** `.gitignore` now covers secrets (`.env`, `token.json`, `credentials.json`,
-`.mcp.json`), `.tmp/`, actor-local `.venv/` / `storage/` / `__pycache__/`, `.playwright-mcp/` session
-logs, the root `flowchart_*.png` renders, and the `campaign_archive` symlink (points at
-`~/nexam-campaign-archive`, outside this repo).
+**Local files are only for processing.** Deliverables live in Google Sheets/Docs/Slides; hand Jude
+the URL, not a local path.
 
-Traps the `.gitignore` does **not** solve:
+### Repo hygiene
 
-- **`damian-photo.png` is tracked** at the root, because ignore rules never untrack what was already
-  committed. It is a committed one-off artifact. (The 11 `.tmp/` files that were tracked the same way
-  were retired with `git rm --cached` on Oct 6 2026; `git ls-files .tmp/` should now be empty.)
-
-- **A second, untracked copy of the whole skills tree lives in `.agents/skills/`**, alongside an
-  untracked root `AGENTS.md` and `.codex/` (an OpenAI Codex port of this system, created Sep 21 2026).
-  None of the three is in `.gitignore`, so they are exactly what a blind `git add -A` would sweep in.
-  It was a snapshot: on Sep 21 the Python scripts were byte-identical to `.claude/skills/` and the
-  `SKILL.md` files differed only by a `.claude` → `.Codex` / Claude → Codex find-and-replace. Nothing
-  syncs it, so it now lags: `upwork-proposal/SKILL.md` and `check_proposal_html.py` were committed
-  after the snapshot (and `gmaps-leads`/`upwork-cover-letter` have uncommitted edits as of Oct 6).
-  The rename also points those copies at `.Codex/skills/...`, a path that does not exist (the real
-  dir is `.agents/skills/`), so the commands in them are broken as written. Treat `.claude/skills/` as
-  canonical: edit there, and mirror into `.agents/skills/` only if Jude is still running the Codex port.
-
-So never `git add -A` blind: stage explicit paths. (`.pytest_cache/` at the root looks unignored but
-self-ignores via pytest's own `.pytest_cache/.gitignore`; leave it alone.)
-
-`.tmp/` is never cleaned automatically, so delete a job's files once its deliverable is confirmed sent.
-It had grown to 2.35 GB (2 GB of it one video edit) before an Oct 6 2026 sweep cut it to 88 MB: that
-sweep moved everything older than 30 days to the macOS Trash (`/usr/bin/trash`, recoverable) except
-files for still-open work (Grenke + its medical vertical, FJD golf, PN Digital, Kualitatem, VENTIQ,
-the ClickUp backup). Repeat that pattern rather than `rm`.
-
-**Key principle:** Local files are only for processing. Deliverables live in Google Sheets, Slides, or
-other cloud services — the Sheet URL (not a local file) is what you hand to Jude.
+- `.gitignore` covers secrets, `.tmp/`, actor `.venv/` / `storage/` / `__pycache__/`,
+  `.playwright-mcp/`, root `flowchart_*.png` renders, the `campaign_archive` symlink, and the Codex
+  port. Even so, **never `git add -A`**: stage explicit paths.
+<!-- codex:skip-start -->
+- **The Codex port is generated, never edited.** `.agents/skills/`, `.codex/agents/*.toml` and
+  `AGENTS.md` are an OpenAI Codex port Jude still runs, all built from `.claude/` by
+  `sync_codex_mirror.py`. Edit `.claude/` only, then rerun the sync. It rewrites paths only, never
+  the word "Claude", because skill text holds facts about Jude's own tooling. `.codex/config.toml`
+  (Codex's MCP config, holds the Make auth header) is hand-maintained and the sync never touches it.
+<!-- codex:skip-end -->
+- `.tmp/` is never cleaned automatically. Delete a job's files once Jude confirms the deliverable
+  was sent. For a bulk cleanup, move entries older than ~30 days to the macOS Trash with
+  `/usr/bin/trash` (recoverable), skipping still-open projects; never `rm`.
 
 ### Shared script toolbox
-`scrape-leads/scripts/` is the master toolbox (~25 scripts): Apify scraping, multiple LLM classifiers,
-email/company/domain enrichment, Instantly push, and the per-source scrapers the healthcare actor mirrors
-(`scrape_nppes_npi.py`, `scrape_state_registries.py`, `scrape_asa_members.py`, …). `update_sheet.py` is
-**copied** into `scrape-leads`, `gmaps-leads`, `classify-leads`, and `upwork-apply` — if you fix a bug in
-one, check whether the others need the same fix. These copies have **already drifted**: only
-`scrape-leads`'s copy has the `set_row_height(18)` step; the other three lack it. Treat `scrape-leads`'s
-as the canonical version when reconciling.
 
-### Enrichment/outreach conventions (learned on past campaigns)
-Removed skills (`b2b-sales-leads-indeed`, `seo-leads-indeed`, deleted Jul 2026 — recover via git
-history if needed) established conventions that still apply to any new enrichment/outreach script:
-**dry-run by default with `--apply` to spend/write**; AnyMailFinder emails are **accepted only when
-`valid`**, never `risky`/`invalid`; fetch homepages with **`curl`, not `requests`** (macOS LibreSSL
-fails TLS on some hosts); ground LLM-derived ICPs in the company website, not job descriptions;
-Instantly campaigns are always **created PAUSED** for Jude to review and launch.
+`scrape-leads/scripts/` is the master toolbox: Apify scraping, LLM classifiers, email/company/domain
+enrichment, Instantly push, and the per-source scrapers the healthcare actor mirrors.
+`update_sheet.py` is **copied** into `scrape-leads`, `gmaps-leads` and `classify-leads`, and the
+copies have drifted: only `scrape-leads`'s has the `set_row_height(18)` step. Treat that one as
+canonical and port fixes to the others.
+
+### Enrichment/outreach conventions
+
+For any new enrichment or outreach script:
+
+- Dry-run by default, `--apply` to spend or write.
+- AnyMailFinder emails are accepted only when `valid`, never `risky`/`invalid`.
+- Fetch homepages with `curl`, not `requests` (macOS LibreSSL fails TLS on some hosts).
+- Ground LLM-derived ICPs in the company website, not job descriptions.
+- Instantly campaigns are always created PAUSED for Jude to review and launch.
 
 ## MCP servers
 
-`.mcp.json` (gitignored) defines three: **`ai-ark`** (lead enrichment, below), **`make`**
-(Make.com scenarios), and **`upwork`** (official Upwork server, below). Note `settings.local.json` also
-lists `chrome-devtools`, `context7`, `gmail`, and `pandadoc` under `enabledMcpjsonServers`, but none of them are defined
-in this repo's `.mcp.json` — those entries are inert here unless the server comes from a global config.
+`.mcp.json` defines `ai-ark`, `make` and `upwork`. `settings.local.json` also enables
+`chrome-devtools`, `context7`, `gmail` and `pandadoc`, which aren't defined here; they only work if
+a global config provides them.
 
-### Upwork (official, added Aug 25 2026)
+### Upwork
 
-Endpoint `https://mcp.upwork.com/mcp`, transport HTTP. Auth is **OAuth 2.1 + PKCE only** (no API key
-to paste): its `/.well-known/oauth-protected-resource` points the token exchange at
-`www.upwork.com/api/v3/oauth2/token`, so the config carries no secret and the login must be completed
-interactively with `/mcp` in a real terminal session. A headless/non-interactive session cannot
-authorize it, and the endpoint returns 401 until it is.
+Official server at `https://mcp.upwork.com/mcp`, OAuth 2.1 + PKCE only: authorize with `/mcp` in an
+interactive terminal session. A headless session can't, and the server returns 401 until it's done.
 
-The tool surface is now visible in an authorized session (observed Aug 27 2026), and it is **not
-hiring-side only**. The freelancer-side tools are real. The ones that matter for Jude's flows:
+- Every call needs `org_uid` from `list_accounts`: Jude TALENT `1318336437461753857`, NEXAM CLIENT
+  `2053682225683378013`.
+- **Pull a JD:** `find_jobs` action=`get` with the full job URL as `params.id`. It returns the
+  description, contract terms, bid stats, client spend/feedback and connects cost.
+  `get_job_posting` is client-side only and 403s on the freelancer org.
+- **Search:** `find_jobs` action=`search` takes `title` (title-only, ANDed words) or `query`
+  (whole posting, semantic), never both. `save_job` / `find_saved_jobs` manage the saved list. No
+  keyword- or profile-ranking tool exists.
+- **Apply:** `manage_proposals`, `list_freelancer_proposals`, `get_draft` / `confirm_draft`,
+  `get_preview` / `confirm_preview`. Attach a doc with `start_attachment_upload` →
+  `confirm_attachment_upload` → `store_uploaded_files` (`get_upload_status` to poll).
+- **Pipeline:** `get_profile` / `update_profile`, `boost_profile`, `get_rate_insights`,
+  `get_freelancer_dashboard` / `get_freelancer_financials`, `list_contracts` / `update_contract` /
+  `end_contract`, `list_milestones` / `manage_milestones` / `submit_milestones`, `get_messages` /
+  `send_message`, `list_offers` / `respond_to_offer`.
+- Call `get_tool_help` before first use of anything beyond `find_jobs`; argument shapes aren't
+  recorded here.
 
-- **Pull a job in:** `find_jobs`, `save_job`, `find_saved_jobs`. Verified Sep 9 2026: every call needs
-  `org_uid` from `list_accounts` (Jude TALENT `1318336437461753857`, NEXAM CLIENT `2053682225683378013`).
-  Fetch a JD with **`find_jobs` action=`get`**, passing the full job URL as `params.id`; it returns the full
-  description, contract terms, bid stats, client spend/feedback and the connects cost. `get_job_posting` is
-  **client-side only** (it 403s on the freelancer org) so it is not the JD path. `find_jobs` action=`search`
-  takes `title` (title-only, ANDed words) or `query` (whole-posting, semantic), never both.
-- **Submit / track an application:** `manage_proposals`, `list_freelancer_proposals`, `get_draft` /
-  `confirm_draft`, `get_preview` / `confirm_preview`, `respond_to_offer`, `list_offers` (there is no
-  `update_draft`, despite the earlier advertised list)
-- **Attach the proposal doc:** `start_attachment_upload` then `confirm_attachment_upload` then
-  `store_uploaded_files`, with `get_upload_status`
-- **Profile / rates / pipeline:** `get_profile`, `update_profile`, `boost_profile`, `get_rate_insights`,
-  `get_freelancer_dashboard`, `get_freelancer_financials`, `list_contracts`, `update_contract` /
-  `end_contract`, `list_milestones` / `manage_milestones` / `submit_milestones`, `get_messages`,
-  `send_message`
-- Hiring-side tools also exist (`post_job`, `find_freelancers`, `invite_freelancer`, `manage_offers`, ...)
-  and are irrelevant here.
+**Confirm with Jude before anything that submits, sends, spends Connects, or changes a contract or
+profile:** `manage_proposals`, `confirm_draft`, `confirm_preview`, `send_message`,
+`respond_to_offer`, `update_contract`, `end_contract`, `update_profile`, `boost_profile`. The MCP is
+plumbing; `upwork-proposal` and `upwork-cover-letter` own proposal quality.
 
-Still true: **no keyword or profile-ranking tool exists**, so do not plan around one. `get_tool_help`,
-`set_tool_mode`, and `set_tool_permission` are the server's own introspection/permission tools. Only
-the `find_jobs` shapes above are documented here as verified; call `get_tool_help` before a first use
-of anything else, since argument shapes are not recorded in this file.
+### AI Ark
 
-`upwork-proposal` / `upwork-cover-letter` stay the source of proposal quality. The MCP's role is the
-plumbing at either end: `find_jobs` action=`get` to pull the JD in place of a paste, and the attachment
-plus `manage_proposals` chain to push the doc and letter back out. Submitting an application or acting
-on a contract is outward-facing and irreversible, so confirm with Jude before any `manage_proposals` /
-`confirm_draft` / `confirm_preview` / `send_message` / `update_contract` / `end_contract` call, never
-on your own initiative.
+`ai-ark` HTTP MCP (`api.ai-ark.com`): company and people search, email and mobile finders, reverse
+lookup, personality analysis, exports. Used to add decision-maker name + title + LinkedIn + email to
+scraped companies. For batch runs, prefer a deterministic script that calls its HTTP JSON-RPC
+endpoint directly (token from `.mcp.json`) over interactive MCP calls; raw `curl` works as a
+fallback. Reference implementation: `b2b-sales-leads-indeed/scripts/find_dm.py` +
+`AI_ARK_HANDOFF.md`, deleted in commit `eba1bcb` (recover with `git show eba1bcb^:<path>`).
 
-### AI Ark (lead enrichment)
+## Skills
 
-The `ai-ark` HTTP MCP server (`api.ai-ark.com`). Tools: `company_search`,
-`people_search`, `email_finder`, `mobile_phone_finder`, `industry/location/technology_search`,
-`reverse_people_lookup`, `personality_analysis`, export tools. Used to enrich scraped companies with
-**decision-maker name + title + LinkedIn + email**.
-MCP tools become callable after a Claude Code restart + approving the `ai-ark` trust prompt; raw `curl`
-against the endpoint is a working fallback. For batch enrichment, prefer a deterministic script that
-calls AI Ark over its **HTTP JSON-RPC endpoint directly** (stateless, token read from the gitignored
-`.mcp.json`) so the whole run is one reproducible script with no interactive MCP prompt. A reference
-implementation (`find_dm.py` + `AI_ARK_HANDOFF.md` in the removed `b2b-sales-leads-indeed` skill) is
-recoverable from git history.
-
-## Skills (18 tracked dirs, 17 invocable)
-
-### Lead Generation
 | Skill | What it does |
 |-------|-------------|
-| `scrape-leads` | Apify `code_crafter/leads-finder` → LLM classify → email enrich → Google Sheet |
-| `gmaps-leads` | Google Maps → website scrape → contact extraction → Sheet, plus a persona-verification stack (staff-page mining → AMF company emails → Google SERP + LLM judge → dm_* columns) and AMF decision-maker fill for owner-led verticals |
-| `classify-leads` | LLM classification for complex distinctions (e.g. product SaaS vs agencies) |
-| `casualize-names` | Formal → casual names for cold-email personalization |
-| `build-scrapers` | Documentation-only: guides `00`–`07` for building custom Apify scrapers, plus a UK M&A pipeline build guide. **Has no `SKILL.md`**, so it is not auto-invocable via the Skill tool — read the `.md` files directly. |
-
-### Email & Outreach
-| Skill | What it does |
-|-------|-------------|
-| `gmail-inbox` | Read/manage email across multiple Gmail accounts |
-| `gmail-label` | Parallel subagent classification → bulk-apply labels (Action/Waiting/Reference) |
-| `instantly-autoreply` | Auto-generate replies to Instantly threads using knowledge bases |
-
-### Sales & Proposals
-| Skill | What it does |
-|-------|-------------|
-| `create-proposal` | PandaDoc proposal from sheet data or call transcript. **Does not exist: the local dir is empty and git tracks nothing under it, so a fresh clone has no `create-proposal` at all. Needs building from scratch before use.** |
-| `upwork-proposal` | Discovery-call transcript + case-study Sheet → client-facing Upwork proposal as a native Google Doc via `proposal_doc.py` (Drive HTML-upload+convert; no Docs API). Bricolage Grotesque, closes on a short scoping call (superseded the old reply-only close, Sep 2 2026), no tables, Upwork-consultant byline, em dashes blocked at upload. Has a safe-edit (export→edit→update) flow once the client hand-edits. Also handles a single pasted JD via `proposal_from_jd.py` (LLM path, or `--body-html` to render a hand-authored body with the same styling guards) — this, not `upwork-apply`, is the path for one hand-picked job; see its SKILL.md for the skill-choice rules. The doc is only the attachment; pair it with `upwork-cover-letter` for the text that actually gets submitted. |
-| `upwork-cover-letter` | Writes the actual Upwork cover letter text Jude submits (job post + his Loom link, optionally a proposal-doc link and client name → copy-pasteable letter). Two lanes: the **short form is the default** (Sep 8 2026; `templates/short_letter.txt`: hook with the Loom link inside Upwork's ~230-char preview, one per-job experience line, verbatim social-proof line, PS, close); the long form (credibility + technical-insight paragraphs from the claims bank) only when the letter has to sell a proposal-doc link. Hard gates: needs the Loom transcript/notes before drafting, and outputs the letter text and nothing else. Has a `scripts/check_hook_length.py` helper for the hook's character budget. |
-| `upwork-apply` | Scrape Upwork jobs → generate personalized proposals. Batch-only (needs Apify-scraped job arrays, truncates JDs to 500 chars) — not for a single hand-picked job |
-| `design-website` | Single-page HTML mockup for a prospect (buildinamsterdam.com aesthetic) |
-| `monday-crm` | Law-firm CRM on Monday.com — cases, leads, hearings, tasks |
-
-### Content
-| Skill | What it does |
-|-------|-------------|
-| `cross-niche-outliers` | Find viral YouTube videos from adjacent niches for content inspiration |
-| `recreate-thumbnails` | Face-swap YouTube thumbnails |
-| `generate-report` | Weekly Canada weather reports → PDF |
-
-### Research
-| Skill | What it does |
-|-------|-------------|
-| `literature-research` | PubMed + academic database search |
-
-### Infrastructure
-| Skill | What it does |
-|-------|-------------|
-| `add-webhook` | Add a Modal webhook (directive + `webhooks.json` entry). **Note:** targets a Modal orchestrator (`execution/`, `directives/`) that lives in a separate repo, not this tree; its own `scripts/` dir is empty. |
+| `upwork-proposal` | Client-facing Upwork proposal as a native Google Doc via `proposal_doc.py` (Drive HTML upload + convert; the Docs API is only for post-conversion layout), from a call transcript + case-study Sheet, or from one JD via `proposal_from_jd.py`. House style is enforced by the linter above; the doc closes on a short scoping call. Has a safe-edit flow (export → edit → update) once the client hand-edits. The doc is only the attachment. |
+| `upwork-cover-letter` | The cover letter text Jude actually submits. Short form by default; long form only when the letter sells a proposal-doc link. Hard gates: needs his Loom link AND its transcript/notes before drafting, and outputs the letter and nothing else. `scripts/check_hook_length.py` checks the hook. |
+| `gmaps-leads` | Google Maps → website scrape → contact extraction → Sheet, plus a persona-verification stack (staff pages → AMF company emails → SERP + LLM judge → `dm_*` columns) and AMF decision-maker fill for owner-led verticals. |
+| `scrape-leads` | Apify `code_crafter/leads-finder` → LLM classify → email enrich → Sheet. Also the shared toolbox above. |
+| `classify-leads` | LLM classification for fine distinctions (product SaaS vs agency). Dead Anthropic key. |
+| `casualize-names` | Formal → casual first/company/city names for cold email. Dead Anthropic key. |
+| `instantly-autoreply` | Drafts replies to Instantly threads from knowledge bases. Dead Anthropic key. |
+| `design-website` | Single-page HTML mockup for a prospect (buildinamsterdam.com style). Needs `UNSPLASH_ACCESS_KEY`, which isn't in `.env`. |
+| `monday-crm` | Law-firm CRM on Monday.com: cases, leads, hearings, tasks. |
+| `build-scrapers` | Docs only, no `SKILL.md`, so not invocable: guides 00 to 07 for custom Apify scrapers plus a UK M&A pipeline guide. Read the `.md` files directly. |
 
 ## Subagents
 
-Defined in `.claude/agents/`. Lighter-weight, unbiased (no parent context). All code fixes happen in the
-parent — subagents are read-only reporters.
+`.claude/agents/`: `code-reviewer` (PASS/FAIL review by severity, zero context), `research` (web +
+file research off the main context), `qa` (writes and runs tests, reports results). They only
+report; all fixes happen in the parent. Build workflow: write → run `code-reviewer` + `qa` in
+parallel → apply fixes → ship.
 
-| Agent | Use case |
-|-------|---------|
-| `code-reviewer` | PASS/FAIL review by severity — zero context, no bias |
-| `research` | Web + file research without polluting main context |
-| `qa` | Generate + run tests, report results |
-| `email-classifier` | Classify email chunks in parallel (used by `gmail-label`) |
+## Standalone Apify actors
 
-**Build workflow:** Write → spawn `code-reviewer` + `qa` in parallel → parent applies all fixes → ship.
+Deployed separately with `apify push`.
 
-## Standalone Apify Actors
-
-Deployed to Apify separately from the skills system (`apify push`).
-
-- **`healthcare-recruitment-actor/`** — scrapes 8 sources (LinkedIn Jobs, NPPES NPI, 6 state registries,
-  niche directories, ASA members, FDD franchisees, SAM.gov, NCHCR) to find healthcare staffing agencies
-  not in Apollo/ZoomInfo. ~1,500–2,500 unique agencies/run. Entry `src/__main__.py` → `SCRAPER_MAP` →
-  async per source → merge/dedup in `src/utils/merge.py`.
-- **`nchcr-job-board-actor/`** — scrapes the NCHCR (nchcr.com) job board for healthcare recruiting firms
-  (company, recruiter, phone, email; website derived from email domain). One deduped record per firm.
-  The same source also exists as the `nchcr` module inside the healthcare actor — changes to the scrape
-  logic likely apply to both.
-- **`productionhub-directory-actor/`** — scrapes productionhub.com for video production companies.
-  Two modes off one input: a listing crawl over `{categorySlug, locationPath, metroKey}` targets, or
-  `profileIds` visit-only (re-enrich rows that already passed classification). Records push per
-  finished target, so a killed run still yields data. **Anti-bot is the whole design and is fragile —
-  do not "simplify" it:** the site is Cloudflare-fronted, so it uses `patchright` (not plain
-  playwright), `launch_persistent_context(channel="chrome")` with a fallback to patchright's own
-  patched Chromium when Chrome is absent, `headless=False` under `xvfb-run` in
-  the Dockerfile, and a **sticky** Apify residential session (`new_url(session_id=...)`) because
-  `cf_clearance` is issued to a single IP. Plain headless Chromium, bare `chromium.launch()`, and
-  rotating proxies each hang on "Verification successful. Waiting for … to respond". A company
-  website only ever appears free-text inside the profile description, so `extract_website()`
-  regex-mines it — there is no website field.
+- **`healthcare-recruitment-actor/`**: 8 sources (LinkedIn Jobs, NPPES NPI, state registries, niche
+  directories, ASA members, FDD franchisees, SAM.gov, NCHCR) to find healthcare staffing agencies
+  missing from Apollo/ZoomInfo. `src/__main__.py` → `SCRAPER_MAP` → async per source → dedup in
+  `src/utils/merge.py` (domain match, then normalized name).
+- **`nchcr-job-board-actor/`**: NCHCR job board → one record per recruiting firm (website derived
+  from the email domain). The same source is the `nchcr` module in the healthcare actor, so
+  scrape-logic changes likely apply to both.
+- **`productionhub-directory-actor/`**: productionhub.com video production companies. Two modes: a
+  listing crawl over `{categorySlug, locationPath, metroKey}` targets, or `profileIds` visit-only
+  re-enrichment. Records push per finished target, so a killed run still yields data. The website is
+  regex-mined from the profile description by `extract_website()` (there is no website field).
+  **Do not "simplify" the anti-bot setup**; Cloudflare needs all of it: `patchright` (not
+  playwright), `launch_persistent_context(channel="chrome")` with a fallback to patchright's
+  Chromium, `headless=False` under `xvfb-run` in the Dockerfile, and a **sticky** residential
+  session (`new_url(session_id=...)`) because `cf_clearance` is bound to one IP. Headless Chromium,
+  bare `chromium.launch()`, and rotating proxies each hang on "Verification successful. Waiting
+  for … to respond".
 
 ## Rendering images (proposal flowcharts, mockups)
 
-Diagrams are authored as fixed-layout HTML at 2x scale and screenshotted with the **Playwright MCP**
-browser. Two constraints that bite every time: `file://` URLs are blocked, so serve the directory with
-`python3 -m http.server <port>` and navigate to localhost (kill the server after); and
-`browser_take_screenshot` writes the PNG to the **repo root**, not the scratchpad — read it back,
-eyeball it, then move or delete it. Start from `upwork-proposal/templates/flowchart_base.html`, the
-working implementation: authored at 2x (1248px wide, white background, Bricolage Grotesque, SVG wire
-underlay) and displayed at 624px in the doc, so every px in that file is double its on-page size. Full
-recipe (palette, arrow SVG underlay, base64 embed that survives the Drive HTML→Doc conversion) lives
-in `upwork-proposal/SKILL.md`.
+Author fixed-layout HTML at 2x and screenshot it with the Playwright MCP. `file://` is blocked:
+serve the dir with `python3 -m http.server <port>`, open localhost, and kill the server after.
+`browser_take_screenshot` writes the PNG to the **repo root**: read it back, check it, then move or
+delete it. Start from `upwork-proposal/templates/flowchart_base.html` (1248px wide at 2x, displayed
+at 624px, so every px is double its on-page size); the full recipe is in `upwork-proposal/SKILL.md`.
 
-## Google OAuth
+## Operating principles
 
-Scopes: Sheets + Drive + Docs. Run `python3 setup_google_auth.py` once with `credentials.json` present to
-generate `token.json`. Skills read `token.json` directly — no per-skill auth setup needed.
-
-## Operating Principles
-
-- **Self-anneal:** when a script errors, fix it, test it, then update its `SKILL.md` with what you learned.
-- **Scripts over prose:** push complexity into deterministic scripts; Claude handles decision-making only.
-- **Skills are living docs:** update `SKILL.md` when you discover API constraints or better approaches.
-  Don't create new skills without asking.
-- **Stick to the agreed tool/approach** — don't switch tools (especially cost-affecting ones) without
-  asking Jude first.
-- **Apify bills per result:** always run the small test, eyeball quality, surface projected cost to Jude,
-  then fire the full run.
-- **`.tmp/` for intermediates:** all intermediate files go in `.tmp/` (gitignored). Never commit them.
+- **Self-anneal:** when a script errors, fix it, test it, and record the lesson in its `SKILL.md`.
+- **Scripts over prose:** push complexity into deterministic scripts; Claude makes the decisions.
+- Don't create new skills, or switch tools/approaches (especially cost-affecting ones), without
+  asking Jude.
+- **Apify bills per result:** run the small test, check quality, show Jude the projected cost,
+  then run in full.
