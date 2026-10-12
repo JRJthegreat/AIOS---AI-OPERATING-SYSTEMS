@@ -354,7 +354,11 @@ has a standalone ownership section, a five-item case-study list, or an essay per
    image gets orphaned onto the next page when the image moves). See the placement rule under
    **Flowchart** below.
 6. **Similar work**: ONE proof story told properly, a second only if it proves something the
-   first does not. Then any real skill gap in a single sentence (see
+   first does not. **The proof that matches the client's own platform leads it** (Oct 12 2026,
+   Bennett Meta-ads job: the Facebook Ads Spy Agent repo was cited only inside a question-1
+   answer, and Jude asked "why didn't you mention that?"). A platform-matched asset, above all one
+   Jude will demo in the Loom, opens "Similar work" and goes in the cover letter too; a passing
+   citation inside a Q&A paragraph does not count as mentioning it. Then any real skill gap in a single sentence (see
    `feedback_honest_gap_framing`), never a paragraph.
 7. Next step: a short scoping call, with the open decisions it would settle named.
 8. `Best,` / `Rood Judeley Joseph (Jude)` (full name, never a bare "Jude"; "Cheers," also OK).
