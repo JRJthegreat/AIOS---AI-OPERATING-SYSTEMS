@@ -1,7 +1,12 @@
-Hi {FIRST_NAME}. I created a custom Loom video for you about how I would approach your project: {LOOM_LINK}
+Hi {FIRST_NAME}. I created a custom Loom video for you about how I would approach your {PROJECT_DESCRIPTOR} project: {LOOM_LINK}
 
-I have direct experience with these types of {DOMAIN} projects, from {PROOF_ONE} to {PROOF_TWO}, so I should be able to handle your project straightforwardly.
+I believe I'm a good fit because I've built a similar {SYSTEM} before: for {COMPANY}, a {WHAT_THEY_ARE}, I built {WHAT_IT_DOES}. {ONE_CLAUSE_TYING_IT_TO_THEIR_JOB}
 Below are a few samples of recent reviews from clients and systems I've created. I can provide dozens of additional examples upon request.
+
+You can also see more of my code on my GitHub: https://github.com/JRJthegreat
+
+I also put together a free audit of your project, covering exactly how I'd build it and what I'd flag first: {DOC_LINK}
+It's my thank you for opening my proposal and watching the video. Completely free, no strings attached.
 
 PS: I have a 100% success score here on Upwork, so you are in safe hands.
 

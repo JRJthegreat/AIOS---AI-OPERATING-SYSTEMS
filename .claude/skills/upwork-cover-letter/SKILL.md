@@ -10,10 +10,11 @@ what actually gets submitted (per Jude, Aug 2026: he never used the ad hoc cover
 repo used to hand-author under `upwork-proposal`; this skill replaces that). Pure copywriting:
 Claude authors the text directly. No API call, no Google Doc.
 
-**Two lanes. Default to the short form** (`templates/short_letter.txt`), which is what Jude
-actually sends. Use the long form only when the letter carries a Google Doc proposal link and
-has to sell that doc; in that case build the doc first with `upwork-proposal` and pass its link
-in as an input here.
+**One lane: the short form** (`templates/short_letter.txt`), which is what Jude actually sends.
+**The long form is retired, even when a proposal doc ships with the letter (Jude, Oct 12 2026,
+after four long-form letters for a batch that each carried an audit doc: "way too long... they
+don't care really, trust me").** A doc link now rides in the short form as one line (part 3c
+below); build the doc first with `upwork-proposal` and pass its link in as an input here.
 
 ## About Jude (baked-in context, do not re-derive each time)
 
@@ -56,16 +57,37 @@ Jude's actual sending habit. On the Hani trading/agentic-AI job he took the full
 letter below, cut roughly 80% of it, and sent this shape instead, then asked for it as a
 template. **Use this by default.** The long form is now the exception, not the rule.
 
-Template lives at `templates/short_letter.txt`. Five parts, nothing else:
+Template lives at `templates/short_letter.txt`. These parts, nothing else (3c only when a doc ships):
 
 1. **Hook**, same rules as the long form (the word `custom`, the Loom link inside Upwork's
    ~230 character preview, checked with `scripts/check_hook_length.py`). Two phrasings:
-   - `Hi {Name}. I created a custom Loom video for you about how I would approach your project: {LOOM}`
+   - `Hi {Name}. I created a custom Loom video for you about how I would approach your {specific project descriptor} project: {LOOM}`
    - `Hi {Name}. I created a custom Loom video for you, showing an example of {what it shows}: {LOOM}`
-   Jude picked the first on the Hani job even though that Loom was mostly a portfolio
-   walkthrough. He was told about the mismatch and kept it, so **do not silently swap the
-   approach phrasing for the example phrasing**: raise it once, then use whichever he picks.
-2. **One experience line.** This is the only sentence that changes per job:
+   **Default to the first, with the client's own project descriptor in it (Jude, Sep 9 2026).**
+   He picked it on the Hani job even though that Loom was mostly a portfolio walkthrough, and on
+   the freight quoting job he corrected an example-phrasing hook twice: first to the approach
+   phrasing, then again to add the descriptor ("your freight quoting workflow project", not the
+   bare "your project" the template shows). Jude's Looms almost always open by naming the
+   client's project before showing proof, so the approach phrasing is accurate. Only use the
+   example phrasing when the video genuinely never addresses their project, and raise it once
+   rather than swapping silently.
+   **Third phrasing, the exact-match hook (Jude, Sep 11 2026, jewelry/Loupe Factory Shopify agent
+   job). When Jude has built the client's exact system before and the Loom walks through that
+   build, lead the hook with the proof, not with the video:**
+   `Hi {Name}. I've built this exact system before for another {client type}, so here's a custom Loom with a free walkthrough of it: {LOOM}`
+   He rewrote the approach-phrasing hook into this himself on that job, after saying up front
+   "we can lead with the fact that I have built this exact system before". Two things carry over:
+   the word `custom` still appears, and `free walkthrough` is his framing (same reciprocity play as
+   the free-audit doc line). When this hook is used, the experience line below must NOT repeat
+   "I've built this exact system before", open it on what the system actually does instead.
+2. **One experience line: the similar project he built (Jude, Oct 12 2026, now the default).**
+   His words: "I believe I'm a good fit for this job because I worked on a similar project
+   before", plus "a little bit of line about what the project was, what the company was, what
+   you did for them." Shape, one or two sentences:
+   `I believe I'm a good fit because I've built a similar {system} before: for {Company}, a {what they are}, I built {what it does}. {One clause tying it to their job.}`
+   Company names follow the claims bank's own rules (Boat in Paris and EMRG Media by name;
+   Grenke only for Australian clients; a demo build with no client stays unnamed). The older
+   domain-range line below is the fallback for a job with no single close match:
    `I have direct experience with these types of {DOMAIN} projects, from {PROOF_ONE} to {PROOF_TWO}, so I should be able to handle your project straightforwardly.`
    - `{DOMAIN}` is lifted from the client's own words in the post ("trading and agent AI").
    - `{PROOF_ONE}` and `{PROOF_TWO}` are two real, contrasting claims-bank assets written as
@@ -75,6 +97,16 @@ Template lives at `templates/short_letter.txt`. Five parts, nothing else:
      about me", free next step and CTA paragraphs. Do not smuggle any of them back in.
 3. **Social proof line**, verbatim, on the line immediately after the experience line with **no
    blank line between them**.
+3b. **GitHub line (Jude, Sep 11 2026; default ON since Oct 12 2026, "put my GitHub link too").**
+   One line, its own paragraph, after the social proof line and before the PS:
+   `You can also see more of my code on my GitHub: https://github.com/JRJthegreat`
+3c. **Free-audit line, whenever a proposal doc ships (Jude, Oct 12 2026).** Its own paragraph,
+   after the GitHub line and before the PS. The framing is his: a free gift for opening the
+   proposal and watching the video, no strings attached.
+   `I also put together a free audit of your project, covering exactly how I'd build it and what I'd flag first: {DOC LINK}`
+   `It's my thank you for opening my proposal and watching the video. Completely free, no strings attached.`
+   This one line replaces the long form's whole doc paragraph. Do not re-sell the doc's
+   findings in the letter; the doc carries them.
 4. **PS**, verbatim: `PS: I have a 100% success score here on Upwork, so you are in safe hands.`
    It sits ABOVE the sign-off here, unlike the long form where the PS is the last line.
 5. **Close**, verbatim and doubled: `Speak soon,` / blank line / `Best,` / `Jude`
@@ -89,11 +121,11 @@ drop it. Never let it grow the letter or hold up sending.
 character budget, claims-bank-only proof, the French-client rule, never promising guaranteed
 financial returns, and the `.tmp/` cleanup rule.
 
-## Long form structure (the exception: a letter that ships with a proposal doc)
+## Long form structure (RETIRED Oct 12 2026, kept for history only)
 
-Kept because Jude approved every step of it and it is still the right shape when the letter
-carries a proposal doc link (step 3) and has to sell that doc. For everything else, use the
-short form above.
+Do not use this, including for letters that carry a proposal doc: Jude rejected four of these
+on Oct 12 2026 as "way too long", and the doc link now rides in the short form's part 3c. The
+reasoning below (hook budget, free-audit framing, claims rules) still informs the short form.
 
 The order below is exact:
 
