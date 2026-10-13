@@ -161,6 +161,21 @@ Where real time was actually lost on record, and the fix for each:
   check of the actual doc for things the linter cannot see (the image genuinely rendered,
   the font genuinely loaded), not for anything text-shaped.
 
+**The flowchart sets the clock, so it starts first (Jude, Oct 13 2026).** His words: "The
+flowchart is the most valuable thing here... the goal is to provide a free audit, quickly explain
+how you would get this done with a nice visual representation of it." Said after two jobs went
+stale (35 and 46 minutes from JD to doc) in a chain where research ran first, the copy agent wrote
+the architecture spec partway through a 1,750-word draft, and only then could the flowchart start;
+an Opus review then changed the architecture and forced a relabel. The order that respects his
+goal:
+1. The architecture spec (named components, the branch, the human step, the foundation line)
+   is the FIRST file written, right after the JD is pulled and the research that the components
+   depend on is checked. The flowchart agent starts the moment it exists.
+2. The copy is SHORT (600 to 1,000 words: three audit findings, one or two sentences per
+   milestone, one proof story) and is written in parallel with the diagram, never ahead of it.
+3. Review covers claims, commitments and house rules. It re-fetches a source only when a fact
+   looks wrong, and it changes the architecture only for a factual error in the diagram.
+
 Agents to dispatch in one message, in parallel:
 
 - **Copy agent**: drafts the body in the letter structure below, including **the research the
