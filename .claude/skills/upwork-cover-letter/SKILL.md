@@ -281,6 +281,11 @@ for it.** See the hard rule at the top of the short form section: this is the si
 repeated correction in this skill's history. If something required is missing, above all the
 Loom link or the Loom transcript/notes, ask before writing anything.
 
+**No job link under the letter (Jude, Oct 28 2026: "remove the job link when you are giving me
+the cover letter to copy").** Use the job URL to pull the post (`find_jobs` action=`get`), but
+never echo a trailing `Job: <url>` line after the letter; it gets in the way of copying. The
+`upwork-proposal` echo rule covers doc handoffs only.
+
 ## Character budget check
 
 ```bash

@@ -310,8 +310,9 @@ alone is half the job.
 parallel and matches deliverables to jobs by URL afterward. If he did not provide the
 Upwork job URL with the JD, ask for it before handing off. Save it next to the other
 deliverables as `.tmp/job_url_<slug>.txt`, and ALWAYS echo it in the final handoff
-message alongside the doc URL and cover letter (format: "Job: <url>"). Upwork job pages
-are login-gated, so never try to fetch the URL; it is an identifier, not an input source.
+message alongside the doc URL (format: "Job: <url>"). A cover-letter-only handoff never
+carries it (Jude, Oct 28 2026, see `upwork-cover-letter`). Pull the JD from the URL with the
+Upwork MCP (`find_jobs` action=`get`); the page itself is login-gated.
 
 For a one-off Upwork proposal where the only input is a pasted job description
 (no discovery call, no case-study sheet), use `proposal_from_jd.py`. It runs the
