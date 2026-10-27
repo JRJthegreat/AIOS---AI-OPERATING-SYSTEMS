@@ -57,7 +57,7 @@ Jude's actual sending habit. On the Hani trading/agentic-AI job he took the full
 letter below, cut roughly 80% of it, and sent this shape instead, then asked for it as a
 template. **Use this by default.** The long form is now the exception, not the rule.
 
-Template lives at `templates/short_letter.txt`. These parts, nothing else (3c only when a doc ships):
+Template lives at `templates/short_letter.txt`. These parts, nothing else (1b only when a doc ships):
 
 1. **Hook**, same rules as the long form (the word `custom`, the Loom link inside Upwork's
    ~230 character preview, checked with `scripts/check_hook_length.py`). Two phrasings:
@@ -80,11 +80,20 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (3c on
    the word `custom` still appears, and `free walkthrough` is his framing (same reciprocity play as
    the free-audit doc line). When this hook is used, the experience line below must NOT repeat
    "I've built this exact system before", open it on what the system actually does instead.
+1b. **Free-audit line, whenever a proposal doc ships: RIGHT AFTER THE HOOK (Jude, Oct 27 2026,
+   LawNeeds job: "the document should be a little bit upward", i.e. straight after the Loom).** Its
+   own paragraph. Say what the doc actually covers in plain words, lifted from the doc itself:
+   `I also created a free audit document for you, showing {what the doc covers}. Completely free, no strings attached: {DOC LINK}`
+   **Never write "It's my thank you for opening my proposal and watching the video"** (the Oct 12
+   wording; Jude, Oct 27 2026: "I don't like when you say it's my thank you"). Keep "completely free,
+   no strings attached". Do not re-sell the doc's findings beyond the one "showing" clause.
 2. **One experience line: the similar project he built (Jude, Oct 12 2026, now the default).**
    His words: "I believe I'm a good fit for this job because I worked on a similar project
    before", plus "a little bit of line about what the project was, what the company was, what
    you did for them." Shape, one or two sentences:
-   `I believe I'm a good fit because I've built a similar {system} before: for {Company}, a {what they are}, I built {what it does}. {One clause tying it to their job.}`
+   `I'm the perfect fit for this because I've built a similar {system} before: for {Company}, a {what they are}, I built {what it does}. {One clause tying it to their job.}`
+   **Opener is "I'm the perfect fit for this", never "I believe I'm a good fit"** (Jude, Oct 27 2026,
+   LawNeeds Pinecone job: "don't say I believe I'm a good fit. Say I am the perfect fit for this").
    Company names follow the claims bank's own rules (Boat in Paris and EMRG Media by name;
    Grenke only for Australian clients; a demo build with no client stays unnamed). The older
    domain-range line below is the fallback for a job with no single close match:
@@ -94,19 +103,17 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (3c on
      generic capability phrases, no links and no client names ("custom-coded decentralized
      exchange platforms" to "AI investment analysis workflows"). The plural is deliberate.
    - This single line replaces the long form's credibility, technical insight, "a little bit
-     about me", free next step and CTA paragraphs. Do not smuggle any of them back in.
+     about me" and free next step paragraphs. Do not smuggle any of them back in. (The CTA
+     came back as its own line, part 3d, on Oct 27 2026.)
 3. **Social proof line**, verbatim, on the line immediately after the experience line with **no
    blank line between them**.
 3b. **GitHub line (Jude, Sep 11 2026; default ON since Oct 12 2026, "put my GitHub link too").**
    One line, its own paragraph, after the social proof line and before the PS:
    `You can also see more of my code on my GitHub: https://github.com/JRJthegreat`
-3c. **Free-audit line, whenever a proposal doc ships (Jude, Oct 12 2026).** Its own paragraph,
-   after the GitHub line and before the PS. The framing is his: a free gift for opening the
-   proposal and watching the video, no strings attached.
-   `I also put together a free audit of your project, covering exactly how I'd build it and what I'd flag first: {DOC LINK}`
-   `It's my thank you for opening my proposal and watching the video. Completely free, no strings attached.`
-   This one line replaces the long form's whole doc paragraph. Do not re-sell the doc's
-   findings in the letter; the doc carries them.
+3c. **(Moved, see 1b.)** The free-audit line used to sit here, after the GitHub line.
+3d. **CTA, always (Jude, Oct 27 2026: "There needs to be a CTA. Message me.").** Its own paragraph,
+   after the GitHub line and before the PS, verbatim:
+   `If you're still looking for someone with experience in this, feel free to message me back here on Upwork. I'd love to help.`
 4. **PS**, verbatim: `PS: I have a 100% success score here on Upwork, so you are in safe hands.`
    It sits ABOVE the sign-off here, unlike the long form where the PS is the last line.
 5. **Close**, verbatim and doubled: `Speak soon,` / blank line / `Best,` / `Jude`
