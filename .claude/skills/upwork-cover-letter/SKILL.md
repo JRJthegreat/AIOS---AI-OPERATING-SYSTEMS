@@ -99,9 +99,12 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
    **Only proof that matches the job's actual work, never an off-topic metric (Jude, Oct 29 2026,
    robot-training video/sensor QC pipeline job).** He rejected leading with the Meta ad-spy agent
    and its "20 hours a week to 10 minutes" number as "irrelevant", even though the Loom showed it.
-   On data/vision/video-pipeline jobs, open on the NHRI biotech role (claims bank), then the video
-   pipelines he helped companies build, described generically ("a pipeline that analyzes large
-   volumes of video"), no ad-agent name and no ad metric. The older
+   On data/vision/video-pipeline jobs, open on the NHRI biotech role (claims bank), tied to the part
+   of the job it really fits (e.g. calibrating checks against human labels), never pitched as model
+   training when the post says "no ML". Then proof he personally built: the AI video clipper, and
+   Boat in Paris as a solo, live production system. Never the coaching/consulting video work, since
+   posts that screen for "personally built and run, not only contributed" filter exactly that out.
+   No ad-agent name and no ad metric. The older
    domain-range line below is the fallback for a job with no single close match:
    `I have direct experience with these types of {DOMAIN} projects, from {PROOF_ONE} to {PROOF_TWO}, so I should be able to handle your project straightforwardly.`
    - `{DOMAIN}` is lifted from the client's own words in the post ("trading and agent AI").
