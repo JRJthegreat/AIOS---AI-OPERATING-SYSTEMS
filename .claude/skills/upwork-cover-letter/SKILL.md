@@ -95,7 +95,13 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
    **Opener is "I'm the perfect fit for this", never "I believe I'm a good fit"** (Jude, Oct 27 2026,
    LawNeeds Pinecone job: "don't say I believe I'm a good fit. Say I am the perfect fit for this").
    Company names follow the claims bank's own rules (Boat in Paris and EMRG Media by name;
-   Grenke only for Australian clients; a demo build with no client stays unnamed). The older
+   Grenke only for Australian clients; a demo build with no client stays unnamed).
+   **Only proof that matches the job's actual work, never an off-topic metric (Jude, Oct 29 2026,
+   robot-training video/sensor QC pipeline job).** He rejected leading with the Meta ad-spy agent
+   and its "20 hours a week to 10 minutes" number as "irrelevant", even though the Loom showed it.
+   On data/vision/video-pipeline jobs, open on the NHRI biotech role (claims bank), then the video
+   pipelines he helped companies build, described generically ("a pipeline that analyzes large
+   volumes of video"), no ad-agent name and no ad metric. The older
    domain-range line below is the fallback for a job with no single close match:
    `I have direct experience with these types of {DOMAIN} projects, from {PROOF_ONE} to {PROOF_TWO}, so I should be able to handle your project straightforwardly.`
    - `{DOMAIN}` is lifted from the client's own words in the post ("trading and agent AI").
