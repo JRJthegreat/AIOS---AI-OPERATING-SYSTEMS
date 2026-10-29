@@ -116,12 +116,12 @@ project ships).
      job or thread (a risk, a better approach, a relevant example of his), then a soft ask for a
      quick call on Upwork. Follow-up 2: a short yes/no ("are you still looking to get this built,
      or did you go another way?" in his words). Not "just checking in".
-   - `sow_sent`: reference the SOW, add one useful thing (answer the obvious question, such as how
-     to start: they send the Upwork contract with the SOW's milestones and work begins once the
-     kickoff milestone is funded), ask for a yes or no. The last one closes the loop politely.
-     Never describe a deliverable as something they get before the kickoff is funded (it reads as
-     free work), and never re-pitch what the SOW or thread already gave them, like the
-     architecture, as if it were new.
+   - `sow_sent`: early follow-ups ask what they thought of it, as open questions about the
+     architecture, the milestones or one specific choice in it, so the client talks back instead
+     of facing a bare yes/no. Keep the yes/no for the later ones; the last closes the loop
+     politely. Short beats padded. Never lead with payment, funding or how to start, and
+     never describe a deliverable as something they get up front (it reads as free work). Never
+     re-pitch what the SOW or thread already gave them, like the architecture, as if it were new.
    - `client_waiting`: reply to what they actually said. If it needs something only Jude knows
      (a date, a link, a number), write the reply without it and say what's missing in `note`.
    - Price questions before a call: the price depends on scope, so he'd like a quick call first.
