@@ -28,7 +28,12 @@ python3 .claude/skills/scrape-leads/scripts/scrape_apify.py \
 # Push results to a Google Sheet
 python3 .claude/skills/scrape-leads/scripts/update_sheet.py .tmp/leads.json --sheet_name "Leads - INDUSTRY"
 
-# Google OAuth (Sheets + Drive scopes; Drive also covers Docs API calls): one-time, needs credentials.json, writes token.json
+# upwork-followups: read | plan | digest | upsert [--notified] are steps of SKILL.md's Run section
+# (plan needs the classified.json the agent writes from the MCP scan), not standalone commands
+launchctl kickstart gui/$(id -u)/com.nexam.upwork-followups   # fire the unattended run now; log in ~/Library/Logs/upwork-followups/
+
+# Google OAuth: one-time, needs credentials.json, writes token.json. The script requests Sheets + Drive +
+# Docs; the current token.json predates the Docs scope and still works because Drive covers Docs API calls
 python3 setup_google_auth.py
 
 # Regenerate the Codex port after editing any skill, agent, or this file (dry run without --apply)
@@ -61,8 +66,9 @@ Oct 6 2026). Env vars:
 - `AZURE_OPENAI_DEPLOYMENT_FAST` = `gpt-4.1`, for bulk per-row work
 
 New LLM calls follow that pattern: Azure client, the `*_FAST` deployment for per-row batches, a small
-thread pool (`LLM_WORKERS = 8`). Reference implementation:
-`gmaps-leads/scripts/extract_website_contacts.py`. Don't reintroduce Anthropic calls without asking.
+thread pool (the reference takes `--workers`, default 5; the scrape-leads Azure classifiers hardcode
+`MAX_WORKERS = 10`). Reference implementation: `gmaps-leads/scripts/extract_website_contacts.py`.
+Don't reintroduce Anthropic calls without asking.
 
 **Still on the dead key** (port to Azure before running): `casualize-names`, `classify-leads`,
 `instantly-autoreply`, and `scrape-leads`'s `classify_leads_llm.py` + `generate_email_variables.py`.
