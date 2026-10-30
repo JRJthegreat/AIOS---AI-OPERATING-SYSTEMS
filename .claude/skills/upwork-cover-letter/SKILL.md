@@ -94,8 +94,13 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
    `I'm the perfect fit for this because I've built a similar {system} before: for {Company}, a {what they are}, I built {what it does}. {One clause tying it to their job.}`
    **Opener is "I'm the perfect fit for this", never "I believe I'm a good fit"** (Jude, Oct 27 2026,
    LawNeeds Pinecone job: "don't say I believe I'm a good fit. Say I am the perfect fit for this").
-   Company names follow the claims bank's own rules (Boat in Paris and EMRG Media by name;
-   Grenke only for Australian clients; a demo build with no client stays unnamed).
+   Company names follow the claims bank's own rules (EMRG Media by name; Grenke only for
+   Australian clients; a demo build with no client stays unnamed).
+   **Boat in Paris is never named in a letter (Jude, Oct 30 2026, Aerovect ML ops job).** Cite it as
+   "an AI RAG assistant" (never "chatbot") built for a tour company, and lead with the cash it
+   collected on its own: 11 paid bookings, EUR 6,055 (recount per the claims bank before quoting).
+   Never its test count, stack or architecture: "no one cares about these automated tests, they
+   care about cash collected from the bot."
    **Only proof that matches the job's actual work, never an off-topic metric (Jude, Oct 29 2026,
    robot-training video/sensor QC pipeline job).** He rejected leading with the Meta ad-spy agent
    and its "20 hours a week to 10 minutes" number as "irrelevant", even though the Loom showed it.
