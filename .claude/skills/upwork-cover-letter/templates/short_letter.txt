@@ -1,6 +1,6 @@
 Hi {FIRST_NAME}. I created a custom Loom video for you about how I would approach your {PROJECT_DESCRIPTOR} project: {LOOM_LINK}
 
-I also created a free audit document for you, showing {WHAT_THE_DOC_COVERS_IN_PLAIN_WORDS}. Completely free, no strings attached: {DOC_LINK}
+Here's a quick document I created that goes into more detail on what I shared in the Loom. It took me a lot of time and research to put together for you, so I'd really encourage you to give it a read: {DOC_LINK}
 
 I'm the perfect fit for this because I've built a similar {SYSTEM} before: for {COMPANY}, a {WHAT_THEY_ARE}, I built {WHAT_IT_DOES}. {ONE_CLAUSE_TYING_IT_TO_THEIR_JOB}
 Below are a few samples of recent reviews from clients and systems I've created. I can provide dozens of additional examples upon request.

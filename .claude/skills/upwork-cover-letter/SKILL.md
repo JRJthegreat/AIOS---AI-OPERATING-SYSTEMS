@@ -80,13 +80,16 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
    the word `custom` still appears, and `free walkthrough` is his framing (same reciprocity play as
    the free-audit doc line). When this hook is used, the experience line below must NOT repeat
    "I've built this exact system before", open it on what the system actually does instead.
-1b. **Free-audit line, whenever a proposal doc ships: RIGHT AFTER THE HOOK (Jude, Oct 27 2026,
+1b. **Doc line, whenever a proposal doc ships: RIGHT AFTER THE HOOK (Jude, Oct 27 2026,
    LawNeeds job: "the document should be a little bit upward", i.e. straight after the Loom).** Its
-   own paragraph. Say what the doc actually covers in plain words, lifted from the doc itself:
-   `I also created a free audit document for you, showing {what the doc covers}. Completely free, no strings attached: {DOC LINK}`
+   own paragraph, verbatim (Jude, Oct 30 2026, law firm AI agents job, SUPERSEDES the "free audit
+   document, showing {...}. Completely free, no strings attached" line):
+   `Here's a quick document I created that goes into more detail on what I shared in the Loom. It took me a lot of time and research to put together for you, so I'd really encourage you to give it a read: {DOC LINK}`
+   **Do not summarize the doc's contents, stats or findings in this line.** On that job I packed it
+   with a study stat, both agents and the ethics traps; he cut all of it back to the line above. The
+   Loom already sells the doc, so the letter just points at it.
    **Never write "It's my thank you for opening my proposal and watching the video"** (the Oct 12
-   wording; Jude, Oct 27 2026: "I don't like when you say it's my thank you"). Keep "completely free,
-   no strings attached". Do not re-sell the doc's findings beyond the one "showing" clause.
+   wording; Jude, Oct 27 2026: "I don't like when you say it's my thank you").
 2. **One experience line: the similar project he built (Jude, Oct 12 2026, now the default).**
    His words: "I believe I'm a good fit for this job because I worked on a similar project
    before", plus "a little bit of line about what the project was, what the company was, what
@@ -101,6 +104,13 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
    collected on its own: 11 paid bookings, EUR 6,055 (recount per the claims bank before quoting).
    Never its test count, stack or architecture: "no one cares about these automated tests, they
    care about cash collected from the bot."
+   **But it is NOT the default proof (Jude, Oct 30 2026, law firm AI agents job: "Why do you always
+   mention Boat in Paris? I don't think Boat in Paris is the good thing to mention here").** Use it
+   only on booking, travel, payments-in-chat or customer-assistant jobs. When the client is in a
+   vertical Jude has served, lead with that vertical instead: on the law firm job he wanted "I have
+   experience helping companies in the legal sector automate their workflows with AI", then the law
+   firm CRM (intake, clients, cases, tasks, hearings; hearing reminders, overdue-task alerts,
+   signed intake becomes a client record) and how it was integrated with AI.
    **Only proof that matches the job's actual work, never an off-topic metric (Jude, Oct 29 2026,
    robot-training video/sensor QC pipeline job).** He rejected leading with the Meta ad-spy agent
    and its "20 hours a week to 10 minutes" number as "irrelevant", even though the Loom showed it.
