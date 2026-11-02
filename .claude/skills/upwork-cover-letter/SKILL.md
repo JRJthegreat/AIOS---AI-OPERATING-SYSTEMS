@@ -145,8 +145,11 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
 
 **"We decide what to send" (Jude, Sep 8 2026).** A job post's own instructions do not drive the
 letter. The Hani post demanded an attached brief and carried two screening questions, and the
-sent letter answered neither. Surface that kind of requirement once as a note to Jude, then
-drop it. Never let it grow the letter or hold up sending.
+sent letter answered neither. Drop that kind of requirement silently. **Do not append a note
+about it under the letter either (Jude, Nov 2 2026, AI customer support job: "Do not add notes in
+the cover letter section I am about to copy and send").** He knows the post's asks; a trailing
+"Note: the post also asks..." line lands in what he copies. Never let it grow the letter or hold
+up sending.
 
 **Still binding in the short form:** no em or en dashes, contractions throughout, the hook
 character budget, claims-bank-only proof, the French-client rule, never promising guaranteed
