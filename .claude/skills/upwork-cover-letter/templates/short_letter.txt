@@ -4,9 +4,7 @@ Here's a quick document I created that goes into more detail on what I shared in
 
 I'm the perfect fit for this because I've built a similar {SYSTEM} before: for {COMPANY}, a {WHAT_THEY_ARE}, I built {WHAT_IT_DOES}. {ONE_CLAUSE_TYING_IT_TO_THEIR_JOB}
 
-You can also see more of my code on my GitHub: https://github.com/JRJthegreat
-
-If you're still looking for someone with experience in this, send me a message here on Upwork and let's jump on a quick call. I'd love to help.
+If you're still looking for help with your {THEIR_THING}, reply back to me here on Upwork and let's jump on a quick call. I'd love to help.
 
 PS: I have a 100% success score here on Upwork, so you are in safe hands.
 

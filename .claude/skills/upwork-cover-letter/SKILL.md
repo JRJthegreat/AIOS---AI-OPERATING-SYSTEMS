@@ -138,14 +138,17 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
 3. **(Removed Nov 3 2026.)** The "Below are a few samples of recent reviews... I can provide dozens of
    additional examples upon request" line is gone (Jude, Emanuel AI Shopify job: "They rarely ask,
    so please remove this section"). The experience line is followed directly by the GitHub line.
-3b. **GitHub line (Jude, Sep 11 2026; default ON since Oct 12 2026, "put my GitHub link too").**
-   One line, its own paragraph, after the social proof line and before the PS:
+3b. **GitHub line: default OFF since Nov 3 2026, add only when Jude asks.** He cut it from two
+   letters in a row that day, once on a post that explicitly asked for a GitHub profile ("I don't
+   think it's useful here"). When he does ask for it, one line, its own paragraph, before the CTA:
    `You can also see more of my code on my GitHub: https://github.com/JRJthegreat`
 3c. **(Moved, see 1b.)** The free-audit line used to sit here, after the GitHub line.
 3d. **CTA, always (Jude, Oct 27 2026: "There needs to be a CTA. Message me.").** Its own paragraph,
-   after the GitHub line and before the PS, verbatim (Nov 3 2026 wording, Jude settled it out loud on
-   the Emanuel job: they message first, and the message leads to a call, "The CTA should be a call"):
-   `If you're still looking for someone with experience in this, send me a message here on Upwork and let's jump on a quick call. I'd love to help.`
+   after the experience line and before the PS (Nov 3 2026 wording, Jude settled it out loud on the
+   Emanuel job: they message first, and the message leads to a call, "The CTA should be a call").
+   Name THEIR thing in the CTA, never a bare "this"; he rewrote it that way on both letters that day:
+   `If you're still looking for help with your {their thing, e.g. AI voice agent}, reply back to me here on Upwork and let's jump on a quick call. I'd love to help.`
+   (or `...someone with experience building {their category}, send me a message here on Upwork and let's jump on a quick call. I'd love to help.`)
 4. **PS**, verbatim: `PS: I have a 100% success score here on Upwork, so you are in safe hands.`
    It sits ABOVE the sign-off here, unlike the long form where the PS is the last line.
 5. **Close**, verbatim and doubled: `Speak soon,` / blank line / `Best,` / `Jude`
