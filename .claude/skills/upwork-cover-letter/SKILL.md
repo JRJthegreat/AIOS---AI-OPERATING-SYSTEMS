@@ -86,6 +86,12 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
    the word `custom` still appears, and `free walkthrough` is his framing (same reciprocity play as
    the free-audit doc line). When this hook is used, the experience line below must NOT repeat
    "I've built this exact system before", open it on what the system actually does instead.
+1a. **Custom line, always, its own paragraph straight after the hook (Jude, Nov 3 2026, added it to
+   two letters in a row):**
+   `I just wanted to send you this Loom instead of some AI-generated proposal, because I wanted to give you something custom.`
+   (Emanuel variant he also approved: "I just wanted to send you something custom instead of another
+   AI-generated proposal, as I'm sure you've been getting a lot of those recently.") A doc line, when
+   one ships, follows it.
 1b. **Doc line, whenever a proposal doc ships: RIGHT AFTER THE HOOK (Jude, Oct 27 2026,
    LawNeeds job: "the document should be a little bit upward", i.e. straight after the Loom).** Its
    own paragraph, verbatim (Jude, Oct 30 2026, law firm AI agents job, SUPERSEDES the "free audit
