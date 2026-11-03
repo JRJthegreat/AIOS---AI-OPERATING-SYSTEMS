@@ -8,11 +8,9 @@ I'm the perfect fit for this because I've built a similar {SYSTEM} before: for {
 
 If you're still looking for help with your {THEIR_THING}, reply back to me here on Upwork and let's jump on a quick call. I'd love to help.
 
-PS: I have a 100% success score here on Upwork, so you are in safe hands.
+PS: I have a 100% success score here on Upwork, so you are in safe hands. I also typically work {PST|EST} hours, so feel free to message me anytime.   <- second sentence US/Canada/Europe only; "I also work US hours, so..." for Central, Mountain, Europe; ONE PS, never two
 
 Speak soon,
 
 Best,
 Jude
-
-PS: I typically work {PST|EST} hours, so feel free to message me anytime.   <- US/Canada/Europe only; "I work US hours" for Central, Mountain, Europe
