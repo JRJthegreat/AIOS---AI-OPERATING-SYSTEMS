@@ -71,6 +71,12 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
    client's project before showing proof, so the approach phrasing is accurate. Only use the
    example phrasing when the video genuinely never addresses their project, and raise it once
    rather than swapping silently.
+   **A showcase Loom gets the showcase hook (Jude, Nov 3 2026, Emanuel AI Shopify job).** When the
+   video says it is there to "show you some real live examples" and walks through past builds
+   without an approach for theirs, he wants:
+   `Hi {Name}. I recorded a custom Loom video for you to show you some {client's own category} I've built before: {LOOM}`
+   (sent as "...some AI-powered ecommerce applications I've built before"). I had defaulted to the
+   approach phrasing on that Loom and he swapped it.
    **Third phrasing, the exact-match hook (Jude, Sep 11 2026, jewelry/Loupe Factory Shopify agent
    job). When Jude has built the client's exact system before and the Loom walks through that
    build, lead the hook with the proof, not with the video:**
