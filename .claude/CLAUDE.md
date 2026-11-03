@@ -14,9 +14,9 @@ python3 .claude/skills/upwork-proposal/proposal_from_jd.py --jd-file .tmp/jd.txt
 
 # The repo's only lint gate. Run on the proposal body HTML BEFORE rendering/upload.
 # Fails on: em dashes, [bracketed placeholders], a missing <p>&nbsp;</p> gap between blocks,
-# zero or >1 <h1>, any <table>, a body over 1,800 words (warns over 1,200), and a missing audit
-# section (the gaps/traps/stack-call section; --no-audit to override, warns if thin).
-python3 .claude/skills/upwork-proposal/scripts/check_proposal_html.py .tmp/body.html [--allow-long] [--no-audit]
+# zero or >1 <h1>, any <table>, and a body over 1,800 words (warns over 1,200). The audit-section
+# requirement was retired Nov 3 2026 (docs went back to the winning letter format).
+python3 .claude/skills/upwork-proposal/scripts/check_proposal_html.py .tmp/body.html [--allow-long]
 
 # Cover-letter hook vs Upwork's ~230-char preview cutoff (arg, or stdin via pbpaste)
 python3 .claude/skills/upwork-cover-letter/scripts/check_hook_length.py "Hi Name. ... https://loom.com/..."
@@ -176,7 +176,7 @@ fallback. Reference implementation: `b2b-sales-leads-indeed/scripts/find_dm.py` 
 
 | Skill | What it does |
 |-------|-------------|
-| `upwork-proposal` | Client-facing Upwork proposal as a native Google Doc via `proposal_doc.py` (Drive HTML upload + convert; the Docs API is only for post-conversion layout), from a call transcript + case-study Sheet, or from one JD via `proposal_from_jd.py`. House style is enforced by the linter above; the doc closes on a short scoping call. Has a safe-edit flow (export → edit → update) once the client hand-edits. The doc is only the attachment. |
+| `upwork-proposal` | Client-facing Upwork proposal as a native Google Doc via `proposal_doc.py` (Drive HTML upload + convert; the Docs API is only for post-conversion layout), from a call transcript + case-study Sheet, or from one JD via `proposal_from_jd.py`. Written in the winning letter format (Larry's doc is the model, Nov 3 2026 reset); house style is enforced by the linter above; the doc closes on "send me a message" plus one small free offer. Has a safe-edit flow (export → edit → update) once the client hand-edits. The doc is only the attachment. |
 | `upwork-cover-letter` | The cover letter text Jude actually submits. Short form by default; long form only when the letter sells a proposal-doc link. Hard gates: needs his Loom link AND its transcript/notes before drafting, and outputs the letter and nothing else. `scripts/check_hook_length.py` checks the hook. |
 | `upwork-followups` | Scans Upwork rooms + invites, applies Jude's follow-up cadence (`scripts/followups.py` owns the math and the "Upwork Follow-ups" Sheet), drafts due follow-ups in his voice, emails him a digest. Runs unattended 3x/day (08:00, 15:30, 22:00 UTC+8) via launchd `com.nexam.upwork-followups` → `scripts/run.sh`, an isolated `claude -p` (no user/project settings, tool allowlist, `guard_email.py` hook pins the only recipient). Never sends on Upwork. Private config (client exclusions, Sheet id) in `~/.config/upwork-followups/`, logs in `~/Library/Logs/upwork-followups/`. |
 | `gmaps-leads` | Google Maps → website scrape → contact extraction → Sheet, plus a persona-verification stack (staff pages → AMF company emails → SERP + LLM judge → `dm_*` columns) and AMF decision-maker fill for owner-led verticals. |

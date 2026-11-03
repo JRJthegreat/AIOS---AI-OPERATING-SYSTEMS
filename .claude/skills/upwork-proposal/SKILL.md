@@ -16,6 +16,63 @@ no-Docs-API limitation.
 
 All paths below are relative to the repo root. Run everything from the repo root.
 
+## THE WINNING FORMAT (Nov 3 2026 reset, read this first)
+
+**This section overrides everything below that conflicts with it.** Jude, Nov 3 2026: "when did
+we come up with this formula for the Google Doc? Because the formula that we're using that actually
+got us job, before is not this one." He was right. Every doc that won work predates late August:
+
+- Axel (Paris boat-tour scheduling, Jul 23 2026), `1voalYmJcXn_E35zA2LeFq6NZAL0o9zQYhAV_xubnrN4`,
+  538 words, no diagram. Won a paid two-developer bake-off.
+- Larry Hotaling (quotation follow-up, Jul 30 2026), `1Q6JxthIXIHGB3RNLXiMzzZdBGQQBd0GPacqtHCpMIF8`,
+  1,140 words, no diagram. **This is the model doc. Export it and read it before authoring.**
+- Kimberly Works / Pediatric Works (post-call, Aug 17 2026), `1I-Is5B0Pt8m0Qxhz-uH5pdYSxKzNXmR-uSkvDOMdxSo`,
+  976 words, one simple "whole system on one page" diagram.
+
+Then, one complaint at a time, the doc turned from a letter into an audit report: the "free audit"
+framing (Aug 15), "Signed off when" acceptance tests (Aug 21), the mandatory linter-enforced
+"N things I checked before writing this" audit of vendor research and a mandatory technical
+architecture diagram (Aug 27), bigger diagrams (Aug 28), a scoping-call close (Sep 2). No
+proposal turned into a new contract after Aug 19 (job targeting changed too, so not proven
+causal, but the timing lines up). The Qualcon Spaces doc (`1O8WzEAdvnmx3rsyfKwekUmSTAY57RLMdVZo23bOoT2w`)
+was first built in the audit format and redone in this one the same day.
+
+**The winning skeleton** (`templates/proposal_body.html` encodes it):
+1. `<h1>` "<What it is> for <Client>" (no "audit" in the title) and the two-line byline.
+2. **What you're after**: `Hey <Name>,` then ONE paragraph mirroring what they asked for in
+   THEIR words and THEIR specifics (Larry's: "day 10 to the person you quoted, day 21 to that
+   person plus senior management contacts"). If a Loom ships with it: "This is the written
+   version of what I showed you in the video." No free-audit line.
+3. **The system from the video, and why yours is the same logic** (or "A system I've built that
+   runs on the same logic" when the Loom shows something else): ONE proof story with real numbers
+   from the claims bank, then the analogy that lands it, "Different object, same machine."
+4. **How I would build your system**: an optional one-paragraph stack call in plain language
+   (Pediatric: "HubSpot stays, but only as your database... n8n, about $30 a month"), then 5 to 7
+   numbered steps in the client's own process terms. Optional diagram right after the stack call,
+   introduced with "Here's the whole system on one page:".
+5. **Three things to get right early**: 2 or 3 practical risks in plain words, what goes wrong and
+   what the build does about it (Larry's: deliverability and tone, missing senior contacts, honest
+   AI classification with a review queue). Common sense the client recognises. A real platform rule
+   that bites (a carrier registration, an off-platform ban) belongs here in one plain sentence, but
+   no vendor quotes, no price comparisons, no citation-style research dump.
+6. **What you'll get**: 4 to 7 outcome bullets.
+7. **Timeline**: a rough sequence or honest week range (both cold winners gave one), or the
+   client's own phases mirrored back, plus what you need from them to start.
+8. **One more practical note**, only when it fits (Larry: Hong Kong, Jude lives in Taiwan and
+   speaks Chinese, same hours; Axel: French).
+9. **Next step**: "If this approach resonates, send me a message." plus ONE small, specific free
+   next step tied to their first step (Larry: the system map for their setup plus draft copy for
+   the day-10 and day-21 emails, "free, so you can judge both the thinking and the tone before
+   committing to anything"). Not a scoping call.
+10. `Best,<br/>Rood Judeley Joseph (Jude)`.
+
+**What is OUT:** the "Free audit" title and opener line, the mandatory "N things I checked" audit
+section, "Signed off when" acceptance tests on every step, the mandatory technical architecture
+diagram, vendor quotes and competitor price comparisons, the scoping-call close. **What stays:**
+600 to 1,100 words, Bricolage, no em dashes, no tables, no placeholders, `<p>&nbsp;</p>` gaps,
+clickable proof links (Jude's own only), no fee for Jude's own work (client-side tool costs are
+fine when the client asks for them, as Pediatric Works did), the claims-bank-only proof rule.
+
 ## House style (hard rules, do not deviate)
 
 These were learned the hard way; the client cares about all of them:
@@ -51,9 +108,8 @@ These were learned the hard way; the client cares about all of them:
   if it proves something different); multi-sentence answers down to one sentence; any standalone
   section the milestones already cover (an "ownership" or "what you'll get" section usually is
   one); the formal `Prepared for / Prepared by / Date` block down to a two-line byline.
-  **Never cut the flowchart to save length.** It is the single biggest word-saver in the doc,
-  a good diagram replaces roughly 400 words of architecture prose, and per the standing rule
-  below it is the thing that makes the proposal land.
+  When the doc carries a diagram, keep it rather than cutting it: a good one replaces a lot of
+  prose. But a diagram is optional since Nov 3 2026 (see THE WINNING FORMAT).
 - **No em dashes, ever.** Use commas, colons, periods, or parentheses. The
   driver refuses to upload any body that contains an em dash.
 - **Font is Bricolage Grotesque.** The driver injects it; do not change it.
@@ -66,33 +122,19 @@ These were learned the hard way; the client cares about all of them:
   check is done, every time, including the doc itself and any localhost page used to render the
   flowchart. See **Finding a stale viewer** in Gotchas for how to hunt one down after the fact.
 - **Plain language, no jargon.** Explain like a smart non-specialist is reading.
-- **The close asks for a short scoping call (Jude, Sep 2 2026, SUPERSEDES the old
-  reply-only close for proposal docs).** His reason: the old "reply and I will send you X"
-  close never once worked. His words, "no one ever replied to me and say, hey, you said
-  you'll send me this, please send it over." An unclaimed free offer asks the client to do
-  work to collect a second gift whose value they cannot see yet, and the doc already gave
-  them the audit for free. So end on: if you like this approach, let us have a quick chat
-  and scope it properly. Make it concrete and low friction, name the two or three open
-  decisions the call would actually settle (pulled from the audit findings, so the call has
-  an agenda they can see), and ask them to send a time. **This does NOT apply to cold
-  outreach**, where `feedback_low_friction_ask` still stands: a call ask is premature when
-  the prospect never raised their hand. An Upwork client has posted a job and expects to
-  interview, so a scoping call is the move they were already going to make.
-  **Knock-on check:** if an earlier section promises the thing the old close offered (a
-  recording, a sample), fix that cross-reference too, or the doc points at something that
-  no longer exists.
-- **Lead with proof.** The "Why me?" section opens on hard-number case studies.
-- **Frame the doc as a FREE AUDIT (Jude, Aug 15 2026, standing rule).** The doc title and the
-  researched technical-flags section carry audit language (e.g. title "... Automation Audit for
-  <Client>", flags section "Your free audit: ..."), and the opener tells the client they're
-  getting a free audit of their stack. The researched-constraints section IS the audit's
-  substance, so never drop it when using this framing; reciprocity is the point ("that guy
-  gave me something free"). The matching cover letter line lives in `upwork-cover-letter`
-  (its free-audit doc-line default). First applied: LGNDRY Marketing GHL doc.
-- **The doc must be genuinely USEFUL, not just correct (Jude, Aug 27 2026).** Gaps in their plan,
-  the traps ahead of them, and the stack call with its reasoning are mandatory, not decoration.
-  See **The audit section** below; this is the single rule most likely to have quietly rotted, so
-  check it before anything else when a draft feels flat.
+- **The close is "send me a message" plus ONE small free next step (Nov 3 2026 reset, SUPERSEDES
+  the Sep 2 2026 scoping-call close).** Both cold-proposal winners (Larry, Axel) closed this way.
+  On Sep 2 Jude had switched to a scoping call because nobody ever claimed the free offer; the
+  offer is not what wins, so keep it small and specific, tied to their first build step, and let
+  "send me a message" do the work. Never a meeting ask in the doc.
+- **Lead with ONE proof story, tied to the Loom.** "The system from the video, and why yours is
+  the same logic": what that client needed, what Jude built, the real result, then the analogy
+  ("Different object, same machine"). A second proof only if it proves something different.
+- **RETIRED Nov 3 2026: "Frame the doc as a FREE AUDIT" (Aug 15) and "the doc must carry the
+  gaps/traps/stack-call audit" (Aug 27).** Both were part of the drift away from the winning
+  letter. "Useful" now means the client's own specifics mirrored back, the build in their process
+  terms, and the short "Three things to get right early" section. The cover letter's doc line
+  (`upwork-cover-letter`) already dropped the free-audit wording on Oct 30 2026.
 - **Every link is BOTH visible literal text AND an actual clickable hyperlink (Aug 2026,
   Jude, in two parts same day: first "sometimes people can't see it, the thing is just text,"
   then "make them hyperlinks so people can click").** Always write
@@ -136,6 +178,10 @@ These were learned the hard way; the client cares about all of them:
 
 ## Speed: parallelize, and cut waste everywhere except the flowchart (Aug 2026)
 
+**Nov 3 2026:** this section applies when the doc carries a diagram. The copy agent no longer runs
+an audit research step or hunts for "gaps, traps and the stack call"; it writes the winning-format
+letter (THE WINNING FORMAT above) and only checks the facts the letter actually states.
+
 **The flowchart's design quality is never the speed lever.** Jude was explicit (Aug 2026):
 the bespoke, agent-designed flowchart is what makes a proposal land, "this is what gets the
 client to say, oh wow, this is interesting." Do not template it, do not simplify its ambition,
@@ -171,18 +217,16 @@ goal:
 1. The architecture spec (named components, the branch, the human step, the foundation line)
    is the FIRST file written, right after the JD is pulled and the research that the components
    depend on is checked. The flowchart agent starts the moment it exists.
-2. The copy is SHORT (600 to 1,000 words: three audit findings, one or two sentences per
-   milestone, one proof story) and is written in parallel with the diagram, never ahead of it.
+2. The copy is SHORT (600 to 1,100 words, the winning-format letter) and is written in
+   parallel with the diagram, never ahead of it.
 3. Review covers claims, commitments and house rules. It re-fetches a source only when a fact
    looks wrong, and it changes the architecture only for a factual error in the diagram.
 
 Agents to dispatch in one message, in parallel:
 
-- **Copy agent**: drafts the body in the letter structure below, including **the research the
-  audit section depends on** (WebSearch/WebFetch into the client's actual stack and its API
-  docs), done inside its own run rather than as a separate step beforehand. Paste the three
-  audit requirements into its prompt verbatim; a copy agent that is not told to hunt for gaps,
-  traps and the stack call returns a competent brochure.
+- **Copy agent**: drafts the body from `templates/proposal_body.html` in the winning format, with
+  the proof story taken verbatim from the claims bank and the Loom transcript. Light research only,
+  for the few platform facts the letter states (and the "things to get right early").
 - **Flowchart agent**: builds and screenshots the diagram (recipe below), doing its own
   eyeball-and-fix pass internally before returning; this is real, protected time, not
   something to rush.
@@ -197,7 +241,12 @@ ask the agent for the saved query/output behind any statistic it produced itself
 `update` / `proposal_from_jd.py --body-html`), do one quick structural check (`export --html |
 grep '<img'`), and hand off doc URL + cover letter + job URL together.
 
-## The audit section: the reason the doc is worth opening (Jude, Aug 27 2026)
+## RETIRED Nov 3 2026: the mandatory audit section (history only, do not apply)
+
+Superseded by THE WINNING FORMAT at the top: none of the three docs that won work had this section.
+The practical part that survives is the short "Three things to get right early". The Aug 27
+reasoning below is kept only so nobody reintroduces it without seeing why it was dropped.
+
 
 **The complaint that created this rule:** "I see the proposal now, it's just a Google doc, there's
 no value brought to it." A proposal that only restates the JD, lists milestones and shows a diagram
@@ -236,10 +285,8 @@ docs). **A doc that reaches the render step without this section is not shippabl
 
 ## Proposal structure
 
-**Both paths use the same letter structure** (listed in full under the JD path below): byline,
-opener, **the audit**, "How I would build it" with the flowchart at its
-end, similar work, scoping-call next step, sign-off. Start from `templates/proposal_body.html`,
-which encodes it.
+**Both paths use the winning letter structure** in THE WINNING FORMAT at the top. Start from
+`templates/proposal_body.html`, which encodes it.
 
 What a call-derived proposal adds, versus one from a pasted JD:
 
@@ -253,8 +300,7 @@ What a call-derived proposal adds, versus one from a pasted JD:
 **Two sections that used to be in this template and must not come back:** a **Payment Structure**
 section (rate, weekly hours, weekly total) and a **Subscriptions and Platforms** price table. Money
 never appears in a proposal doc; it is a call conversation (standing rule, `feedback_no_pricing_in_proposal_doc`).
-The old template carried both, plus no audit section at all, which is a large part of why the docs
-drifted into being "just a Google doc" (Jude, Aug 27 2026). Also gone: the formal
+Also gone: the formal
 `Prepared for / Prepared by / Date` block, now a two-line byline.
 
 ## Prerequisites
@@ -347,57 +393,30 @@ python3 -W ignore .claude/skills/upwork-proposal/proposal_from_jd.py \
   --body-html .tmp/body.html --title "<Doc title>"
 ```
 
-**Structure: write a LETTER, not a consulting report (Aug 2026, derived from the three
-winning docs above).** Every doc that won work follows the same shape, and none of them
-has a standalone ownership section, a five-item case-study list, or an essay per question:
+**Structure: THE WINNING FORMAT at the top of this file (Nov 3 2026 reset).** The Aug 2026
+"letter structure" that used to be listed here (free-audit opener, mandatory audit, "Signed off
+when" milestones, scoping-call close) is superseded. One rule from it still stands: **the proof
+that matches the client's own platform leads the proof section** (Oct 12 2026, Bennett Meta-ads
+job: the Facebook Ads Spy Agent repo was cited only inside a question-1 answer, and Jude asked
+"why didn't you mention that?"). A platform-matched asset, above all one Jude demos in the Loom,
+leads and goes in the cover letter too. A mandated JD question list is answered in prose inside
+the build steps or the risks section, never a table. Any real skill gap gets one sentence (see
+`feedback_honest_gap_framing`).
 
-1. Two-line byline header (name + `Focus:` line). Not the formal Prepared-for block.
-2. `Hey <Name>,` then ONE paragraph mirroring what they asked for, in their own terms,
-   grounded only in the JD. Fold the free-audit line in here.
-3. If the JD mandates a question list, answer it in **prose, never a table** (see the no-tables
-   rule in House style): one paragraph that runs their items together in their own words, one
-   clause each. Check it against the milestones first, since a checklist answer that repeats
-   Milestone 1 to 4 should just be deleted.
-4. **The audit: "N things I checked before writing this"** (or "Two things I would push back
-   on"). The gaps in their own plan, the traps ahead of them, and the stack call with its
-   reasoning. This is the whole reason the doc is worth opening, so it survives every trim.
-   See **The audit section** above for what each item has to contain; a doc without it is the
-   failure Jude named on Aug 27 2026.
-5. **"How I would build it"**: numbered milestones. Give each an objective
-   *Signed off when* acceptance test, which doubles as the "what you'll get" section so you
-   do not need a separate one. **The flowchart goes here, at the end of this section**
-   (Jude, Aug 27 2026), with its one-line caption ABOVE it, never below (a caption under the
-   image gets orphaned onto the next page when the image moves). See the placement rule under
-   **Flowchart** below.
-6. **Similar work**: ONE proof story told properly, a second only if it proves something the
-   first does not. **The proof that matches the client's own platform leads it** (Oct 12 2026,
-   Bennett Meta-ads job: the Facebook Ads Spy Agent repo was cited only inside a question-1
-   answer, and Jude asked "why didn't you mention that?"). A platform-matched asset, above all one
-   Jude will demo in the Loom, opens "Similar work" and goes in the cover letter too; a passing
-   citation inside a Q&A paragraph does not count as mentioning it. Then any real skill gap in a single sentence (see
-   `feedback_honest_gap_framing`), never a paragraph.
-7. Next step: a short scoping call, with the open decisions it would settle named.
-8. `Best,` / `Rood Judeley Joseph (Jude)` (full name, never a bare "Jude"; "Cheers," also OK).
-
-**Timeline wording (Jude, Aug 2026): give milestones, not durations.** He builds with Claude
-Code, so week-based estimates are inflated and quoting a short timeline invites the client to
-reprice the work downward. State the sequence, name the dependencies that actually set the
-calendar (client-side admin access, a real data window to tune against), and say you will
-commit to dates at kickoff. Fixed-price milestones mean efficiency gains accrue to Jude, which
-is the whole reason not to bill hourly. Money still never appears in the doc.
+**Timeline wording (Nov 3 2026, per the winning docs):** Axel's said "about 2 to 3 weeks",
+Larry's split weeks one to two and two to three. A rough, honest range is fine, or mirror the
+client's own phases when they gave them. The Aug 2026 reason for avoiding durations still matters
+(Jude builds fast with Claude Code, so a very short estimate invites repricing), so never quote
+less than the work is worth, and name what you need from their side to start. Money for Jude's own
+work still never appears in the doc.
 
 How the LLM path differs from the transcript path above:
 - **Proposal only** (no cover letter), **no Google Sheet**.
-- Structure is the same letter shape as the authored path (Aug 27 2026: it now emits an
-  `<h1>` title, the byline, **the audit section**, "How I would build it" with `Signed off when`
-  tests, "Timeline", a **reply-only** close, and signs "Best, / Rood Judeley Joseph (Jude)").
-  Before that fix it emitted no audit section, no `<h1>`, a "What you'll get" list, a
-  week-count timeline and a bare "Jude", so its output was exactly the valueless doc Jude
-  complained about, and it failed the linter on the missing `<h1>`.
-- **It cannot research and it cannot draw.** The audit it writes is limited to what the JD and
-  the model's training data support, and there is no flowchart. So its audit is a starting point
-  to sharpen with real WebSearch/WebFetch findings, never the thing you ship. For a job Jude is
-  really sending, author the body and render with `--body-html`.
+- Structure is the winning letter shape (Nov 3 2026): What you're after, the same-logic proof
+  plus analogy, How I would build your system, Things to get right early, What you'll get,
+  Timeline, a "send me a message" close with one small free offer.
+- **It cannot see the Loom, the claims bank or the web, and it cannot draw.** Its proof story is
+  placeholders. For a job Jude is really sending, author the body and render with `--body-html`.
 - **The LLM still emits bracketed placeholders** (e.g. `[500+ calls/day]`) so it
   never invents a metric, but **NO placeholder may survive into the delivered
   doc** (house rule, Jul 2026: a forgotten bracket reads as templated and kills
@@ -407,19 +426,18 @@ How the LLM path differs from the transcript path above:
   yourself, write real numbers directly from the start. The one exception is
   `[LOOM LINK]` in cover letters, which Jude swaps after recording.
 
-## Flowchart (standing rule, Jul 2026)
+## Flowchart (OPTIONAL since Nov 3 2026)
 
-Every proposal doc gets a **high-quality flowchart of the proposed system** whenever it adds
-value (Jude: "don't give me anything sloppy"). Working recipe, learned on the AI Maintenance
-Coordinator proposal:
+Two of the three winning docs had no diagram; Pediatric Works had one simple "whole system on one
+page" view. So use a diagram when the system has several moving parts (multiple channels, a
+branch, a human step) and it genuinely saves prose, not by default. When you do use one, it still
+has to be good (Jude: "don't give me anything sloppy"). Working recipe, learned on the AI
+Maintenance Coordinator proposal:
 
-**Placement: at the END of "How I would build it", not high up (Jude, Aug 27 2026).** His words:
-"the flowchart that you create should be in the section that explains how I would build this."
-The milestones say what gets built in what order, then the diagram shows the architecture those
-milestones add up to, so the reader meets every component having just read why it exists. It shows
-the SYSTEM, not the milestones (see Content below). Introduce it with a one-line caption ABOVE
-the image ("Here is the architecture those milestones add up to, every moving piece named."). Do not put it right after the opener any
-more; that placement is retired, not an alternative.
+**Placement (Nov 3 2026, per the Pediatric Works doc):** inside "How I would build your system",
+right after the one-paragraph stack call and before the numbered steps, introduced with "Here's
+the whole system on one page:" ABOVE the image (a caption under the image gets orphaned when the
+image moves). The Aug 27 rule that put it at the end of the build section is superseded.
 
 **Content: it is a TECHNICAL ARCHITECTURE diagram, never a picture of the milestones (Jude,
 Aug 27 2026).** His words, on a diagram that redrew the build steps: "the flowchart needs to be

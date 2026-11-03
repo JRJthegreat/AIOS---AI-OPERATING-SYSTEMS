@@ -1,88 +1,81 @@
-<!-- Letter structure, per SKILL.md. Replace every [bracket]; check_proposal_html.py fails
-     on any that survive. Two hard rules this template encodes:
-     1. NO pricing, rate, hours or "Investment" section, ever. Money is a call conversation.
-     2. The audit section is mandatory. A doc without it is a brochure. -->
-<h1>[Thing] Automation Audit for [Client]</h1>
+<!-- THE WINNING FORMAT (Nov 3 2026 reset). Modelled on the docs that actually won work:
+     Larry Hotaling's quotation follow-up doc (1Q6JxthIXIHGB3RNLXiMzzZdBGQQBd0GPacqtHCpMIF8, 1,140
+     words), Axel's boat scheduling doc (1voalYmJcXn_E35zA2LeFq6NZAL0o9zQYhAV_xubnrN4, 538 words) and
+     the Pediatric Works doc (1I-Is5B0Pt8m0Qxhz-uH5pdYSxKzNXmR-uSkvDOMdxSo, 976 words, post-call).
+     It is a personal LETTER written in the client's own terms, not an audit report.
+     Replace every [bracket]; check_proposal_html.py fails on any that survive.
+     No fee, rate or "Investment" section for Jude's own work. Aim 600 to 1,100 words. -->
+<h1>[What it is] for [Client]</h1>
 <p>Rood Judeley Joseph (Jude), Upwork consultant<br/>
-Focus: [scope in 4 to 8 words, e.g. quote follow up, status dashboard]</p>
+Focus: [scope in 4 to 10 words, e.g. automation systems, follow-up engines, AI analysis of replies]</p>
 <p>&nbsp;</p>
 
+<h2>What you're after</h2>
 <p>Hey [Name],</p>
 <p>&nbsp;</p>
-<p>[ONE paragraph mirroring what they asked for, in their own terms, grounded only in the call
-or the JD. No invented pain. Close it by telling them this is a free audit of the stack they
-have picked, and that the findings are theirs to keep whoever they hire.]</p>
-<p>&nbsp;</p>
-<p>[Optional single proof sentence: the closest thing you have already built. Real numbers only.]</p>
-<p>&nbsp;</p>
-
-<!-- If the JD mandates a question list, answer it HERE in prose. NO TABLES, EVER (house rule,
-     Aug 28 2026: "tables make this look AI generated"); the linter fails on any table tag. One
-     paragraph that runs their items together in their own words, one clause each. Check it
-     against the milestones below first: if it just repeats them, delete this section. -->
-<h2>[The N things you asked for]</h2>
-<p>[Their item one, answered in a clause. Their item two, answered in a clause. Point N below
-   explains the one that needs its own argument.]</p>
+<p>[ONE paragraph mirroring what they asked for, in THEIR words and THEIR specifics (Larry's: "day
+10 to the person you quoted, day 21 to that person plus senior management"). If a Loom ships
+with it, open with "This is the written version of what I showed you in the video". Grounded
+only in the JD or the call. No invented pain, no "free audit" line.]</p>
 <p>&nbsp;</p>
 
-<!-- THE SECTION THAT MAKES THE DOC WORTH OPENING. Match the count in the heading to the
-     number of items. Each item: 3 to 4 sentences, and across the set cover at least two of
-     (a) a gap or false assumption in their plan, or a prerequisite on THEIR side,
-     (b) a trap that bites after launch, and what prevents it,
-     (c) the stack call, with the alternative you reject and why.
-     Every item names a specific product, plan tier, limit, price or API behaviour. NEVER link
-     or paste the vendor/doc URL you got it from (Jude, Aug 28 2026: stacked citation URLs read
-     as AI generated); state the finding in prose with the number that proves you read the
-     source. Cut anything a competitor could have written without doing the research. -->
-<h2>[N] things I checked before writing this</h2>
-<p><strong>1. [The finding as a flat statement, not a topic.]</strong> [What the source actually
-says, with the specific limit, tier or behaviour. What it means for their build. What you would
-do instead. No source URL.]</p>
+<h2>[The system from the video, and why yours is the same logic / A system I've built that runs on the same logic]</h2>
+<p>[ONE proof story: what the client needed, what you built, the result with real numbers from the
+claims bank. If the Loom walks through it, say so.]</p>
 <p>&nbsp;</p>
-<p><strong>2. [A prerequisite on THEIR side, if there is one. These are the highest-value finds,
-because they set the calendar and nobody else will have mentioned them.]</strong> [Who has to do
-what, and why it stalls the project if it starts late.]</p>
-<p>&nbsp;</p>
-<p><strong>3. [The stack call.]</strong> [The tool you would use, the reason, and the alternative
-you are rejecting with why. If a tool in their own spec is the wrong call, push back here.]</p>
+<p>[The analogy that makes it land: "Different object, same machine." Name what is the same about
+their problem and yours. A second proof only if it proves something different, one sentence.]</p>
 <p>&nbsp;</p>
 
-<h2>How I would build it</h2>
-<p>I work in fixed price milestones, so the order matters more than a week count. Each one has a
-test you can run yourself.</p>
+<h2>How I would build your system</h2>
+<p>[Optional one-paragraph stack call in plain language, e.g. "HubSpot stays, but only as your
+database... I'll use n8n (about $30 a month) as the layer that connects everything."]</p>
 <p>&nbsp;</p>
-<p><strong>Milestone 1, [name].</strong> [What gets built.] Signed off when [an objective test the
-client can run themselves].</p>
-<p>&nbsp;</p>
-<p><strong>Milestone 2, [name].</strong> [What gets built.] Signed off when [test].</p>
-<p>&nbsp;</p>
-<p>[The dependencies that actually set the calendar, e.g. admin access, merchant onboarding, a
-real data window. Then: get those started and I will commit to dates at kickoff. NEVER give week
-counts or durations.]</p>
-<p>&nbsp;</p>
-
-<!-- The flowchart goes HERE, at the end of the build section (Jude, Aug 27 2026), caption
-     ABOVE the image, never below. Size with width/height ATTRIBUTES, never style="width:..",
-     which zeroes Bricolage document-wide. Target height <= ~240px displayed. -->
-<p>[One line introducing it, e.g. Here is the whole build in one picture.]</p>
+<!-- Optional diagram, only when the system has several moving parts (Pediatric Works had one,
+     Larry and Axel had none). A simple "whole system on one page" view, introduced right here.
+     Size with width/height ATTRIBUTES, never style="width:..", which zeroes Bricolage. -->
+<p>Here's the whole system on one page:</p>
 <p><img src="data:image/png;base64,[PNG]" width="624" height="[HALF THE CANVAS HEIGHT]"/></p>
 <p>&nbsp;</p>
-
-<h2>Similar work</h2>
-<p>[ONE proof story told properly: the problem, what you built, the outcome with real numbers.
-A second only if it proves something the first does not. Jude's OWN proof links (testimonial
-video, live site, GitHub) go in as <a href="[URL]">[URL]</a>, visible text and href both; vendor
-or documentation URLs never do.]</p>
+<p><b>1. [Step in the client's own process terms].</b> [What happens, in one to three plain
+sentences, including the detail that shows you understood their workflow.]</p>
 <p>&nbsp;</p>
-<p>[Any real skill gap in ONE sentence, then straight back to strength. No apologetic lead-in.]</p>
+<p><b>2. [Step].</b> [What happens.]</p>
+<p>&nbsp;</p>
+<p><b>3. [Step].</b> [What happens. Five to seven steps total.]</p>
+<p>&nbsp;</p>
+
+<h2>Three things to get right early</h2>
+<p><b>1. [Practical risk, plain words].</b> [What goes wrong if it is ignored and what the build
+does about it. Common sense the client recognises, not vendor quotes or price lists.]</p>
+<p>&nbsp;</p>
+<p><b>2. [Practical risk].</b> [What goes wrong and what prevents it.]</p>
+<p>&nbsp;</p>
+<p><b>3. [Practical risk].</b> [What goes wrong and what prevents it.]</p>
+<p>&nbsp;</p>
+
+<h2>What you'll get</h2>
+<ul>
+<li>[Outcome one, in their terms.]</li>
+<li>[Outcome two.]</li>
+<li>[Four to six bullets.]</li>
+</ul>
+<p>&nbsp;</p>
+
+<h2>Timeline</h2>
+<p>[A rough sequence (both cold-proposal winners gave a week range; mirror the client's own phases
+if they gave them), plus the two or three things you need from their side to start.]</p>
+<p>&nbsp;</p>
+
+<!-- Optional, only when it genuinely fits (Larry: Hong Kong client, Jude lives in Taiwan and
+     speaks Chinese; Axel: French). -->
+<h2>One more practical note</h2>
+<p>[Timezone, language or working-style note.]</p>
 <p>&nbsp;</p>
 
 <h2>Next step</h2>
-<p>[Ask for a short scoping call. Sep 2 2026: the old "reply and I will send you X" close
-never once got claimed, so do not offer a free deliverable here. Name the two or three open
-decisions the call would settle, pulled from the audit findings so the call has a visible
-agenda, and ask them to send a time. Keep it one short paragraph. If an earlier section
-promised a recording or sample, fix that cross-reference too.]</p>
+<p>[If this approach resonates, send me a message. Then ONE small, specific free next step tied to
+their first step (Larry: "the exact system map for your setup plus draft copy for the day-10 and
+day-21 emails, free, so you can judge both the thinking and the tone before committing").]</p>
 <p>&nbsp;</p>
-<p>Best,</p>
-<p>Rood Judeley Joseph (Jude)</p>
+<p>Best,<br/>Rood Judeley Joseph (Jude)</p>

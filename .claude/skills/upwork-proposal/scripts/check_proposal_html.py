@@ -23,17 +23,14 @@ Checks (all deterministic, no LLM call):
      tell in a client document, same family as stacked citation URLs and separator bars.
      Answer a mandated question list in prose, or delete it and let the milestones and the
      audit carry the answers (which is usually what it was duplicating).
-  7. An audit section is present ("N things I checked before writing this" or similar).
-     Aug 27 2026, Jude: "I see the proposal now, it's just a Google doc, there's no value
-     brought to it." The section carrying the gaps in the client's plan, the traps ahead of
-     them, and the justified stack call is what makes the doc worth opening, and it had
-     quietly stopped appearing. Nothing here can judge whether the CONTENT is any good, so
-     this only catches the section going missing entirely, plus a warning when it is too
-     thin to be carrying three findings. Pass --no-audit for a doc that genuinely is not an
-     audit, which should be rare.
+  7. RETIRED Nov 3 2026: the mandatory audit section. It was added Aug 27 2026 and is
+     part of the drift that turned a personal letter into an audit report; none of the
+     three docs that won work (Larry, Axel, Pediatric Works) had one. The check now only
+     reports a "things to get right early" style section if present and never fails.
+     --no-audit is still accepted and does nothing.
 
 Usage:
-  python3 check_proposal_html.py .tmp/body.html [--allow-long] [--no-audit]
+  python3 check_proposal_html.py .tmp/body.html [--allow-long]
 Exit code 0 and "PASS" if clean; exit code 1 and a list of problems otherwise.
 """
 import re
@@ -66,7 +63,8 @@ AUDIT_HEADING_RE = re.compile(
     r"|gaps?"
     r"|caveats?"
     r"|risks?"
-    r"|start without",
+    r"|start without"
+    r"|get right",
     re.I,
 )
 # Below this many words, the section exists but cannot plausibly hold three researched
@@ -187,15 +185,8 @@ def main():
     elif h1_count > 1:
         problems.append(f"Found {h1_count} <h1> tags, expected exactly 1.")
 
+    # Nov 3 2026: no longer mandatory (see docstring item 7); reported only if present.
     audit = None if no_audit else audit_section(html_stripped)
-    if not no_audit and audit is None:
-        problems.append(
-            "No audit section found. Every proposal needs the section that names the gaps in "
-            "the client's plan, the traps to look out for, and the stack call with its "
-            "reasoning (usually titled 'N things I checked before writing this'). Without it "
-            "the doc is a brochure: 'no value brought to it' (Jude, Aug 27 2026). Pass "
-            "--no-audit only if this doc genuinely is not an audit."
-        )
 
     words = visible_word_count(html)
     if words > WORDS_HARD and not allow_long:
@@ -215,14 +206,7 @@ def main():
     print("PASS: no em dashes, no bracketed placeholders, spacing consistent, one <h1>.")
     if audit is not None:
         heading, awords = audit
-        if awords < AUDIT_WORDS_THIN:
-            print(
-                f"WARNING: the audit section ({heading!r}) is only {awords} words. That is "
-                f"too thin to carry three researched findings. Check it names real gaps, real "
-                f"traps and the stack call with sources, not generic caution."
-            )
-        else:
-            print(f"Audit section: {heading!r}, {awords} words.")
+        print(f"Risks section: {heading!r}, {awords} words.")
     if words > WORDS_TARGET:
         print(
             f"WARNING: {words} words, over the {WORDS_TARGET}-word target. It will render "

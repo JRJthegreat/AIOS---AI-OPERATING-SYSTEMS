@@ -9,12 +9,16 @@ rendered to a native Google Doc via the upwork-proposal renderer
 Proposal only (no cover letter). No Google Sheet. Proof lines use bracketed
 placeholders (e.g. "[500+ calls/day]") so the model never invents a metric.
 
-IMPORTANT, this path is the fallback, not the default. It has no web access, so the
-audit section it writes can only reason from the JD plus training data, and the audit is
-the part of the proposal that actually wins work (it needs live research into the client's
-stack and its API docs). It also cannot build the flowchart. For any job Jude is really
-sending, author the body yourself with research and a diagram and render it with
---body-html. Use the LLM path for a fast first draft or a low-priority job only.
+IMPORTANT, this path is the fallback, not the default. It has no web access and cannot
+see Jude's Loom or the claims bank, so its proof story is placeholders. For any job Jude
+is really sending, author the body yourself from templates/proposal_body.html and render
+it with --body-html.
+
+Output follows the WINNING FORMAT (Nov 3 2026 reset, modelled on the Larry, Axel and
+Pediatric Works docs that actually won work): a personal letter with "What you're after",
+the same-logic proof story, "How I would build your system", "Three things to get right
+early", "What you'll get", "Timeline" and a "send me a message" close with one small free
+offer. No audit section, no acceptance tests, no "free audit" title.
 
 Auth: token.json in the CWD (Drive scope). Run from the repo root.
 
@@ -53,23 +57,24 @@ JOB DESCRIPTION:
 
 Return ONLY a JSON object with these fields:
 {{
-  "focus": "4 to 8 words naming the scope of the work, for the 'Focus:' byline line.",
-  "greeting": "Hey [first name only if it is clearly in the JD, otherwise just 'Hey'],",
-  "opening": "1-2 sentences mirroring their SPECIFIC pain or goal. Reference something concrete from the JD, not generic filler. End by telling them this document is a free audit of the approach they have picked.",
-  "proof": "Start: 'I've built similar [specific thing relevant to THIS job].' Then one proof sentence. For EVERY number, result, timeframe, or client name use a bracketed placeholder, e.g. '[500+ calls/day]' or '[a SaaS client]'. NEVER invent a real metric or client name.",
-  "audit_heading": "e.g. 'Three things I checked before writing this' or 'Two things I would push back on'. Match the count to the number of items you actually return.",
-  "audit": ["THE MOST IMPORTANT FIELD. 3 or 4 items, 3 to 4 sentences each. Every item must do ONE of these three jobs, and across the set you must cover at least two of them: (a) name a GAP or a false assumption in their spec, or a prerequisite on THEIR side they have not thought of, (b) flag a TRAP that bites after launch and say what prevents it, (c) make the TOOL or STACK call, with the reason AND the alternative you are rejecting and why. Name the specific product, plan tier, API limit or behaviour. Where a tool in THEIR OWN spec is the wrong call, say so plainly as a push-back. If you are not certain a technical fact is still current, write it as the thing you would verify first and say what it changes about the build, rather than asserting it. NEVER write generic caution: 'data quality is important', 'we should scope carefully' and 'testing is key' are all banned, they are worse than nothing because they take the slot a real finding should have had."],
-  "approach": ["4 to 6 milestones. Each: what gets built and WHY, with the specific tools where relevant. End each one with an objective acceptance test in the form 'Signed off when: ...' that the client could run themselves. Plain sentence, do NOT number it yourself."],
-  "timeline": "Name the SEQUENCE and the dependencies that actually set the calendar (client-side admin access, credentials, a real data window to tune against), then say you commit to dates at kickoff. NEVER give week counts, day counts or any duration estimate.",
-  "close": "A REPLY-ONLY close: offer to send something specific and free (a data model, a permission checklist, a short walkthrough) and ask them to reply. NEVER ask for a call or meeting."
+  "focus": "4 to 10 words naming the scope of the work, for the 'Focus:' byline line.",
+  "greeting": "Hey [first name only if it is clearly in the JD, otherwise just 'Hey there'],",
+  "after": "ONE paragraph mirroring exactly what they asked for, in THEIR words and with THEIR specifics (numbers, steps, tools, deadlines they named). Not generic. This is the 'What you're after' section.",
+  "proof": "The closest system you have built, told as a short story: what that client needed, what you built, the result. For EVERY number, result, timeframe, or client name use a bracketed placeholder, e.g. '[500+ calls/day]' or '[a SaaS client]'. NEVER invent a real metric or client name.",
+  "analogy": "One or two sentences on why their problem is the same logic as that proof, in the style 'Different object, same machine.' Name what is the same.",
+  "steps": ["5 to 7 build steps in the client's own process terms. Each item: a short bold-worthy lead-in phrase, a period, then 1 to 3 plain sentences on what happens. Do NOT number them yourself."],
+  "get_right": ["2 or 3 practical things to get right early: what goes wrong if ignored, and what the build does about it. Common sense the client recognises. No vendor quotes, no price lists, no generic caution like 'testing is key'."],
+  "deliverables": ["4 to 6 'What you'll get' outcomes, one line each, in their terms."],
+  "timeline": "A rough sequence. Mirror the client's own phases if they gave them, otherwise give an honest week range, and name the two or three things you need from their side to start.",
+  "close": "Start 'If this approach resonates, send me a message.' Then offer ONE small, specific free next step tied to their first step (e.g. 'the exact system map for your setup plus draft copy for the first emails, free, so you can judge the thinking and the tone before committing'). NEVER ask for a call."
 }}
 
 RULES:
-- Do NOT mention budget, pricing, rates or hours anywhere.
+- Do NOT mention Jude's own fee, rates or hours anywhere.
 - NEVER use em dashes or en dashes. Use periods, commas, or the word 'and'.
 - No markdown symbols (no **, #, etc.).
-- Plain language, no jargon. A smart non-specialist is reading.
-- Body ~600 words, and the audit gets the largest share of them.
+- Plain language, no jargon. A smart non-specialist is reading. Contractions are fine.
+- Body 600 to 1,000 words. It is a personal letter, not a report.
 - Output valid JSON only, nothing before or after."""
 
 
@@ -111,9 +116,9 @@ def _sanitize(s: str) -> str:
 def build_html(p: dict, title: str) -> str:
     """Render the JSON into the house-style letter.
 
-    Section order matches the SKILL.md letter structure: byline, opener, proof, THE AUDIT,
-    how I would build it, next step, sign-off. The audit sits before the build plan on
-    purpose: it is what earns the reader's attention for everything after it.
+    Section order matches templates/proposal_body.html, the winning format (Nov 3 2026):
+    What you're after, the same-logic proof, How I would build your system, Three things
+    to get right early, What you'll get, Timeline, Next step, sign-off.
     """
     def cell(s):
         return html.escape(_sanitize(s))
@@ -129,24 +134,28 @@ def build_html(p: dict, title: str) -> str:
     if focus:
         byline += f"<br/>Focus: {cell(focus)}"
 
-    audit_heading = str(p.get("audit_heading", "")).strip() or "Things I checked before writing this"
-
     parts = [
         f"<h1>{cell(title)}</h1>",
         f"<p>{byline}</p>",
         gap,
-        f"<p>{cell(p.get('greeting', 'Hey,'))}</p>",
+        "<h2>What you're after</h2>",
+        f"<p>{cell(p.get('greeting', 'Hey there,'))}</p>",
         gap,
-        f"<p>{cell(p.get('opening', ''))}</p>",
+        f"<p>{cell(p.get('after', ''))}</p>",
         gap,
+        "<h2>A system I've built that runs on the same logic</h2>",
         f"<p>{cell(p.get('proof', ''))}</p>",
         gap,
-        # The audit: gaps, traps and the justified stack call. Never drop this section.
-        f"<h2>{cell(audit_heading)}</h2>",
-        items("audit", "ol"),
+        f"<p>{cell(p.get('analogy', ''))}</p>",
         gap,
-        "<h2>How I would build it</h2>",
-        items("approach", "ol"),
+        "<h2>How I would build your system</h2>",
+        items("steps", "ol"),
+        gap,
+        "<h2>Things to get right early</h2>",
+        items("get_right", "ol"),
+        gap,
+        "<h2>What you'll get</h2>",
+        items("deliverables", "ul"),
         gap,
         "<h2>Timeline</h2>",
         f"<p>{cell(p.get('timeline', ''))}</p>",
@@ -155,8 +164,7 @@ def build_html(p: dict, title: str) -> str:
         f"<p>{cell(p.get('close', ''))}</p>",
         gap,
         # House rule: never a bare "Jude" in a client deliverable.
-        "<p>Best,</p>",
-        "<p>Rood Judeley Joseph (Jude)</p>",
+        "<p>Best,<br/>Rood Judeley Joseph (Jude)</p>",
     ]
     return "\n".join(parts)
 
@@ -189,8 +197,8 @@ def main():
     # authored-body path: agent wrote the proposal itself, just render + share it
     if args.body_html:
         title = args.title or (
-            f"Automation Audit and Build Plan for {args.client}"
-            if args.client else "Automation Audit and Build Plan"
+            f"Proposal for {args.client}"
+            if args.client else "Proposal"
         )
         body = _sanitize(Path(args.body_html).read_text(encoding="utf-8"))
         doc_id, url = create_doc(title, body)
@@ -208,8 +216,8 @@ def main():
         sys.exit("ERROR: no job description provided (use --jd-file, --jd, or stdin).")
 
     title = args.title or (
-        f"Automation Audit and Build Plan for {args.client}"
-        if args.client else "Automation Audit and Build Plan"
+        f"Proposal for {args.client}"
+        if args.client else "Proposal"
     )
 
     print("Generating proposal with gpt-5.1...", flush=True)
@@ -223,8 +231,8 @@ def main():
     print("ID:", doc_id)
     print(
         "NOTE: bracketed placeholders are still in this draft. Replace every one with a real "
-        "number, sharpen the audit section against real research, add the flowchart, then "
-        "re-render. Lint with scripts/check_proposal_html.py before sending.",
+        "number from the claims bank, tie the proof story to Jude's Loom, then re-render. "
+        "Lint with scripts/check_proposal_html.py before sending.",
         file=sys.stderr,
     )
 
