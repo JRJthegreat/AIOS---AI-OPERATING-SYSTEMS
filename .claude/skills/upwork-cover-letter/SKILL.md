@@ -150,6 +150,13 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
    It sits ABOVE the sign-off here, unlike the long form where the PS is the last line.
 5. **Close**, verbatim and doubled: `Speak soon,` / blank line / `Best,` / `Jude`
    The two-line close is intentional. It was flagged to Jude twice and kept both times.
+6. **Hours PS, US / Canada / Europe clients only (Jude, Nov 3 2026: "That's very useful").** The very
+   last line, after `Jude`, its own paragraph. Name the client's own zone when it is a US/Canada coast:
+   `PS: I typically work PST hours, so feel free to message me anytime.` (Pacific clients) or
+   `PS: I typically work EST hours, so feel free to message me anytime.` (Eastern clients). Central,
+   Mountain and European clients get `PS: I work US hours, so feel free to message me anytime.`
+   Read the zone off `clientCompanyPublic.timezone` in the `find_jobs` result. APAC and other clients
+   get no hours line.
 
 **"We decide what to send" (Jude, Sep 8 2026).** A job post's own instructions do not drive the
 letter. The Hani post demanded an attached brief and carried two screening questions, and the
