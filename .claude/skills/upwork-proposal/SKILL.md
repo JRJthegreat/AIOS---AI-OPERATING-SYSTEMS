@@ -239,7 +239,9 @@ project, another described Grenke as leasing "to healthcare businesses"; neither
 ask the agent for the saved query/output behind any statistic it produced itself. Then run
 `check_proposal_html.py` on the copy agent's HTML and fix anything it flags, embed the flowchart's base64, run the doc script **once** (`create` /
 `update` / `proposal_from_jd.py --body-html`), do one quick structural check (`export --html |
-grep '<img'`), and hand off doc URL + cover letter + job URL together.
+grep '<img'`), and hand off doc URL + cover letter + job URL together. **Hand off the share link form,
+`https://docs.google.com/document/d/<ID>/edit?usp=sharing`, not the `usp=drivesdk` URL the driver
+prints** (Jude, Nov 3 2026).
 
 ## RETIRED Nov 3 2026: the mandatory audit section (history only, do not apply)
 

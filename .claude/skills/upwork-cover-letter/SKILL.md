@@ -97,6 +97,10 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
    own paragraph, verbatim (Jude, Oct 30 2026, law firm AI agents job, SUPERSEDES the "free audit
    document, showing {...}. Completely free, no strings attached" line):
    `Here's a quick document I created that goes into more detail on what I shared in the Loom. It took me a lot of time and research to put together for you, so I'd really encourage you to give it a read: {DOC LINK}`
+   **The link is the share link, `https://docs.google.com/document/d/<ID>/edit?usp=sharing`,
+   never the `...?usp=drivesdk` URL `proposal_doc.py` prints (Jude, Nov 3 2026: "why don't you
+   used a share link").** Both open for anyone because the driver sets anyone-with-link reader,
+   but the drivesdk one looks like an internal edit link; the winning Larry letter used `usp=sharing`.
    **Do not summarize the doc's contents, stats or findings in this line.** On that job I packed it
    with a study stat, both agents and the ethics traps; he cut all of it back to the line above. The
    Loom already sells the doc, so the letter just points at it.
