@@ -46,6 +46,59 @@ Optional:
 
 ## Short form (the DEFAULT, Jude, Sep 8 2026)
 
+**CURRENT FORMAT: the Nov 3 2026 reset. `templates/short_letter.txt` is the source of truth; where
+any older rule below disagrees with it, the template wins.** Jude said the old template "is not
+working anymore"; we pulled the cover letters that actually won contracts and replies (Larry, Axel,
+Ted, PNDigital) and rebuilt the letter around what they shared. What changed vs the old template:
+- Proof opens `I'm the person you're looking for.` (not "I'm the perfect fit for this because...").
+- CTA: `send me a message here on Upwork and let's jump on a quick call. Happy to work long-term or
+  just on this project, whatever suits you best.` (not "reply back to me... I'd love to help").
+- NO success-score PS (none of the winners had one; his 100% JSS already shows on the proposal).
+- Close is a single `Best,` / `Jude` (no "Speak soon,").
+- The hours line is the ONE PS, and it is the LAST line, after `Jude`.
+
+Approved example, sent Nov 3 2026 (Zapier HubSpot job, with a doc):
+
+```
+Hi Donald. I created a custom Loom video for you about how I would approach your HubSpot and Google Sheets lead automation project: https://www.loom.com/share/aaa75b5fb4224369a45289e8886f0e84
+
+I just wanted to send you this Loom instead of some AI-generated proposal, because I wanted to give you something custom.
+
+Here's a quick document I created that goes into more detail on what I shared in the Loom. It took me a lot of time and research to put together for you, so I'd really encourage you to give it a read: https://docs.google.com/document/d/136fxM1OCdCTLUXHyBJQAcqN_CUam2OMzGNaKGNuiMm8/edit?usp=sharing
+
+I'm the person you're looking for. I've built a similar follow-up system on Make.com that watches a client's Stripe account and follows up with every overdue invoice every seven days, with a different human-sounding message each time, until it's paid. Your lead flow runs on the same logic, and I'm just as comfortable building it in Zapier.
+
+If you're still looking for help with your HubSpot lead automation, send me a message here on Upwork and let's jump on a quick call. Happy to work long-term or just on this project, whatever suits you best.
+
+Best,
+Jude
+
+PS: I work US hours, so feel free to message me anytime.
+```
+
+Approved example without a doc (NHRI biotech data job, Nov 3 2026; Jude asked mid-draft for "I can
+start ASAP", which goes inside the CTA when he asks for it):
+
+```
+Hi. I created a custom Loom video for you about your AI and data quality evaluation project: https://www.loom.com/share/10133b958caa49fbaea9aa7561557350
+
+I just wanted to send you this Loom instead of some AI-generated proposal, because I wanted to give you something custom.
+
+I'm the person you're looking for. Before Upwork, I worked as a biotech data analyst at the National Health Research Institutes in Taiwan, where I cleaned up people's genetic data and trained machine learning models to predict cancer, so carefully checking data for errors and inconsistencies was a core part of my day-to-day. Since then, I've been helping companies integrate AI into their workflows as an AI engineer here on Upwork.
+
+If you're still looking for someone detail-oriented for your AI and data evaluation work, send me a message here on Upwork and let's jump on a quick call. I can start ASAP, and I'm happy to work long-term or just on this project, whatever suits you best.
+
+Best,
+Jude
+
+PS: I typically work EST hours, so feel free to message me anytime.
+```
+
+Hook variant Jude set the same day (Tom, AI technical support job): `Hi Tom. I created a custom Loom
+video for you about your ongoing AI technical support project: {LOOM}`. No name in the post means
+`Hi.`. Keep the proof to one or two sentences; he cut a "The part I want you to pay attention to in
+the Loom is..." paragraph out of the Tom letter, so no extra paragraph between proof and CTA.
+
 **OUTPUT THE LETTER AND NOTHING ELSE (Jude, Sep 8 2026, after having to ask five times in one
 session: "I always tell you that").** No job-post summary, no client-quality read, no budget or
 connects analysis, no "three things worth noting", no explanation of why a proof phrase was
@@ -111,6 +164,9 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
    before", plus "a little bit of line about what the project was, what the company was, what
    you did for them." Shape, one or two sentences:
    `I'm the perfect fit for this because I've built a similar {system} before: for {Company}, a {what they are}, I built {what it does}. {One clause tying it to their job.}`
+   **SUPERSEDED Nov 3 2026: open with `I'm the person you're looking for.` then one or two sentences
+   of proof in their problem's terms** (see the CURRENT FORMAT block). The proof-selection rules
+   below still apply.
    **Opener is "I'm the perfect fit for this", never "I believe I'm a good fit"** (Jude, Oct 27 2026,
    LawNeeds Pinecone job: "don't say I believe I'm a good fit. Say I am the perfect fit for this").
    Company names follow the claims bank's own rules (EMRG Media by name; Grenke only for
@@ -159,18 +215,17 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
    Name THEIR thing in the CTA, never a bare "this"; he rewrote it that way on both letters that day:
    `If you're still looking for help with your {their thing, e.g. AI voice agent}, reply back to me here on Upwork and let's jump on a quick call. I'd love to help.`
    (or `...someone with experience building {their category}, send me a message here on Upwork and let's jump on a quick call. I'd love to help.`)
-4. **PS**, verbatim: `PS: I have a 100% success score here on Upwork, so you are in safe hands.`
-   It sits ABOVE the sign-off here, unlike the long form where the PS is the last line.
-5. **Close**, verbatim and doubled: `Speak soon,` / blank line / `Best,` / `Jude`
-   The two-line close is intentional. It was flagged to Jude twice and kept both times.
-6. **Hours line, US / Canada / Europe clients only (Jude, Nov 3 2026: "That's very useful").** It is
-   the SECOND SENTENCE of the part 4 PS, never a PS of its own (Jude, Nov 3 2026: "why is there two
-   PS?" after I put it as a second PS under `Jude`). Name the client's own zone when it is a US/Canada
-   coast: `I also typically work PST hours, so feel free to message me anytime.` (Pacific clients) or
-   `I also typically work EST hours, so feel free to message me anytime.` (Eastern clients). Central,
-   Mountain and European clients get `I also work US hours, so feel free to message me anytime.`
-   Read the zone off `clientCompanyPublic.timezone` in the `find_jobs` result. APAC and other clients
-   get no hours sentence. Nothing goes after `Jude`.
+   **SUPERSEDED Nov 3 2026: the CTA is now `send me a message here on Upwork and let's jump on a
+   quick call. Happy to work long-term or just on this project, whatever suits you best.`** (see the
+   CURRENT FORMAT block at the top of this section).
+4. **(Removed Nov 3 2026.)** No success-score PS. None of the winning letters had it.
+5. **Close: `Best,` / `Jude` only (Nov 3 2026).** "Speak soon," is gone.
+6. **Hours PS, US / Canada / Europe clients only: the ONE PS and the LAST line, after `Jude`
+   (Nov 3 2026 reset, matching the winning PNDigital letter).** Pacific: `PS: I typically work PST
+   hours, so feel free to message me anytime.` Eastern: `PS: I typically work EST hours, so feel free
+   to message me anytime.` Central, Mountain and Europe: `PS: I work US hours, so feel free to message
+   me anytime.` Read the zone off `clientCompanyPublic.timezone` in the `find_jobs` result. APAC and
+   other clients get no PS at all. Never two PS lines.
 
 **"We decide what to send" (Jude, Sep 8 2026).** A job post's own instructions do not drive the
 letter. The Hani post demanded an attached brief and carried two screening questions, and the
