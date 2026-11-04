@@ -147,6 +147,9 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
    client's project before showing proof, so the approach phrasing is accurate. Only use the
    example phrasing when the video genuinely never addresses their project, and raise it once
    rather than swapping silently.
+   **Loom that demos one specific system (Jude, Nov 5 2026, DTC AI Integrator job, Meta ad spy agent
+   Loom):** `Hi {Name}. I created a custom Loom video for you for this {system shown, e.g. Facebook ad
+   spy agent} that I think you'll absolutely love: {LOOM}` (115 chars before the link, passes).
    **SUPERSEDED Nov 4 2026 (AI search visibility app + SEO job): even on a showcase Loom, use
    `Hi {Name}. I created a custom Loom video for your {client's project, paraphrased} project: {LOOM}`.**
    I gave that job's showcase Loom the showcase hook below and Jude rewrote it to this shape
@@ -247,12 +250,15 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
    CURRENT FORMAT block at the top of this section).
 4. **(Removed Nov 3 2026.)** No success-score PS. None of the winning letters had it.
 5. **Close: `Speak soon,` / `Jude` (Nov 4 2026, supersedes the Nov 3 `Best,` close).**
-6. **Hours PS, US / Canada / Europe clients only: the ONE PS and the LAST line, after `Jude`
-   (Nov 3 2026 reset, matching the winning PNDigital letter).** Pacific: `PS: I typically work PST
-   hours, so feel free to message me anytime.` Eastern: `PS: I typically work EST hours, so feel free
-   to message me anytime.` Central, Mountain and Europe: `PS: I work US hours, so feel free to message
-   me anytime.` Read the zone off `clientCompanyPublic.timezone` in the `find_jobs` result. APAC and
-   other clients get no PS at all. Never two PS lines.
+6. **Hours PS, US / Canada / Europe clients only: the ONE PS and the LAST line, after `Jude`.
+   Wording by client COUNTRY, not timezone (Jude, Nov 5 2026, DTC AI Integrator job, SUPERSEDES the
+   Nov 3 PST/EST split):**
+   - United States (any state): `PS: I typically work US hours, so feel free to message me anytime.`
+   - Canada: `PS: I typically work Eastern time, so feel free to message me anytime.`
+   - Europe (incl. UK): `PS: I'm usually available around Europe hours, so feel free to message me anytime.`
+   Read the country off `clientCompanyPublic.country` in the `find_jobs` result (the timezone field
+   is unreliable: two US clients on Nov 4 showed America/Sao_Paulo). APAC and other clients get no
+   PS at all. Never two PS lines.
 
 **"We decide what to send" (Jude, Sep 8 2026).** A job post's own instructions do not drive the
 letter. The Hani post demanded an attached brief and carried two screening questions, and the
