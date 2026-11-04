@@ -8,9 +8,9 @@ I'm the person you're looking for. In the Loom I walk you through {THE SYSTEM I 
 
 A little bit about me: I'm a top-rated AI automation engineer with hands-on experience building {3 THINGS THAT MATCH THEIR JOB}. I've shipped dozens of high-performing systems for {THEIR KIND OF BUSINESS}, many of which have scaled to $1M+ in revenue. I'm extremely proficient at {THEIR TOOLS AND SKILLS}.   <- always; verbatim frame from the Larry, Axel and PNDigital winners, only the braces change
 
-If you're still looking for help with your {THEIR_THING}, send me a message here on Upwork and let's jump on a quick call. Happy to work long-term or just on this project, whatever suits you best.
+Let me know if you're interested in working together. Happy to work on this project or long-term, whatever works best for you.   <- CTA verbatim (Jude, Nov 4 2026)
 
-Best,
+Speak soon,
 Jude
 
 PS: I typically work {EST|PST} hours, so feel free to message me anytime.   <- LAST line, US/Canada/Europe clients only; "PS: I work US hours, so feel free to message me anytime." for Central, Mountain and Europe; no PS at all for anyone else; never a success-score PS, never two PS lines

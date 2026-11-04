@@ -71,10 +71,13 @@ Ted, PNDigital) and rebuilt the letter around what they shared. What changed vs 
   engineer and B2B lead generation expert... I've implemented dozens of high-performing lead gen
   campaigns, many of which have helped clients scale to $1M+ in revenue.") The approved Nov 3 examples
   below predate this fix and lack it; add it.
-- CTA: `send me a message here on Upwork and let's jump on a quick call. Happy to work long-term or
-  just on this project, whatever suits you best.` (not "reply back to me... I'd love to help").
+- **CTA, verbatim (Jude, Nov 4 2026, AI enhancement layer job, SUPERSEDES the Nov 3 "send me a
+  message here on Upwork and let's jump on a quick call" CTA and the Aug 27 "don't open with Let me
+  know if you're interested" rule):** `Let me know if you're interested in working together. Happy to
+  work on this project or long-term, whatever works best for you.` No call ask, no "If you're still
+  looking for help with your {thing}" lead-in. The approved examples below still show the old CTA.
 - NO success-score PS (none of the winners had one; his 100% JSS already shows on the proposal).
-- Close is a single `Best,` / `Jude` (no "Speak soon,").
+- **Close is `Speak soon,` / `Jude` (Jude, Nov 4 2026, SUPERSEDES the Nov 3 `Best,` close).**
 - The hours line is the ONE PS, and it is the LAST line, after `Jude`.
 
 Approved example, sent Nov 3 2026 (Zapier HubSpot job, with a doc):
@@ -235,11 +238,11 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
    Name THEIR thing in the CTA, never a bare "this"; he rewrote it that way on both letters that day:
    `If you're still looking for help with your {their thing, e.g. AI voice agent}, reply back to me here on Upwork and let's jump on a quick call. I'd love to help.`
    (or `...someone with experience building {their category}, send me a message here on Upwork and let's jump on a quick call. I'd love to help.`)
-   **SUPERSEDED Nov 3 2026: the CTA is now `send me a message here on Upwork and let's jump on a
+   **SUPERSEDED Nov 4 2026 (see the CURRENT FORMAT block): the CTA is now `Let me know if you're interested in working together. Happy to work on this project or long-term, whatever works best for you.` The Nov 3 one below is retired too:** **`send me a message here on Upwork and let's jump on a
    quick call. Happy to work long-term or just on this project, whatever suits you best.`** (see the
    CURRENT FORMAT block at the top of this section).
 4. **(Removed Nov 3 2026.)** No success-score PS. None of the winning letters had it.
-5. **Close: `Best,` / `Jude` only (Nov 3 2026).** "Speak soon," is gone.
+5. **Close: `Speak soon,` / `Jude` (Nov 4 2026, supersedes the Nov 3 `Best,` close).**
 6. **Hours PS, US / Canada / Europe clients only: the ONE PS and the LAST line, after `Jude`
    (Nov 3 2026 reset, matching the winning PNDigital letter).** Pacific: `PS: I typically work PST
    hours, so feel free to message me anytime.` Eastern: `PS: I typically work EST hours, so feel free
