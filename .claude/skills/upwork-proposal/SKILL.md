@@ -43,6 +43,18 @@ was first built in the audit format and redone in this one the same day.
    THEIR words and THEIR specifics (Larry's: "day 10 to the person you quoted, day 21 to that
    person plus senior management contacts"). If a Loom ships with it: "This is the written
    version of what I showed you in the video." No free-audit line.
+   **Write it like you'd tell a colleague what this client needs, not like a spec summary (Jude,
+   Nov 4 2026: the section "kind of sound AI generated... it's the way we word it").** The AI
+   tells, all from the doc he flagged: a thesis opener that frames the job ("You want two
+   connected builds from one person."); a colon followed by a five-item feature inventory; the
+   post's own labels as sentence subjects ("Track 1 turns your prototype into..."); a punchy
+   closing fragment ("And generic AI pages are a deal breaker."). What the winners do instead:
+   describe their business and the job in plain full sentences, pick the two or three things
+   that matter most rather than listing every feature (the build section lists them later),
+   and carry one concrete human detail from the post that proves someone read it (Axel's "the
+   last freelancer left without a word", Pediatric's "growth has gone flat this year", the
+   SEO job's "people searching the brand name can't find the site"). Their hard filter goes
+   back in their own words as a full sentence, never as a stinger.
 3. **The system from the video, and why yours is the same logic** (or "A system I've built that
    runs on the same logic" when the Loom shows something else): ONE proof story with real numbers
    from the claims bank, then the analogy that lands it, "Different object, same machine."
