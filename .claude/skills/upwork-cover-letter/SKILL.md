@@ -51,6 +51,17 @@ any older rule below disagrees with it, the template wins.** Jude said the old t
 working anymore"; we pulled the cover letters that actually won contracts and replies (Larry, Axel,
 Ted, PNDigital) and rebuilt the letter around what they shared. What changed vs the old template:
 - Proof opens `I'm the person you're looking for.` (not "I'm the perfect fit for this because...").
+- **The proof is a real paragraph in the winners' shape, not a one-liner (Jude, Nov 4 2026: "that's
+  not how it was before").** Another agent wrote "For one company, I built a Power Automate flow that
+  runs sentiment analysis... Tracking your filings and reported defects in Excel is the same kind of
+  work" and he rejected it. The winners do three things: (1) name the system he built and its real
+  result, pointing at the Loom ("In the Loom I walk you through an automated follow-up system I built
+  for a company chasing unpaid invoices: every 7 days it followed up automatically with a human touch
+  until the client responded", Larry; "I've already done this for an SEO agency... roughly 1,000
+  decision makers and generated 18 sales opportunities", PNDigital); (2) restate THEIR problem with
+  THEIR specifics from the post ("follow up at 10 days, escalate to senior management at 21 days, then
+  collect and analyze the responses", Larry); (3) say it is the same logic and what he would build for
+  it. 3 to 4 sentences. A generic "same kind of work" bridge is the failure mode.
 - CTA: `send me a message here on Upwork and let's jump on a quick call. Happy to work long-term or
   just on this project, whatever suits you best.` (not "reply back to me... I'd love to help").
 - NO success-score PS (none of the winners had one; his 100% JSS already shows on the proposal).

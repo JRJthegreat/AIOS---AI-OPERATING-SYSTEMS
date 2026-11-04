@@ -4,7 +4,7 @@ I just wanted to send you this Loom instead of some AI-generated proposal, becau
 
 Here's a quick document I created that goes into more detail on what I shared in the Loom. It took me a lot of time and research to put together for you, so I'd really encourage you to give it a read: {DOC_SHARE_LINK}   <- ONLY when a proposal doc ships; always .../edit?usp=sharing, never usp=drivesdk; drop the whole paragraph when there is no doc
 
-I'm the person you're looking for. {ONE_OR_TWO_SENTENCES_OF_PROOF_TIED_TO_THEIR_PROBLEM}
+I'm the person you're looking for. In the Loom I walk you through {THE SYSTEM I BUILT, FOR WHAT KIND OF COMPANY}: {WHAT IT DOES, WITH THE REAL RESULT OR NUMBER}. Your project is the same logic applied to {THEIR THING}: {THEIR OWN SPECIFICS FROM THE POST, IN THEIR WORDS, AND WHAT I'D BUILD FOR EACH}.   <- 3 to 4 sentences, one paragraph; modeled on the winning Larry and PNDigital letters; never a one-line "same kind of work" claim
 
 If you're still looking for help with your {THEIR_THING}, send me a message here on Upwork and let's jump on a quick call. Happy to work long-term or just on this project, whatever suits you best.
 
