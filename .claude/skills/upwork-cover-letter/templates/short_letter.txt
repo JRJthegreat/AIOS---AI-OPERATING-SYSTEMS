@@ -6,6 +6,8 @@ Here's a quick document I created that goes into more detail on what I shared in
 
 I'm the person you're looking for. In the Loom I walk you through {THE SYSTEM I BUILT, FOR WHAT KIND OF COMPANY}: {WHAT IT DOES, WITH THE REAL RESULT OR NUMBER}. Your project is the same logic applied to {THEIR THING}: {THEIR OWN SPECIFICS FROM THE POST, IN THEIR WORDS, AND WHAT I'D BUILD FOR EACH}.   <- 3 to 4 sentences, one paragraph; modeled on the winning Larry and PNDigital letters; never a one-line "same kind of work" claim
 
+A little bit about me: I'm a top-rated AI automation engineer with hands-on experience building {3 THINGS THAT MATCH THEIR JOB}. I've shipped dozens of high-performing systems for {THEIR KIND OF BUSINESS}, many of which have scaled to $1M+ in revenue. I'm extremely proficient at {THEIR TOOLS AND SKILLS}.   <- always; verbatim frame from the Larry, Axel and PNDigital winners, only the braces change
+
 If you're still looking for help with your {THEIR_THING}, send me a message here on Upwork and let's jump on a quick call. Happy to work long-term or just on this project, whatever suits you best.
 
 Best,
