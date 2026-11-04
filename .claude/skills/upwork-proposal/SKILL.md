@@ -232,6 +232,13 @@ Agents to dispatch in one message, in parallel:
   something to rush.
 - **Cover letter agent** (JD path only): drafts the Upwork cover letter off the same JD and
   the claims bank, in parallel, since it does not depend on the copy agent's exact wording.
+  **It writes from `upwork-cover-letter/templates/short_letter.txt` and that skill's CURRENT FORMAT
+  block, never from memory or an older letter (Nov 4 2026: another agent could not find the new
+  template and wrote a one-line proof with no about-me section).** Paste the template into its
+  prompt verbatim. Two parts it must carry: the 3 to 4 sentence proof paragraph in the winners'
+  shape (system from the Loom + real result, their own specifics from the post, same logic and what
+  I'd build), and the "A little bit about me" paragraph. The doc's own proof section ("The system
+  from the video, and why yours is the same logic") already follows that same shape.
 
 Then in the main thread: read the "Similar work" section against the claims bank sentence by
 sentence (Sep 29 2026: one agent added a made-up "its main issue was Notion's rate limit" to a real
