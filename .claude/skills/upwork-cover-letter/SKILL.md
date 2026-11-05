@@ -76,6 +76,11 @@ Ted, PNDigital) and rebuilt the letter around what they shared. What changed vs 
   know if you're interested" rule):** `Let me know if you're interested in working together. Happy to
   work on this project or long-term, whatever works best for you.` No call ask, no "If you're still
   looking for help with your {thing}" lead-in. The approved examples below still show the old CTA.
+- **Long-term line, always, its own paragraph right BEFORE the CTA (Jude, Nov 5 2026: "I want to
+  sell them on the potential of working long term and help them drive ROI from AI"; wording is his
+  brief, lightly customizable):** `Anytime I work with someone here on Upwork, I aim to keep working
+  with them long-term. My goal isn't only to deliver this project, but to keep helping you get a real
+  return from AI as your business grows.` It matches the long-term pitch at the end of his Looms.
 - NO success-score PS (none of the winners had one; his 100% JSS already shows on the proposal).
 - **Close is `Speak soon,` / `Jude` (Jude, Nov 4 2026, SUPERSEDES the Nov 3 `Best,` close).**
 - The hours line is the ONE PS, and it is the LAST line, after `Jude`.
@@ -127,6 +132,10 @@ session: "I always tell you that").** No job-post summary, no client-quality rea
 connects analysis, no "three things worth noting", no explanation of why a proof phrase was
 chosen, before or after the letter. He asks when he wants that. Deliver the letter text alone.
 This overrides the instinct to be helpful with context: the context IS the noise.
+**Plain text, never inside a ``` code block (Jude, Nov 5 2026: the fence's backticks come along when
+he copies, "like the type of strings you see... when you used to create JSON files").** Write the
+letter as ordinary paragraphs in the reply. End `Speak soon,` with two trailing spaces so `Jude`
+stays on its own line when the chat renders it as markdown.
 
 
 Jude's actual sending habit. On the Hani trading/agentic-AI job he took the full long-form
