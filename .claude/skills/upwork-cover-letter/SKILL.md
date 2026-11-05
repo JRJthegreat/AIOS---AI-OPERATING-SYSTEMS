@@ -189,6 +189,17 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
    Loom already sells the doc, so the letter just points at it.
    **Never write "It's my thank you for opening my proposal and watching the video"** (the Oct 12
    wording; Jude, Oct 27 2026: "I don't like when you say it's my thank you").
+1c. **Attachment line, whenever mockup screens ship as Upwork attachments (Jude, Nov 5 2026, Evans
+   Shoes Retail Express + Claude reporting job).** Same slot as the doc line (its own paragraph
+   straight after the custom line; after the doc line if both ship). His brief: say they're examples
+   of reports and dashboards he could build, that they took a lot of time and care, that he researched
+   the company (their locations etc.), and that he encourages them to look. Sent wording:
+   `I've also attached some screenshots of reports and dashboards I could build for you. They took me a lot of time and care to create, and I even researched your company so they're set up around your own store locations. I'd really encourage you to take a look. I do believe you'll find them valuable.`
+   Swap "your own store locations" for whatever company detail the screens really use. He said "live
+   examples"; the letter drops "live" because the screens are labelled concept mockups with sample
+   data, and "live" would contradict that. Build the screens from the JD's own report list, put real
+   company facts on them (their store names from their site), mark every figure "Sample data", and
+   save the PNGs to `~/Downloads` for him to attach.
 2. **One experience line: the similar project he built (Jude, Oct 12 2026, now the default).**
    His words: "I believe I'm a good fit for this job because I worked on a similar project
    before", plus "a little bit of line about what the project was, what the company was, what
