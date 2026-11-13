@@ -181,10 +181,16 @@ def compute(row: dict, cfg: dict, now: datetime) -> dict:
         if stage == "post_call":
             nudges = 0  # a "great talking" message after the call is not the SOW; stay due until it's sent
         repeat = int(cfg.get("repeat_every_days", {}).get(stage) or 0)
+        last_self = parse_ts(r.get("last_self_msg_at"))
         if anchor and nudges < len(offsets):
             due = anchor + timedelta(days=offsets[nudges])
+            # A late manual nudge must not leave the next one due the same day.
+            if stage != "post_call" and nudges and last_self:
+                due = max(due, last_self + timedelta(days=1))
         elif anchor and repeat:
-            due = anchor + timedelta(days=offsets[-1] + repeat * (nudges - len(offsets) + 1))
+            # Repeats count from Jude's last message, so a long-stalled row isn't instantly due again.
+            base = max(anchor + timedelta(days=offsets[-1]), last_self or anchor)
+            due = base + timedelta(days=repeat)
         if due:
             if stage == "post_call":
                 action = "Send the SOW"
