@@ -160,7 +160,8 @@ interactive terminal session. A headless session can't, and the server returns 4
 
 **Confirm with Jude before anything that submits, sends, spends Connects, or changes a contract or
 profile:** `manage_proposals`, `confirm_draft`, `confirm_preview`, `send_message`,
-`respond_to_offer`, `update_contract`, `end_contract`, `update_profile`, `boost_profile`. The MCP is
+`respond_to_offer`, `update_contract`, `end_contract`, `update_profile`, `boost_profile`. (The one standing
+exception: the unattended `upwork-followups` run sends queued follow-ups through its guard hook.) The MCP is
 plumbing; `upwork-proposal` and `upwork-cover-letter` own proposal quality.
 
 ### AI Ark
@@ -178,7 +179,7 @@ fallback. Reference implementation: `b2b-sales-leads-indeed/scripts/find_dm.py` 
 |-------|-------------|
 | `upwork-proposal` | Client-facing Upwork proposal as a native Google Doc via `proposal_doc.py` (Drive HTML upload + convert; the Docs API is only for post-conversion layout), from a call transcript + case-study Sheet, or from one JD via `proposal_from_jd.py`. Written in the winning letter format (Larry's doc is the model, Nov 3 2026 reset); house style is enforced by the linter above; the doc closes on "send me a message" plus one small free offer. Has a safe-edit flow (export → edit → update) once the client hand-edits. The doc is only the attachment. |
 | `upwork-cover-letter` | The cover letter text Jude actually submits. Short form by default; long form only when the letter sells a proposal-doc link. Hard gates: needs his Loom link AND its transcript/notes before drafting, and outputs the letter and nothing else. `scripts/check_hook_length.py` checks the hook. |
-| `upwork-followups` | Scans Upwork rooms + invites, applies Jude's follow-up cadence (`scripts/followups.py` owns the math and the "Upwork Follow-ups" Sheet), drafts due follow-ups in his voice, emails him a digest. Runs unattended 3x/day (08:00, 15:30, 22:00 UTC+8) via launchd `com.nexam.upwork-followups` → `scripts/run.sh`, an isolated `claude -p` (no user/project settings, tool allowlist, `guard_email.py` hook pins the only recipient). Never sends on Upwork. Private config (client exclusions, Sheet id) in `~/.config/upwork-followups/`, logs in `~/Library/Logs/upwork-followups/`. |
+| `upwork-followups` | Scans Upwork rooms + invites, applies Jude's follow-up cadence (`scripts/followups.py` owns the math and the "Upwork Follow-ups" Sheet), drafts due follow-ups in his voice and **sends them on Upwork automatically** (since Nov 13 2026), emails him a digest of what went out and what needs him. Runs unattended 3x/day (08:00, 15:30, 22:00 UTC+8) via launchd `com.nexam.upwork-followups` → `scripts/run.sh`, an isolated `claude -p` (no user/project settings, tool allowlist, `guard_email.py` hook pins the only digest recipient, `guard_upwork_send.py` lets out only drafts `followups.py queue` approved, verbatim, one per room per 20h). `"auto_send": false` in the private config turns sending off. Private config (client exclusions, Sheet id) in `~/.config/upwork-followups/`, logs in `~/Library/Logs/upwork-followups/`. |
 | `gmaps-leads` | Google Maps → website scrape → contact extraction → Sheet, plus a persona-verification stack (staff pages → AMF company emails → SERP + LLM judge → `dm_*` columns) and AMF decision-maker fill for owner-led verticals. |
 | `scrape-leads` | Apify `code_crafter/leads-finder` → LLM classify → email enrich → Sheet. Also the shared toolbox above. |
 | `classify-leads` | LLM classification for fine distinctions (product SaaS vs agency). Dead Anthropic key. |
