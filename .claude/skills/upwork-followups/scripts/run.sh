@@ -3,6 +3,7 @@
 # Isolated on purpose: no user/project settings (their broad python3 allow rules don't apply), the Upwork MCP
 # from mcp.json, and the email guard hook from headless_settings.json. Other MCP servers (claude.ai connectors)
 # still load, so the tool allowlist below is what actually confines the run: anything not listed is denied.
+# Upwork sends are allowed but pinned by guard_upwork_send.py to the drafts `followups.py queue` approved.
 set -u
 REPO="/Users/air/AIOS - AI OPERATING SYSTEMS"
 SKILL="$REPO/.claude/skills/upwork-followups"
@@ -26,6 +27,7 @@ LOG="$LOGDIR/$(date +%Y-%m-%d).log"
       "mcp__upwork__upwork__get_messages" \
       "mcp__upwork__upwork__list_freelancer_proposals" \
       "mcp__upwork__upwork__get_tool_help" \
+      "mcp__upwork__upwork__send_message" \
       "mcp__claude_ai_Gmail__send_message" \
     --output-format text < /dev/null
   rc=$?

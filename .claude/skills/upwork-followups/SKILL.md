@@ -1,6 +1,6 @@
 ---
 name: upwork-followups
-description: Scan Jude's Upwork rooms and invites, work out who is waiting on whom and which follow-ups are due under his cadence, draft the due follow-ups in his voice, update the "Upwork Follow-ups" Google Sheet, and email him a digest. Runs unattended 3x a day via launchd; also run on demand when Jude asks "who do I need to follow up with" or "check my Upwork follow-ups". Never sends anything on Upwork.
+description: Scan Jude's Upwork rooms and invites, work out who is waiting on whom and which follow-ups are due under his cadence, draft the due follow-ups in his voice, SEND them on Upwork automatically (through a guard that only lets queued drafts out), update the "Upwork Follow-ups" Google Sheet, and email him a digest of what went out. Runs unattended 3x a day via launchd; also run on demand when Jude asks "who do I need to follow up with" or "check my Upwork follow-ups".
 ---
 
 # Upwork Follow-ups
@@ -10,9 +10,14 @@ funded kickoff milestone → yes/no. This skill covers everything after the clie
 Upwork does not let a freelancer message first on a proposal, so unanswered proposals are out of
 scope: the hook and the Loom are the only follow-up there.
 
-**Division of labour.** Claude reads Upwork, classifies each conversation's stage, and drafts.
-`scripts/followups.py` owns the Sheet, the cadence math (what is due when) and the email HTML.
-Claude never computes due dates itself and never sends anything to a client.
+**Division of labour.** Claude reads Upwork, classifies each conversation's stage, drafts, and
+sends what `followups.py queue` approves. `scripts/followups.py` owns the Sheet, the cadence math
+(what is due when), which drafts may go out, and the email HTML. Claude never computes due dates
+itself and never sends anything the queue didn't approve.
+
+**Fully automated since Nov 13 2026** (Jude: "completely automated so I don't have to think about
+it"). Drafts go out unedited, so write each one as the final message. Turn sending off with
+`"auto_send": false` in the private config; the run then falls back to drafts + digest.
 
 ## Safety (read first, applies to every run)
 
@@ -23,8 +28,16 @@ Claude never computes due dates itself and never sends anything to a client.
 - The only email this skill ever sends is the digest, to the `TO` address `followups.py digest`
   prints. In unattended runs a hook (`scripts/guard_email.py`) blocks any other recipient, cc, bcc,
   draft or reply-thread; don't try to work around a block, report it.
-- Never call Upwork tools that send, submit or change anything (`send_message`,
-  `manage_proposals`, `confirm_*`, `update_*`, `respond_to_offer`, ...). Read-only only.
+- The only Upwork write allowed is `send_message action=send` with exactly
+  `{room_id, message}` for a room in `send_queue.json`, with the queued text verbatim. A hook
+  (`scripts/guard_upwork_send.py`) enforces this and allows one send per room per 20 hours. Never
+  call anything else that sends, submits or changes (`manage_proposals`, `confirm_*`, `update_*`,
+  `respond_to_offer`, attachments, offers, contracts).
+- Hold a draft (`followups.py hold <room_id> "<reason>"`) instead of letting it go when the reply
+  needs something only Jude has: a file or attachment (resume, portfolio), a price, rate or budget
+  answer, a date or time commitment from him, an offer, contract or milestone question, anything
+  legal, a complaint, or a message you can't fully understand. When in doubt, hold. Held items
+  appear in the digest under "Needs you".
 
 ## Setup facts
 
@@ -34,7 +47,9 @@ Claude never computes due dates itself and never sends anything to a client.
   `cadence_days`, `repeat_every_days`). Client names live there, not in this file.
 - Tracker: Google Sheet "Upwork Follow-ups" (id in config). Visible columns are for Jude, hidden
   columns (from `room_id` on) are state. A non-empty **Mute** cell silences that row for good.
-- Scratch files: `.tmp/upwork_followups/` (classified.json, plan.json, drafts.json, digest.*).
+- Scratch files: `.tmp/upwork_followups/` (classified.json, plan.json, drafts.json, holds.json,
+  send_queue.json, sent.json, digest.*). `send_ledger.json` persists across runs (the guard's
+  20-hour per-room memory); don't delete it.
 - Freelancer org_uid: `1318336437461753857`.
 - Unattended runner: `scripts/run.sh`, launched by `~/Library/LaunchAgents/com.nexam.upwork-followups.plist`
   at 08:00, 15:30 and 22:00 local (UTC+8). Logs: `~/Library/Logs/upwork-followups/`.
@@ -141,7 +156,8 @@ project ships).
      never describe a deliverable as something they get up front (it reads as free work). Never
      re-pitch what the SOW or thread already gave them, like the architecture, as if it were new.
    - `client_waiting`: reply to what they actually said. If it needs something only Jude knows
-     (a date, a link, a number), write the reply without it and say what's missing in `note`.
+     (a date, a link, a number, a file), still write the best draft, then `hold` it with what's missing.
+     Asking a client to pick a time is fine; Jude's day starts 3 PM Taiwan, never propose slots.
    - Price questions before a call: the price depends on scope, so he'd like a quick call first.
      Never quote a number outside a SOW.
    - Calls before a contract happen on Upwork (Messages / Upwork meeting). Never include an external
@@ -149,16 +165,27 @@ project ships).
    - Never invent results, clients or numbers. Only cite work that appears in the thread or in
      the proposal claims bank memory.
 
-6. **Digest.** `python3 .claude/skills/upwork-followups/scripts/followups.py digest`
+6. **Send.** `python3 .claude/skills/upwork-followups/scripts/followups.py queue`
+   - Prints `SEND [room ids]` (and `HELD` lines for drafts it kept back), or `AUTO_SEND_OFF`.
+   - For each SEND room, in order: re-read it with `get_messages action=list_messages room_id=...
+     limit=3`. If the newest story is not `expected_last_story_id` from
+     `.tmp/upwork_followups/send_queue.json` and it is a client message, skip the room (they
+     replied; the next run reclassifies it). Otherwise call `mcp__upwork__upwork__send_message`
+     with `org_uid`, `action: "send"`, `params: {room_id, message}` where message is the queued
+     text exactly, then `followups.py mark-sent <room_id> <story id from the send result>`.
+   - A guard block means don't retry; note it in the RUN line.
+
+7. **Digest.** `python3 .claude/skills/upwork-followups/scripts/followups.py digest`
    - Prints `NOTHING_TO_SEND` → skip to step 7 without `--notified`.
    - Otherwise it prints `TO`, `SUBJECT` and `HTML <path>`. Read the HTML file and call
      `mcp__claude_ai_Gmail__send_message` with `to: [TO]`, `subject: SUBJECT`, `htmlBody:` the file
      content. Nothing else in the call.
 
-7. **Save.** `python3 .claude/skills/upwork-followups/scripts/followups.py upsert --notified`
-   only if the email went out; plain `upsert` otherwise (so the items notify next run).
+8. **Save.** `python3 .claude/skills/upwork-followups/scripts/followups.py upsert --notified`
+   only if the email went out; plain `upsert` otherwise (so the items notify next run). Always run
+   it after any send, so the Sheet records what went out.
 
-8. **Report** one line: `RUN OK: <rows> tracked, <n> notified, <m> drafts` (or `RUN FAILED: <why>`).
+9. **Report** one line: `RUN OK: <rows> tracked, <s> sent, <h> held, <n> notified` (or `RUN FAILED: <why>`).
    In an interactive session, also list the due items with their drafts in chat.
 
 ## Known gotchas

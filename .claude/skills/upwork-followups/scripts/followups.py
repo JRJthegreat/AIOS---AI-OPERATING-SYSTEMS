@@ -58,7 +58,15 @@ DEFAULT_CONFIG = {
     "call_reminder_hours": 12,
     # Closed rows older than this many days are dropped from the Sheet.
     "prune_closed_after_days": 30,
+    # Auto-send (Jude, Nov 13 2026: fully automated). Off switch, per-run cap, and the minimum gap
+    # between two of Jude's messages in one room (replies to a waiting client are exempt).
+    "auto_send": True,
+    "max_sends_per_run": 10,
+    "min_hours_between_nudges": 20,
 }
+
+ORG_UID = "1318336437461753857"
+AUTO_SEND_STAGES = ("client_waiting",) + ("pre_call", "call_missed", "sow_sent", "parked")
 
 COLUMNS = [
     "Due", "Action", "Client", "Company", "Job", "Stage", "Nudges sent", "Draft", "Room link",
@@ -354,7 +362,19 @@ def cmd_init(args) -> None:
     print(f"Config: {CONFIG_PATH}")
 
 
-RUN_FILES = ("classified.json", "plan.json", "drafts.json", "digest.html", "digest_subject.txt")
+RUN_FILES = ("classified.json", "plan.json", "drafts.json", "holds.json", "deferred.json", "send_queue.json", "sent.json",
+             "digest.html", "digest_subject.txt")
+
+# Drafts go out unedited, so anything that breaks house style or Upwork's off-platform rule is held.
+LINT_RULES = [
+    ("\u2014", "em dash"),
+    ("[", "bracketed placeholder"),
+    ("@", "email address or handle"),
+    ("calendly", "external booking link"),
+    ("whatsapp", "off-platform contact"),
+    ("telegram", "off-platform contact"),
+    ("skype", "off-platform contact"),
+]
 
 
 def cmd_read(args) -> None:
@@ -422,14 +442,116 @@ def _drafts() -> dict:
     return read_json(work_path("drafts.json"), {})
 
 
+def lint_message(text: str) -> str:
+    """Return why a draft must not auto-send, or "" if it is fine."""
+    low = text.lower()
+    for needle, why in LINT_RULES:
+        if needle in low:
+            return f"draft contains {why}"
+    import re
+    if re.search(r"\+?\d[\d\s().-]{7,}\d", text):
+        return "draft contains a phone-like number"
+    if re.search(r"https?://", low) and not re.search(r"https?://(www\.)?(upwork\.com|loom\.com|docs\.google\.com)/", low):
+        return "draft contains a non-Upwork/Loom/Docs link"
+    if not text.strip() or len(text) > 2000:
+        return "draft empty or too long"
+    return ""
+
+
+def cmd_queue(args) -> None:
+    """Pick the drafts that go out this run. Writes send_queue.json, which guard_upwork_send.py enforces."""
+    cfg = load_config()
+    now = now_utc()
+    plan = read_json(work_path("plan.json"), [])
+    drafts = _drafts()
+    holds = read_json(work_path("holds.json"), {})
+    queue, held, deferred = {}, {}, {}
+    if not cfg.get("auto_send"):
+        write_json(work_path("send_queue.json"), {})
+        print("AUTO_SEND_OFF")
+        return
+    gap = timedelta(hours=float(cfg["min_hours_between_nudges"]))
+    for r in plan:
+        rid = r["room_id"]
+        text = drafts.get(rid) or r.get("draft") or ""  # this run's draft, or one kept from an earlier run
+        if not (r["due_now"] and text and r["stage"] in AUTO_SEND_STAGES) or not rid.startswith("room_"):
+            continue
+        last_self = parse_ts(r.get("last_self_msg_at"))
+        if rid in holds:
+            held[rid] = str(holds[rid])
+        elif r["stage"] != "client_waiting" and last_self and now - last_self < gap:
+            deferred[rid] = "already messaged in the last 20 hours"
+        elif lint_message(text):
+            held[rid] = lint_message(text)
+        elif len(queue) >= int(cfg["max_sends_per_run"]):
+            deferred[rid] = "per-run send cap reached"
+        else:
+            queue[rid] = {"message": text, "expected_last_story_id": r.get("last_story_id", ""),
+                          "client": r.get("client", ""), "stage": r["stage"]}
+    write_json(work_path("send_queue.json"), queue)
+    write_json(work_path("holds.json"), {**holds, **held})
+    write_json(work_path("deferred.json"), deferred)
+    print("SEND " + json.dumps(list(queue)))
+    for rid, why in held.items():
+        print(f"HELD {rid}: {why}")
+    for rid, why in deferred.items():
+        print(f"DEFERRED {rid}: {why} (sends on a later run)")
+
+
+def cmd_hold(args) -> None:
+    """Keep one draft from auto-sending (it needs something only Jude has). It shows under Needs you."""
+    holds = read_json(work_path("holds.json"), {})
+    holds[args.room_id] = args.reason
+    write_json(work_path("holds.json"), holds)
+    print(f"HELD {args.room_id}: {args.reason}")
+
+
+def cmd_mark_sent(args) -> None:
+    """Record one sent message: advance the row's cadence and log it for the digest."""
+    now = now_utc()
+    cfg = load_config()
+    plan = read_json(work_path("plan.json"), [])
+    queue = read_json(work_path("send_queue.json"), {})
+    if args.room_id not in queue:
+        sys.exit(f"{args.room_id} is not in send_queue.json")
+    sent = read_json(work_path("sent.json"), [])
+    for i, r in enumerate(plan):
+        if r["room_id"] != args.room_id:
+            continue
+        row = dict(r)
+        if row["stage"] == "client_waiting":
+            # Jude has answered; the ball is in the client's court again, cadence starts fresh.
+            row.update(stage="pre_call", anchor_at=iso(now), nudges_sent=0)
+        else:
+            row["nudges_sent"] = int(row.get("nudges_sent") or 0) + 1
+        row.update(last_self_msg_at=iso(now), last_story_id=args.story_id, draft="", draft_key="",
+                   updated_at=iso(now))
+        plan[i] = {**compute(row, cfg, now), "notified_key": row.get("notified_key", "")}
+        sent.append({"room_id": r["room_id"], "client": r.get("client", ""), "company": r.get("company", ""),
+                     "action": r.get("action", ""), "message": queue[args.room_id]["message"], "at": iso(now)})
+        break
+    else:
+        sys.exit(f"{args.room_id} not in plan.json")
+    write_json(work_path("plan.json"), plan)
+    write_json(work_path("sent.json"), sent)
+    drafts = _drafts()
+    drafts.pop(args.room_id, None)
+    write_json(work_path("drafts.json"), drafts)
+    print(f"MARKED {args.room_id}")
+
+
 def cmd_digest(args) -> None:
     cfg = load_config()
     tz = cfg["timezone"]
     now = now_utc()
     plan = read_json(work_path("plan.json"), [])
     drafts = _drafts()
-    notify = [r for r in plan if r["notify"]]
-    if not notify:
+    # Rows the queue will send on a later run are not Jude's to handle.
+    deferred = read_json(work_path("deferred.json"), {})
+    notify = [r for r in plan if r["notify"] and r["room_id"] not in deferred]
+    sent = read_json(work_path("sent.json"), [])
+    holds = read_json(work_path("holds.json"), {})
+    if not notify and not sent:
         for p in ("digest.html", "digest_subject.txt"):
             if os.path.exists(work_path(p)):
                 os.remove(work_path(p))
@@ -439,16 +561,26 @@ def cmd_digest(args) -> None:
             and parse_ts(r["next_due"]) <= now + timedelta(days=2)]
 
     groups = [
-        ("Reply now", [r for r in notify if r["stage"] == "client_waiting"]),
+        ("Needs you", [r for r in notify if r["room_id"] in holds]),
+        ("Reply now", [r for r in notify if r["stage"] == "client_waiting" and r["room_id"] not in holds]),
         ("Invites", [r for r in notify if r["stage"] == "invite"]),
         ("Calls", [r for r in notify if r["stage"] == "call_booked"]),
         ("Send the SOW", [r for r in notify if r["stage"] == "post_call"]),
-        ("Follow-ups due", [r for r in notify if r["stage"] in NUDGE_STAGES]),
+        ("Follow-ups due", [r for r in notify if r["stage"] in NUDGE_STAGES and r["room_id"] not in holds]),
     ]
     def e(value) -> str:
         return html.escape("" if value is None else str(value))
 
     parts = ['<div style="font-family:Arial,sans-serif;font-size:14px;color:#222;max-width:680px">']
+    if sent:
+        parts.append(f'<h3 style="margin:18px 0 6px">Sent automatically ({len(sent)})</h3>')
+        for s_ in sent:
+            who = e(s_.get("client", "")) + (f" &middot; {e(s_['company'])}" if s_.get("company") else "")
+            parts.append('<div style="border-left:3px solid #2f855a;padding:6px 10px;margin:8px 0">'
+                         f"<b>{who}</b><br>{e(s_.get('action', ''))}"
+                         '<pre style="white-space:pre-wrap;font-family:inherit;background:#f0fff4;'
+                         f'padding:8px;margin:6px 0">{e(s_["message"])}</pre>'
+                         f'<a href="{e(room_url(s_["room_id"]))}">Open in Upwork</a></div>')
     for title, rows in groups:
         if not rows:
             continue
@@ -459,6 +591,8 @@ def cmd_digest(args) -> None:
             parts.append('<div style="border-left:3px solid #2b6cb0;padding:6px 10px;margin:8px 0">')
             parts.append(f"<b>{who}</b><br>{e(r['action'])}"
                          + (f" &middot; {e(r['job'])}" if r.get("job") else ""))
+            if r["room_id"] in holds:
+                parts.append(f'<br><b style="color:#c53030">Not sent: {e(holds[r["room_id"]])}</b>')
             if r.get("note"):
                 parts.append(f'<br><span style="color:#666">{e(r["note"])}</span>')
             if draft:
@@ -477,7 +611,7 @@ def cmd_digest(args) -> None:
                      "Type anything in a row's Mute column to silence it.</p>")
     parts.append("</div>")
 
-    counts = []
+    counts = [f"{len(sent)} sent"] if sent else []
     for title, rows in groups:
         if rows:
             counts.append(f"{len(rows)} {title.lower()}")
@@ -523,6 +657,10 @@ def main() -> None:
     sub.add_parser("read").set_defaults(fn=cmd_read)
     sub.add_parser("plan").set_defaults(fn=cmd_plan)
     sub.add_parser("digest").set_defaults(fn=cmd_digest)
+    sub.add_parser("queue").set_defaults(fn=cmd_queue)
+    p = sub.add_parser("hold"); p.add_argument("room_id"); p.add_argument("reason"); p.set_defaults(fn=cmd_hold)
+    p = sub.add_parser("mark-sent"); p.add_argument("room_id"); p.add_argument("story_id")
+    p.set_defaults(fn=cmd_mark_sent)
     p = sub.add_parser("upsert"); p.add_argument("--notified", action="store_true"); p.set_defaults(fn=cmd_upsert)
     args = ap.parse_args()
     args.fn(args)

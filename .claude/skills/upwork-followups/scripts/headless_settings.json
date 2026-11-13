@@ -6,6 +6,12 @@
         "hooks": [
           {"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/skills/upwork-followups/scripts/guard_email.py\""}
         ]
+      },
+      {
+        "matcher": "mcp__upwork__upwork__send_message",
+        "hooks": [
+          {"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/skills/upwork-followups/scripts/guard_upwork_send.py\""}
+        ]
       }
     ]
   }
