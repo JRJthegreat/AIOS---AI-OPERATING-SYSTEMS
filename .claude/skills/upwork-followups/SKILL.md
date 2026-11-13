@@ -45,14 +45,16 @@ Claude never computes due dates itself and never sends anything to a client.
 |---|---|---|
 | `client_waiting` | immediately | reply; one notification per client message |
 | `invite` | immediately | Jude answers via `upwork-cover-letter` + Loom; no draft here |
-| `pre_call` (talking, no call booked, waiting on them) | day 2 after the anchor (value-add), day 5 (yes/no) | then every 7 days until they reply |
+| `pre_call` (talking, no call booked, waiting on them) | every day for 7 days after the anchor (day 1 = value-add) | then every 7 days until they reply |
 | `call_booked` | 12 h before the meeting | 2 h after the meeting it turns into `post_call` by itself |
+| `call_missed` (call cancelled or no-show, no new time agreed) | every day for 7 days | then every 7 days until a new time is set |
 | `post_call` (call done, no SOW yet) | same day: "Send the SOW" (stays due until sent; chat messages don't count) | becomes `sow_sent` once sent |
-| `sow_sent` | days 1, 2, 4, 7, 10, 14 after the SOW | then every 7 days until they reply |
+| `sow_sent` | every day for 7 days after the SOW | then every 7 days until they reply |
+| `parked` (client asked for time: "I'll think about it", "later", "need to sort things out") | every 3 days | every 3 days until they reply |
 | `active_contract`, `closed`, `excluded` | nothing | |
 
 **Never stop on silence** (Jude, Nov 13 2026). Past the scheduled nudges, `repeat_every_days` (config)
-keeps a row due weekly until the client replies; later nudges are one short "still on the cards?" line.
+keeps a row due (weekly, or every 3 days when parked) until the client replies; later nudges are one short "still on the cards?" line.
 Only a reply, a clear no, or a Mute ends a row. Letting leads lapse for weeks was a past mistake.
 
 Clients in `exclude_clients` stay in the Sheet as `excluded` but never notify (dead relationships).
@@ -91,6 +93,11 @@ project ships).
      of work since → `post_call`, `anchor_at` = the meeting time.
    - Jude sent a scope of work / SOW / proposal doc link and the client has not answered it →
      `sow_sent`, `anchor_at` = when he sent it.
+   - A booked call was cancelled or missed and no new time is agreed → `call_missed`,
+     `anchor_at` = Jude's first message after the cancellation.
+   - The client's last real message asks for time without a no ("I'll think about it", "later",
+     "need to sort myself out first") → `parked`, `anchor_at` = Jude's first message after it.
+     A new client message moves the row back to whatever stage fits.
    - Otherwise, waiting on the client before any call → `pre_call`, `anchor_at` = Jude's FIRST
      message after the client's last message.
    - `nudges_sent` = Jude's messages AFTER the anchor message (the anchor itself is not a nudge).
@@ -119,12 +126,18 @@ project ships).
      bracketed placeholders, no sign-off unless he uses one in that thread.
    - `pre_call` follow-up 1 (value-add): one specific, useful point about THEIR project from the
      job or thread (a risk, a better approach, a relevant example of his), then a soft ask for a
-     quick call on Upwork. Follow-up 2: a short yes/no ("are you still looking to get this built,
-     or did you go another way?" in his words). Not "just checking in".
+     quick call on Upwork. Later ones: one short line each, varied, never the same wording twice
+     in a row ("are you still looking to get this built, or did you go another way?" in his
+     words). Not "just checking in".
+   - `call_missed`: offer to find a new time on Upwork; later ones ask if they still want to pick
+     it back up. One line.
+   - `parked`: light and short ("Is the project still on the cards?"). Never pushy, never a
+     value pitch.
    - `sow_sent`: early follow-ups ask what they thought of it, as open questions about the
      architecture, the milestones or one specific choice in it, so the client talks back instead
-     of facing a bare yes/no. Keep the yes/no for the later ones
-     politely. Short beats padded. Never lead with payment, funding or how to start, and
+     of facing a bare yes/no. Keep the yes/no for the later ones. Short beats padded. Never lead
+     with payment or funding. Ask when they want to start only if the client called the work
+     urgent (Naseh, Nov 13 2026). And
      never describe a deliverable as something they get up front (it reads as free work). Never
      re-pitch what the SOW or thread already gave them, like the architecture, as if it were new.
    - `client_waiting`: reply to what they actually said. If it needs something only Jude knows

@@ -48,10 +48,12 @@ DEFAULT_CONFIG = {
     # Clients who only ever get "reply" items, never sales nudges.
     "reply_only_clients": [],
     # Days after the anchor message at which each nudge is due.
-    "cadence_days": {"pre_call": [2, 5], "sow_sent": [1, 2, 4, 7, 10, 14], "post_call": [0]},
+    # Jude, Nov 13 2026: daily for 7 days while a lead is live, every 3 days once they ask for time.
+    "cadence_days": {"pre_call": [1, 2, 3, 4, 5, 6, 7], "call_missed": [1, 2, 3, 4, 5, 6, 7],
+                     "sow_sent": [1, 2, 3, 4, 5, 6, 7], "parked": [3], "post_call": [0]},
     # Past the last offset, keep nudging every N days until the client replies (Jude's rule,
     # Nov 13 2026: never let a lead go quiet). Only a reply, a "no", or Mute ends it.
-    "repeat_every_days": {"pre_call": 7, "sow_sent": 7},
+    "repeat_every_days": {"pre_call": 7, "call_missed": 7, "sow_sent": 7, "parked": 3},
     # Hours before a booked call that the reminder fires.
     "call_reminder_hours": 12,
     # Closed rows older than this many days are dropped from the Sheet.
@@ -65,7 +67,8 @@ COLUMNS = [
     "last_story_id", "next_due", "due_key", "notified_key", "draft_key", "updated_at",
 ]
 
-STAGES = {"invite", "client_waiting", "pre_call", "call_booked", "post_call", "sow_sent",
+NUDGE_STAGES = ("pre_call", "call_missed", "sow_sent", "parked")
+STAGES = {"invite", "client_waiting", "pre_call", "call_booked", "call_missed", "post_call", "sow_sent", "parked",
           "active_contract", "closed", "excluded"}
 
 SHEET_SCOPES = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
@@ -176,7 +179,7 @@ def compute(row: dict, cfg: dict, now: datetime) -> dict:
         if meeting:
             due = meeting - timedelta(hours=int(cfg["call_reminder_hours"]))
             action, key = f"Call at {local_str(meeting, cfg['timezone'])}", f"call:{iso(meeting)}"
-    elif stage in ("pre_call", "sow_sent", "post_call"):
+    elif stage in NUDGE_STAGES + ("post_call",):
         offsets = cfg["cadence_days"][stage]
         if stage == "post_call":
             nudges = 0  # a "great talking" message after the call is not the SOW; stay due until it's sent
@@ -194,14 +197,18 @@ def compute(row: dict, cfg: dict, now: datetime) -> dict:
         if due:
             if stage == "post_call":
                 action = "Send the SOW"
+            elif stage == "parked":
+                action = f"Parked check-in {nudges + 1}"
             elif nudges >= len(offsets):
                 action = f"Follow-up {nudges + 1}: still on the cards?"
             elif stage == "pre_call" and nudges == 0:
                 action = "Follow-up 1: add value"
+            elif stage == "call_missed":
+                action = f"Reschedule follow-up {nudges + 1}"
             elif stage == "pre_call":
-                action = "Follow-up 2: yes/no check"
+                action = f"Follow-up {nudges + 1} of 7"
             else:
-                action = f"SOW follow-up {nudges + 1}"
+                action = f"SOW follow-up {nudges + 1} of 7"
             key = f"{stage}:{iso(anchor)}:{nudges}"
         else:
             stage = "closed" if anchor else stage
@@ -402,7 +409,7 @@ def cmd_plan(args) -> None:
         if r["status"] in ("Closed", "No action") and updated < prune_before:
             continue
         plan.append(r)
-        if r["due_now"] and not r.get("draft") and r["stage"] in ("client_waiting", "pre_call", "sow_sent"):
+        if r["due_now"] and not r.get("draft") and r["stage"] in ("client_waiting",) + NUDGE_STAGES:
             needs_draft.append(r["room_id"])
     plan.sort(key=lambda r: (r["status"] not in ("Due",), r["next_due"] or "9999", r.get("client", "")))
     write_json(work_path("plan.json"), plan)
@@ -436,7 +443,7 @@ def cmd_digest(args) -> None:
         ("Invites", [r for r in notify if r["stage"] == "invite"]),
         ("Calls", [r for r in notify if r["stage"] == "call_booked"]),
         ("Send the SOW", [r for r in notify if r["stage"] == "post_call"]),
-        ("Follow-ups due", [r for r in notify if r["stage"] in ("pre_call", "sow_sent")]),
+        ("Follow-ups due", [r for r in notify if r["stage"] in NUDGE_STAGES]),
     ]
     def e(value) -> str:
         return html.escape("" if value is None else str(value))
