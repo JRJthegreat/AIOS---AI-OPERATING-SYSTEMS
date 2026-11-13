@@ -31,7 +31,7 @@ Claude never computes due dates itself and never sends anything to a client.
 - Run from the repo root. Google auth is `token.json` (CWD-relative), the same as every repo script.
 - Private config, outside the public repo: `~/.config/upwork-followups/config.json`
   (`sheet_id`, `notify_email`, `timezone` = Asia/Taipei, `exclude_clients`, `reply_only_clients`,
-  `cadence_days`). Client names live there, not in this file.
+  `cadence_days`, `repeat_every_days`). Client names live there, not in this file.
 - Tracker: Google Sheet "Upwork Follow-ups" (id in config). Visible columns are for Jude, hidden
   columns (from `room_id` on) are state. A non-empty **Mute** cell silences that row for good.
 - Scratch files: `.tmp/upwork_followups/` (classified.json, plan.json, drafts.json, digest.*).
@@ -45,11 +45,15 @@ Claude never computes due dates itself and never sends anything to a client.
 |---|---|---|
 | `client_waiting` | immediately | reply; one notification per client message |
 | `invite` | immediately | Jude answers via `upwork-cover-letter` + Loom; no draft here |
-| `pre_call` (talking, no call booked, waiting on them) | day 2 after the anchor (value-add), day 5 (yes/no) | closes |
+| `pre_call` (talking, no call booked, waiting on them) | day 2 after the anchor (value-add), day 5 (yes/no) | then every 7 days until they reply |
 | `call_booked` | 12 h before the meeting | 2 h after the meeting it turns into `post_call` by itself |
 | `post_call` (call done, no SOW yet) | same day: "Send the SOW" (stays due until sent; chat messages don't count) | becomes `sow_sent` once sent |
-| `sow_sent` | days 1, 2, 4, 7, 10, 14 after the SOW | day 14 closes the loop, then closes |
+| `sow_sent` | days 1, 2, 4, 7, 10, 14 after the SOW | then every 7 days until they reply |
 | `active_contract`, `closed`, `excluded` | nothing | |
+
+**Never stop on silence** (Jude, Nov 13 2026). Past the scheduled nudges, `repeat_every_days` (config)
+keeps a row due weekly until the client replies; later nudges are one short "still on the cards?" line.
+Only a reply, a clear no, or a Mute ends a row. Letting leads lapse for weeks was a past mistake.
 
 Clients in `exclude_clients` stay in the Sheet as `excluded` but never notify (dead relationships).
 A draft is tied to the due point it was written for, so a manual follow-up from Jude, or a new
@@ -91,7 +95,8 @@ project ships).
      message after the client's last message.
    - `nudges_sent` = Jude's messages AFTER the anchor message (the anchor itself is not a nudge).
      Count his manual follow-ups too; that is how the cadence advances when he sends one himself.
-   - Last client message older than 45 days with nothing pending → `closed`.
+   - `closed` only when the client said no, hired someone else, or the contract ended. Silence never
+     closes a row (Jude's rule, Nov 13 2026: follow up until someone replies). Jude stops a row with Mute.
    - Invites: include EVERY pending invite on every run (not only new ones; `plan` closes invite
      rows that stop appearing). `room_id` = `invite_<invitation id>`, `stage` = `invite`,
      `anchor_at` = invite time, `link` = `https://www.upwork.com/jobs/~02<jobPosting.id>`,
@@ -118,7 +123,7 @@ project ships).
      or did you go another way?" in his words). Not "just checking in".
    - `sow_sent`: early follow-ups ask what they thought of it, as open questions about the
      architecture, the milestones or one specific choice in it, so the client talks back instead
-     of facing a bare yes/no. Keep the yes/no for the later ones; the last closes the loop
+     of facing a bare yes/no. Keep the yes/no for the later ones
      politely. Short beats padded. Never lead with payment, funding or how to start, and
      never describe a deliverable as something they get up front (it reads as free work). Never
      re-pitch what the SOW or thread already gave them, like the architecture, as if it were new.

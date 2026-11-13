@@ -47,8 +47,11 @@ DEFAULT_CONFIG = {
     "exclude_clients": [],
     # Clients who only ever get "reply" items, never sales nudges.
     "reply_only_clients": [],
-    # Days after the anchor message at which each nudge is due. Past the last one the row closes.
+    # Days after the anchor message at which each nudge is due.
     "cadence_days": {"pre_call": [2, 5], "sow_sent": [1, 2, 4, 7, 10, 14], "post_call": [0]},
+    # Past the last offset, keep nudging every N days until the client replies (Jude's rule,
+    # Nov 13 2026: never let a lead go quiet). Only a reply, a "no", or Mute ends it.
+    "repeat_every_days": {"pre_call": 7, "sow_sent": 7},
     # Hours before a booked call that the reminder fires.
     "call_reminder_hours": 12,
     # Closed rows older than this many days are dropped from the Sheet.
@@ -177,16 +180,20 @@ def compute(row: dict, cfg: dict, now: datetime) -> dict:
         offsets = cfg["cadence_days"][stage]
         if stage == "post_call":
             nudges = 0  # a "great talking" message after the call is not the SOW; stay due until it's sent
+        repeat = int(cfg.get("repeat_every_days", {}).get(stage) or 0)
         if anchor and nudges < len(offsets):
             due = anchor + timedelta(days=offsets[nudges])
+        elif anchor and repeat:
+            due = anchor + timedelta(days=offsets[-1] + repeat * (nudges - len(offsets) + 1))
+        if due:
             if stage == "post_call":
                 action = "Send the SOW"
-            elif stage == "sow_sent" and nudges == len(offsets) - 1:
-                action = "Close the loop on the SOW (last follow-up)"
+            elif nudges >= len(offsets):
+                action = f"Follow-up {nudges + 1}: still on the cards?"
             elif stage == "pre_call" and nudges == 0:
                 action = "Follow-up 1: add value"
             elif stage == "pre_call":
-                action = "Follow-up 2: yes/no check (last one)"
+                action = "Follow-up 2: yes/no check"
             else:
                 action = f"SOW follow-up {nudges + 1}"
             key = f"{stage}:{iso(anchor)}:{nudges}"
