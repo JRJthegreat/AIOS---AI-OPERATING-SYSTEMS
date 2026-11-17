@@ -4,13 +4,28 @@
       {
         "matcher": "mcp__claude_ai_Gmail__send_message",
         "hooks": [
-          {"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/skills/upwork-followups/scripts/guard_email.py\""}
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/skills/upwork-followups/scripts/guard_email.py\""
+          }
         ]
       },
       {
         "matcher": "mcp__upwork__upwork__send_message",
         "hooks": [
-          {"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/skills/upwork-followups/scripts/guard_upwork_send.py\""}
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/skills/upwork-followups/scripts/guard_upwork_send.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__claude_ai_Gmail__reply",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/skills/upwork-followups/scripts/guard_email_reply.py\""
+          }
         ]
       }
     ]
