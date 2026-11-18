@@ -31,6 +31,12 @@
     <dict><key>Hour</key><integer>1</integer><key>Minute</key><integer>37</integer></dict>
     <dict><key>Hour</key><integer>2</integer><key>Minute</key><integer>7</integer></dict>
     <dict><key>Hour</key><integer>2</integer><key>Minute</key><integer>37</integer></dict>
+    <dict><key>Hour</key><integer>3</integer><key>Minute</key><integer>7</integer></dict>
+    <dict><key>Hour</key><integer>3</integer><key>Minute</key><integer>37</integer></dict>
+    <dict><key>Hour</key><integer>4</integer><key>Minute</key><integer>7</integer></dict>
+    <dict><key>Hour</key><integer>4</integer><key>Minute</key><integer>37</integer></dict>
+    <dict><key>Hour</key><integer>5</integer><key>Minute</key><integer>7</integer></dict>
+    <dict><key>Hour</key><integer>5</integer><key>Minute</key><integer>37</integer></dict>
   </array>
   <key>StandardOutPath</key><string>/Users/air/Library/Logs/upwork-job-alerts/launchd.out</string>
   <key>StandardErrorPath</key><string>/Users/air/Library/Logs/upwork-job-alerts/launchd.err</string>

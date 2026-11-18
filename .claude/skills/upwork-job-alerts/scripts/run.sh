@@ -13,9 +13,9 @@ export PYTHONWARNINGS="ignore"
 cd "$REPO" || exit 1
 LOG="$LOGDIR/$(date +%Y-%m-%d).log"
 
-# Working hours guard: 15:00 to 02:59 Asia/Taipei (launchd fires on the Mac's local clock).
+# Working hours guard: 15:00 to 05:59 Asia/Taipei (launchd fires on the Mac's local clock).
 HOUR=$(TZ=Asia/Taipei date +%H)
-if [ "$HOUR" -ge 3 ] && [ "$HOUR" -lt 15 ]; then exit 0; fi
+if [ "$HOUR" -ge 6 ] && [ "$HOUR" -lt 15 ]; then exit 0; fi
 
 # JOB_ALERTS_NOTIFY overrides the address for a test run (tests go to the test inbox only).
 NOTIFY="${JOB_ALERTS_NOTIFY:-$(tr -d ' \n' < "$NOTIFY_FILE" 2>/dev/null)}"

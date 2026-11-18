@@ -108,11 +108,11 @@ End with one line: `RUN <picks> picks / <candidates> candidates / <searches> sea
 ## Setup
 
 - **Local (launchd):** `scripts/run.sh`, launched by `~/Library/LaunchAgents/com.nexam.upwork-job-alerts.plist`
-  at :07 and :37 past each hour, 15:00 to 02:37 Taipei time. Logs: `~/Library/Logs/upwork-job-alerts/`.
+  at :07 and :37 past each hour, 15:00 to 05:37 Taipei time (off 06:00, back on 15:00). Logs: `~/Library/Logs/upwork-job-alerts/`.
   The notify address lives in `~/.config/upwork-job-alerts/notify_email` (not in the public repo).
   Only runs while the Mac is awake.
-- **Cloud (claude.ai routines):** two routines, crons `7 7-18 * * *` and `37 7-18 * * *` (UTC = 15:07 to
-  02:37 Taipei), each using the account's claude.ai connectors (Upwork custom connector + Gmail). The
+- **Cloud (claude.ai routines):** two routines, crons `7 7-21 * * *` and `37 7-21 * * *` (UTC = 15:07 to
+  05:37 Taipei), each using the account's claude.ai connectors (Upwork custom connector + Gmail). The
   routine prompt carries the notify address and tells the run to use `start --cloud`. The guard is the
   repo's committed `.claude/settings.json` (matcher `mcp__.*` → `scripts/guard_cloud.py`), which only
   enforces when `CLAUDE_CODE_REMOTE` is set. Side effect: in ANY cloud session on this repo, MCP use is
