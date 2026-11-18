@@ -81,9 +81,9 @@ Ted, PNDigital) and rebuilt the letter around what they shared. What changed vs 
   brief, lightly customizable):** `Anytime I work with someone here on Upwork, I aim to keep working
   with them long-term. My goal isn't only to deliver this project, but to keep helping you get a real
   return from AI as your business grows.` It matches the long-term pitch at the end of his Looms.
-- NO success-score PS (none of the winners had one; his 100% JSS already shows on the proposal).
+- (SUPERSEDED Nov 18 2026) ~~NO success-score PS~~: every letter now ends on `PS: I have 100% Job success score here on Upwork, so you're in safe hands.` (part 6).
 - **Close is `Speak soon,` / `Jude` (Jude, Nov 4 2026, SUPERSEDES the Nov 3 `Best,` close).**
-- The hours line is the ONE PS, and it is the LAST line, after `Jude`.
+- The success-score PS is the ONE PS, and it is the LAST line, after `Jude`. No timezone/hours PS anymore (Nov 18 2026).
 
 Approved example, sent Nov 3 2026 (Zapier HubSpot job, with a doc):
 
@@ -132,10 +132,14 @@ session: "I always tell you that").** No job-post summary, no client-quality rea
 connects analysis, no "three things worth noting", no explanation of why a proof phrase was
 chosen, before or after the letter. He asks when he wants that. Deliver the letter text alone.
 This overrides the instinct to be helpful with context: the context IS the noise.
-**Plain text, never inside a ``` code block (Jude, Nov 5 2026: the fence's backticks come along when
-he copies, "like the type of strings you see... when you used to create JSON files").** Write the
-letter as ordinary paragraphs in the reply. End `Speak soon,` with two trailing spaces so `Jude`
-stays on its own line when the chat renders it as markdown.
+**The letter goes in ONE fenced ```text block so he can copy it with the block's copy button, and
+NOTHING else goes inside or before it (Jude, Nov 17 2026, SUPERSEDES the Nov 5 plain-text rule: "make
+the cover letter something that's copy and pastable. I can just click a button to copy it. Only the
+cover letter").** The Nov 5 backtick complaint came from hand-selecting fenced text; the copy button
+copies only the contents. **Never put a note, warning or "one thing to check" line ABOVE the letter
+(Jude, same day, angry: if he copies the whole reply, the note ships to the client).** Any note (a Loom
+vs claims-bank conflict, a missing fact) goes AFTER the closed block, short, or is skipped. Same for
+screening answers: one fenced block per answer, notes after.
 
 
 Jude's actual sending habit. On the Hani trading/agentic-AI job he took the full long-form
@@ -270,7 +274,11 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
    CURRENT FORMAT block at the top of this section).
 4. **(Removed Nov 3 2026.)** No success-score PS. None of the winning letters had it.
 5. **Close: `Speak soon,` / `Jude` (Nov 4 2026, supersedes the Nov 3 `Best,` close).**
-6. **Hours PS, US / Canada / Europe clients only: the ONE PS and the LAST line, after `Jude`.
+6. **Success-score PS, EVERY letter, the ONE PS and the LAST line, after `Jude` (Jude, Nov 18 2026:
+   "remove the timezone line from now on", SUPERSEDES the hours PS below and the Nov 3 "no
+   success-score PS" rule), verbatim:**
+   `PS: I have 100% Job success score here on Upwork, so you're in safe hands.`
+   **(Retired Nov 18 2026, kept for history) Hours PS, US / Canada / Europe clients only: the ONE PS and the LAST line, after `Jude`.
    Wording by client COUNTRY, not timezone (Jude, Nov 5 2026, DTC AI Integrator job, SUPERSEDES the
    Nov 3 PST/EST split):**
    - United States (any state): `PS: I typically work US hours, so feel free to message me anytime.`
