@@ -11,13 +11,40 @@
       "title": "automation"
     },
     {
-      "title": "n8n"
+      "title": "developer"
+    },
+    {
+      "title": "agent"
+    },
+    {
+      "title": "chatbot"
+    },
+    {
+      "title": "Claude"
     },
     {
       "title": "integration"
     },
     {
-      "title": "developer"
+      "title": "CRM"
+    },
+    {
+      "title": "HubSpot"
+    },
+    {
+      "title": "GoHighLevel"
+    },
+    {
+      "title": "Zapier"
+    },
+    {
+      "title": "Make.com"
+    },
+    {
+      "title": "full stack"
+    },
+    {
+      "title": "Power Automate"
     },
     {
       "title": "IA",
@@ -52,7 +79,10 @@
     "commission only",
     "ugc creator",
     "native speaker",
-    "uat tester"
+    "uat tester",
+    "mechanical engineer",
+    "development representative",
+    "acquisition representative"
   ],
   "country_allow": [
     "ALB",
