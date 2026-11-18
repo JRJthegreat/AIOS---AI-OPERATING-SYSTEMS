@@ -119,10 +119,10 @@ End with one line: `RUN <picks> picks / <candidates> candidates / <searches> sea
   limited to Upwork reads/saves and Gmail sends to the pinned inbox. Routines clone GitHub, so changes
   here only reach them after a push. Debug with RemoteTrigger `list_runs` / `get_run_log`.
   When the cloud routines are live, the local launchd job is unloaded so alerts aren't doubled.
-- **Tuning:** window, floor, cap, lanes, blocklists are all in `config.json`. 16 lanes since Nov 19 2026
+- **Tuning:** window, floor, cap, lanes, blocklists are all in `config.json`. 22 lanes since Nov 19 2026
   (Jude: no n8n lane, use his broad saved-search terms instead). Search is title-only with ANDed words,
   so his boolean feeds can't be passed as-is; each lane is one term that catches titles the others miss.
-  That is ~30 runs x ~20 calls = ~600 calls/day; the Sep 3 2026 search restriction followed a ~150-call
+  That is ~30 runs x ~25 calls = ~750 calls/day; the Sep 3 2026 search restriction followed a ~150-call
   burst sweep. If Upwork restricts search again, trim the lanes that keep returning nothing in-window.
 
 ## Lessons
