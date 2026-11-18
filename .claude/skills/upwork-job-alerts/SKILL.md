@@ -62,8 +62,9 @@ The `find_jobs` tool allows ~12 calls/min: if a call returns `SENSITIVE_RATE_LIM
 with no `cd`, pipes, `&&`, heredocs or other commands; anything else is denied and nobody can approve it.
 Don't explore the scripts; this file tells you everything you need.
 
-1. `python3 .claude/skills/upwork-job-alerts/scripts/job_alerts.py start`
-   Prints the window cutoff and the lanes.
+1. `python3 .claude/skills/upwork-job-alerts/scripts/job_alerts.py start` (add `--cloud` in a cloud run)
+   Prints the window cutoff and the lanes. If it prints `ABORT`, stop: send nothing, save nothing, and
+   end with `RUN aborted: <the ABORT line>`.
 
 2. **Search.** For each lane: `find_jobs action=search` with `params {title: <lane>, limit: 10}`
    (newest first). Write the result's `jobs` array to `.tmp/upwork_job_alerts/raw/<lane>.json`, keeping
@@ -74,6 +75,10 @@ Don't explore the scripts; this file tells you everything you need.
 
 3. `python3 .claude/skills/upwork-job-alerts/scripts/job_alerts.py filter`
    Prints the surviving candidates. If 0, end the run (no email): `RUN no candidates`.
+
+3b. **Dedupe against the saved list.** Cloud runs keep no files between runs, and runs overlap by ~10
+   minutes. Call `find_saved_jobs action=list` with `params {job_ids: [up to 10 candidate ids], limit: 10}`
+   (repeat for more than 10) and drop every candidate that comes back: it was already alerted.
 
 4. **Judge.** Apply the fit rules. For each likely pick, call `find_jobs action=get` (id) to read the
    full post and `client_record`: check hires already made (`totalHired` > 0 means skip), the
@@ -106,9 +111,14 @@ End with one line: `RUN <picks> picks / <candidates> candidates / <searches> sea
   at :07 and :37 past each hour, 15:00 to 02:37 Taipei time. Logs: `~/Library/Logs/upwork-job-alerts/`.
   The notify address lives in `~/.config/upwork-job-alerts/notify_email` (not in the public repo).
   Only runs while the Mac is awake.
-- **Cloud (claude.ai scheduled task):** needs the Upwork MCP added as a claude.ai custom connector
-  (`https://mcp.upwork.com/mcp`) plus the Gmail connector. Floor is hourly, so 30 minutes = two hourly
-  tasks at :07 and :37. The task prompt carries the notify address. Hooks only run in a repo-backed task.
+- **Cloud (claude.ai routines):** two routines, crons `7 7-18 * * *` and `37 7-18 * * *` (UTC = 15:07 to
+  02:37 Taipei), each using the account's claude.ai connectors (Upwork custom connector + Gmail). The
+  routine prompt carries the notify address and tells the run to use `start --cloud`. The guard is the
+  repo's committed `.claude/settings.json` (matcher `mcp__.*` → `scripts/guard_cloud.py`), which only
+  enforces when `CLAUDE_CODE_REMOTE` is set. Side effect: in ANY cloud session on this repo, MCP use is
+  limited to Upwork reads/saves and Gmail sends to the pinned inbox. Routines clone GitHub, so changes
+  here only reach them after a push. Debug with RemoteTrigger `list_runs` / `get_run_log`.
+  When the cloud routines are live, the local launchd job is unloaded so alerts aren't doubled.
 - **Tuning:** window, floor, cap, lanes, blocklists are all in `config.json`. Keep lanes at ~7: the
   Sep 3 2026 search restriction followed ~150 calls in a day, and 24 runs x ~10 calls is already ~240.
 

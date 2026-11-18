@@ -104,7 +104,10 @@ def blocked_title(title: str):
 
 # ---------- commands ----------
 
-def cmd_start(_args) -> None:
+def cmd_start(args) -> None:
+    if getattr(args, "cloud", False) and not os.environ.get("CLAUDE_CODE_REMOTE"):
+        print("ABORT cloud run without CLAUDE_CODE_REMOTE: the cloud guard hook would be inactive")
+        sys.exit(1)
     for name in ("raw", ):
         for f in glob.glob(work(name, "*.json")):
             os.remove(f)
@@ -274,7 +277,8 @@ def cmd_record(_args) -> None:
 def main() -> None:
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
-    sub.add_parser("start")
+    st = sub.add_parser("start")
+    st.add_argument("--cloud", action="store_true", help="refuse to run unless the cloud guard is active")
     f = sub.add_parser("filter")
     f.add_argument("--window-min", type=int)
     d = sub.add_parser("digest")
