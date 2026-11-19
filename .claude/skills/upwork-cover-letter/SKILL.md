@@ -62,6 +62,11 @@ Ted, PNDigital) and rebuilt the letter around what they shared. What changed vs 
   THEIR specifics from the post ("follow up at 10 days, escalate to senior management at 21 days, then
   collect and analyze the responses", Larry); (3) say it is the same logic and what he would build for
   it. 3 to 4 sentences. A generic "same kind of work" bridge is the failure mode.
+- **Never write "In the Loom I walk you through..." in the proof (Jude, Nov 19 2026, said more than
+  once: "I don't like when you say in the Loom, I walk you through").** The hook already points at the
+  Loom. Open the proof as: `I'm the person you're looking for. I have experience building similar
+  systems with {their stack} for other {their kind of business}. For example, I built {system} for
+  {kind of company}: {what it does + real result}.` The Larry quote above is history, not the wording.
 - **"A little bit about me" paragraph, always, between the proof and the CTA (Jude, Nov 4 2026: "and
   there was an about me section too").** All three winners (Larry, Axel, PNDigital) carry it with the
   same frame, only the braces change: `A little bit about me: I'm a top-rated AI automation engineer
