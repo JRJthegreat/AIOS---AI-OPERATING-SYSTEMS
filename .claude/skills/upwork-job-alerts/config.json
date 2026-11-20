@@ -2,7 +2,6 @@
   "_note": "Jude's Upwork job filter. Source of truth for rules: memory feedback_upwork_job_search_criteria + feedback_niche_french_jobs. Ukraine, India, Latin America (incl. Mexico), Africa except South Africa and unlisted Asia are OUT by omission. country_allow passes; country_block drops; anything else is kept and flagged for Claude to judge.",
   "window_min": 40,
   "hourly_floor": 20,
-  "proposal_cap": 150,
   "lanes": [
     {
       "title": "AI"
@@ -57,12 +56,6 @@
     },
     {
       "title": "Vercel"
-    },
-    {
-      "title": "Clawdbot"
-    },
-    {
-      "title": "OpenClaw"
     },
     {
       "title": "IA",

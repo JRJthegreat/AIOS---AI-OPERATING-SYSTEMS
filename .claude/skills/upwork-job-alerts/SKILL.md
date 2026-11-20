@@ -11,7 +11,7 @@ minutes surfaces 0 to 3 fresh jobs, he gets an email, and he applies on the spot
 the only two he applied to were found under 20 minutes old.
 
 **Division of labour.** `scripts/job_alerts.py` owns the freshness window, country rules, hourly
-floor, proposal cap, title blocklist, dedupe, email HTML and the recipient pin (`config.json`).
+floor, title blocklist, dedupe, email HTML and the recipient pin (`config.json`).
 Claude runs the searches, judges fit with the memory rules below, writes picks, saves, and emails.
 Claude never computes the window or the country rule itself.
 
@@ -31,7 +31,7 @@ Claude never computes the window or the country rule itself.
 ## Fit rules (from Jude's memory; the script already applied the hard ones)
 
 The script already dropped: outside the window, already alerted, applied, blocklisted countries,
-hourly top-of-range under $20, 150+ proposals, off-lane titles (VA, video editor, data entry, ...).
+hourly top-of-range under $20, off-lane titles (VA, video editor, data entry, ...).
 For each remaining candidate, PICK it only if all of these hold:
 
 - **Lane:** AI agents / LLM apps / Claude / RAG / voice agents; n8n, Make, Zapier, Power Automate and
@@ -121,7 +121,8 @@ End with one line: `RUN <picks> picks / <candidates> candidates / <searches> sea
   limited to Upwork reads/saves and Gmail sends to the pinned inbox. Routines clone GitHub, so changes
   here only reach them after a push. Debug with RemoteTrigger `list_runs` / `get_run_log`.
   When the cloud routines are live, the local launchd job is unloaded so alerts aren't doubled.
-- **Tuning:** window, floor, cap, lanes, blocklists are all in `config.json`. 22 lanes since Nov 19 2026
+- **Tuning:** window, floor, lanes, blocklists are all in `config.json`. There is no proposal cap (removed Nov 20 2026 with the
+  Clawdbot/OpenClaw lanes, on Jude's instruction; proposal count is shown, never a filter). 20 lanes since Nov 20 2026
   (Jude: no n8n lane, use his broad saved-search terms instead). Search is title-only with ANDed words,
   so his boolean feeds can't be passed as-is; each lane is one term that catches titles the others miss.
   That is ~30 runs x ~25 calls = ~750 calls/day; the Sep 3 2026 search restriction followed a ~150-call

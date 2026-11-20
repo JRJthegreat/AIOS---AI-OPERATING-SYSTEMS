@@ -3,7 +3,7 @@
 upwork-job-alerts: deterministic half of the sweep. Python 3.9, stdlib only (runs in a cloud VM too).
 
 Claude runs the Upwork searches and judges fit; this script owns everything that must not drift:
-the freshness window, the country allowlist, the hourly floor, the proposal cap, dedupe, the email
+the freshness window, the country allowlist, the hourly floor, dedupe, the email
 HTML, and the recipient pin.
 
   job_alerts.py start                       clear last run's scratch, print the lanes + window
@@ -160,10 +160,6 @@ def cmd_filter(args) -> None:
         hmax = hourly_max(j.get("budget") or "")
         if hmax is not None and hmax < CONFIG["hourly_floor"]:
             drop("hourly below floor")
-            continue
-        props = j.get("proposal_count")
-        if isinstance(props, (int, float)) and props >= CONFIG["proposal_cap"]:
-            drop("too many proposals")
             continue
         bt = blocked_title(j.get("title"))
         if bt:
