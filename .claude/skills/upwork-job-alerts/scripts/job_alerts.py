@@ -178,7 +178,7 @@ def cmd_filter(args) -> None:
             "client_jobs_posted": client.get("total_posted_jobs"),
             "job_type": j.get("job_type"),
             "budget": j.get("budget") or "not posted",
-            "proposals": props,
+            "proposals": j.get("proposal_count"),
             "interviewing": act.get("invited_to_interview"),
             "hired": act.get("total_hired"),
             "skills": (j.get("skills") or [])[:8],
