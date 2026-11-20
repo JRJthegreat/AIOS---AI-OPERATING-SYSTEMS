@@ -42,9 +42,11 @@ For each remaining candidate, PICK it only if all of these hold:
 - **Not:** pure infra/DevOps (Kubernetes, Terraform, server admin), one-off creative edits, page-builder
   or Shopify-theme gigs, tiny one-feature fixes under ~$100 from weak clients, roles hiring only from
   a region Jude isn't in (e.g. "Latin America only"), commission-only sales.
-- **Client:** a NEW client with no history is fine (never skip for that alone, Nov 18 2026). A BAD
-  history is a reason to skip: e.g. tiny spend across many posts ($109 over 21 jobs), client rating
-  under ~4.0, or a stated rate under $20/hr in the description.
+- **Client:** never skip a job on client history; whether a client will pay is Jude's call (Nov 20
+  2026: "those are not yours to judge"). New client, tiny spend across many posts, low rating, 1-star
+  reviews, people already interviewing: put the plain facts in `watch_out` (spend, rating, hire rate,
+  what the low reviews said, interview count), never a verdict. The only client-side skips are
+  `totalHired` > 0 and a stated rate under $20/hr in the description.
 - **Country unverified** (flagged by the script): judge from the name; skip anything in India,
   Pakistan, Bangladesh, Ukraine, Africa except South Africa, Latin America incl. Mexico, or Asia outside
   SG/HK/TW/MY/TH/JP/KR/CN. French overseas territories (Reunion etc.) count as France.
