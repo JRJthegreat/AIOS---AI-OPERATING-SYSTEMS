@@ -10,6 +10,8 @@ I'm the person you're looking for. I have experience building similar systems wi
 
 A little bit about me: I'm a top-rated AI automation engineer with hands-on experience building {3 THINGS THAT MATCH THEIR JOB}. I've shipped dozens of high-performing systems for {THEIR KIND OF BUSINESS}, many of which have scaled to $1M+ in revenue. I'm extremely proficient at {THEIR TOOLS AND SKILLS}.   <- always; verbatim frame from the Larry, Axel and PNDigital winners, only the braces change
 
+You can also see more of my code on my GitHub: https://github.com/JRJthegreat   <- when relevant (Jude, Nov 20 2026): the post asks for a GitHub/repo/code sample, or it is a hands-on coding role; drop it otherwise
+
 Anytime I work with someone here on Upwork, I aim to keep working with them long-term. My goal isn't only to deliver this project, but to keep helping you get a real return from AI as your business grows.   <- always, right before the CTA (Jude, Nov 5 2026); light rewording OK, keep the long-term + ROI-from-AI pitch
 
 Let me know if you're interested in working together. Happy to work on this project or long-term, whatever works best for you.   <- CTA verbatim (Jude, Nov 4 2026)

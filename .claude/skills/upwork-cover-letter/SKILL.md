@@ -263,10 +263,18 @@ Template lives at `templates/short_letter.txt`. These parts, nothing else (1b on
 3. **(Removed Nov 3 2026.)** The "Below are a few samples of recent reviews... I can provide dozens of
    additional examples upon request" line is gone (Jude, Emanuel AI Shopify job: "They rarely ask,
    so please remove this section"). The experience line is followed directly by the GitHub line.
-3b. **GitHub line: default OFF since Nov 3 2026, add only when Jude asks.** He cut it from two
-   letters in a row that day, once on a post that explicitly asked for a GitHub profile ("I don't
-   think it's useful here"). When he does ask for it, one line, its own paragraph, before the CTA:
+3b. **GitHub line: include it when relevant (Jude, Nov 20 2026: "we should add the Github line from
+   now on if relevant", SUPERSEDES the Nov 3 default-OFF rule).** Trigger: the Propulse French
+   Next.js + Supabase post said applications without a link to code would not be read, and the letter
+   shipped without one because the line was only offered in a note after the block. "Relevant" (my
+   reading, not his words): the post asks for a GitHub, repo, PR or code sample, or the job is a
+   hands-on coding role (full-stack, SaaS, backend). Leave it off no-code, automation-platform,
+   GTM and consulting letters. Put it IN the letter, never as an optional note. One line, its own
+   paragraph, after the "A little bit about me" paragraph and before the long-term line:
    `You can also see more of my code on my GitHub: https://github.com/JRJthegreat`
+   (French letters: `Vous pouvez aussi voir mon code sur mon GitHub : https://github.com/JRJthegreat`)
+   History: on Nov 3 2026 he cut it from two letters, once on a post that asked for a GitHub profile
+   ("I don't think it's useful here"), so if he cuts it again on a job, don't argue.
 3c. **(Moved, see 1b.)** The free-audit line used to sit here, after the GitHub line.
 3d. **CTA, always (Jude, Oct 27 2026: "There needs to be a CTA. Message me.").** Its own paragraph,
    after the experience line and before the PS (Nov 3 2026 wording, Jude settled it out loud on the
