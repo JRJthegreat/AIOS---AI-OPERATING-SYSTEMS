@@ -32,6 +32,7 @@ if [ -z "$NOTIFY" ]; then echo "$(date) no notify address in $NOTIFY_FILE" >> "$
       "Edit(.tmp/upwork_job_alerts/**)" \
       "Bash(python3 .claude/skills/upwork-job-alerts/scripts/job_alerts.py:*)" \
       "mcp__upwork__upwork__find_jobs" \
+      "mcp__upwork__upwork__find_saved_jobs" \
       "mcp__upwork__upwork__save_job" \
       "mcp__claude_ai_Gmail__send_message" \
     --output-format text < /dev/null

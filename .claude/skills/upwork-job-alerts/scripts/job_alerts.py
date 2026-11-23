@@ -8,7 +8,9 @@ HTML, and the recipient pin.
 
   job_alerts.py start                       clear last run's scratch, print the lanes + window
   job_alerts.py filter [--window-min 40]    merge .tmp/upwork_job_alerts/raw/*.json -> candidates.json
-  job_alerts.py digest --to ADDRESS         picks.json + candidates.json -> digest.json (email payload)
+  job_alerts.py digest --to ADDRESS [--not-saved ID ...]
+                                            picks.json + candidates.json -> digest.json (email payload);
+                                            --not-saved lists picks whose save_job call failed
   job_alerts.py error --to ADDRESS "msg"    digest.json for a failed run (Upwork unreachable, etc.)
   job_alerts.py record                      add this run's picks to seen.json (local runs only)
   job_alerts.py wait SECONDS                sleep (max 60) after a find_jobs rate-limit error
@@ -208,7 +210,8 @@ def cmd_digest(args) -> None:
         sys.exit("refusing: --to does not match the pinned notify address")
     cands = {c["id"]: c for c in load(work("candidates.json"), [])}
     picks = load(work("picks.json"), [])
-    rows, plain = [], []
+    unsaved = {x.strip() for raw in (args.not_saved or []) for x in str(raw).split(",") if x.strip()}
+    rows, plain, missed = [], [], 0
     for p in picks:
         c = cands.get(str(p.get("id")))
         if not c:
@@ -219,26 +222,40 @@ def cmd_digest(args) -> None:
                  f"{c['proposals']} proposals · client spent {c['client_spent']}"
                  + (f" · {p['connects']} Connects" if p.get("connects") else ""))
         kw = p.get("keyword")
+        not_saved = str(p.get("id")) in unsaved
+        missed += not_saved
+        badge = (' <span style="background:#fff3cd;padding:1px 6px;border-radius:4px;font-size:12px">'
+                 + e(p["niche"]) + "</span>") if p.get("niche") else ""
+        if not_saved:
+            badge += (' <span style="background:#fde2e2;padding:1px 6px;border-radius:4px;font-size:12px">'
+                      "not saved</span>")
         rows.append(ROW.format(
             url=e(c["url"]), title=e(c["title"] or ""),
-            niche=' <span style="background:#fff3cd;padding:1px 6px;border-radius:4px;font-size:12px">'
-                  + e(p["niche"]) + "</span>" if p.get("niche") else "",
+            niche=badge,
             facts=e(facts), why=e(p.get("why", "")), watch=e(p.get("watch_out", "none")),
             keyword=f'<div style="font-size:14px;color:#b00"><b>Required keyword:</b> {e(kw)}</div>' if kw else "",
         ))
-        plain.append(f"{c['title']}\n{c['url']}\n{facts}\nWhy: {p.get('why','')}\n"
+        plain.append(f"{c['title']}{' (NOT SAVED)' if not_saved else ''}\n{c['url']}\n{facts}\nWhy: {p.get('why','')}\n"
                      f"Watch out: {p.get('watch_out','none')}" + (f"\nKeyword: {kw}" if kw else ""))
     if not rows:
         print("NO_DIGEST (no valid picks)")
         return
     top = cands[str(picks[0]["id"])]["title"] or ""
     subject = f"Upwork: {len(rows)} fresh job{'s' if len(rows) > 1 else ''} - {top[:60]}"
+    if not missed:
+        lead = "Saved to your Upwork saved list."
+    elif missed == len(rows):
+        lead = ("NOT saved to your Upwork saved list: Upwork refused the saves this run. "
+                "Open the jobs from the links below.")
+    else:
+        lead = (f"{len(rows) - missed} of {len(rows)} saved to your Upwork saved list. Upwork refused the rest; "
+                "they are marked not saved, open them from their links.")
     body_html = ('<div style="font-family:Arial,sans-serif;max-width:640px">'
-                 '<p style="font-size:14px;color:#555">Saved to your Upwork saved list. Ranked by fit, then freshness.</p>'
+                 f'<p style="font-size:14px;color:#555">{lead} Ranked by fit, then freshness.</p>'
                  '<table style="width:100%;border-collapse:collapse">' + "".join(rows) + "</table></div>")
     save(work("digest.json"), {"to": args.to.strip(), "subject": subject,
-                               "htmlBody": body_html, "body": "\n\n".join(plain)})
-    print(f"DIGEST {len(rows)} jobs -> {work('digest.json')}")
+                               "htmlBody": body_html, "body": lead + "\n\n" + "\n\n".join(plain)})
+    print(f"DIGEST {len(rows)} jobs ({missed} not saved) -> {work('digest.json')}")
 
 
 def cmd_error(args) -> None:
@@ -279,6 +296,8 @@ def main() -> None:
     f.add_argument("--window-min", type=int)
     d = sub.add_parser("digest")
     d.add_argument("--to", required=True)
+    d.add_argument("--not-saved", nargs="*", default=[], metavar="ID",
+                   help="pick ids whose save_job call failed (space or comma separated)")
     e = sub.add_parser("error")
     e.add_argument("--to", required=True)
     e.add_argument("message")

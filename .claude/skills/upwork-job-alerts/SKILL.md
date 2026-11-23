@@ -81,11 +81,17 @@ Don't explore the scripts; this file tells you everything you need.
 3b. **Dedupe against the saved list.** Cloud runs keep no files between runs, and runs overlap by ~10
    minutes. Call `find_saved_jobs action=list` with `params {job_ids: [up to 10 candidate ids], limit: 10}`
    (repeat for more than 10) and drop every candidate that comes back: it was already alerted.
+   If the call errors (PERMISSION or denied), skip this step once and carry on; do not retry.
 
 4. **Judge.** Apply the fit rules. For each likely pick, call `find_jobs action=get` (id) to read the
    full post and `client_record`: check hires already made (`totalHired` > 0 means skip), the
    preferred qualifications, the required keyword or phrase (often near the bottom: "start your
    proposal with X"), screening questions, and `connects_cost`.
+   **If a `get` returns `error_code: PERMISSION`** ("can't be opened right now"), Upwork has blocked
+   job opens on the account for hours, not seconds. Do not wait, do not retry, and do not open any
+   other job this run: every extra call lengthens the block. Judge the remaining candidates from the
+   search data and end each pick's `watch_out` with "full post not read: check hires, required
+   opener and Connects before applying".
 
 5. Write `.tmp/upwork_job_alerts/picks.json`, ranked:
    `[{"id": "...", "why": "one plain sentence: what they want and why it fits Jude",
@@ -95,10 +101,14 @@ Don't explore the scripts; this file tells you everything you need.
    No picks → end the run (no email): `RUN 0 picks from N candidates`.
 
 6. **Save and alert.**
-   - `save_job action=save` with `params {job_id}` for each pick.
-   - `python3 .claude/skills/upwork-job-alerts/scripts/job_alerts.py digest --to <notify address>`
+   - `save_job action=save` with `params {job_id}` for each pick. If a save returns
+     `error_code: PERMISSION`, stop saving (the rest will fail too, same block as step 4) and count
+     every pick not saved as failed. Never retry a failed save.
+   - `python3 .claude/skills/upwork-job-alerts/scripts/job_alerts.py digest --to <notify address>`,
+     adding `--not-saved <id> <id> ...` with the ids of the picks that were not saved. The script
+     writes the truthful "saved / not saved" line itself.
    - Send `digest.json` with `mcp__claude_ai_Gmail__send_message`: `to`, `subject`, `htmlBody`, `body`
-     exactly as written (links are real `<a>` anchors in htmlBody).
+     exactly as written (links are real `<a>` anchors in htmlBody). Never edit the digest by hand.
    - `python3 .claude/skills/upwork-job-alerts/scripts/job_alerts.py record`
 
 7. **Failure alert.** If Upwork could not be reached at all:
@@ -131,3 +141,12 @@ End with one line: `RUN <picks> picks / <candidates> candidates / <searches> sea
 ## Lessons
 
 - (Nov 18 2026) Built after a day where 1-to-5-hour-old saves were all too expensive to bid on.
+- (Nov 23 2026) Saves failed on about half the day's runs. Two causes. (1) The local launchd job and
+  both cloud routines were running the same sweep at the same minute: the Nov 18 `launchctl bootout`
+  left the plist in `~/Library/LaunchAgents`, so the next login loaded it again. Unloading is not
+  enough; `launchctl disable` it or move the plist out. Only one runner may be live. (2) Upwork puts
+  an account-wide block on job opens, saves and the saved list (`PERMISSION`, search keeps working)
+  that lasts hours and hits every session on the account, cloud and local alike. It showed up after
+  roughly 20 job opens plus 13 saves in 4.5 hours with both runners live; the exact trigger is not
+  documented (Upwork's MCP limits page lists 750 searches/day and 40 "other changes"/day). Retrying
+  never helped. The digest now takes `--not-saved` so the email stops claiming saves that failed.
